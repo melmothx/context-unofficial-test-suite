@@ -111,13 +111,15 @@ sub compile_and_compare {
 
 sub format_result {
   my $result = shift;
-  printf "\n|%20s | %7s | %12s \t| %12s \t| %4s |\n",
-    "File name", "Success", "Differs Avg", "Worst value", "Time";
+  printf "\n|%20s | %7s | %12s \t| %12s \t| %5s | %4s |\n",
+    "File name", "Success", "Differs Avg", "Worst value", "Pages", "Time";
   foreach my $key (sort (keys %$result)) {
-    printf "|%20s | %7s |  %3.6f \t|  %3.6f \t| %4s |\n",
-      $key, $result->{$key}->{success}, get_average($result->{$key}->{compare}),
-	get_maximum($result->{$key}->{compare}),
-	$result->{$key}->{elapsed};
+    printf "|%20s | %7s |  %3.6f \t|  %3.6f \t| %5s | %4s |\n",
+      $key, $result->{$key}->{success},
+	get_average($result->{$key}->{compare}),
+	  get_maximum($result->{$key}->{compare}), 
+	    scalar(@{$result->{$key}->{compare}}), 
+	      $result->{$key}->{elapsed};
   }
 }
 
