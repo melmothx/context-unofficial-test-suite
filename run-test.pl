@@ -286,5 +286,8 @@ src/complex/file3.tex
 src/complex/myproject-which-includes-the-three-files.tex
 references/complex/myproject-which-includes-the-three-files.pdf
 
+When the rastered PDF differs, a image with the differences is left in
+the "diffs" directory.
+
 HELP
 }
