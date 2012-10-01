@@ -48,14 +48,16 @@ sub wanted {
   my $fullpath = getcwd;
   return unless -f $file;
   my ($basename, $path, $suffix) = fileparse($file, $extension);
-  return unless $suffix eq ".pdf";
-  warn "Overwriting $basename in the testtable!\n"
-    if exists $testtable{$basename};
+  return unless ($suffix eq ".pdf" or $suffix eq '.tex');
+  if ((exists $testtable{$basename}) and ($testtable{$basename} ne $fullpath)) {
+    warn "Overwriting " . $testtable{$basename} . " in the testtable with "
+      . $fullpath . "!\n"
+    }
   $testtable{$basename} = $fullpath;
 }
 # tables done
 
-print_debug(Dumper(\%testtable, \%reftable));
+print_debug("Targets: ", Dumper(\%testtable, \%reftable));
 
 my $results = {};
 
@@ -146,7 +148,6 @@ sub diff_pdf {
   print_debug("\n$out <=> $reference\n");
   my @produced = @{generate_ppm($out)};
   my @original = @{generate_ppm($reference)};
-  my %difftable;
   my $index = 0;
   while (@produced) {
     my $prod = shift @produced;
@@ -159,7 +160,6 @@ sub diff_pdf {
     push @{$results->{$id}->{compare}}, compare_ppm($orig, $prod, $id, $index);
   }
   warn "THE TOTAL PAGES NUMBER DIFFERS!\n" if @original;
-  print_debug(Dumper(\%difftable));
 }
 
 sub compare_ppm {
@@ -215,7 +215,7 @@ sub generate_ppm {
     next unless -f $f;
     push @fullpaths, $f;
   }
-  print_debug(Dumper(\@fullpaths));
+  print_debug("Path of ppms: ", Dumper(\@fullpaths));
   return \@fullpaths ;
 }
 
