@@ -1,0 +1,6 @@
+*.ppm
+src/*.pdf
+src/*.tuc
+src/*.log
+src/*.top
+
