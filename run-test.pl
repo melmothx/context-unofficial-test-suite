@@ -18,17 +18,18 @@ my $root = getcwd;
 my $diffs = catdir($root, "diffs");
 make_path($diffs);
 
-my $bootstrap = 0;
+my $run;
+my $debug;
 my $extension = qr{\.\w+$};
 
 my $options = GetOptions (
-  "bootstrap" => \$bootstrap,
+  "run" => \$run,
+  "debug" => \$debug,
  );
 
-
-# if it's a bootstrap, we reset the path to the usual values.
-if ($bootstrap) {
-  $ENV{PATH} = '/usr/local/bin:/usr/bin:/bin';
+unless ($run) {
+  give_help();
+  exit;
 }
 
 print_debug("Using " . `which context`);
@@ -258,7 +259,32 @@ sub clean_ppm_dir {
 }
 
 sub print_debug {
-  if ($ENV{CONTEXTTEXTDEBUG}) {
+  if ($ENV{CONTEXTTEXTDEBUG} or $debug) {
     print @_;
   }
+}
+
+sub give_help {
+  print <<'HELP';
+
+Run the test suit if the argument "--run" is provided.
+
+The debug is activated with the option "--debug" (or with the
+environment variable CONTEXTTEXTDEBUG=1.
+
+To add a test file, put the resulting PDF under the directory
+"references", and the sources under "src". In "src" you can add
+multiple files in subdirectories, but the master .tex path and the
+reference .pdf path MUST match.
+
+E.g., to add a testfile with multiple sources, add this file (keep
+them under version control).
+
+src/complex/file1.tex
+src/complex/file2.tex
+src/complex/file3.tex
+src/complex/myproject-which-includes-the-three-files.tex
+references/complex/myproject-which-includes-the-three-files.pdf
+
+HELP
 }
