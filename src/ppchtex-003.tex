@@ -1,0 +1,16 @@
+\unprotect
+
+\protect
+
+\starttext
+
+\def\dochemicaltext#1%
+  {\mathematics{\dosetchemicaltext\strut\ifcase\currentxfontsize\or\scriptstyle\or\scriptscriptstyle\fi#1}}
+
+\protect
+
+\startchemical [frame=on,width=6000]
+    \chemical [SIX,B1..6,R1..6,RZ1..3] [C_{\alpha}H_2,C_{\beta}H_2,OH]
+\stopchemical
+
+\stoptext

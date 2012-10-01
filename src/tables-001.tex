@@ -1,0 +1,31 @@
+% example posted by Wolfgang on the list:
+
+\starttext
+
+\startusercode
+
+entries = {
+    one   = "1",
+    two   = "2",
+    three = "Three",
+    five  = "More text!"
+}
+
+function getentry(name)
+    local entry = entries[name] or ""
+    global.context(entry)
+end
+
+\stopusercode
+
+\define[1]\getentry{\usercode{getentry("#1")}}
+
+\starttabulate
+\NC one   \EQ \getentry{one}   \NC\NR
+\NC two   \EQ \getentry{two}   \NC\NR
+\NC three \EQ \getentry{three} \NC\NR
+\NC four  \EQ \getentry{four}  \NC\NR
+\NC five  \EQ \getentry{five}  \NC\NR
+\stoptabulate
+
+\stoptext

@@ -1,0 +1,30 @@
+\starttext
+
+    \startluacode
+        local function showtime(s,v,wd,ht)
+            context.vbox()
+            context.bgroup()
+            context.offinterlineskip()
+            for i=1,12 do
+                context.hbox()
+                context.bgroup()
+                    for j=1,30 do
+                        context.definecolor ( { "myhsv" }, { h = i * j, s = s, v = v } )
+                        context.blackrule { color = "myhsv", width = wd, height = ht }
+                    end
+                context.egroup()
+                context.par()
+            end
+            context.egroup()
+        end
+
+        for s=0.1,0.9,.1 do
+            for v=0.3,0.7,.1 do
+                showtime(s,v,"3mm","3mm")
+                context.blank()
+            end
+        end
+
+    \stopluacode
+
+\stoptext

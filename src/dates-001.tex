@@ -1,0 +1,37 @@
+\starttext
+
+\starttabulate[|l|l|]
+\HL
+\NC year     \NC (\currentdate[year])     \NC\NR
+\NC yy       \NC (\currentdate[yy])       \NC\NR
+\NC y        \NC (\currentdate[y])        \NC\NR
+\NC Y        \NC (\currentdate[Y])        \NC\NR
+\HL
+\NC month    \NC (\currentdate[month])    \NC\NR
+\NC mm       \NC (\currentdate[mm])       \NC\NR
+\NC m        \NC (\currentdate[m])        \NC\NR
+\NC M        \NC (\currentdate[M])        \NC\NR
+\HL
+\NC day      \NC (\currentdate[day])      \NC\NR
+\NC dd       \NC (\currentdate[dd])       \NC\NR
+\NC d        \NC (\currentdate[d])        \NC\NR
+\NC D        \NC (\currentdate[D])        \NC\NR
+\HL
+\NC weekday  \NC (\currentdate[weekday])  \NC\NR
+\NC w        \NC (\currentdate[w])        \NC\NR
+\NC W        \NC (\currentdate[W])        \NC\NR
+\HL
+\NC referral \NC (\currentdate[referral]) \NC\NR
+\HL
+\NC day+     \NC (\currentdate[day+])     \NC\NR
+\NC dd+      \NC (\currentdate[dd+])      \NC\NR
+\NC d+       \NC (\currentdate[d+])       \NC\NR
+\NC D+       \NC (\currentdate[D+])       \NC\NR
+\HL
+\stoptabulate
+
+(\currentdate[D,.,M,.,Y])
+(\currentdate[day,month,year])
+(\currentdate[day,+,month,+,year])
+
+\stoptext

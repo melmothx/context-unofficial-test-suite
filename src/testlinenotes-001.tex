@@ -1,0 +1,141 @@
+\starttext
+
+% \setupnotes
+  % [\c!location=\v!page,
+   % \c!way=\v!by\v!part,
+  % %\c!conversion=,
+   % \c!rule=\v!on,
+   % \c!before=\blank,
+   % \c!bodyfont=\v!small,
+  % %\c!style=,
+  % %\c!color=,
+  % %\c!after=,
+  % %\c!rulecolor=,
+   % \c!rulethickness=\linewidth,
+   % \c!frame=\v!off,
+   % \c!margindistance=.5em,
+   % \c!columndistance=1em,
+   % \c!distance=.125em,
+   % \c!align=\v!normal,
+   % \c!tolerance=\v!tolerant,
+   % \c!split=\v!tolerant,
+  % %\c!width=\makeupwidth,
+  % %\c!width=\ifdim\hsize<\makeupwidth\hsize\else\makeupwidth\fi,
+   % \c!width=\defaultnotewidth,
+   % \c!height=\textheight,
+   % \c!numbercommand=\high,
+   % \c!command=\noteparameter\c!numbercommand, % downward compatible
+   % \c!separator=,% \@@koseparator,
+   % \c!textcommand=\high,
+   % \c!textstyle=\tx,
+  % %\c!textcolor=,
+   % \c!interaction=\v!yes,
+  % %\c!factor=,
+  % %\c!scope=, % \v!text \v!page
+% \c!prefixconnector=.,
+% \c!prefix=\v!no,
+   % \c!next=\autoinsertnextspace, % new, experimental with startnotes
+   % \c!n=1]                                                                       
+
+
+\setuppapersize[S6][S6]
+\setuplayout[width=middle,height=middle,margin=1.5cm,footer=0pt,header=1cm]
+\setupcolors[state=start] 
+\setuptyping[option=color]
+
+\showframe
+
+\title{Some Basics}
+
+\subject{Issues:}
+
+\startitemize
+\item \type{\startlinenumbering} conversion from the last-defined buffer
+affects earlier buffers. renaming other buffers did not help. {\bf high}
+\item related to above: try commenting the last buffer and see what happens 
+to the earlier ones; a slight different effect. {\bf high} 
+\item \type{method=first} on page~3 had no affect: no numeral for first line
+\item line flushing is incorrect: numerals by default should be flush up 
+against the margin. Examples: 
+\startitemize
+\item 1--9 on the left of page~2 should be flush up against the margin.
+\item line numerals for notes are not properly aligned. 
+\stopitemize
+ {\bf high}
+\stopitemize
+
+
+\page
+
+\startbuffer[test]
+\startlinenumbering 
+test test test
+\dorecurse{108}{test }.
+\linenote {A simple linenote does not have a number range}
+\startlinenote [one] {A linenote environment has a range that covers the 
+					  first line of an environment up to the last.}
+\dorecurse{110}{test }.
+\linenote {A simple linenote does not have a number range}
+\dorecurse{110}{test }.
+\stoplinenote [one] 
+\par
+\stoplinenumbering
+\stopbuffer
+
+{\typebuffer[test] \page \getbuffer[test] \page}
+
+\startbuffer[test]
+\setuplinenumbering[step=5,method=first,conversion=numbers]
+\startlinenumbering 
+test test test
+\dorecurse{108}{test }.
+\linenote {A simple linenote does not have a number range}
+\startlinenote [one] {A linenote environment has a range that covers the 
+					  first line of an environment up to the last.}
+\dorecurse{110}{test }.
+\linenote {A simple linenote does not have a number range}
+\dorecurse{110}{test }.
+\stoplinenote [one] 
+\par
+\stoplinenumbering
+\stopbuffer
+
+{\typebuffer[test] \page \getbuffer[test] \page}
+
+\startbuffer[test]
+\setuplinenumbering[start=101,step=5,method=next,conversion=romannumerals]
+\startlinenumbering 
+test test test
+\dorecurse{108}{test }.
+\linenote {A simple linenote does not have a number range}
+\startlinenote [one] {A linenote environment has a range that covers the 
+					  first line of an environment up to the last.}
+\dorecurse{110}{test }.
+\linenote {A simple linenote does not have a number range}
+\dorecurse{110}{test }.
+\stoplinenote [one] 
+\par
+\stoplinenumbering
+\stopbuffer
+
+{\typebuffer[test] \page \getbuffer[test] \page}
+
+\startbuffer[test]
+\setuplinenumbering[start=101,step=5,method=next,conversion=Romannumerals]
+\startlinenumbering 
+test test test
+\dorecurse{108}{test }.
+\linenote {A simple linenote does not have a number range}
+\startlinenote [one] {A linenote environment has a range that covers the 
+					  first line of an environment up to the last.}
+\dorecurse{110}{test }.
+\linenote {A simple linenote does not have a number range}
+\dorecurse{110}{test }.
+\stoplinenote [one] 
+\par
+\stoplinenumbering
+\stopbuffer
+
+{\typebuffer[test] \page \getbuffer[test] \page}
+
+\stoptext
