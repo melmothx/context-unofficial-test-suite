@@ -1,5 +1,9 @@
 #!/usr/bin/env perl
 
+# No copyright
+# public domain
+# written by Marco Pessotto
+
 use strict;
 use warnings;
 use Cwd;
@@ -32,7 +36,7 @@ unless ($run) {
   exit;
 }
 
-print_debug("Using " . `which context`);
+print "Using " . `which context` . `context --version`;
 
 # create the reference table;
 
