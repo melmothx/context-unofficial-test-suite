@@ -206,7 +206,8 @@ sub compare_ppm {
     print $fh '$PDFVIEWER ', $originalpdf,  "\n";
     print $fh <<"EOF";
 if [ "\$1" = "-p" ]; then
-   mv -vi $generatedpdf $originalpdf
+   # exiftool will drop a _original file. We pick that
+   mv -vi ${generatedpdf}_original $originalpdf
 fi
 EOF
     close $fh;
