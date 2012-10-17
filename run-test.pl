@@ -19,10 +19,6 @@ use Data::Dumper;
 use File::Temp qw/ :seekable /;
 use File::Copy;
 
-my $root = getcwd;
-my $diffs = catdir($root, "diffs");
-remove_tree($diffs, { verbose => 1 });
-make_path($diffs);
 
 my $run;
 my $debug;
@@ -39,6 +35,11 @@ unless ($run) {
 }
 
 print "Using " . `which context` . `context --version`;
+
+my $root = getcwd;
+my $diffs = catdir($root, "diffs");
+remove_tree($diffs, { verbose => 1 });
+make_path($diffs);
 
 # create the reference table;
 
