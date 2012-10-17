@@ -11,15 +11,17 @@ use File::Spec::Functions;
 use File::Basename;
 use Getopt::Long;
 use Cwd;
+use File::Spec;
 use File::Spec::Functions;
 use File::Find;
-use File::Path qw/make_path/;
+use File::Path qw/make_path remove_tree/;
 use Data::Dumper;
 use File::Temp qw/ :seekable /;
 use File::Copy;
 
 my $root = getcwd;
 my $diffs = catdir($root, "diffs");
+remove_tree($diffs, { verbose => 1 });
 make_path($diffs);
 
 my $run;
@@ -166,7 +168,7 @@ sub diff_pdf {
     $index++;
     push @{$results->{$id}->{compare}}, compare_ppm($orig, $prod, $id, $index);
   }
-  warn "THE TOTAL PAGES NUMBER DIFFERS!\n" if @original;
+  warn "THE TOTAL PAGES NUMBER FOR $id DIFFERS!\n" if @original;
 }
 
 sub compare_ppm {
@@ -184,8 +186,38 @@ sub compare_ppm {
     or die "Couldn't resize $!";
   # parse. If 0%, unlink the png
   my $percent = parse_txt($temp);
-  unlink $outfile if $percent == 0;
+  if ($percent == 0) {
+    unlink $outfile
+  } else {
+    # if there is a link, we leave a non executable script to be
+    # called with sh file.txt, to easily catch the differences.
+    my $generatedpdf = get_master_file($prod, $basename);
+    my $originalpdf  = get_master_file($orig, $basename);
+
+    my $pdfviewerscript = $outfile;
+    $pdfviewerscript =~ s/png$/sh/;
+    open (my $fh, ">", $pdfviewerscript)
+      or die "Cannot print in $pdfviewerscript $!\n";
+    print $fh '#!/bin/sh', "\n";
+    print $fh "exiftool -Title=GENERATED $generatedpdf\n";
+    print $fh 'PDFVIEWER=${PDFVIEWER:-mupdf}', "\n";
+    print $fh '$PDFVIEWER ', $generatedpdf, ' &', "\n";
+    print $fh '$PDFVIEWER ', $originalpdf,  "\n";
+    close $fh;
+  }
   return $percent;
+}
+
+sub get_master_file {
+  my ($ppm, $basename) = @_;
+  my @dirs;
+  unless (file_name_is_absolute($ppm)) {
+    push @dirs, File::Spec->splitdir(getcwd());
+  }
+  push @dirs, File::Spec->splitdir(dirname($ppm));
+  # go up;
+  pop @dirs;
+  return catfile(@dirs, $basename . ".pdf");
 }
 
 sub parse_txt {
@@ -245,7 +277,6 @@ sub tex_compile {
   }
   $error ? return : return 1;
 }
-
 
 sub clean_ppm_dir {
   my $dir = shift;
