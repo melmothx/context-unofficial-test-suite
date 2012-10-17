@@ -203,6 +203,11 @@ sub compare_ppm {
     print $fh 'PDFVIEWER=${PDFVIEWER:-mupdf}', "\n";
     print $fh '$PDFVIEWER ', $generatedpdf, ' &', "\n";
     print $fh '$PDFVIEWER ', $originalpdf,  "\n";
+    print $fh <<"EOF";
+if [ "\$1" = "-p" ]; then
+   mv -vi $generatedpdf $originalpdf
+fi
+EOF
     close $fh;
   }
   return $percent;
