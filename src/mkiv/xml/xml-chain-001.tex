@@ -1,0 +1,34 @@
+\startbuffer[test]
+<something mine="1" test="one" more="alpha">
+  <whatever mine="2" test="two">
+    <whocares mine="3">
+      test
+    </whocares>
+  </whatever>
+</something>
+\stopbuffer
+
+\startxmlsetups xml:mysetups
+    \xmlsetsetup{\xmldocument}{something|whatever|whocares}{xml:*}
+\stopxmlsetups
+
+\xmlregistersetup{xml:mysetups}
+
+\startxmlsetups xml:something
+    something: [\xmlchainatt{#1}{mine},\xmlchainatt{#1}{test},\xmlchainatt{#1}{more},\xmlchainatt{#1}{none}]\par
+    \xmlflush{#1}
+\stopxmlsetups
+
+\startxmlsetups xml:whatever
+    whatever: [\xmlchainatt{#1}{mine},\xmlchainatt{#1}{test},\xmlchainatt{#1}{more},\xmlchainatt{#1}{none}]\par
+    \xmlflush{#1}
+\stopxmlsetups
+
+\startxmlsetups xml:whocares
+    whocares: [\xmlchainatt{#1}{mine},\xmlchainatt{#1}{test},\xmlchainatt{#1}{more},\xmlchainatt{#1}{none}]\par
+    \xmlflush{#1}
+\stopxmlsetups
+
+\starttext
+    \xmlprocessbuffer{main}{test}{}
+\stoptext

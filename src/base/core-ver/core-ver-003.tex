@@ -1,0 +1,206 @@
+% output=pdftex
+
+\definetyping[code][numbering=line]
+
+\starttext
+
+
+Basic combination of linenumbering and typing environment:
+\startlinenumbering
+\starttyping
+ProgramListing: This is a test
+  Only a test.
+Had this been a real emegency,
+  We would have fled in terror
+And you would not have been informed.
+
+Foo <Bar>
+\stoptyping
+\stoplinenumbering
+
+Code with line numbering unset (numbering=)
+\setuptyping[code][numbering=]
+\startcode
+ProgramListing: This is a test
+  Only a test.
+Had this been a real emegency,
+  We would have fled in terror
+And you would not have been informed.
+
+Foo <Bar>
+\stopcode
+
+Code with line numbering set again (numbering=line). By default numbers are in
+the margin.
+\setuptyping[code][numbering=line]
+\startcode
+ProgramListing: This is a test
+  Only a test.
+Had this been a real emegency,
+  We would have fled in terror
+And you would not have been informed.
+
+Foo <Bar>
+\stopcode
+
+Come back to the default typing. No line numbering should appear.
+\starttyping
+ProgramListing: This is a test
+  Only a test.
+Had this been a real emegency,
+  We would have fled in terror
+And you would not have been informed.
+
+Foo <Bar>
+\stoptyping
+
+Put the line numbers in the text (location=intext).
+\setuplinenumbering[location=intext]
+\startcode
+ProgramListing: This is a test
+  Only a test.
+Had this been a real emegency,
+  We would have fled in terror
+And you would not have been informed.
+
+Foo <Bar>
+\stopcode
+
+Number should start at 20 (start=20).
+\startcode[start=20]
+ProgramListing: This is a test
+  Only a test.
+Had this been a real emegency,
+  We would have fled in terror
+And you would not have been informed.
+
+Foo <Bar>
+\stopcode
+
+Number should continue.There are several long lines. Are the numbers correctly
+managed with long lines?
+\startcode[continue]
+ProgramListing: This is a test ProgramListing: This is a test ProgramListing: This is a test ProgramListing: This is a test ProgramListing: This is a test ProgramListing: This is a test ProgramListing: This is a test ProgramListing: This is a test ProgramListing: This is a test ProgramListing: This is a test
+ProgramListing: This is a test
+  Only a test.
+Had this been a real emegency,
+  We would have fled in terror
+And you would not have been informed.
+ProgramListing: This is a test ProgramListing: This is a test ProgramListing: This is a test ProgramListing: This is a test ProgramListing: This is a test ProgramListing: This is a test ProgramListing: This is a test ProgramListing: This is a test ProgramListing: This is a test ProgramListing: This is a test
+ProgramListing: This is a test ProgramListing: This is a test ProgramListing: This is a test ProgramListing: This is a test ProgramListing: This is a test ProgramListing: This is a test ProgramListing: This is a test ProgramListing: This is a test ProgramListing: This is a test ProgramListing: This is a test
+
+Foo <Bar>
+\stopcode
+
+No option. It should restart to 27 (previous start/continue setting).
+\startcode
+ProgramListing: This is a test
+  Only a test.
+Had this been a real emegency,
+  We would have fled in terror
+And you would not have been informed.
+
+Foo <Bar>
+\stopcode
+
+No option. It should restart to 27 (previous start/continue setting).
+\startcode
+ProgramListing: This is a test
+  Only a test.
+Had this been a real emegency,
+  We would have fled in terror
+And you would not have been informed.
+
+Foo <Bar>
+\stopcode
+
+Step set to 2 (step=2). A number should appear every two lines.
+\startcode[step=2]
+ProgramListing: This is a test
+  Only a test.
+Had this been a real emegency,
+  We would have fled in terror
+And you would not have been informed.
+
+Foo <Bar>
+\stopcode
+
+Line numbering unset (numbering=) and step set to 2 (step=2). No number should
+appear.
+\setuptyping[code][numbering=]
+\startcode[step=2]
+ProgramListing: This is a test
+  Only a test.
+Had this been a real emegency,
+  We would have fled in terror
+And you would not have been informed.
+
+Foo <Bar>
+\stopcode
+
+Linenumbering restored (numbering=line).
+Put the numbers in the margin (location=margin).
+The code contains empty lines, that should not appear.
+\setuplinenumbering[location=margin]
+\setuptyping[code][numbering=line]
+\startcode
+
+ProgramListing: This is a test
+  Only a test.
+
+
+Had this been a real emegency,
+  We would have fled in terror
+And you would not have been informed.
+
+
+Foo <Bar>
+
+
+
+\stopcode
+
+Every empty line should appear. 1 at the beginning, 3 at the end.
+\setuptyping[code][empty=all]
+\startcode
+
+ProgramListing: This is a test
+  Only a test.
+
+
+Had this been a real emegency,
+  We would have fled in terror
+And you would not have been informed.
+
+
+Foo <Bar>
+
+
+
+\stopcode
+End of the code.
+
+Combination of start=3 and step=2.
+\startcode[start=3,step=2]
+programlisting: this is a test
+  only a test.
+had this been a real emegency,
+  we would have fled in terror
+and you would not have been informed.
+
+foo <bar>
+\stopcode
+
+Combination of start=5, step=2, and continue.
+\startcode[start=5,step=2,continue]
+programlisting: this is a test
+  only a test.
+had this been a real emegency,
+  we would have fled in terror
+and you would not have been informed.
+
+foo <bar>
+\stopcode
+
+\stoptext
+

@@ -1,0 +1,26 @@
+% Author  : Hans Hagen
+% Comment : control over zero and negative numbers
+
+\starttext
+
+\startitemize[n,packed][start=0] % criterium=all
+    \item zero \item one \item two \item three \item four
+\stopitemize
+
+\startitemize[n,packed][start=0,criterium=strict]
+    \item zero \item one \item two \item three \item four
+\stopitemize
+
+\startitemize[n,packed][start=-2,criterium=strict]
+    \item zero \item one \item two \item three \item four
+\stopitemize
+
+\startitemize[n,packed][start=-2,criterium=positive]
+    \item zero \item one \item two \item three \item four
+\stopitemize
+
+\startitemize[n,packed][start=-2,criterium=all]
+    \item zero \item one \item two \item three \item four
+\stopitemize
+
+\stoptext

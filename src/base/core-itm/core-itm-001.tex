@@ -1,0 +1,48 @@
+% test1.tex
+%
+% This file test the named itemization options.
+
+\def\testitemize#1%
+  {\hrule\noindent Before (#1)
+   \startitemize[#1]
+   \item First item \crlf      Second line
+   \item Second item \endgraf  Second paragraph
+   \stopitemize 
+   After \endgraf\hrule\blank}
+
+\starttext
+\startcolumns[n=3]
+
+% first the default case
+\hrule\noindent 
+Before
+\startitemize
+\item First item \crlf      Second line
+\item Second item \endgraf  Second paragraph
+\stopitemize
+After \endgraf\hrule \blank
+
+% the first few lines are just conversion tests
+% any predefined conversion should do
+\processcommalist
+   [a, A, KA, AK,
+    n, N, m, 
+    i, I, r, R, KR, RK,
+    g, G, o, O, or,
+    characters, numbers, unknownconversion,
+    {n,continue}, {a,continue},
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, % this is set 0
+    {n,continue},
+    packed, unpacked,
+    standard, , % empty itemgroup
+    broad, 2*broad, 
+    serried, 2*serried,
+    %stopper, gives error!
+    joinedup, loose,
+    atmargin, inmargin, margin,
+    intro, autointro,
+    columns, text, intext,
+    paragraph, repeat]\testitemize
+
+\stopcolumns
+\stoptext

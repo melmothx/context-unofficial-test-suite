@@ -1,0 +1,32 @@
+\defineoverlay [foregraphics] [\positionoverlay{foregraphics}]
+\setupbackgrounds
+  [page]
+  [background={foreground,foregraphics}]
+
+\starttext
+
+\hpos{r23}{7} \quad \hpos{r24}{8} 
+
+\startMPpositiongraphic{mypos:line}
+  path pa, pb, pab ; numeric na, nb ;
+  initialize_box(\MPpos{\MPvar{from}}) ;
+  na := nxy ; pa := llxy..lrxy..urxy..ulxy..cycle ;
+  initialize_box(\MPpos{\MPvar{to}}) ;
+  nb := nxy ; pb := llxy..lrxy..urxy..ulxy..cycle ;
+  if na=nb :
+    pab := center pa -- center pb ;
+    pab := pab cutbefore (pab intersectionpoint pa) ;
+    pab := pab cutafter (pab intersectionpoint pb) ;
+    pickup pencircle;
+    draw pab;
+    anchor_box(\MPanchor{\MPvar{from}}) ;
+  fi ;
+\stopMPpositiongraphic
+
+\startpositionoverlay{foregraphics}
+  \setMPpositiongraphic{r23}{mypos:line}{to=r24}
+\stoppositionoverlay
+
+The pattern.
+
+\stoptext

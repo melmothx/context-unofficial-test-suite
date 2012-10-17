@@ -1,0 +1,40 @@
+%
+% Test some footnotes in descriptions. Enough descriptions so that it
+% covers several pages.
+%
+\definedescription[descr][
+  headstyle=bold,style=normal,align=left,location=hanging,
+  width=broad,margin=1cm]
+
+\setupwhitespace[medium]
+
+\starttext
+
+\startbuffer
+\startdescr{This\footnote{A footnote} term contains\footnote{Another one} a
+footnote}
+This is a shorter item label, and some text\footnote{What about this?} that talks
+about it.
+The text is wrapped into a paragraph, with successive lines indented.
+\stopdescr
+
+\startdescr{This term does not contain any footnote, and is longer}
+This is a shorter item label, and some text\footnote{Another one in text} that talks
+about it.
+The text is wrapped into a paragraph, with successive lines indented.
+\stopdescr
+
+\startdescr{This\footnote{More footnotes} term contains\footnote{Another again} a
+footnote}
+This is a shorter item label, and some text that talks about it.
+The text is wrapped into a paragraph, with successive lines indented.
+\stopdescr
+\stopbuffer
+
+Here is a footnote\footnote{In a simple paragraph}.
+
+\dorecurse{8}{\getbuffer}
+
+Here is a footnote\footnote{After the descriptions}.
+
+\stoptext

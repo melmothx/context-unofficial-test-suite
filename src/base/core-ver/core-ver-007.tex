@@ -1,0 +1,16 @@
+% checks that \usepath works with \typefile
+
+\usepath[../../..]
+
+\starttext
+
+The file is local:
+\typefile{test-007.tex}
+
+The file is found through \type{\usepath}:
+\typefile{context/base/core-ver.tex/test-007.tex}
+
+The file is not found (not in \type{\usepath}):
+\typefile{core-ver.tex/test-007.tex}
+
+\stoptext

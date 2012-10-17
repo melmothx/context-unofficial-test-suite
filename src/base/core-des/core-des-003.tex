@@ -1,0 +1,47 @@
+%
+% Test a titled enumeration:
+% - how is displayed the title (title, titledistance),
+% - how is displayed the number (way, right),
+% - how is displayed the list (listtext)
+%
+\defineenumeration[dbexample]
+  [title=yes,titledistance=1em,
+   location=top,text=Example,before=\blank,after=\blank,
+   list=example,listtext=,right=.,way=bychapter]
+
+\starttext
+
+\chapter{List of Examples}
+\placelist[enumeration:example][criterium=all]
+
+\startbuffer
+\chapter{A Chapter}
+\section{A section}
+
+\startdbexample{A title}
+This is an example of code:
+
+\starttyping
+Something
+  Verbatim
+\stoptyping
+\stopdbexample
+
+\input tufte
+
+\startdbexample{Tufte in an example}
+\input tufte
+\stopdbexample
+
+\section{A section}
+\input tufte
+
+\startdbexample{Tufte again in an example}
+\input tufte
+\stopdbexample
+\stopbuffer
+
+\getbuffer
+\getbuffer
+
+\stoptext

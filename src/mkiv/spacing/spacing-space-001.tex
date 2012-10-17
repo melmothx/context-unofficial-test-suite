@@ -1,0 +1,18 @@
+\starttext
+
+\bgroup
+\unexpanded\def\ {\mathortext\normalspaceprimitive\space}
+x. x, x.\ x,\ x \par
+x. x, x.\space x,\ x \par
+\let\ = \normalspaceprimitive x. x, x.\ x,\ x \par
+\egroup
+
+\bgroup
+\unexpanded\def\ {\mathortext\normalspaceprimitive\space}
+x. x \par
+x.\ x \par
+x.\space x \par
+\let\ = \normalspaceprimitive x.\ x \par
+\egroup
+
+\stoptext

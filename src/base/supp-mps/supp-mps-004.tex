@@ -1,0 +1,8 @@
+% test whether baselines of text inside and outside the sometxt align
+\starttext
+\startreusableMPgraphic{fig}
+  label(\sometxt{in sometxt},origin);
+\stopreusableMPgraphic
+outside sometxt\quad
+\reuseMPgraphic{fig}
+\stoptext

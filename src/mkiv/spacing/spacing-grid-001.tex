@@ -1,0 +1,9 @@
+\setuplayout[grid=tolerant] \showgrid
+
+\starttext
+
+\setuphead[chapter][grid=strut]         \startchapter[title={Test: strut}]       test \par test \par test \stopchapter
+\setuphead[chapter][grid={local,strut}] \startchapter[title={Test: local,strut}] test \par test \par test \stopchapter
+\setuphead[chapter][grid={strut,top:3}] \startchapter[title={Test: strut,top:3}] test \par test \par test \stopchapter
+
+\stoptext

@@ -1,0 +1,82 @@
+% This is a test of Japanese typesetting, including ToC and Index.
+% NOTE: The Index still doesn't work as expected!
+% Please send your comments to: rgabriel@kerio.com 
+\setupoutput[pdftex]
+
+\enableregime[utf]
+\usemodule[japanese]
+
+\setuppapersize[A4][A4]
+
+\setupcolors[state=start]
+\definecolor[kblue][r=.0,g=.2,b=.45]
+\setupinteraction[state=start,color=kblue,style=normal]
+
+\setuptolerance[horizontal,verytolerant]
+
+\starttext
+\completecontent
+
+\chapter[chap-test]{Test Chapter}
+
+\section[sect-smtpsrv]{SMTP サーバー} 
+SMTP サーバー設定によって、{\bf Kerio MailServer}
+が動作しているサーバーを、誤用されないようにすることができます。 
+\par
+このメールサーバーのアンチスパム保護機能によって、誰にサーバーの利用を許可し、そのユーザーがどのような操作を実行できるかを定義することができます。こうすることにより、サーバーが誤用されるのを防ぎます。SMTPサーバー 
+\index{SMTP}
+をインターネットに接続している場合、不特定のクライアントが、そのサーバーに接続して電子メールを送信することができます。したがって、サーバーが、スパム・メッセージを送信するために誤用されることがあります。こういった電子メール・
+メッセージの受信者は、貴社のSMTPサーバーが、送られてきたメッセージの中で送信元となっているのを見て、そのサーバーから送信されたメッセージの受信を拒否するようになることがあります。
+したがって、貴社がスパム送信者としてみなされ、お使いのサーバーが、スパム・サーバーのデータベースに付け加えられる可能性があります。
+\par
+{\bf Kerio MailServer} の保護システムによって、誰がどこにこのサーバー経由で電子メールを送信していいのかを定義することができます。誰でも、SMTP
+サーバーに接続し、ローカル・ドメインにメッセージを送ることができます。しかし、許可されたユーザーしか、他のドメインに電子メールを送ることはできません。 
+\par
+ここでは、配信パラメーターの設定もできます。 
+\par
+
+\subsubject{リレー制御タブ}
+{\bf リレー制御} タブを使って、SMTP サーバーへの接続を許可された IP アドレスのグループやユーザー認証を設定することができます。 
+\par
+
+\definedescription[Varlistitem][location=top,width=fit,headstyle=\ssbf]
+
+\startpacked
+  \startVarlistitem{以下のユーザーに限りリレーを許可}
+  このオプションを使って、IP アドレス、または、ユーザー名とパスワードの組合せによるユーザー認証をアクティブにすることができます
+  (下記を参照してください)。通常、認証されたユーザーは、このサーバー経由で、不特定のドメインに電子メール・メッセージを送信することができますが、認証されていないユーザーは、ローカル・ドメインにしかメッセージを送ることができません。
+  \stopVarlistitem
+
+  \startVarlistitem{IP アドレス・グループからのユーザー}
+  このオプションを使って、不特定のドメインへ電子メールを送信することができる IP アドレス 
+  \index{IP アドレス・グループからのユーザー} 
+  のグループを定義することができます。
+  {\bf IP アドレス・グループ} メニューを使い、 {\bf 設定、定義、IP アドレス・グループ} に定義されているグループのリストから 1 つ選択してください。 
+  {\bf 編集} ボタンを使い、選択したグループを編集したり、新規グループを作成したりできます。!!! を参照してください。 
+  \stopVarlistitem
+
+  \startVarlistitem{SMTP サーバーからメール発信の認証を受けたユーザー}
+  有効なユーザー名とパスワードを使って SMTP サーバーに認証されたユーザーは、不特定のドメインに電子メールを送信することができます。したがって、
+  {\bf Kerio MailServer} にアカウントのあるユーザー全員が、この権利を持っています。 
+  \stopVarlistitem
+
+  \startVarlistitem{同一の IP アドレスから POP 3 で認証されたユーザー}
+  POP3 (ユーザー名およびパスワード) で認証されたユーザーは、指定された時間の間、認証されたのと同じ IP アドレスからリレー・アクセスをすることができます。時間の初期設定は 30 分です。 
+  \stopVarlistitem
+\stoppacked
+
+IP アドレスによる認証は、ユーザー名による認証から独立しています。したがって、ユーザーは、この 2 つの条件のうちの少なくとも一方を満たしていなければなりません。 
+\par
+
+\startpacked
+  \startVarlistitem{オープン・リレー}
+    このモードでは、SMTP サーバーは、このサーバーを使って電子メールを送信するユーザーの確認を行いません。したがって、不特定のユーザーが不特定のドメインへ電子メール・メッセージを送信することができます。
+    \par
+    {\bf 警告: Kerio MailServer}
+    をインターネットに接続している場合には、このモードを使用しないことをお勧めします。このオプションを使うと、貴社のサーバーが、スパム送信に使用され、スパム
+    SMTP サーバー・データベースのブラックリストに付け加えられることがあります (下記を参照してください)。 
+  \stopVarlistitem
+\stoppacked
+
+\completeindex
+\stoptext

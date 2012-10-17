@@ -1,0 +1,37 @@
+% Test for defining new environments
+\starttext
+
+% gather
+\definemathalignment
+  [gather]
+  [n=1,align=middle]
+
+\startformula \startgather
+  (a+b)^2 = a^2 + 2ab + b^2 \NR
+  (a+b)^3 = a^3 + 3ab(a+b) + b^3 \NR
+\stopgather \stopformula
+
+% lgather
+\definemathalignment
+  [lgather]
+  [n=1,align=left]
+
+\startformula \startlgather
+  (a+b)^2 = a^2 + 2ab + b^2 \NR
+  (a+b)^3 = a^3 + 3ab(a+b) + b^3 \NR
+\stoplgather \stopformula
+
+% falign
+\definemathalignment
+  [flalign]
+  [m=2, distance=5em plus 1 fil] %We need to set a default value for m
+
+\startformula \startflalign[m=3]
+  \NC i_{11} \NC = 0.25 \NC i_{12} \NC = i_{21} \NC i_{13} \NC = i_{23} \NR
+  \NC i_{21} \NC = \frac{1}{3} i_{11} \NC i_{22} \NC = 0.5 i_{12} \NC i_{23}
+  \NC =  i_{31} \NR
+  \NC i_{31} \NC = 0.33 i_{22} \NC i_{32} \NC = 0.15 i_{32} \NC i_{33} \NC =
+  i_{11} \NR
+\stopflalign \stopformula
+
+\stoptext

@@ -1,0 +1,21 @@
+% this file tests metapost color transparency,
+% by Johan Sandblom
+
+\setupcolors[state=start]
+\definecolor[red][r=1]
+\definecolor[trwhite][s=1, t=.5, a=1]
+\setupbackgrounds[state=repeat]
+\defineoverlay[pagebg][\useMPgraphic{pagebg}]
+\setupbackgrounds[page][background=pagebg]
+\startuseMPgraphic{pagebg}
+StartPage ;
+fill Page withcolor \MPcolor{red} ;
+fill Field[Text][Text] withcolor \MPcolor{trwhite} ;
+StopPage ;
+\stopuseMPgraphic
+
+\starttext
+
+\dorecurse{10}{\input tufte}
+
+\stoptext

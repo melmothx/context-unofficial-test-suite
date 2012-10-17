@@ -1,0 +1,42 @@
+% output=pdftex 
+
+\setupcolors[state=start]
+
+\starttext
+
+Basic typefile.
+\typefile{test-004.tex}
+
+File numbering.
+\typefile[numbering=file]{test-004.tex}
+
+Line numbering.
+\typefile[numbering=line]{test-004.tex}
+
+Pretty printing (option=TEX).
+\typefile[option=TEX]{test-004.tex}
+
+Line numbering, pretty printing (TEX).
+\typefile[numbering=line,option=TEX]{test-004.tex}
+
+Line numbering, start=3, pretty printing (TEX).
+\typefile[numbering=line,start=3,option=TEX]{test-004.tex}
+
+Line numbering, continue, pretty printing (TEX).
+\typefile[numbering=line,continue,option=TEX]{test-004.tex}
+
+Line numbering, start=32, step=2, pretty printing (TEX).
+\typefile[numbering=line,start=32,step=2,option=TEX]{test-004.tex}
+
+File numbering, start, step, continue options do nothing.
+\typefile[numbering=file,start=3,step=2,option=TEX]{test-004.tex}
+\typefile[numbering=file,continue=yes,option=TEX]{test-004.tex}
+
+Put the line numbers in the text (location=intext).
+\setuplinenumbering[location=intext]
+\typefile[numbering=file,continue=yes,option=TEX]{test-004.tex}
+
+File numbering, color=blue, option=TEX.
+\typefile[numbering=file,color=blue,option=TEX]{test-004.tex}
+
+\stoptext

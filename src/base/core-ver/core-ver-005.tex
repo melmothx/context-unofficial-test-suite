@@ -1,0 +1,32 @@
+%
+% Advanced verbatim layout
+%
+\setupcolors[state=start]
+
+% programlisting environment
+\defineframedtext
+  [framelisting]
+  [background=screen,
+   frame=on,
+   strut=yes,
+   offset=2mm,
+   width=broad,
+   framecolor=white,
+   align=right]
+
+\definetyping[programlisting]
+
+\setuptyping[programlisting]
+            [bodyfont=small,
+             before={\startframelisting},
+             after={\stopframelisting}]
+
+\starttext
+
+Programlisting typefile
+\typefile[programlisting]{test-005.tex}
+
+Programlisting typefile, option=TEX
+\typefile[programlisting][option=TEX]{test-005.tex}
+
+\stoptext

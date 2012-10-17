@@ -1,0 +1,11 @@
+% test font-size switching in \sometxt (in a reusable MP graphic)
+\setupbodyfont[20pt]
+\starttext
+
+\startreusableMPgraphic{fig}
+  label(\sometxt{in sometxt},origin);
+\stopreusableMPgraphic
+
+outside sometxt\quad
+\reuseMPgraphic{fig}
+\stoptext

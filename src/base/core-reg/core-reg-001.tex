@@ -1,0 +1,116 @@
+% Czech Index Test
+% This test covers correct sorting of the Index in Czech.
+% It covers all letters of the Czech alphabet
+%
+% Send comments to: Richard GABRIEL (rgabriel@kerio.com)
+%
+\setupoutput[pdftex]
+
+\enableregime[utf]
+\mainlanguage[cz]
+
+\setuppapersize[A4][A4]
+\setupbodyfont[lucida,10pt]
+
+% Test if it will work when processing XML files
+\setupregister[index][expansion=xml:utf]
+
+
+\starttext
+
+% Small letters
+\chapter{Small letters}
+\index{áčko}
+\index{altán}
+\index{bába}
+\index{stará bába}
+\index{celta}
+\index{čáp}
+\index{děda}
+\index{ďábel}
+\index{enormní}
+\index{éter}
+\index{ěěě}
+\index{fasáda}
+\index{gobelín}
+\index{hospoda}
+\index{chalupa}
+\index{italský}
+\index{íhaha}
+\index{jídlo}
+\index{kláda}
+\index{lopata}
+\index{máma}
+\index{nána}
+\index{ňuňuňu}
+\index{otec}
+\index{papír}
+\index{qíčepu}
+\index{rosa}
+\index{říše}
+\index{stan}
+\index{šváb}
+\index{tráva}
+\index{ťápota}
+\index{uhnout}
+\index{úvaha}
+\index{ůůů}
+\index{voda}
+\index{widle}
+\index{xerveru}
+\index{ypsilon}
+\index{zima}
+\index{žába}
+
+% There are some other accented letters which never start a word: ě ů ý 
+
+\placeindex[criterium=local,style=\bfb]
+
+% Capital letters
+\chapter{Capital letters}
+\index{ÁČKO}
+\index{ALTÁN}
+\index{BÁBA}
+\index{CELTA}
+\index{ČÁP}
+\index{DĚDA}
+\index{ĎÁBEL}
+\index{ENORMNí}
+\index{ÉTER}
+\index{ĚĚĚ}
+\index{FASÁDA}
+\index{GOBELÍN}
+\index{HOSPODA}
+\index{CHALUPA}
+\index{ITALSKÝ}
+\index{ÍHAHA}
+\index{JÍDLO}
+\index{KLÁDA}
+\index{LOPATA}
+\index{MÁMA}
+\index{NÁNA}
+\index{ŇUŇUŇU}
+\index{OTEC}
+\index{PAPÍR}
+\index{QÍČEPU}
+\index{ROSA}
+\index{ŘÍŠE}
+\index{STAN}
+\index{ŠVÁB}
+\index{TRÁVA}
+\index{ŤÁPOTA}
+\index{UHNOUT}
+\index{ÚVAHA}
+\index{ŮŮŮ}
+\index{VODA}
+\index{WIDLE}
+\index{XERVERU}
+\index{YPSILON}
+\index{ZIMA}
+\index{ŽÁBA}
+
+\placeindex[criterium=local,style=\bfb\WORD]
+
+
+\stoptext
+

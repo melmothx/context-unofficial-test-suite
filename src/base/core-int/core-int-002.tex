@@ -1,0 +1,36 @@
+% Czech PDF bookmarks from XML with entities
+%
+% Send comments to: Richard GABRIEL (rgabriel@kerio.com)
+%
+\setupoutput[pdftex]
+
+\enableregime[utf]
+\mainlanguage[cz]
+
+\setuppapersize[A4][A4]
+
+\setupinteraction[state=start]
+\setupinteractionscreen[option=bookmark]
+\placebookmarks
+
+\defineXMLcommand[chapter]{
+  \defineXMLargument[title]\chapter
+}
+
+\defineXMLenvironment[para]{\leavevmode}{\par}
+
+\defineXMLentity[nbsp]{~}
+\defineXMLentity[mdash]{---}
+
+
+\startXMLdata
+<chapter><title>Příliš zluťoučký&nbsp;kůň</title>
+<para>Some meaningless text...</para>
+
+<chapter><title>Úpěl ďábelské &mdash; ódy</title>
+<para>Some meaningless text...</para>
+\stopXMLdata
+
+\starttext
+\processXMLbuffer
+\stoptext

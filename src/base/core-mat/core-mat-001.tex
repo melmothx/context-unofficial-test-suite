@@ -1,0 +1,73 @@
+% Test for various startalign features without equation numbering
+\starttext
+% Simple Alignment (no need to specify the number of columns)
+
+\startformula \startalign
+  \NC a_1 x + b_1 y \NC = c_1 \NR
+  \NC a_2 x + b_2 y \NC = c_2 \NR
+\stopalign \stopformula
+
+% Change the number of columns
+\startformula \startalign[n=3]
+  \NC a_1 x + b_1 y \NC = c_1 \NC =  d_1 u + e_1 v \NR
+  \NC a_2 x + b_2 y \NC = c_2 + c_3 \NC =  d_2 u + e_2 v + f_1 w\NR
+\stopalign \stopformula
+
+% Change the alignment of columns
+\startformula \startalign[n=4, align={right,middle,middle,left}]
+  \NC a_1 x + b_1 y \NC = \NC c_1 \NC =  d_1 u + e_1 v \NR
+  \NC a_2 x + b_2 y \NC = \NC c_2 + c_3 \NC =  d_2 u + e_2 v + f_1 w\NR
+\stopalign \stopformula
+
+
+% Separated alignments
+\startformula \startalign[m=2]
+  \NC a_1 x + b_1 y \NC = c_1 \NC d_1 u + e_1 v \NC = f_1 \NR
+  \NC a_2 x + b_2 y \NC = c_2 \NC d_2 u + e_2 v \NC = f_2 \NR
+\stopalign \stopformula
+
+% Change distance
+\startformula \startalign[m=2,distance=5em]
+  \NC a_1 x + b_1 y \NC = c_1 \NC d_1 u + e_1 v \NC = f_1 \NR
+  \NC a_2 x + b_2 y \NC = c_2 \NC d_2 u + e_2 v \NC = f_2 \NR
+\stopalign \stopformula
+
+% Combination of some options
+\startformula \startalign[m=2,distance=8em,n=5,
+  align={right,middle,middle,middle,left}]
+  \NC 0 \NC < \NC 2x + 5y \NC < \NC 10
+  \NC 4 \NC < \NC 3x +  y \NC < \NC 9  \NR
+  \NC 3 \NC < \NC 2y + 3z \NC < \NC 15
+  \NC 10\NC < \NC 8y + 5z \NC < \NC 20 \NR
+\stopalign \stopformula
+
+% startformulas
+\startformulas
+  \startformula \startalign
+    \NC a_1 x + b_1 y \NC = c_1 \NR
+    \NC a_2 x + b_2 y \NC = c_2 \NR
+  \stopalign \stopformula
+  \startformula \startalign
+    \NC d_1 u + e_1 v \NC = f_1 \NR
+    \NC d_2 u + e_2 v \NC = f_2 \NR
+  \stopalign \stopformula
+\stopformulas
+
+% Different number of lines in each block
+\startformulas
+  \startformula \startalign
+    \NC 2x + 3 \NC = 7 \NR
+    \NC 2x \NC = 4 \NR
+    \NC x \NC = 2 \NR
+  \stopalign \stopformula
+  \startformula \startalign
+    \NC x^2 + 2x \NC = 3 \NR
+    \NC x^2 + (3-1)x - 3 \NC = 0 \NR
+    \NC x(x + 3) -1(x + 3) \NC = 0 \NR
+    \NC (x + 3)(x - 1) \NC = 0 \NR
+    \NC x \NC = -3 \text{ or } 1 \NR
+  \stopalign \stopformula
+\stopformulas
+
+
+\stoptext

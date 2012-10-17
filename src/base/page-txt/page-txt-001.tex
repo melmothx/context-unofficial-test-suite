@@ -1,0 +1,6 @@
+﻿% File to test that page headers are syncronized
+\setupheadertexts[section]
+
+\starttext
+ \dorecurse{20}{\section{Test \recurselevel}\input knuth\endgraf}
+\stoptext

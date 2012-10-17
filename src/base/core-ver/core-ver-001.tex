@@ -1,0 +1,45 @@
+% output=pdftex
+
+% default basic typing. Check only that:
+% - by default \tt is used
+% - spaces are preserved
+% - empty lines are removed
+
+\starttext
+
+In verbatim character space is preserved. The default font is \\tt:
+\starttyping
+first line      one
+  second line   two
+    third line  three
+      last line four
+\stoptyping
+
+Check that long lines are wrapped up. In this test 3 lines are wrapped up:
+\starttyping
+first very long line blah1 blah2 blah3 blah4 blah5 blah1 blah2 blah3 blah4 blah5 blah1 blah2 blah3 blah4 blah5 blah1 blah2 blah3 blah4 blah5 blah1 blah2 blah3 blah4 blah5 blah1 blah2 blah3 blah4 blah5 blah1 blah2 blah3 blah4 blah5 blah1 blah2 blah3 blah4 blah5 blah1 blah2 blah3 blah4 blah5 blah1 blah2 blah3 blah4 blah5 blah1 blah2 blah3 blah4 blah5 blah1 blah2 blah3 blah4 blah5
+  second short line   two
+another very long line blah1 blah2 blah3 blah4 blah5 blah1 blah2 blah3 blah4 blah5 blah1 blah2 blah3 blah4 blah5 blah1 blah2 blah3 blah4 blah5 blah1 blah2 blah3 blah4 blah5 blah1 blah2 blah3 blah4 blah5 blah1 blah2 blah3 blah4 blah5 blah1 blah2 blah3 blah4 blah5 blah1 blah2 blah3 blah4 blah5 blah1 blah2 blah3 blah4 blah5 blah1 blah2 blah3 blah4 blah5 blah1 blah2 blah3 blah4 blah5
+    third short line  three
+      last short line four
+last very long line blah1 blah2 blah3 blah4 blah5 blah1 blah2 blah3 blah4 blah5 blah1 blah2 blah3 blah4 blah5 blah1 blah2 blah3 blah4 blah5 blah1 blah2 blah3 blah4 blah5 blah1 blah2 blah3 blah4 blah5 blah1 blah2 blah3 blah4 blah5 blah1 blah2 blah3 blah4 blah5 blah1 blah2 blah3 blah4 blah5 blah1 blah2 blah3 blah4 blah5 blah1 blah2 blah3 blah4 blah5 blah1 blah2 blah3 blah4 blah5
+\stoptyping
+
+Are the empty lines shown?
+\starttyping
+      
+	        
+
+first non empty line      one
+  second non empty line   two
+
+
+
+    third non empty line  three
+      last non empty line four
+
+     
+\stoptyping
+This line is not in the typing environment.
+
+\stoptext

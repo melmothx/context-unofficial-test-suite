@@ -1,0 +1,17 @@
+% test font-size switching in \sometxt (in a static MP figure)
+% Beta of 2006.09.28 supports \startMPenvironment for changing label
+% typesetting.
+
+\startMPenvironment
+\setupbodyfont[20pt]
+\stopMPenvironment
+
+\starttext
+
+\startstaticMPfigure{fig}
+  label(\sometxt{in sometxt},origin);
+\stopstaticMPfigure
+
+outside sometxt\quad
+\usestaticMPfigure[fig]
+\stoptext

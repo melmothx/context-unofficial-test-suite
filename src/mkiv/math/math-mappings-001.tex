@@ -1,0 +1,65 @@
+% Author  : Aditya Mahajan (adapted by HH)
+% Comment : greek remappings
+
+% \enabletrackers[math.greek]
+
+\usetypescript[cambria] \setupbodyfont[cambria]
+
+\setuppapersize[S4][S4] \setuplayout[middle]
+
+\startbuffer[sample]
+1: $\FONT αβγδϵεζηθικλνξοϖπρςστϕφχψω$ \crlf
+2: $\FONT \alpha \beta \gamma \delta \epsilon \varepsilon \zeta \eta \theta
+     \iota \kappa \lambda \nu \xi \omicron \varpi \pi \rho \varsigma \sigma \tau
+     \phi \varphi \chi \psi \omega$ \crlf
+3: $\FONT ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΧΨΩ$ \crlf
+4: $\FONT \Alpha \Beta \Gamma \Delta \Epsilon \Zeta \Eta \Theta \Iota
+    \Kappa \Lambda \Mu \Nu \Xi \Omicron \Pi \Rho \Sigma \Tau \Upsilon \Phi
+    \Chi \Psi \Omega$
+\stopbuffer
+
+\startbuffer[testset]
+
+\def\FONT{}
+
+\title{None,   None}                     \setupmathematics[lcgreek=none,  ucgreek=none]   \getbuffer[sample]
+\title{Italic, None}                     \setupmathematics[lcgreek=italic,ucgreek=none]   \getbuffer[sample]
+\title{Normal, None}                     \setupmathematics[lcgreek=normal,ucgreek=none]   \getbuffer[sample]
+\title{None,   Italic}                   \setupmathematics[lcgreek=none,  ucgreek=italic] \getbuffer[sample]
+\title{None,   Normal}                   \setupmathematics[lcgreek=none,  ucgreek=normal] \getbuffer[sample]
+
+\def\FONT{\bf}
+
+\title{Bold: None,   None}               \setupmathematics[lcgreek=none,  ucgreek=none]   \getbuffer[sample]
+\title{Bold: Italic, None}               \setupmathematics[lcgreek=italic,ucgreek=none]   \getbuffer[sample]
+\title{Bold: Normal, None}               \setupmathematics[lcgreek=normal,ucgreek=none]   \getbuffer[sample]
+\title{Bold: None,   Italic}             \setupmathematics[lcgreek=none,  ucgreek=italic] \getbuffer[sample]
+\title{Bold: None,   Normal}             \setupmathematics[lcgreek=none,  ucgreek=normal] \getbuffer[sample]
+
+\def\FONT{\bi}
+
+\title{BoldItalic: None,   None}         \setupmathematics[lcgreek=none,  ucgreek=none]   \getbuffer[sample]
+\title{BoldItalic: Italic, None}         \setupmathematics[lcgreek=italic,ucgreek=none]   \getbuffer[sample]
+\title{BoldItalic: Normal, None}         \setupmathematics[lcgreek=normal,ucgreek=none]   \getbuffer[sample]
+\title{BoldItalic: None,   Italic}       \setupmathematics[lcgreek=none,  ucgreek=italic] \getbuffer[sample]
+\title{BoldItalic: None,   Normal}       \setupmathematics[lcgreek=none,  ucgreek=normal] \getbuffer[sample]
+
+\def\FONT{\mathss\mathdefault\mathbf}
+
+\title{Sans Bold Italic: None,   None}   \setupmathematics[lcgreek=none,  ucgreek=none]   \getbuffer[sample]
+\title{Sans Bold Italic: Italic, None}   \setupmathematics[lcgreek=italic,ucgreek=none]   \getbuffer[sample]
+\title{Sans Bold Italic: Normal, None}   \setupmathematics[lcgreek=normal,ucgreek=none]   \getbuffer[sample]
+\title{Sans Bold Italic: None,   Italic} \setupmathematics[lcgreek=none,  ucgreek=italic] \getbuffer[sample]
+\title{Sans Bold Italic: None,   Normal} \setupmathematics[lcgreek=none,  ucgreek=normal] \getbuffer[sample]
+
+\stopbuffer
+
+\starttext
+
+% \startproperty[outer] \getbuffer[testset] \stopproperty
+
+\getbuffer[testset]
+
+\startproperty[both] \getbuffer[testset] \stopproperty
+
+\stoptext

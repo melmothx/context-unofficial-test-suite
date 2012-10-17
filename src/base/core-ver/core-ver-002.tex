@@ -1,0 +1,60 @@
+% output=pdftex
+
+% The test check the verbatim color option
+
+\setupcolors[state=start]
+
+\starttext
+
+Verbatim text in blue (color=blue)
+\setuptyping[color=blue]
+\starttyping
+first line      one
+  second line   two
+    third line  three
+      last line four
+\stoptyping
+
+Verbatim text in green on fly (color=green)
+\starttyping[color=green]
+first line      one
+  second line   two
+    third line  three
+      last line four
+\stoptyping
+
+Come back to the initial setup
+\starttyping
+first line      one
+  second line   two
+    third line  three
+      last line four
+\stoptyping
+
+Colour removed (color=)
+\setuptyping[color=]
+\starttyping
+first line      one
+  second line   two
+    third line  three
+      last line four
+\stoptyping
+
+Verbatim text in red on fly (color=red)
+\starttyping[color=red]
+first line      one
+  second line   two
+    third line  three
+      last line four
+\stoptyping
+
+Come back to initial setup (no color)
+\starttyping
+first line      one
+  second line   two
+    third line  three
+      last line four
+\stoptyping
+
+
+\stoptext

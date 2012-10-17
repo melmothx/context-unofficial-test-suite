@@ -1,0 +1,9 @@
+% Test whether baselines of text inside and outside the sometxt align.
+% For some reason they don't when using a static figure, as below.
+\starttext
+\startstaticMPfigure{fig}
+  label(\sometxt{in sometxt},origin);
+\stopstaticMPfigure
+outside sometxt\quad
+\usestaticMPfigure[fig]
+\stoptext

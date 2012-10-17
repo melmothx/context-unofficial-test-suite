@@ -1,0 +1,123 @@
+% Author  : Hans Hagen
+% Comment : three variants: xml, setups, calls
+
+% \enabletrackers[lxml.access,lxml.loading]
+
+\chardef\TestMode=0 % expansion=xml
+\chardef\TestMode=1 % expansion=yes, index, setup
+\chardef\TestMode=2 % expansion=yes
+
+\startbuffer[test]
+<demo>
+    <chapter>
+        <title>Some <em>short</em> title</title>
+        <content>
+            zeta
+            <index>
+                <key>zeta</key>
+                <content>zeta again</content>
+            </index>
+            alpha
+            <index>
+                <key>alpha</key>
+                <content>alpha <em>again</em></content>
+            </index>
+            gamma
+            <index>
+                <key>gamma</key>
+                <content>gamma</content>
+            </index>
+            beta
+            <index>
+                <key>beta</key>
+                <content>beta</content>
+            </index>
+            delta
+            <index>
+                <key>delta</key>
+                <content>delta</content>
+            </index>
+            done!
+        </content>
+    </chapter>
+</demo>
+\stopbuffer
+
+\startxmlsetups xml:mysetups
+    \xmlsetsetup{\xmldocument}{demo|index|content|chapter|title|em}{xml:*}
+\stopxmlsetups
+
+\xmlregistersetup{xml:mysetups}
+
+\startxmlsetups xml:demo
+    \xmlflush{#1}
+    \subject{contents}
+    \placelist[chapter][criterium=all]
+    \subject{index}
+    \placeregister[index][criterium=all]
+    \page % else buffer is forgotten when placing header
+\stopxmlsetups
+
+\startxmlsetups xml:chapter
+    \ifcase \TestMode
+        % xml code travels around
+        \setuphead[chapter][expansion=xml]
+        \startchapter[title=eh: \xmltext{#1}{title}]
+    \or
+        % index is used for access via setup
+        \setuphead[chapter][expansion=yes,xmlsetup=xml:title:flush]
+        \startchapter[title=\xmlgetindex{#1}]
+    \or
+        % tex call to xml using index is used
+        \setuphead[chapter][expansion=yes]
+        \startchapter[title=hm: \xmlreference{#1}{xml:title:flush}]
+    \fi
+    \xmlfirst{#1}{content}
+    \stopchapter
+\stopxmlsetups
+
+\startxmlsetups xml:title:flush
+    \xmltext{#1}{title}
+\stopxmlsetups
+
+\startxmlsetups xml:em
+    \begingroup\em\xmlflush{#1}\endgroup
+\stopxmlsetups
+
+\startxmlsetups xml:index
+    \ifcase \TestMode
+        \setupregister[index][expansion=xml,xmlsetup=]
+        \setstructurepageregister
+          [index]
+          [entries:1=\xmlfirst{#1}{content},
+           keys:1=\xmltext{#1}{key}]
+    \or
+        \setupregister[index][expansion=yes,xmlsetup=xml:index:flush]
+        \setstructurepageregister
+          [index]
+          [entries:1=\xmlgetindex{#1},
+           keys:1=\xmltext{#1}{key}]
+    \or
+        \setupregister[index][expansion=yes,xmlsetup=]
+        \setstructurepageregister
+          [index]
+          [entries:1=\xmlreference{#1}{xml:index:flush},
+           keys:1=\xmltext{#1}{key}]
+    \fi
+\stopxmlsetups
+
+\startxmlsetups xml:index:flush
+    \xmlfirst{#1}{content}
+\stopxmlsetups
+
+\startxmlsetups xml:content
+    \xmlflush{#1}
+\stopxmlsetups
+
+\setupheadertexts[chapter]
+
+% \setupinteraction[state=start] \placebookmarks[chapter]
+
+\starttext
+    \xmlprocessbuffer{main}{test}{}
+\stoptext

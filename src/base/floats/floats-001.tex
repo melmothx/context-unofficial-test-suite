@@ -1,0 +1,6 @@
+% check that floats are not renumbered
+\setupfloats[numbering=nocheck]
+\starttext
+\input tufte \placefigure[right]{first in src} {\externalfigure[]} \par
+\input knuth \placefigure[top]  {second in src}{\externalfigure[]} \par
+\stoptext

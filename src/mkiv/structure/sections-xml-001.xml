@@ -1,0 +1,18 @@
+<?xml version='1.0' standalone='yes?>
+
+<document>
+    <section>
+        <title>Some <b>bold</b> title <b>bold <i>bold</i> oeps</b> and more</title>
+        <content>
+            <p>a paragraph of text</p>
+            <p>another paragraph of text</p>
+        </content>
+    </section>
+    <section>
+        <title>Another <b>bold</b> title <b>bold <i>bold</i> oeps</b> and more</title>
+        <content>
+            <p>a paragraph of text</p>
+            <p>another paragraph of text</p>
+        </content>
+    </section>
+</document>

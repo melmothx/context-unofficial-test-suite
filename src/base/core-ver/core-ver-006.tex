@@ -1,0 +1,56 @@
+% checks that the tab option is handled
+\usemodule[verb-c]
+\setupcolors[state=start]
+\starttext
+
+\starttyping
+if (i == 0) {
+	a = b;
+} else {
+	a = c;
+}
+\stoptyping
+
+\starttyping[tab=3]
+if (i == 0) {
+	a = b;
+} else {
+	a = c;
+}
+\stoptyping
+
+\startC
+if (i == 0) {
+	a = b;
+} else {
+	a = c;
+}
+\stopC
+
+\startC[tab=2]
+if (i == 0) {
+	a = b;
+} else {
+	a = c;
+}
+\stopC
+
+\startC[tab=4]
+if (i == 0) {
+	a = b;
+} else {
+	a = c;
+}
+\stopC
+
+\startTEX[tab=16]
+\startC[tab=4]
+if (i == 0) {
+	a = b;
+} else {
+	a = c;
+}
+\stopC
+\stopTEX
+
+\stoptext

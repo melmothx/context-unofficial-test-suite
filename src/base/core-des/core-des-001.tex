@@ -1,0 +1,82 @@
+%
+% Test some description location/width option combinations
+% Test also a description put in an itemize
+%
+\startbuffer
+\startdescr{Term1}
+  This is the description of the term, some text that talks about it.
+  The text is wrapped into a paragraph.
+
+  This is another paragraph under the term.
+
+  This is another paragraph under the term.
+
+  \startitemize[n,packed]
+  \item
+    \startdescr{SubTerm1 in an item}
+    This is a shorter item label, and some text that talks about it.
+    The text is wrapped into a paragraph, with successive lines indented.
+    \stopdescr
+  \item an item
+  \item an item
+  \item an item
+  \stopitemize
+
+  This is another description paragraph, and some text that talks about the
+  term. The text is wrapped into a paragraph.
+
+  This is another paragraph under the "Term1" item.
+
+  This is another paragraph under the "Term1" item.
+\stopdescr
+\startdescr{Term2 is a very long term that should wrap in many situations}
+  The text is wrapped into a paragraph, it talks about the term.
+
+  This is another paragraph under the term.
+
+  This is another paragraph under the term.
+\stopdescr
+\startdescr{Term3 is another term}
+  The text is wrapped into a paragraph, it talks about the term.
+
+  \startframedtext
+  This is another paragraph under the term.
+  \stopframedtext
+
+  This is another paragraph under the term.
+\stopdescr
+
+\stopbuffer
+
+\def\testdesc#1%
+  {\subsubsection{#1}
+   \setupdescriptions[descr][#1]
+   \getbuffer}
+
+\def\testdescrange#1[#2]#3[#4]%
+  {\def\dosubrange##1%
+     {\subsection{##1}
+      \setupdescriptions[descr][##1]
+      \processcommalist[#4]\testdesc}
+   \processcommalist[#2]\dosubrange}
+
+\definedescription[descr]
+  [headstyle=bold,style=normal]
+
+\setupwhitespace[medium]
+
+\starttext
+
+\testdescrange
+  [width=broad,
+   width=fit,
+   width=6em]
+  [location=top,
+   location=right,
+   location=left,
+   location=hanging,
+   location=serried,
+   location=inmargin,
+   location=inright]
+
+\stoptext

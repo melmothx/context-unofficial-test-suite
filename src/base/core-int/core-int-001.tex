@@ -1,0 +1,26 @@
+% Czech PDF Bookmarks test
+%
+% Send comments to: Richard GABRIEL (rgabriel@kerio.com)
+%
+\setupoutput[pdftex]
+
+\enableregime[utf]
+\mainlanguage[cz]
+
+\setuppapersize[A4][A4]
+
+\setupinteraction[state=start]
+\setupinteractionscreen[option=bookmark]
+\placebookmarks
+
+\starttext
+
+\chapter{Příliš zluťoučký kůň}
+Some meaningless text...
+
+\chapter{Úpěl ďábelské ódy}
+Some meaningless text...
+
+
+\stoptext
+

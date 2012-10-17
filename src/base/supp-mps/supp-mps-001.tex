@@ -1,0 +1,10 @@
+% before the 2006.09.25 beta, would overflow available output streams.
+% See the ntg-context list thread "staticMPfigures can overrun output
+% streams", 24 Sep 2006 15:36:04 -0400.
+
+\starttext
+\dorecurse{20}{\startreusableMPgraphic{\recurselevel}
+  draw fullcircle scaled 3mm;
+\stopreusableMPgraphic
+\placefigure[here,none]{}{\reuseMPgraphic{\recurselevel}}}
+\stoptext

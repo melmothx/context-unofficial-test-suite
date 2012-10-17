@@ -1,0 +1,63 @@
+% Tests for equation numbering for startalign
+\starttext
+
+% Simple numbering
+\placeformula
+\startformula \startalign
+  \NC a_1 x + b_1 y \NC = c_1 \NR[+]
+  \NC a_2 x + b_2 y \NC = c_2 \NR[+]
+\stopalign \stopformula
+
+% Only one equation numbered
+\placeformula
+\startformula \startalign
+  \NC a_1 x + b_1 y \NC = c_1 \NR
+  \NC a_2 x + b_2 y \NC = c_2 \NR[+]
+\stopalign \stopformula
+
+% Equation Numbering with options
+\placeformula
+\startformula \startalign[n=3, align={right,middle,left}]
+  \NC a_1 x + b_1 y \NC = c_1 \NC =  d_1 u + e_1 v \NR[+]
+  \NC a_2 x + b_2 y \NC = c_2 + c_3 \NC =  d_2 u + e_2 v + f_1 w\NR
+\stopalign \stopformula
+
+% Equation Numbering in blocks
+\placeformula \startformulas
+  \startformula \startalign
+    \NC a_1 x + b_1 y \NC = c_1 \NR[+]
+    \NC a_2 x + b_2 y \NC = c_2 \NR
+  \stopalign \stopformula
+  \startformula \startalign
+    \NC d_1 u + e_1 v \NC = f_1 \NR
+    \NC d_2 u + e_2 v \NC = f_2 \NR[+]
+  \stopalign \stopformula
+\stopformulas
+
+% Subformula numbering
+\placesubformula
+\startformula \startalign
+  \NC a_1 x + b_1 y \NC = c_1 \NR[+][a]
+  \NC a_2 x + b_2 y \NC = c_2 \NR[+][b]
+\stopalign \stopformula
+
+
+% Test for references
+\placeformula
+\startformula \startalign
+  \NC a_1 x + b_1 y \NC = c_1 \NR[eq:1]
+  \NC a_2 x + b_2 y \NC = c_2 \NR[eq:2]
+\stopalign \stopformula
+
+\in[eq:1] and \in[eq:2]
+
+% Subformula references
+\placesubformula
+\startformula \startalign
+  \NC a_1 x + b_1 y \NC = c_1 \NR[eq:c][c]
+  \NC a_2 x + b_2 y \NC = c_2 \NR[eq:d][d]
+\stopalign \stopformula
+
+\in[eq:c] and \in[eq:d]
+
+\stoptext

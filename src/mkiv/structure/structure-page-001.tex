@@ -1,0 +1,21 @@
+\setupfootnotes[location=none]
+
+\starttext
+
+\dontcomplain
+
+\dorecurse {3} {
+    \dorecurse {40} {
+        test
+        \expanded{\index{\character{\recurselevel} test}}
+        \footnote{oeps}
+    }
+
+    \placefootnotes
+    \page
+}
+
+\placeindex
+
+\stoptext
+

@@ -1,0 +1,35 @@
+% Index test - numbers and symbols
+% CURRENTLY DOESN'T WORK CORRECTLY!
+% For details refer: http://archive.contextgarden.net/message/20060615.130832.cd86237c.en.html
+% Send comments to: Richard GABRIEL (rgabriel@kerio.com)
+%
+\setupoutput[pdftex]
+
+\enableregime[utf]
+\mainlanguage[en]
+
+\setuppapersize[A4][A4]
+
+%\setupregister[index][expansion=xml:utf]% Doesn't matter
+
+\starttext
+
+\chapter{Index tests}
+Some meaningless text...
+
+\index{American}
+\index{Indian}
+\index{little}
+\index{boy}
+\index{1 little Indian boy}
+\index{2 little Indian boys}
+\index{3 little Indian boys}
+\index{? (the question mark)}
+\index{! (the exclamation mark)}
+
+\blank[2*big]
+\placeindex[criterium=local,style=\bfb\WORD]
+
+
+\stoptext
+

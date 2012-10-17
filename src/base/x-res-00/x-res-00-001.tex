@@ -1,0 +1,15 @@
+\usefigurebase[test-001-db]
+\usefigurebase[test-001-db-gray]
+
+\starttext
+
+\externalfigure[info] \externalfigure[lens] \externalfigure[star-g]
+%\externalfigure[info] \externalfigure[lens.png] \externalfigure[star-g.png] % maybe in future versions :)
+
+\startluacode
+    tex.sprint("\\starttyping[style=small,color=black]")
+    tex.sprint(table.serialize(figures.bases.found))
+    tex.sprint("\\stoptyping")
+\stopluacode
+
+\stoptext

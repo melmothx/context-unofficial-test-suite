@@ -1,0 +1,33 @@
+\nopdfcompression
+
+\startuniqueMPgraphic{FOO}
+    fill OverlayBox withcolor lightgray ;
+\stopuniqueMPgraphic
+
+\defineoverlay[FOO][\uniqueMPgraphic{FOO}]
+
+\definelayer[BAR] \setuplayer[BAR][width=8cm,height=6cm]
+
+% OK
+
+\setlayer[BAR][x= 0mm,y= 0mm]{\framed[background=color,backgroundcolor=lightgray,frame=off]{\startoverprint first  one\stopoverprint}}
+\setlayer[BAR][x=50mm,y= 0mm]{\framed[background=color,backgroundcolor=lightgray,frame=off]{\startoverprint second one\stopoverprint}}
+
+% OK
+
+\setlayer[BAR][x= 0mm,y=15mm]{\framed[background=color,backgroundcolor=lightgray,frame=on]{\startoverprint first  one\stopoverprint}}
+\setlayer[BAR][x=50mm,y=15mm]{\framed[background=color,backgroundcolor=lightgray,frame=on]{\startoverprint second one\stopoverprint}}
+
+% OK
+
+\setlayer[BAR][x= 0mm,y=30mm]{\framed[background=FOO,frame=on]{\startoverprint first  one\stopoverprint}}
+\setlayer[BAR][x=50mm,y=30mm]{\framed[background=FOO,frame=on]{\startoverprint second one\stopoverprint}}
+
+% ( layer + overlay + frame=off ) is buggy
+
+\setlayer[BAR][x= 0mm,y=45mm]{\framed[background=FOO,frame=off]{\startoverprint first  one\stopoverprint}}
+\setlayer[BAR][x=50mm,y=45mm]{\framed[background=FOO,frame=off]{\startoverprint second one\stopoverprint}}
+
+\startTEXpage
+    \tightlayer[BAR]
+\stopTEXpage
