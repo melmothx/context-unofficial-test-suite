@@ -1,7 +1,11 @@
 *~
 *.ppm
-src/*.pdf
 *.tuc
 src/*.log
-src/*.top
+src/*.pdf
+src/*/*/*.pdf
+src/*/*/*.log
+src/*/*.pdf
+src/*/*.log
+
 
