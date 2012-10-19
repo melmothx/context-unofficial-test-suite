@@ -1,0 +1,17 @@
+% Test for basic footnote functionality.
+
+\starttext
+This is how you write a footnote\footnote{This is a footnote}.
+
+One can refer to footnotes\footnote[fn:1]{This is a footnote with a reference.}
+
+See footnote~\in[fn:1] or maybe \note[fn:1] to see how to refer to footnotes.
+
+Space before a footnote should be ignored
+\footnote{This is another footnote}
+
+Footnotes can be defined using a start-stop as well
+\startfootnote
+  This is a block footnote
+\stopfootnote
+\stoptext
