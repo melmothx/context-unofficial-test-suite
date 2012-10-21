@@ -243,6 +243,9 @@ fi
 EOF
     close $fh;
   }
+  # the ppd are not needed anymore
+  unlink $orig or warn "Couldn't unlik $orig $!\n";
+  unlink $prod or warn "Couldn't unlik $prod $!\n";
   return $percent;
 }
 
