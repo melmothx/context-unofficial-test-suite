@@ -7,5 +7,6 @@ src/*/*/*.pdf
 src/*/*/*.log
 src/*/*.pdf
 src/*/*.log
+*pdf_original
 
 
