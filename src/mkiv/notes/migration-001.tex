@@ -1,0 +1,28 @@
+% test related to 2011.06.24.001
+
+\automigrateinserts
+
+\setupnote[footnote][split=verystrict]
+
+\starttext
+
+    \chapter{A chapter with a note \footnote{chapter note}}
+
+    Inline text with a note \footnote{inline note}.\par
+    Inline text with a note \footnote{inline note}.\par
+    Inline text with a note \footnote{inline note}.\par
+    Inline text with a note \footnote{inline note}.\par
+    Inline text with a note \footnote{inline note}.\par
+    Inline text with a note \footnote{inline note}.\par
+
+    \placefigure{A caption with a note \footnote{caption note}.}{\externalfigure[cow][height=3cm]}
+    \placefigure{A caption with a note \footnote{caption note}.}{\externalfigure[cow][height=3cm]}
+    \placefigure{A caption with a note \footnote{caption note}.}{\externalfigure[cow][height=3cm]}
+    \placefigure{A caption with a note \footnote{caption note}.}{\externalfigure[cow][height=3cm]}
+    \placefigure{A caption with a note \footnote{caption note}.}{\externalfigure[cow][height=3cm]}
+
+    \section{A section with a note \footnote{section not}}
+
+    Inline text with a note \footnote{inline note}.\par
+
+\stoptext

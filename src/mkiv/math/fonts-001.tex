@@ -1,0 +1,43 @@
+\usemodule
+  [art-01]
+
+\definemathcommand[Res][nolop]
+  {\mfunction{Res}}
+
+\setuphead
+  [subject]
+  [page=yes]
+
+\starttext
+
+\startbuffer
+    \startformula
+        \frac{1}{2 \pi i} \oint_\gamma f(z) = \sum_{k=1}^n  \Res(f, a_k)
+    \stopformula
+    \startformula
+        \int_0^\infty \frac{1}{x} {\rm d} x
+    \stopformula
+    \startformula
+        \int_0^\infty \frac{1}{x} {\rm d} x
+    \stopformula
+\stopbuffer
+
+\startluacode
+
+    local list = {
+        "palatino", "times", "xits", "schoolbook", "charter",
+        "iwona", "kurier", "garamond", "antykwa-torunska",
+        "utopia", "euler", "asana",
+    }
+
+    for i=1, #list do
+        local bodyfont = list[i]
+
+        context.switchtobodyfont { bodyfont }
+        context.subject( bodyfont)
+        context.start()
+        context.getbuffer()
+        context.stop()
+    end
+
+\stopluacode

@@ -1,0 +1,45 @@
+\starttext
+
+\starttabulate
+    \NC \bf original   \NC test Ã« Ã¤ Ã¶ Ã¼ test \NC \NR
+    \NC \bf expected   \NC test ë ä ö ü test \NC \NR
+    \NC \bf cleaned up \NC \ctxlua{context(regimes.cleanup("cp1252","test Ã« Ã¤ Ã¶ Ã¼ test"))} \NC \NR
+\stoptabulate
+
+\startbuffer[test]
+    <something>
+        test Ã« Ã¤ Ã¶ Ã¼ test
+        <nested>
+            test Ã« Ã¤ Ã¶ Ã¼ test
+        </nested>
+    </something>
+\stopbuffer
+
+\startluacode
+
+    local recursetext = xml.helpers.recursetext
+    local cleanup     = regimes.cleanup
+
+    local fixencoding = function(str) return cleanup("cp1252",str) end
+
+    function xml.finalizers.fixencoding(collected)
+        recursetext(collected,fixencoding,true)
+    end
+
+\stopluacode
+
+\startxmlsetups xml:mysetups
+    \xmlfilter{#1}{/something/fixencoding(yes)}
+    \xmlsetsetup{#1}{something}{xml:*}
+\stopxmlsetups
+
+\xmlregistersetup{xml:mysetups}
+
+\startxmlsetups xml:something
+    \xmlflush{#1}
+\stopxmlsetups
+
+\xmlprocessbuffer{main}{test}{}
+
+\stoptext
+

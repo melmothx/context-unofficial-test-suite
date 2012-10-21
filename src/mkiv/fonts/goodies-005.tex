@@ -1,0 +1,11 @@
+\starttext
+
+\definefontfeature[justademoa][default][goodies=demo,postprocessor=squeeze]
+\definefontfeature[justademob][default][goodies=demo,postprocessor=statistics]
+\definefontfeature[justademoc][default][goodies=demo,postprocessor={statistics,squeeze}]
+
+\definefont[mine][Serif*justademoa] \mine \input tufte \ruledhbox{Hi There} \par
+\definefont[mine][Serif*justademob] \mine \input tufte \ruledhbox{Hi There} \par
+\definefont[mine][Serif*justademoc] \mine \input tufte \ruledhbox{Hi There} \par
+
+\stoptext

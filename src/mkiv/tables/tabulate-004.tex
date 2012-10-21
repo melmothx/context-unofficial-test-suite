@@ -1,0 +1,22 @@
+\starttext
+
+\dorecurse{10}{
+    \starttabulate[|l|]
+    \FL
+    \NC first line, bound to next rule    \NC \NR
+    \TL
+    \NC bound to previous rule            \NC \NR
+    \NC some line                         \NC \NR
+    \NC some line                         \NC \NR
+    \NC some line                         \NC \NR
+    \NC bound to next rule                \NC \NR
+    \ML
+    \NC bound to previous rule            \NC \NR
+    \NC bound to next rule                \NC \NR
+    \BL
+    \NC last line, bound to previous rule \NC \NR
+    \LL
+    \stoptabulate
+}
+
+\stoptext

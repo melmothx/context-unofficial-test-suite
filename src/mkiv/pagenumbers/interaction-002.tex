@@ -1,0 +1,15 @@
+\setupinteraction[state=start]
+
+\starttext
+    \startstandardmakeup
+        no page
+    \stopstandardmakeup
+    one \goto{page     2}[page(2)]
+    one \goto{realpage 2}[realpage(2)]
+    one \goto{userpage 2}[userpage(2)]
+    \page
+    two \goto{page     1}[page(1)]
+    two \goto{realpage 1}[realpage(1)]
+    two \goto{userpage 1}[userpage(1)]
+\stoptext
+

@@ -1,0 +1,28 @@
+\startsetups test
+  \midaligned{(\fontclass)}
+  \blank
+  \startformula
+%     op:\the\Umathoperatorsize   \textstyle
+%     fr:\the\Umathfractiondelsize\textstyle
+    \textstyle\left(\frac{1}{2}\right)
+    \tbinom{1}{2}
+  \stopformula
+  \blank
+  \startformula
+%     op:\the\Umathoperatorsize   \displaystyle
+%     fr:\the\Umathfractiondelsize\displaystyle
+    \displaystyle\left(\frac{1}{2}\right)
+    \dbinom{1}{2}
+  \stopformula
+  \blank[2*big]
+\stopsetups
+
+\starttext
+
+    {\setupbodyfont[cambria]    \setup[test]}
+    {\setupbodyfont[modern]     \setup[test]}
+    {\setupbodyfont[palatino]   \setup[test]}
+    {\setupbodyfont[lucida]     \setup[test]}
+    {\setupbodyfont[lucidanova] \setup[test]}
+
+\stoptext

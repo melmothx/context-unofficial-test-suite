@@ -1,0 +1,28 @@
+\setupTABLE[c][1][align=flushleft]
+\setupTABLE[c][2][align=flushleft]
+
+\starttext
+
+\setupbodyfont[10pt]
+
+\startbuffer
+\bTABLE
+\bTR
+    \bTD[nr=1] hi there \eTD \bTD[nr=2] \input tufte \eTD
+\eTR
+\bTR
+    \bTD[nr=2] \input tufte \eTD
+\eTR
+\bTR
+    \bTD[nr=2] column 2 \eTD
+\eTR
+\bTR
+    \bTD[nr=1] hi there \eTD
+\eTR
+\eTABLE
+\stopbuffer
+
+\getbuffer
+
+
+\stoptext

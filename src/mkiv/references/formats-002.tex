@@ -1,0 +1,52 @@
+\setupinteraction[state=start]
+
+\startbuffer[definitions]
+\definereferenceformat [PageOne]   [left=(,right=),text=sometext]
+\definereferenceformat [PageTwo]   [label=page,autocase=yes]
+\definereferenceformat [PageThree] [label=*]
+\definereferenceformat [PageFour]  [label=both]
+
+\setuplabeltext[en][page=page~]
+\setuplabeltext[en][chapter=chapter~]
+\setuplabeltext[en][both={chapter~,~retpahc}]
+\stopbuffer
+
+\getbuffer[definitions]
+
+\starttext
+
+\chapter[one]{One}
+
+\typebuffer[definitions]
+
+\startbuffer
+\PageOne[two] shows us ...
+\PageTwo[two] shows us ...
+\PageThree[two] shows us ...
+\PageFour[two] shows us ...
+\at{(}{)}[two]
+\at{!}[two]
+\at{page}[two]
+<<\at[two]>>
+\stopbuffer
+
+\typebuffer \startlines \getbuffer \stoplines
+
+\chapter[two]{Two}
+
+\typebuffer[definitions]
+
+\startbuffer
+\PageOne[one] shows us ...
+\PageTwo[one] shows us ...
+\PageThree[one] shows us ...
+\PageFour[one] shows us ...
+\at{(}{)}[one]
+\at{!}[one]
+\at{page}[one]
+<<\at[one]>>
+\stopbuffer
+
+\typebuffer \startlines \getbuffer \stoplines
+
+\stoptext

@@ -1,0 +1,22 @@
+\startuseMPgraphic{frameborder}
+    drawoptions(withcolor \MPcolor{\framedparameter{framecolor}}) ;
+    draw topboundary    OverlayBox withpen pencircle scaled \frameddimension{toprulethickness}    ;
+    draw bottomboundary OverlayBox withpen pencircle scaled \frameddimension{bottomrulethickness} ;
+    draw leftboundary   OverlayBox withpen pencircle scaled \frameddimension{leftrulethickness}   ;
+    draw rightboundary  OverlayBox withpen pencircle scaled \frameddimension{rightrulethickness}  ;
+    setbounds currentpicture to OverlayBox ;
+\stopuseMPgraphic
+
+\defineoverlay[frameborder][\useMPgraphic{frameborder}]
+
+\defineframed
+  [mpframed]
+  [   toprulethickness=\framedparameter{rulethickness},
+   bottomrulethickness=\framedparameter{rulethickness},
+     leftrulethickness=\framedparameter{rulethickness},
+    rightrulethickness=\framedparameter{rulethickness},
+            background=frameborder]
+
+\starttext
+    \mpframed[width=4cm,height=4cm,toprulethickness=5pt,framecolor=red]{text}
+\stoptext

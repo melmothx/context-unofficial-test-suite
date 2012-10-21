@@ -1,0 +1,17 @@
+% \enabletrackers[sorters.tests]
+
+\starttext
+
+Æsop\index{Æsop}
+æsop\index{æsop}
+aesop\index{aesop}
+Aesop\index{Aesop}
+
+\setuphead[subject][style=bold]
+
+\subject{before} \placeregister[index][n=1,method=before]
+\subject{after}  \placeregister[index][n=1,method=after]
+\subject{first}  \placeregister[index][n=1,method=first]
+\subject{last}   \placeregister[index][n=1,method=last]
+
+\stoptext

@@ -1,0 +1,37 @@
+\enabletrackers[otf.lookups]
+\enabletrackers[otf.singles]
+\enabletrackers[otf.multiples]
+\enabletrackers[otf.alternatives]
+\enabletrackers[otf.ligatures]
+\enabletrackers[otf.contexts]
+\enabletrackers[otf.kerns]
+\enabletrackers[otf.details]
+\enabletrackers[otf.applied]
+\enabletrackers[otf.steps]
+\enabletrackers[fonts.defining]
+
+\definefontfeature[default][default][mode=node,script=latn,language=dflt]
+
+\starttext
+% \char65 {\definedfont[name:baskerville*default]\char65 \space Baskerville}\par
+% kerned: \char65 {\definedfont[name:baskervilleitalic*default]\char65 \space Baskerville Italic}\par
+% kerned: \char65 {\definedfont[name:baskervillesemibold*default]\char65 \space Baskerville SemiBold}\par
+% \char65 {\definedfont[name:baskervillesemibolditalic*default]\char65 \space Baskerville SemiBold Italic}\par
+% kerned: \char65 {\definedfont[name:baskervillebold*default]\char65 \space Baskerville Bold}\par
+% kerned \char65 {\definedfont[name:baskervillebolditalic*default]\char65 \space Baskerville Bold Italic}\par
+
+% {\definedfont[name:baskerville*default]               Baskerville}\par
+% {\definedfont[name:baskervilleitalic*default]         Baskerville Italic}\par
+% {\definedfont[name:baskervillesemibold*default]       Baskerville SemiBold}\par
+% {\definedfont[name:baskervillesemibolditalic*default] Baskerville SemiBold Italic}\par
+% {\definedfont[name:baskervillebold*default]           Baskerville Bold}\par
+% {\definedfont[name:baskervillebolditalic*default]     Baskerville Bold Italic}\par
+
+{\definedfont[name:baskerville*default]               aap}\par
+{\definedfont[name:baskervilleitalic*default]         koe}\par
+{\definedfont[name:baskervillesemibold*default]       fiets}\par
+{\definedfont[name:baskervillesemibolditalic*default] AAP}\par
+{\definedfont[name:baskervillebold*default]           KOE}\par
+{\definedfont[name:baskervillebolditalic*default]     FIETS}\par
+
+\stoptext

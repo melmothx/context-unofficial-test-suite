@@ -1,0 +1,14 @@
+% posted on list, unexpanded needed
+
+\starttext
+
+\unexpanded\def\MyItemCommand#1{{\bf#1}\quad}
+\setupitemgroup[itemize][command=\MyItemCommand]
+
+\startitemize
+\item {test} is this okay?
+\item {test} is this okay?
+\item {test} is this okay?
+\stopitemize
+
+\stoptext

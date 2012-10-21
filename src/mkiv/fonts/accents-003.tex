@@ -1,0 +1,38 @@
+% used by Daniel Schopper
+
+\definefontfeature
+  [default]
+  [script=latn,
+   mode=node,
+   mark=yes,
+   mkmk=yes,
+   liga=yes,
+ % dlig=yes,
+ % hlig=yes,
+   ccmp=yes,
+   calt=yes,
+   locl=yes]
+
+\starttypescript [serif] [djajunicode]
+    \setups[font:fallback:serif]
+    \definefontsynonym [Serif]           [file:junicoderegular]    [features=default]
+    \definefontsynonym [SerifItalic]     [file:junicodeitalic]     [features=default]
+    \definefontsynonym [SerifBold]       [file:junicodebold]       [features=default]
+    \definefontsynonym [SerifBoldItalic] [file:junicodeBoldItalic] [features=default]
+\stoptypescript
+
+\starttypescript [djajunicode]
+    \definetypeface [djajunicode] [rm] [serif] [djajunicode] [default]
+    \definetypeface [djajunicode] [mm] [math]  [xits]        [default]
+    \quittypescriptscanning
+\stoptypescript
+
+\setupbodyfont[djajunicode,18pt]
+
+\starttext
+    contextual substitutions : f\utfchar{"E0} \char983064\utfchar{"E0}\par
+    combined characters      : jͤaͤoͤuͤ\par
+    precomposed letters      : 
+\stoptext
+
+

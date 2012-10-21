@@ -1,0 +1,30 @@
+\unprotect
+\protect
+
+\setupnote[footnote][location=lastcolumn] % <- causes layout problem
+
+
+\definecolumnset[two][n=2]
+
+\enablemode[twocolumns] % columnsets|twocolumns
+
+\starttext
+
+% \startcolumns
+% \startcolumnset[two]
+
+\starttabulate
+\NC xx\footnote{\input tufte }\NC xxx\NC\NR
+\stoptabulate
+
+\bTABLE
+\bTR \bTD xx\footnote{\input tufte }\eTD \eTR
+\eTABLE
+
+\dorecurse{2}{\input knuth }  \footnote{\input tufte}
+\dorecurse{2}{\input knuth }
+
+% \stopcolumnset
+% \stopcolumns
+
+\stoptext

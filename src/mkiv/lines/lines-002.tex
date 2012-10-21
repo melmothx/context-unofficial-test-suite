@@ -1,0 +1,118 @@
+% posted by WS (see also patched startlines)
+
+\starttext
+
+\startlines
+1
+2
+\stoplines
+
+\page
+
+\startlines
+1
+
+2
+\stoplines
+
+\page
+
+\setuplines[space=on]
+
+\startlines
+1
+  2
+\stoplines
+
+\page
+
+\startlines
+  1
+2
+\stoplines
+
+\page
+
+\startlines[style=bold]
+1
+2
+\stoplines
+
+\page
+
+\startlines[color=blue]
+  1
+    2
+      3
+\stoplines
+
+\page
+
+\setuplines[option=packed]
+
+\blank[force,38*line]
+
+\startlines
+1
+2
+3
+4
+\stoplines
+
+\page
+
+% [style=italic] appears as text but that's expected because
+% the setup is not on the same line as \startlines
+
+\startlines
+  [style=italic]
+1
+2
+\stoplines
+
+\page
+
+\page
+
+\startlines[style=italic]
+  1
+  2
+\stoplines
+
+\page
+
+\setuplines[space=off]
+
+\startlines
+  1
+2
+\stoplines
+
+\page
+
+\startlines [style=italic]
+  1
+2
+\stoplines
+
+\page
+
+% example for the mice tail text in 'Alice in Wonderland'
+
+\setuplines[option=,command={\switchtobodyfont[\the\dimexpr\bodyfontsize-1pt\relax]}]
+
+\switchtobodyfont[20pt]
+
+\startlines
+1 \the\bodyfontsize
+2 \the\bodyfontsize
+3 \the\bodyfontsize
+4 \the\bodyfontsize
+5 \the\bodyfontsize
+6 \the\bodyfontsize
+7 \the\bodyfontsize
+8 \the\bodyfontsize
+9 \the\bodyfontsize
+\stoplines
+
+\stoptext

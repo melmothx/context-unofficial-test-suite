@@ -1,0 +1,16 @@
+\enabletrackers[figures.*]
+
+\startluacode
+    require("grph-wnd.lua")
+\stopluacode
+
+\starttext
+
+    \startcombination[2*2]
+        {\externalfigure[hacker.jpeg][width=4cm]}                     {\type{no conversion}}
+        {\externalfigure[hacker.jpeg][width=4cm,conversion=gray.jpg]} {\type{conversion=gray.jpg}}
+        {\externalfigure[kodim03.png][width=4cm]}                     {\type{no conversion}}
+        {\externalfigure[kodim03.png][width=4cm,conversion=gray.png]} {\type{conversion=gray.png}}
+    \stopcombination
+
+\stoptext

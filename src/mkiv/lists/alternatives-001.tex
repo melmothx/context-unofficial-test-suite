@@ -1,0 +1,72 @@
+% macros=mkvi
+
+% 1.778
+% 1.716
+% 1.747
+
+\unprotect
+
+
+
+\protect
+
+\definelistalternative
+  [whatever]
+  [before=(,
+   after=),
+   renderingsetup=listtest]
+
+\startsetups listtest
+    \listalternativeparameter{before}
+    \currentlistentrynumber
+    \listalternativeparameter{after}
+    \space
+\stopsetups
+
+\unexpanded\def\ListCommand#1#2#3%
+  {TEST: #1 / #2 / #3\par}
+
+\setupinteraction[state=start]
+
+\starttext
+
+%     \placelist[chapter,section][alternative=a]
+%     \placelist[chapter,section][alternative=a,interaction=sectionnumber]
+%     \placelist[chapter,section][alternative=a,interaction=text]
+%     \placelist[chapter,section][alternative=a,interaction=pagenumber]
+%     \placelist[chapter,section][alternative=a,interaction=all]
+    \placelist[chapter,section][alternative=b]
+%     \placelist[chapter,section][alternative=c]
+%     \placelist[chapter,section][alternative=d]
+%     \placelist[chapter,section][alternative=d,interaction=sectionnumber]
+%     \placelist[chapter,section][alternative=d,interaction=text]
+%     \placelist[chapter,section][alternative=d,interaction=pagenumber]
+%     \placelist[chapter,section][alternative=d,interaction=all]
+%     \placelist[chapter,section][alternative=e]
+%     \placelist[chapter,section][alternative=f]
+%     \placelist[chapter,section][alternative=g]
+%     \placelist[chapter,section][alternative=command]
+%
+%     \setuplist[chapter,section][command=\ListCommand] % command is bound to instance so here it
+%     \placelist[chapter,section][alternative=command]  % only applies to the first (side effect)
+
+%     \placelist[chapter,section][alternative=whatever]
+
+    \page
+
+    \dorecurse{20} {
+
+        \startchapter[title=test]
+
+            \dorecurse{5} {
+
+                \startsection[title=test]
+                    test
+                \stopsection
+
+            }
+
+        \stopchapter
+    }
+
+\stoptext

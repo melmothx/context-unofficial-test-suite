@@ -1,0 +1,29 @@
+% \startpublication[k=Me2011,t=book,a={AA,BB,CC},y=1111,n=20,s=BL]
+\startpublication[k=Me2011,t=book,a={{AA},{BB},{CC}},y=1111,n=20,s=BL]
+% \startpublication[k=Me2011,t=book,a={AA},y=2222,n=20,s=BL]
+    \title{Test}
+    \author[]{Pre}[P.]{}{Name}
+\stoppublication
+
+\startpublication[k=Me2012,t=book,a={{XX},{YY}},y=3333,n=20,s=BL]
+% \startpublication[k=Me2012,t=book,a={AA},y=1111,n=20,s=BL]
+    \title{Test}
+    \author[]{Pre}[P.]{}{Name}
+\stoppublication
+
+\startpublication[k=Me2013,t=book,a={XX,},y=1111,n=20,s=BL]
+    \title{Test}
+    \author[]{Pre}[P.]{}{Name}
+\stoppublication
+
+\setuppublications[state=start,refcommand=authoryear,authoretallimit=1]
+
+\setupcite[author][left=,right=]
+
+\starttext
+
+    [\cite{Me2011}]        \par
+    [\cite{Me2011,Me2012}] \par
+    [\cite{Me2013}]        \par
+
+\stoptext

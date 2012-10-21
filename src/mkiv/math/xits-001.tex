@@ -1,0 +1,12 @@
+\setupbodyfont[xits]
+
+\starttext
+
+    \unexpanded\def\mathaltcal{\mathalternate{cal}\cal}
+
+    $ABC$
+    $\cal ABC$
+    $\mathalternate{cal}\cal ABC$
+    $\mathaltcal ABC$
+
+\stoptext

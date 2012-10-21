@@ -1,0 +1,38 @@
+\startcomponent test-component-two
+
+\product test-components
+
+\setupreferencing[autofile=yes]
+
+\chapter[second]{Second component}
+
+Reference Two\pagereference[two].
+
+Reference to the chapter headings.
+
+\startlines
+First: \at{page}[first]
+Second: \at{page}[second]
+\stoplines
+
+Reference to the \tex{pagerence} settings.
+
+\startlines
+One: \at{page}[one]
+Two: \at{page}[two]
+\stoplines
+
+Reference to the \tex{pagerence} settings with the filename as prefix.
+
+\startlines
+One    : \at{page}[test-component-one:one]
+Two    : \at{page}[test-component-two:two]
+One    : \at{page}[test-component-one:::one]
+Two    : \at{page}[test-component-two:::two]
+first  : \at{page}[test-component-one:first]
+second : \at{page}[test-component-two:second]
+first  : \at{page}[test-component-one:::first]
+second : \at{page}[test-component-two:::second]
+\stoplines
+
+\stopcomponent

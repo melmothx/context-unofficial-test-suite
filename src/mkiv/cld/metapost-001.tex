@@ -1,0 +1,29 @@
+\starttext
+
+\startluacode
+context.startMPcode()
+context("draw fullcircle scaled 10cm;")
+context.stopMPcode()
+
+context.resetMPdrawing()
+
+context.startMPdrawing()
+context("fill fullcircle scaled 10cm;")
+context.stopMPdrawing()
+
+for i=1,100,5 do
+    context.startMPdrawing()
+    context("draw fullcircle scaled " ..i .. "mm withcolor white;")
+    context.stopMPdrawing()
+end
+
+for i=1,100,5 do
+    context.MPdrawing("draw fullsquare scaled " ..i .. "mm withcolor white;")
+end
+
+context.MPdrawingdonetrue()
+
+context.getMPdrawing()
+\stopluacode
+
+\stoptext

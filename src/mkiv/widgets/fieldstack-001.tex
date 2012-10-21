@@ -1,0 +1,20 @@
+% \nopdfcompression
+
+\setupinteraction[state=start]
+
+\definesymbol[one]  [1]
+\definesymbol[two]  [2]
+\definesymbol[three][3]
+
+\definefieldstack[some][one,two,three]
+
+\defineoverlay[some][\overlaybutton{Walk{some}}]
+
+\starttext
+
+\startTEXpage
+    \framed[background={foreground,some}]{\fieldstack[some]}
+\stopTEXpage
+
+\stoptext
+

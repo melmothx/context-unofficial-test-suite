@@ -1,0 +1,37 @@
+\starttext
+
+\usemodule[ntb-to-xtb]
+
+\asciimode
+
+\bTABLE
+    \bTR
+        \bTD test # test \eTD
+        \bTD \framed[height=3cm]{test} \eTD
+        \bTD \dorecurse{30}{a } \eTD
+        \bTD \input ward \eTD
+    \eTR
+    \bTR
+        \bTD test \eTD
+        \bTD \framed[height=3cm]{test} \eTD
+        \bTD \dorecurse{30}{a } \eTD
+        \bTD \input ward \eTD
+    \eTR
+\eTABLE
+
+\startxtable
+    \startxrow
+        \startxcell test # test \stopxcell
+        \startxcell \framed[height=3cm]{test} \stopxcell
+        \startxcell[width=3cm] \dorecurse{30}{a } \stopxcell
+        \startxcell \input ward \stopxcell
+    \stopxrow
+    \startxrow
+        \startxcell test \stopxcell
+        \startxcell \framed[height=3cm]{test} \stopxcell
+        \startxcell \dorecurse{30}{a } \stopxcell
+        \startxcell[height=4cm] \input ward \stopxcell
+    \stopxrow
+\stopxtable
+
+\stoptext

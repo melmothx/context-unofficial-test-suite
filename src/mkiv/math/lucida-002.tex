@@ -1,0 +1,18 @@
+\starttext
+
+\startbuffer
+$a/b$ and
+$1/2$ and
+$a\times b$ and
+$1\times 2$ and
+$a\utfchar{"2044}b$
+
+\startformula \int f(x)\, dx. \stopformula
+\stopbuffer
+
+                           \getbuffer
+\setupbodyfont[lucidanova] \getbuffer
+\setupbodyfont[cambria]    \getbuffer
+\setupbodyfont[modern]     \getbuffer
+
+\stoptext

@@ -1,0 +1,26 @@
+\setupbodyfont[dejavu]
+
+\setupbodyfontenvironment
+  [default]
+  [smallsized=1.25,
+   mediumsized=1.5,
+   largesized=2.0]
+
+\definefontsize[smallsized]
+\definefontsize[mediumsized]
+\definefontsize[largesized]
+
+\starttext
+
+\setuphead[chapter]   [style=\bflargesized]
+\setuphead[section]   [style=\bfmediumsized]
+\setuphead[subsection][style=\bfsmallsized]
+
+\chapter   {Whatever $x-1$}
+\section   {Whatever $x-1$}
+\subsection{Whatever $x-1$}
+
+\input ward
+
+\stoptext
+

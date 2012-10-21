@@ -1,0 +1,7 @@
+\starttext
+
+    \defineoverlay[more][\overlayfigure{mill.png}]
+
+    \dorecurse{500}{\externalfigure[cow][background=more,width=#1pt,frame=on,framecolor=red]}
+
+\stoptext

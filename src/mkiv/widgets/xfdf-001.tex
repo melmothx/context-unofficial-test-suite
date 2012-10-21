@@ -1,0 +1,18 @@
+\setupinteraction[state=start]
+
+\setupforms[export=yes] % create an xfdf file too
+
+\setupfield[whatever][height=1cm,width=10cm]
+
+\definefield[testa][text][whatever][zomaar wat]
+\definefield[testb][text][whatever][wat anders]
+
+\startTEXpage[offset=1cm]
+
+    \field[testa]
+
+    \blank
+
+    \field[testb]
+
+\stopTEXpage

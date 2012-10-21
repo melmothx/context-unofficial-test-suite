@@ -1,0 +1,22 @@
+\starttext
+
+\section{First line shifted to the right by a bit less than 2pt}
+
+\setupTABLE[offset=0pt, frame=off]
+\setupTABLE[r][1][bottomframe=on, rulethickness=2pt]
+\bTABLE
+\bTR\bTD bla \eTD \eTR
+\bTR\bTD bla \eTD \eTR
+\eTABLE
+
+\section{Workaround}
+
+\setupTABLE[offset=0pt, frame=off, rulethickness=0pt]
+\setupTABLE[r][1][bottomframe=on, rulethickness=2pt, loffset=-2pt]
+\bTABLE
+\bTR\bTD bla \eTD \eTR
+\bTR\bTD bla \eTD \eTR
+\eTABLE
+
+\stoptext
+

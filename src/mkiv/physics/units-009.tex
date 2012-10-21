@@ -1,0 +1,15 @@
+% WS/SB: test for large numbers
+
+\setupunits[method=3]
+
+\starttext
+
+\unit{1,234.567}\par
+\unit{1.234,567}\par
+
+\blank \setupunits[order=reverse]
+
+\unit{1.234,567}\par
+\unit{1,234.567}\par
+
+\stoptext

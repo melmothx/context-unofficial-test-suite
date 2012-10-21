@@ -1,0 +1,22 @@
+% a nice example posted by WS
+
+\setuptyping[numbering=line,escape=yes]
+
+\starttext
+
+See \inline[line:single] and also \inline[line:range].
+
+See \inline{typeline}[line:single] and also \inline{typelines}[line:range].
+
+See line~\inlinerange[line:single] and also lines~\inlinerange[line:range].
+
+\starttyping
+line 1
+line 2/BTEX\startline[line:range]/ETEX
+line 3/BTEX\someline[line:single]/ETEX
+line 4
+line 5/BTEX\stopline[line:range]/ETEX
+line 6
+\stoptyping
+
+\stoptext

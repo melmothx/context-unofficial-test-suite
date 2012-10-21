@@ -1,0 +1,20 @@
+\starttext
+
+    \setupinteraction[state=start]
+    \placeregister[index]
+
+    \page
+
+    test \index{aindex}test \page
+    test \index{aindex}test \page
+
+    test \seeindex{aindex}{bindex}text \page
+    test \seeindex{bindex}{aindex}text \page
+
+    test \index{bindex}text \page
+    test \index{bindex}text \page
+
+    test \seeindex{cindex}{bindex}text \page
+    test \seeindex{cindex}{aindex}text
+
+\stoptext

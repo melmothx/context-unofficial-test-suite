@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?context-directive job module res-make?>
+
+<!--
+      This file was automatically created by fl2reslib.xsl.
+      Creation date: 2008-09-11T14:41:01.931+02:00
+-->
+
+<rlx:library xmlns:rlx="http://www.pragma-ade.com/schemas/rlx" language="en">
+
+   <rlx:description>
+      <rlx:organisation/>
+      <rlx:project/>
+      <rlx:product/>
+      <rlx:comment/>
+   </rlx:description>
+
+
+   <rlx:figure>
+      <rlx:file>info.png</rlx:file>
+      <rlx:label>info</rlx:label>
+      <rlx:comment>size: 3908 bytes; date: 2006-12-06 19:24</rlx:comment>
+   </rlx:figure>
+
+   <rlx:figure>
+      <rlx:file>lens.png</rlx:file>
+      <rlx:label>lens</rlx:label>
+      <rlx:comment>size: 2552 bytes; date: 2006-12-06 19:24</rlx:comment>
+   </rlx:figure>
+
+   <rlx:figure>
+      <rlx:file>star.png</rlx:file>
+      <rlx:label>star</rlx:label>
+      <rlx:comment>size: 3794 bytes; date: 2006-12-06 19:24</rlx:comment>
+   </rlx:figure>
+
+</rlx:library>

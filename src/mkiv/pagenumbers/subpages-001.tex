@@ -1,0 +1,7 @@
+\setupheadertexts[\subpagenumber\ -- \nofsubpages]
+
+\setupsubpagenumber[way=bytext,state=start]
+
+\starttext
+    \dorecurse{4}{test \page}
+\stoptext

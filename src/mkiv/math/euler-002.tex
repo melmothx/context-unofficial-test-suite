@@ -1,0 +1,21 @@
+\usemodule[fnt-25]
+
+\starttypescript [math] [euler] [name]
+    \definefontsynonym [MathRoman] [file:euler.otf] [features=math]
+\stoptypescript
+
+\starttypescript[euler]
+    \definetypeface [euler] [rm] [serif] [palatino] [default]
+    \definetypeface [euler] [mm] [math]  [euler]    [default]
+\stoptypescript
+
+\startbuffer[mathtest]
+    \begingroup\mm\mr\showmathfontcharacters\endgroup
+\stopbuffer
+
+\starttext
+    \usetypescript[euler]
+    \setupbodyfont[euler,12pt]
+    \getbuffer[mathtest]
+\stoptext
+

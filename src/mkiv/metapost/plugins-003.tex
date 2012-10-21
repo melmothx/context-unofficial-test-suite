@@ -1,0 +1,95 @@
+\nopdfcompression
+
+\starttext
+
+\definecolor [blueish]   [c=1,m=.38,y=0,k=.64] % pantone pms 2965 uncoated m
+\definecolor [yellowish] [c=0,m=.28,y=1,k=.06] % pantone pms  124 uncoated m
+
+\definespotcolor [blue-0]     [blueish]   [p=0.1]
+\definespotcolor [blue-50]    [blueish]   [p=0.5]
+\definespotcolor [blue-100]   [blueish]   [p=0.9]
+\definespotcolor [yellow-0]   [yellowish] [p=0.1]
+\definespotcolor [yellow-50]  [yellowish] [p=0.5]
+\definespotcolor [yellow-100] [yellowish] [p=0.9]
+
+\definemultitonecolor [somecolor]   [blueish=.12,yellowish=.28] % [c=.1,m=.1,y=.3,k=.1]
+\definemultitonecolor [somecolor-1] [blueish=0,yellowish=1]
+\definemultitonecolor [somecolor-2] [blueish=1,yellowish=0]
+\definemultitonecolor [somecolor-3] [blueish=0.1,yellow=0.9]
+\definemultitonecolor [somecolor-4] [blueish=0.9,yellow=0.1]
+\definemultitonecolor [somecolor-5] [blueish=0.1,magenta=0.9,yellow=0.75,cyan=0.8] % [c=1]
+\definemultitonecolor [somecolor-6] [blueish=0.9,magenta=0.1,yellow=0.25,cyan=0.8] % [m=1]
+
+\startMPpage
+
+    path p ; p := fullcircle scaled 10cm shifted (0cm,0) ;
+
+    fill p
+        withcolor \MPcolor{blue-100} ;
+
+    path p ; p := fullcircle scaled 10cm shifted (5cm,0) ;
+
+    fill p
+        withcircularshading(center p,center p shifted (0,5cm),5cm,0)
+        withcolor red shadedinto green ;
+
+    fill p
+        withshading("circular",center p,center p shifted (0,5cm),5cm,0)
+        withcolor red shadedinto green ;
+
+    path p ; p := fullcircle scaled 10cm shifted (10cm,0) ;
+
+    fill p
+        withcircularshading(center p,center p shifted (0,5cm),5cm,0)
+        withfromshadecolor red
+        withtoshadecolor green ;
+
+    path p ; p := fullcircle scaled 10cm shifted (15cm,0) ;
+
+    fill p
+        withcircularshading(center p,center p shifted (0,5cm),5cm,0)
+        withfromshadecolor \MPcolor{blue-0}
+        withtoshadecolor \MPcolor{blue-100} ;
+
+    path p ; p := fullcircle scaled 10cm shifted (20cm,0) ;
+
+    fill p
+        withcircularshading(center p,center p,5cm,0)
+        withfromshadecolor \MPcolor{yellow-0}
+        withtoshadecolor \MPcolor{yellow-50} ;
+
+    path p ; p := fullcircle scaled 10cm shifted (0cm,-10cm) ;
+
+    fill p
+        withcolor \MPcolor{somecolor} ;
+
+    path p ; p := fullcircle scaled 10cm shifted (5cm,-10cm) ;
+
+    fill p
+        withcircularshading(center p,center p shifted (0,5cm),10cm,0)
+        withfromshadecolor \MPcolor{somecolor-2}
+        withtoshadecolor \MPcolor{somecolor-1} ;
+
+    path p ; p := fullcircle scaled 10cm shifted (10cm,-10cm) ;
+
+    fill p
+        withcircularshading(center p,center p shifted (0,5cm),10cm,0)
+        withfromshadecolor \MPcolor{somecolor-3}
+        withtoshadecolor \MPcolor{somecolor-4} ;
+
+    path p ; p := fullcircle scaled 10cm shifted (15cm,-10cm) ;
+
+    fill p
+        withcircularshading(center p,center p shifted (0,5cm),10cm,0)
+        withfromshadecolor \MPcolor{somecolor-6}
+        withtoshadecolor \MPcolor{somecolor-5} ;
+
+    path p ; p := fullsquare scaled 8cm shifted (20cm,-10cm) ;
+
+    fill p
+        withshading("linear",llcorner p,urcorner p)
+        withcolor red shadedinto green ;
+
+\stopMPpage
+
+\stoptext

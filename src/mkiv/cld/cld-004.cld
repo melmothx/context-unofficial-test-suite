@@ -1,0 +1,20 @@
+-- variant of message at context list:
+
+local template = [[
+    path p, q ;
+    p := fullcircle scaled 72 ;
+    L := length p ;
+    N := 20 ;
+    q:=subpath (0,%s/N*L) of p ;
+    draw q withcolor red ;
+    fill fullcircle scaled 3 shifted point length q of q withcolor blue ;
+    setbounds currentpicture to unitsquare shifted (-0.5,-0.5) scaled 75 ;
+]]
+
+context.starttext()
+    for i=0,20 do
+        context.startMPpage()
+            context(template,i)
+        context.stopMPpage()
+    end
+context.stoptext()

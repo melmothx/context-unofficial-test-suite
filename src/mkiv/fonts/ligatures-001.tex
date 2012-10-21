@@ -1,0 +1,16 @@
+\definefontfeature
+  [default]
+  [mode=node,script=latn,language=dflt,liga=yes]
+
+\switchtobodyfont[modern,11pt]
+
+\hyphenation{verf-if-iceren}
+
+\starttext
+    \startTEXpage[align=normal]
+        \hbox{verfificeren}
+        \setbox0=\hbox{verfificeren}
+        \hsize1mm\par
+        \unhbox0\par
+    \stopTEXpage
+\stoptext

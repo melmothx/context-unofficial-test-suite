@@ -1,0 +1,24 @@
+\starttext
+
+\disabledirectives[refences.sharelinks]
+
+\setupinteraction[state=start]
+
+\startTEXpage
+    \goto{page 2}[page(2)]%
+    \scale[sx=3]{\goto{page 2}[page(2)]}%
+    \rotate[rotation=45]{\goto{page 2}[page(2)]}%
+    \rotate{\goto{page 2}[page(2)]}%
+    \startMPcode
+        draw textext("\goto{!!!!!}[page(2)]") ;
+        draw textext("\goto{!!!!!}[page(2)]") shifted(1cm,1cm) rotated 45;
+    \stopMPcode
+\stopTEXpage
+
+\page
+
+\startTEXpage
+    \goto{Done!}[page(1)]
+\stopTEXpage
+
+\stoptext

@@ -1,0 +1,57 @@
+\starttext
+
+\startbuffer[test]
+\startxtable
+    \startxrow
+        \startxcell[width=1cm] one \stopxcell
+        \startxcell[width=2cm] two \stopxcell
+    \stopxrow
+    \startxrow
+        \startxcell alpha \stopxcell
+        \startxcell beta  \stopxcell
+    \stopxrow
+\stopxtable
+\stopbuffer
+
+\getbuffer[test]
+
+\processxtablebuffer[test]
+
+\startbuffer[test]
+\startxtable
+    \startxrow
+        \startxcell[offset=0pt]
+            \startembeddedxtable[background=color,backgroundcolor=green,offset=1ex]
+                \startxrow
+                    \startxcell[width=1cm] one   \stopxcell
+                    \startxcell[width=2cm] two   \stopxcell
+                \stopxrow
+                \startxrow
+                    \startxcell[width=3cm] alpha \stopxcell
+                    \startxcell[width=4cm] beta  \stopxcell
+                \stopxrow
+            \stopembeddedxtable
+        \stopxcell
+        \startxcell two   \stopxcell
+    \stopxrow
+    \startxrow
+        \startxcell alpha \stopxcell
+        \startxcell
+            \startembeddedxtable[background=color,backgroundcolor=red]
+                \startxrow
+                    \startxcell one   \stopxcell
+                    \startxcell two   \stopxcell
+                \stopxrow
+                \startxrow
+                    \startxcell alpha \stopxcell
+                    \startxcell beta  \stopxcell
+                \stopxrow
+            \stopembeddedxtable
+        \stopxcell
+    \stopxrow
+\stopxtable
+\stopbuffer
+
+\processxtablebuffer[test]
+
+\stoptext

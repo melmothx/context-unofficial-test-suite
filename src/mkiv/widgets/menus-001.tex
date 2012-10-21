@@ -1,0 +1,144 @@
+mkvi
+
+\setuppapersize
+  [S6][S6]
+
+\setuplayout
+  [backspace=6cm,
+   cutspace=10cm,
+   leftedge=3cm,
+   rightedge=3cm,
+   leftmargin=1cm,
+   rightmargin=1cm,
+   margindistance=5mm,
+   edgedistance=5mm,
+   topspace=4cm,
+   bottomspace=4cm,
+   header=0pt,
+   footer=0pt,
+   top=1cm,
+   bottom=1cm,
+   topdistance=5mm,
+   bottomdistance=5mm,
+   width=middle,
+   height=middle]
+
+\dontcomplain
+
+% \showframe
+
+\setupinteraction
+  [state=start,
+   menu=on]
+
+\setupinteractionmenu
+  [right]
+  [state=start,background=color,frame=off,backgroundcolor=red,color=white,contrastcolor=blue]
+\setupinteractionmenu
+  [left]
+  [state=start,background=color,frame=off,backgroundcolor=green,color=white]
+\setupinteractionmenu
+  [top]
+  [state=start,background=color,frame=off,backgroundcolor=blue,color=white]
+\setupinteractionmenu
+  [bottom]
+  [state=start,background=color,frame=off,backgroundcolor=yellow,color=white]
+
+% \setupinteractionmenu
+%   [left]
+%   [state=local]
+% \setupinteractionmenu
+%   [bottom]
+%   [state=local]
+
+\startinteractionmenu[right]
+    \startbut [page(2)] Page 2 \stopbut
+    \startbut [page(1)] Page 1 \stopbut
+%     \includemenu[left]
+%     \includemenu[bottom]
+\stopinteractionmenu
+
+\startinteractionmenu[left]
+    \startbut [page(1)] Page 1 \stopbut
+    \startbut [page(2)] Page 2 \stopbut
+\stopinteractionmenu
+
+\startinteractionmenu[top]
+    \startbut [page(3)] Page 3 \stopbut
+    \startbut [page(4)] Page 4 \stopbut
+\stopinteractionmenu
+
+\startinteractionmenu[bottom]
+    \startbut [page(2)] Page 2 \stopbut
+    \startbut [page(1)] Page 1 \stopbut
+\stopinteractionmenu
+
+% \defineinteractionmenu[mine][right]
+
+% \startinteractionmenu[mine]
+%     \startbut [page(3)] Page 3 \stopbut
+% \stopinteractionmenu
+
+% \defineinteractionmenu[more][right]
+
+% \startinteractionmenu[more]
+%     \startbut [page(4)] Page 3 \stopbut
+%     \startbut [page(5)] Page 4 \stopbut
+%     \startbut [page(6)] Page 5 \stopbut
+% \stopinteractionmenu
+
+% \setupinteractionmenu[right][width=2cm,maxwidth=2cm,distance=2mm]
+% \setupinteractionmenu[more] [width=1cm,maxwidth=1.5cm,distance=2mm]
+% \setupinteractionmenu[left][width=2cm,maxwidth=1cm]
+
+\setupbackgrounds
+  [page]
+  [offset=2mm]
+
+\setupbackgrounds
+  [text][text]
+  [background=color,
+   backgroundcolor=gray,
+   backgroundoffset=2mm]
+
+\setupinteractionmenu
+  [right]
+  [topoffset=0mm,
+   bottomoffset=0mm]
+
+\setupinteractionmenu
+  [top]
+  [topoffset=2mm,
+   bottomoffset=2mm,
+   rightoffset=2mm,
+   leftoffset=2mm]
+
+\setupbackgrounds
+  [text]
+  [rightedge,leftedge]
+  [background=color,
+   backgroundcolor=gray]
+
+\setupbackgrounds
+  [top,bottom]
+  [text]
+  [background=color,
+   backgroundcolor=gray]
+
+\starttext
+
+\showframe
+
+% \interactionmenu[mine]
+
+\interactionmenu
+  [right]
+  [alternative=vertical,
+   alternative=horizontal,
+  %middle=\hskip5mm,
+   color=]
+
+    \dorecurse{5}{test \page}
+%     \dorecurse{1000}{test \page}
+
+\stoptext

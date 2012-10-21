@@ -1,0 +1,21 @@
+\setupinteraction[state=start]
+
+\definesymbol [yes-a] [YES-A] \definesymbol [nop-a] [NOP-A]
+\definesymbol [yes-b] [YES-B] \definesymbol [nop-b] [NOP-B]
+
+\setupfield [setup 1] [width=1cm,height=1cm]
+\setupfield [setup 2] [width=2cm,height=2cm]
+\definefield [example-1] [radio] [setup 1] [ex-a,ex-b,ex-c] [ex-a]
+
+% \definesubfield [ex-a] [setup 1] [yes-a,nop-a]
+% \definesubfield [ex-b] [setup 1] [yes-a,nop-a]
+% \definesubfield [ex-c] [setup 1] [yes-a,nop-a]
+
+\definesubfield [ex-a] [] [yes-a,nop-a]
+\definesubfield [ex-b] [] [yes-a,nop-a]
+\definesubfield [ex-c] [] [yes-a,nop-a]
+
+\startTEXpage
+    \hbox{\field[ex-a]\quad\field[ex-b]\quad\field[ex-c]}\par
+    \hbox{\field[ex-a]\quad\field[ex-b]\quad\field[ex-c]}\par
+\stopTEXpage

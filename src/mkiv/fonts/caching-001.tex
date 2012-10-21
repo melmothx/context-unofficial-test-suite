@@ -1,0 +1,23 @@
+\enabledirectives[fonts.otf.loader.force]
+
+% \enabledirectives[fonts.otf.loader.cleanup] % true|false 1 2 3
+
+% \enabledirectives[fonts.otf.loader.method=table]
+% \enabledirectives[fonts.otf.loader.method=mixed]
+% \enabledirectives[fonts.otf.loader.method=sparse]
+
+% \enabledirectives[fonts.otf.loader.usemetatables]
+
+\starttext
+
+% \definedfont[Husayni at 100pt]test
+% \definedfont[adobesongstd-light at 100pt]test
+% \setupbodyfont[cambria] {\tf test \bf test \sl test \it test}
+
+\dostepwiserecurse{5}{12}{1} { % 40 extra instances (76 total)
+    \setupbodyfont[rm,#1pt] {\tf test \bf test \sl test \it test} \par
+    \setupbodyfont[ss,#1pt] {\tf test \bf test \sl test \it test} \par
+    \setupbodyfont[tt,#1pt] {\tf test \bf test \sl test \it test} \par
+}
+
+\stoptext

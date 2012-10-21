@@ -1,0 +1,244 @@
+\starttext
+
+% \setuplinenumbering
+  % [\c!conversion=\v!numbers,
+   % \c!start=1,
+   % \c!step=1,
+   % \c!method=\v!first,
+   % \c!continue=v!no,
+   % \c!location=\v!left,
+   % \c!style=,
+   % \c!color=,
+   % \c!width=2em,
+   % \c!left=,
+   % \c!right=,
+   % \c!command=,
+   % \c!distance=\zeropoint,
+   % \c!align=\v!auto]
+
+% \setupnotes
+  % [\c!location=\v!page,
+   % \c!way=\v!by\v!part,
+  % %\c!conversion=,
+   % \c!rule=\v!on,
+   % \c!before=\blank,
+   % \c!bodyfont=\v!small,
+  % %\c!style=,
+  % %\c!color=,
+  % %\c!after=,
+  % %\c!rulecolor=,
+   % \c!rulethickness=\linewidth,
+   % \c!frame=\v!off,
+   % \c!margindistance=.5em,
+   % \c!columndistance=1em,
+   % \c!distance=.125em,
+   % \c!align=\v!normal,
+   % \c!tolerance=\v!tolerant,
+   % \c!split=\v!tolerant,
+  % %\c!width=\makeupwidth,
+  % %\c!width=\ifdim\hsize<\makeupwidth\hsize\else\makeupwidth\fi,
+   % \c!width=\defaultnotewidth,
+   % \c!height=\textheight,
+   % \c!numbercommand=\high,
+   % \c!command=\noteparameter\c!numbercommand, % downward compatible
+   % \c!separator=,% \@@koseparator,
+   % \c!textcommand=\high,
+   % \c!textstyle=\tx,
+  % %\c!textcolor=,
+   % \c!interaction=\v!yes,
+  % %\c!factor=,
+  % %\c!scope=, % \v!text \v!page
+% \c!prefixconnector=.,
+% \c!prefix=\v!no,
+   % \c!next=\autoinsertnextspace, % new, experimental with startnotes
+   % \c!n=1]
+
+\setuppapersize[S6][S6]
+\setuplayout[width=middle,height=middle,margin=1.5cm,footer=0pt,header=1cm]
+\setupcolors[state=start]
+\setuptyping[option=color]
+
+\showframe
+
+\title{alignment}
+
+\subject{Issues:}
+
+\startitemize
+\item For default alignment issues, see \type{testlinenotes-001}.
+\item \type{distance=} seems to have no effect upon note numerals.
+\item \type{width=} seems to have no effect upon note numerals.
+\item \type{[align=r2l]} affects note numerals but not line numerals. Shouldn't this be symmetric?
+\item \type{align=r2l} affects the first line of the next buffer; see p.~12.
+\item \type{separator={ : }} has no apparent effect. What is its function in linenotes?
+\item Can we have eg \type{[left={[},right={]}]} for note numerals as well?
+\item \type{next=\autoinsertnextspace}. The function of this option is not clear.
+% \item
+\stopitemize
+\page
+
+\startbuffer[test]
+\setuplinenumbering[distance=2em]
+\setuplinenote [linenote] [distance=2em,rule=off,frame=on,framecolor=darkred]
+\startlinenumbering
+test test test \dorecurse{40}{test }.
+\linenote {A simple linenote does not have a number range}
+\startlinenote [one] {A linenote environment has a range that covers the
+first line of an environment up to the last.}
+\dorecurse{40}{test }.
+\stoplinenote [one]
+\linenote {A simple linenote does not have a number range}
+\dorecurse{30}{test }.
+\par
+\stoplinenumbering
+\stopbuffer
+
+{\typebuffer[test] \page \getbuffer[test] \page}
+
+\startbuffer[test]
+\setuplinenumbering[width=3em]
+\setuplinenote [linenote] [width=3em,rule=off,frame=on,framecolor=darkred]
+\startlinenumbering
+test test test \dorecurse{40}{test }.
+\linenote {A simple linenote does not have a number range}
+\startlinenote [one] {A linenote environment has a range that covers the
+first line of an environment up to the last.}
+\dorecurse{40}{test }.
+\stoplinenote [one]
+\linenote {A simple linenote does not have a number range}
+\dorecurse{30}{test }.
+\par
+\stoplinenumbering
+\stopbuffer
+
+{\typebuffer[test] \page \getbuffer[test] \page}
+
+\startbuffer[test]
+\setuplinenumbering[align=right]
+\setuplinenote [linenote] [align=right,rule=off,frame=on,framecolor=darkred]
+\startlinenumbering
+test test test \dorecurse{40}{test }.
+\linenote {A simple linenote does not have a number range}
+\startlinenote [one] {A linenote environment has a range that covers the
+first line of an environment up to the last.}
+\dorecurse{40}{test }.
+\stoplinenote [one]
+\linenote {A simple linenote does not have a number range}
+\dorecurse{30}{test }.
+\par
+\stoplinenumbering
+\stopbuffer
+
+{\typebuffer[test] \page \getbuffer[test] \page}
+
+\startbuffer[test]
+\setuplinenumbering[align=left]
+\setuplinenote [linenote] [align=left,rule=off,frame=on,framecolor=darkred]
+\startlinenumbering
+test test test \dorecurse{40}{test }.
+\linenote {A simple linenote does not have a number range}
+\startlinenote [one] {A linenote environment has a range that covers the
+first line of an environment up to the last.}
+\dorecurse{40}{test }.
+\stoplinenote [one]
+\linenote {A simple linenote does not have a number range}
+\dorecurse{30}{test }.
+\par
+\stoplinenumbering
+\stopbuffer
+
+{\typebuffer[test] \page \getbuffer[test] \page}
+
+\startbuffer[test]
+\setuplinenumbering[align=r2l]
+\setuplinenote [linenote] [align=r2l,rule=off,frame=on,framecolor=darkred]
+\startlinenumbering
+test test test \dorecurse{40}{test }.
+\linenote {A simple linenote does not have a number range}
+\startlinenote [one] {A linenote environment has a range that covers the
+first line of an environment up to the last.}
+\dorecurse{40}{test }.
+\stoplinenote [one]
+\linenote {A simple linenote does not have a number range}
+\dorecurse{30}{test }.
+\par
+\stoplinenumbering
+\stopbuffer
+
+{\typebuffer[test] \page \getbuffer[test] \page}
+
+\startbuffer[test]
+\setuplinenumbering[align=auto]
+\setuplinenote [linenote] [separator={ : },rule=off,frame=on,framecolor=darkred]
+\startlinenumbering
+test test test \dorecurse{40}{test }.
+\linenote {A simple linenote does not have a number range}
+\startlinenote [one] {A linenote environment has a range that covers the
+first line of an environment up to the last.}
+\dorecurse{40}{test }.
+\stoplinenote [one]
+\linenote {A simple linenote does not have a number range}
+\dorecurse{30}{test }.
+\par
+\stoplinenumbering
+\stopbuffer
+
+{\typebuffer[test] \page \getbuffer[test] \page}
+
+\startbuffer[test]
+\setuplinenumbering[left={[},right={]}]
+\setuplinenote [linenote] [margindistance=3em,left={[},right={]},rule=off,frame=on,framecolor=darkred]
+\startlinenumbering
+test test test \dorecurse{40}{test }.
+\linenote {A simple linenote does not have a number range}
+\startlinenote [one] {A linenote environment has a range that covers the
+first line of an environment up to the last.}
+\dorecurse{40}{test }.
+\stoplinenote [one]
+\linenote {A simple linenote does not have a number range}
+\dorecurse{30}{test }.
+\par
+\stoplinenumbering
+\stopbuffer
+
+{\typebuffer[test] \page \getbuffer[test] \page}
+
+\startbuffer[test]
+\setuplinenumbering[left={[},right={]}]
+\setuplinenote [linenote] [margindistance=3em,left={[},right={]},rule=off,frame=on,framecolor=darkred]
+\startlinenumbering
+test test test \dorecurse{40}{test }.
+\linenote {A simple linenote does not have a number range}
+\startlinenote [one] {A linenote environment has a range that covers the
+first line of an environment up to the last.}
+\dorecurse{40}{test }.
+\stoplinenote [one]
+\linenote {A simple linenote does not have a number range}%
+\linenote {A simple linenote does not have a number range}
+\dorecurse{30}{test }.
+\par
+\stoplinenumbering
+\stopbuffer
+
+{\typebuffer[test] \page \getbuffer[test] \page}
+
+\startbuffer[test]
+\setuplinenumbering[left={[},right={]}]
+\setuplinenote [linenote] [next=\autoinsertnextspace,rule=off,frame=on,framecolor=darkred]
+\startlinenumbering
+test test test \dorecurse{40}{test }.
+\linenote {A simple linenote does not have a number range}
+\startlinenote [one] {A linenote environment has a range that covers the
+first line of an environment up to the last.}
+\dorecurse{40}{test }.
+\stoplinenote [one]
+\linenote {A simple linenote does not have a number range}%
+\linenote {A simple linenote does not have a number range}
+\dorecurse{30}{test }.
+\par
+\stoplinenumbering
+\stopbuffer
+
+{\typebuffer[test] \page \getbuffer[test] \page}
+
+\stoptext

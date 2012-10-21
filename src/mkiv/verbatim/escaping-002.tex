@@ -1,0 +1,34 @@
+% adapted from a post on the mailing list
+
+\starttext
+
+\setuptyping[TEX][escape=yes]
+
+\startTEX
+/BTEX\em sometex/ETEX
+/BTEX\em sometex/ETEX \after
+\before /BTEX\em sometex/ETEX
+\before /BTEX\em sometex/ETEX \after
+\before /BTEX\em sometex/ETEX \inbetween /BTEX\em sometex/ETEX \after
+\before \after
+\stopTEX
+
+\setuptyping[TEX][escape={[[,]]}]
+
+\startTEX
+[[\em sometex]]
+[[\em sometex]] \after
+\before [[\em sometex]]
+\before [[\em sometex]] \after
+\before [[\em sometex]] \inbetween [[\em sometex]] \after
+\before \after
+\stopTEX
+
+\setuptyping[TEX][escape=/]
+
+\startTEX
+/em sometex
+\before /em sometex
+\stopTEX
+
+\stoptext

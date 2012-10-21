@@ -1,0 +1,18 @@
+\setupinteraction
+  [state=start]
+
+\setupinteractionscreen
+  [option=bookmark]
+
+\placebookmarks
+  [chapter]
+  [all]
+
+\starttext
+
+    \chapter[hans]{Hans} \goto{Taco}[taco]
+
+    \chapter[title=Taco,bookmark=Hoekwater,reference=taco]  \goto{Hans}[hans]
+
+\stoptext
+

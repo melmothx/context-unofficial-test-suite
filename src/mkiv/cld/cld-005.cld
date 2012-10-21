@@ -1,0 +1,62 @@
+local function ForLorien(n,maxa,maxb,answers)
+    context.startcolumns { n = 3 }
+    context.starttabulate { "|r|c|r|c|r|" }
+    for i=1,n do
+        local sign = math.random(0,1) > 0.5
+        local a, b = math.random(1,maxa or 99), math.random(1,max or maxb or 99)
+        if b > a and not sign then a, b = b, a end
+        context.NC()
+        context(a)
+        context.NC()
+        context(sign and "$+$" or "$-$")
+        context.NC()
+        context(b)
+        context.NC()
+        context("=")
+        context.NC()
+        context(answers and (sign and a+b or a-b))
+        context.NC()
+        context.NR()
+    end
+    context.stoptabulate()
+    context.stopcolumns()
+    context.page()
+end
+
+context.setupbodyfont {
+    "palatino",
+    "14pt"
+}
+
+context.setuplayout {
+    backspace = "2cm",
+    topspace  = "2cm",
+    header    = "1cm",
+    footer    = "0cm",
+    height    = "middle",
+    width     = "middle",
+}
+
+context.starttext()
+
+    -- commands are immediate
+
+    local n = 120
+
+    commands.freezerandomseed()
+
+    ForLorien(n,10,10)
+    ForLorien(n,20,20)
+    ForLorien(n,30,30)
+    ForLorien(n,40,40)
+    ForLorien(n,50,50)
+
+    commands.defrostrandomseed()
+
+    ForLorien(n,10,10,true)
+    ForLorien(n,20,20,true)
+    ForLorien(n,30,30,true)
+    ForLorien(n,40,40,true)
+    ForLorien(n,50,50,true)
+
+context.stoptext()

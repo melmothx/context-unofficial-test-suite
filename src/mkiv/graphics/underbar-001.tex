@@ -1,0 +1,32 @@
+\starttext
+
+\definecolor[tblue][b=.5] % ,t=.25,a=1]
+\setupbars[rulethickness=.1,color=blue]
+
+%Test \touchbar  {Test \touchbar  {Test \touchbar  {Test} Test} Test} Test \blank
+Test \overstrike{Test \overstrike{Test \overstrike{Test} Test} Test} Test \blank
+Test \underbar  {Test \underbar  {Test \underbar  {Test} Test} Test} Test \blank
+Test \overbar   {Test \overbar   {Test \overbar   {Test} Test} Test} Test \blank
+Test \underbar  {Test \overbar   {Test \overstrike{Test} Test} Test} Test \blank
+Test \overstrike{Test \overstrike{\red
+                                  Test \overstrike{Test} Test} Test} Test \blank
+
+\startbar[underbar]  \input tufte \stopbar \blank
+\startbar[underbars] \input tufte \stopbar \blank
+
+\page
+
+\definebar[backbar] [method=0,offset=1,rulethickness=2,color=tblue,continue=yes,order=background]
+\definebar[forebar] [method=0,offset=1,rulethickness=2,color=tblue,continue=yes,order=foreground]
+
+from here {\white\startbar[backbar]\input tufte\relax\stopbar\removeunwantedspaces}\space till here \blank
+from here \startbar[forebar]\input tufte\relax\stopbar\removeunwantedspaces\space till here \blank
+
+\starttabulate[|l|p|p|]
+\NC test \NC \startbar[underbar] \input tufte \stopbar \NC \input knuth \NC \NR
+\NC test \NC \startbar[underbar] \input tufte \stopbar \NC \input knuth \NC \NR
+\NC test \NC \startbar[underbar] \input tufte \stopbar \NC \input knuth \NC \NR
+\NC test \NC \startbar[underbar] \input tufte \stopbar \NC \input knuth \NC \NR
+\stoptabulate
+
+\stoptext

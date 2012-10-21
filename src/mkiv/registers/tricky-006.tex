@@ -1,0 +1,52 @@
+\setuplayout[topspace=1cm,height=middle]
+
+\setupbodyfont[11pt]
+
+\starttext
+
+\def\Test#1%
+  {\vbox{{\bf#1}\blank\placeregister[index][language=cz,n=1,method={#1}]}\blank}
+
+wanted result: oá öb Oč Öď Oo Öo oo öo Öq öř Oš oů \blank
+
+\startcolumns[n=3]
+    \Test{mc,mm,uc} \Test{mc,zm,uc} \Test{mc,pm,uc}
+    \Test{zc,mm,uc} \Test{zc,zm,uc} \Test{zc,pm,uc}
+    \Test{pc,mm,uc} \Test{pc,zm,uc} \Test{pc,pm,uc}
+\stopcolumns
+
+\page
+
+wanted result: oá öb Oč Öď Oo Öo oo öo Öq öř Oš oů \blank
+
+\startcolumns[n=3]
+    \Test{mm,mc,uc} \Test{zm,mc,uc} \Test{pm,mc,uc}
+    \Test{mm,zc,uc} \Test{zm,zc,uc} \Test{pm,zc,uc}
+    \Test{mm,pc,uc} \Test{zm,pc,uc} \Test{pm,pc,uc}
+\stopcolumns
+
+\page
+
+\dorecurse {2} {
+   \page \recurselevel:
+        \index{oá}  \index{öb}  \index{Oč}  \index{Öď}
+        \index{oo}  \index{öo}  \index{Oo}  \index{Öo}
+        \index{Öq}  \index{öř}  \index{Oš}  \index{oů}
+   done
+}
+
+% \dorecurse {2} {
+%    \page \recurselevel:
+%         \startluacode
+%             local set1 = { "o", "ö", "O", "Ö" }
+%             local set2 = { "o", "á", "ö", "b", "O", "č", "Ö", "ď", "q", "ř", "š", "ů" }
+%             for _, one in next, set1 do
+%                 for _, two in next, set2 do
+%                     context.index(one..two)
+%                 end
+%             end
+%         \stopluacode
+%    done
+% }
+
+\stoptext

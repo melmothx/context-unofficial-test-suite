@@ -1,0 +1,15 @@
+\starttext
+
+global \footnote{global 1}
+
+\startlocalfootnotes
+  local \footnote{local 1}
+  local \footnote{local 2}
+  \blank
+  \placelocalfootnotes
+  \blank
+\stoplocalfootnotes
+
+global \footnote{global 2}
+
+\stoptext

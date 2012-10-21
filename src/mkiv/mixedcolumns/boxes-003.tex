@@ -1,0 +1,45 @@
+\setupbodyfont
+  [dejavu,8pt]
+
+\dontcomplain
+
+\setuptolerance
+  [verytolerant,stretch]
+
+\setuplayout
+  [backspace=1cm,
+   width=middle]
+
+\starttext
+
+\setupmixedcolumns
+  [boxedcolumns]
+  [n=2,
+   background=color,
+   backgroundcolor=darkred,
+   color=white,
+   backgroundoffset=1mm]
+
+\definemixedcolumns
+  [nestedboxedcolumns]
+  [boxedcolumns]
+  [n=2,
+   background=color,
+   backgroundcolor=white,
+   color=darkred,
+   strut=yes,
+   backgroundoffset=0mm]
+
+\startboxedcolumns
+    \input zapf \par \input ward \par \obeydepth
+    \startnestedboxedcolumns
+        \input zapf
+    \stopnestedboxedcolumns
+    \par \input zapf \par \obeydepth
+    \startnestedboxedcolumns
+        \input zapf
+    \stopnestedboxedcolumns
+    \par \input zapf
+\stopboxedcolumns
+
+\stoptext

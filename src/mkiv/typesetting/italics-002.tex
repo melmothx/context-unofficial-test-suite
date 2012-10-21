@@ -1,0 +1,19 @@
+% bordercase by Andreas H
+
+\enabletrackers[typesetters.italics]
+
+\setuppapersize[A5]
+
+\definefontfeature[default][default][itlc=yes] \setupitaliccorrection[always]
+
+\starttext \showframe[text]
+
+\hyphenation{it-alic}
+
+\startbuffer
+    {\it italic}, normal, {\em emphasized}, normal
+\stopbuffer
+
+\dorecurse{50}\getbuffer
+
+\stoptext

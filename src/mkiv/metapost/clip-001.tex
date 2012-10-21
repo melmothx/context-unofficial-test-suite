@@ -1,0 +1,21 @@
+\starttext
+
+\startbuffer[sample]
+\framed
+  [align=middle,width=4cm,background=screen,frame=off]
+  {A \METAPOST\ clip is not the same as a video clip,
+   although we can use \METAPOST\ to produce a video clip.}
+\stopbuffer
+
+\startMPclip{text clip}
+  clip currentpicture to fullcircle shifted (.5,.5)
+    xscaled \width yscaled \height ;
+\stopMPclip
+
+\dorecurse {4} {
+    \clip
+      [nx=1,ny=1,mp=text clip]
+      {\externalfigure[sample][type=buffer,width=\recurselevel cm]}
+}
+
+\stoptext

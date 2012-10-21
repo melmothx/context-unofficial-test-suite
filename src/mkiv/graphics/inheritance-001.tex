@@ -1,0 +1,27 @@
+\starttext
+
+\defineexternalfigure[test][width=2cm]
+
+\defineexternalfigure[less][test][width=3cm,background=color,backgroundcolor=green]
+\setupexternalfigure [less][height=.5cm]
+
+\externalfigure[cow.pdf][test] \par
+\externalfigure[cow.pdf][test][frame=on] \par
+
+\useexternalfigure[test][cow.pdf][width=2cm]
+\useexternalfigure[more][][test][background=color,backgroundcolor=blue]
+
+\externalfigure[test] \par
+\externalfigure[test][frame=on] \par
+\externalfigure[test][width=4cm,frame=on] \par
+\externalfigure[more] \par
+\externalfigure[more][width=4cm,frame=on] \par
+
+\useexternalfigure[more][][test][background=color,backgroundcolor=red]
+
+\externalfigure[more][width=4cm,frame=on] \par
+\externalfigure[cow.pdf][less][frame=on] \par
+
+\startpagefigure[cow]\stoppagefigure
+
+\stoptext

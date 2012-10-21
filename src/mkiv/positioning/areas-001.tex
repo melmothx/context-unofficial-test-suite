@@ -1,0 +1,23 @@
+% \kindofpagetextareas\plustwo
+
+\kindofpagetextareas\plusone
+
+\definetextbackground[whatever]
+
+\showframe
+
+\starttext
+
+    test \footnote{note with depth}
+    test \footnote{note with depth}
+    test \footnote{note with depth}
+
+%     \placefigure[top]{}{}
+%     \placefigure[bottom]{}{}
+
+    \startwhatever
+        \dorecurse{100}{test \par}
+    \stopwhatever
+
+\stoptext
+

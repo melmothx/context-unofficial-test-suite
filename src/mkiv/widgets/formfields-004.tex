@@ -1,0 +1,141 @@
+% preload javascripts
+% uselocationstrut
+% highlighthyperlinks
+% gotonewwindow
+
+\unprotect
+
+
+\protect
+
+
+\nopdfcompression
+
+\enabletrackers[backends.fields]
+
+\setupinteraction[state=start]
+
+\setuptexttexts[\centerbox{\placehelp}]
+
+\starttext
+
+%         test \helptext{word}{tip top 1 is somewhat longer} test
+%         test \helptext{word}{tip top 2} test
+%         \starthelptext[oeps]
+%         \input tufte
+%         \stophelptext
+%         test test \showhelp{some help}[oeps] test
+%         test test \showhelp{some help}[oeps] test
+%         test test \button[location=depth]{\helpsignal{oeps}OEPS}[oeps] test
+%         test test \button[location=depth]{next}[page(2)] test
+%         \page
+%         test \helptext{word}{tip top one} test
+%         test \helptext{word}{tip top two} test
+
+%     \startTEXpage[offset=1cm]
+%         \definefield[test1][check]
+%         \definefield[test2][check]
+%         \dontleavehmode\fieldbody[test1][width=1em,height=\strutht,depth=\strutdp,symbol=check]
+%         \dontleavehmode\fieldbody[test1][width=1em,height=\strutht,depth=\strutdp,symbol=circle]
+%         \quad
+%         \dontleavehmode\fieldbody[test2][width=1em,height=\strutht,depth=\strutdp,symbol=square]
+%     \stopTEXpage
+
+%     \startTEXpage[offset=1cm]
+%         \definefieldbody[test1][type=check,values={test-a,test-b},default=test-b]
+%         \definefieldbody[test2][type=check,values={test-c,test-d},default=test-c]
+%         \dontleavehmode\fieldbody[test1][width=1em,height=\strutht,depth=\strutdp]
+%         \dontleavehmode\fieldbody[test1][width=1em,height=\strutht,depth=\strutdp]
+%         \quad
+%         \dontleavehmode\fieldbody[test2][width=1em,height=\strutht,depth=\strutdp]
+%     \stopTEXpage
+
+%     \startTEXpage[offset=1cm]
+%         \definefieldbody[test-x][type=radio,values={test-a,test-b},default=test-b]
+%         \definefieldbody[test-a][type=sub,symbol=circle]
+%         \definefieldbody[test-b][type=sub,symbol=cross]
+%         \dontleavehmode\fieldbody[test-a][width=1em,height=\strutht,depth=\strutdp]
+%         \dontleavehmode\fieldbody[test-b][width=1em,height=\strutht,depth=\strutdp]
+%         \quad
+%         \dontleavehmode\fieldbody[test-a][width=1em,height=\strutht,depth=\strutdp]
+%         \dontleavehmode\fieldbody[test-b][width=1em,height=\strutht,depth=\strutdp]
+%     \stopTEXpage
+
+%     \startTEXpage[offset=1cm]
+%         \definefieldbody[test-x][type=radio,values={test-a,test-b},default=test-b]
+%         \definefieldbody[test-a][type=sub,values={one,two}]
+%         \definefieldbody[test-b][type=sub,values={three,four}]
+%         \dontleavehmode\fieldbody[test-a][width=1em,height=\strutht,depth=\strutdp]
+%         \dontleavehmode\fieldbody[test-b][width=1em,height=\strutht,depth=\strutdp]
+%         \quad
+%         \dontleavehmode\fieldbody[test-a][width=1em,height=\strutht,depth=\strutdp]
+%         \dontleavehmode\fieldbody[test-b][width=1em,height=\strutht,depth=\strutdp]
+%         \quad
+%         \dontleavehmode\fieldbody[test-a][width=1em,height=\strutht,depth=\strutdp]
+%         \dontleavehmode\fieldbody[test-b][width=1em,height=\strutht,depth=\strutdp]
+%     \stopTEXpage
+
+%     \definefieldbody[testx][type=check,values={one,two}]
+%     \definefieldbody[testy][type=check,values={three,four}]
+%     \startTEXpage[offset=1cm]
+%         \fieldbody[testx]
+%         \fieldbody[testy]
+%     \stopTEXpage
+
+    \startreusableMPgraphic{YES}
+        fill unitcircle xscaled 4.25mm yscaled 2.75mm withpen pencircle scaled .250mm ;
+    \stopreusableMPgraphic
+    \startreusableMPgraphic{NO}
+        draw unitcircle xscaled 4.25mm yscaled 2.75mm withpen pencircle scaled .250mm ;
+    \stopreusableMPgraphic
+    \definesymbol[YES]   [\reuseMPgraphic{YES}]
+    \definesymbol[NO]    [\reuseMPgraphic{NO}]
+    \setupfield    [setup][width=4mm,height=4mm,frame=off]
+    \definefield   [whatever][radio][setup][one,two][]
+    \definesubfield[one][][YES,NO]
+    \definesubfield[two][][YES,NO]
+    \startTEXpage
+        \field[one]
+        \field[two]
+    \stopTEXpage
+
+%     \startTEXpage
+%         \setupfield[mailgroup][horizontal,label,frame][height=3cm][height=2cm][height=1cm]
+%         \definefieldbody [mail] [type=line,category=mailgroup,default=pragma@wxs.nl]
+%         \field[mail][labeltje]
+%     \stopTEXpage
+
+%     \startTEXpage
+%         \definefieldgroup
+%           [ShortLine]
+%           [height=1cm,
+%            width=14cm,
+%            style=sstf]    % field
+%         \definefieldbody [Email] [type=line,category=ShortLine,default=pragma@wxs.nl]
+%         \definefieldbody [eMAIL] [Email]
+%         \definefieldbody[buttona][type=check,values={one,two}]
+%         \definefieldbody[buttonb][type=check,values={three,four}]
+%         \definefieldbody[buttonc][buttona][values={three,four}]
+%         \fieldbody [Email]
+%         \fieldbody [Email] [width=6cm]
+%         \fieldbody [eMAIL]
+%         \fieldbody [eMAIL] [width=7cm]
+%         \fieldbody [buttona]
+%         \fieldbody [buttona]
+%         \fieldbody [buttonb]
+%         \fieldbody [buttonb]
+%         \fieldbody [buttonc]
+%         \fieldbody [buttonc]
+%         \ruledhbox{\fieldbody[Email][height=\strutht,depth=\strutdp,style=normal]}
+%         \ruledhbox{\fitfield[Email][height=\strutht,depth=\strutdp,style=normal]}
+%         \ruledhbox{\fitfield[buttona]}
+%     \stopTEXpage
+
+%     \startTEXpage[offset=1cm]
+%         \definefield[test1][check][][a,b][a]
+%         \definefield[test2][check][][a,b][a]
+%         \dontleavehmode\fitfield[test1][width=1em,height=\strutht,depth=\strutdp]
+%         \dontleavehmode\fitfield[test1][width=1em,height=\strutht,depth=\strutdp]
+%     \stopTEXpage
+
+\stoptext

@@ -1,0 +1,26 @@
+\starttext
+
+\usetypescriptfile[type-imp-ghz]
+\usetypescript[palatino-nova]
+\setupbodyfont[palatino]
+
+\showframe \setuplayout[width=8cm]
+
+\setupalign[normal,tolerant,hz]
+
+\definefontfeature[four] [default][expansion=quality]
+\definefontfeature[five] [default][expansion=quality-x]
+\definefontfeature[six]  [default][expansion=quality-y]
+\definefontfeature[seven][default][expansion=quality-z]
+
+\setupfontprotrusion[quality-x][vector=quality,factor=1.5]
+\setupfontexpansion [quality-x][vector=quality,stretch=4,shrink=4,step=.25,factor=1]
+\setupfontexpansion [quality-y][vector=quality,stretch=4,shrink=4,step=.25,factor=2]
+\setupfontexpansion [quality-z][vector=quality,stretch=4,shrink=4,step=.25,factor=100]
+
+\definedfont[Serif*four] \input tufte \par
+\definedfont[Serif*five] \input tufte \par
+\definedfont[Serif*six]  \input tufte \par
+\definedfont[Serif*seven]\input tufte \par
+
+\stoptext

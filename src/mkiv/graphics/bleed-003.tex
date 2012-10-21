@@ -1,0 +1,51 @@
+% Adapted from test file Willi Egger.
+% This file tests bleeding top.
+% 2010-09-06
+
+\setuppapersize[A4][A3]
+
+\setuplayout
+   [topspace=1.5cm,
+	backspace=1.5cm,
+	header=0pt,
+	footer=0pt,
+	height=middle,
+	width=middle,
+	marking=on,
+	location=middle]
+
+\showframe
+
+\starttext
+
+Top-center
+\placefigure
+	[top,none,fit]
+	{}
+	{\bleed[offset=10mm,width=4cm,height=3cm,location=t]{\externalfigure[hacker][bleed]}}
+
+\page
+
+Top-left
+\placefigure
+	[top,none,fit]
+	{}
+	{\bleed[offset=10mm,width=4cm,height=3cm,location=tl]{\externalfigure[hacker][bleed]}}
+
+\page
+
+Top-right
+\placefigure
+	[top,none,fit]
+	{}
+	{\bleed[offset=10mm,width=4cm,height=3cm,location=tr]{\externalfigure[hacker][bleed]}}
+
+\page
+
+Top
+\placefigure
+	[top,none,fit]
+	{}
+	{\bleed[width=4cm,height=3cm,location=t]{\externalfigure[hacker][bleed]}}
+
+\stoptext

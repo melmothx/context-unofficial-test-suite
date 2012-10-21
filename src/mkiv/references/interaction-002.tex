@@ -1,0 +1,8 @@
+\enabledirectives[refences.linkmethod=page]
+% \enabledirectives[refences.sharelinks]
+\setupinteraction[state=start]
+
+\starttext
+    \chapter[one]{one} \dorecurse{500}{\recurselevel:\dorecurse{50}{ \goto{two \recurselevel}[two]}\par}
+    \chapter[two]{two} \dorecurse{500}{\recurselevel:\dorecurse{50}{ \goto{one \recurselevel}[one]}\par}
+\stoptext

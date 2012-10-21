@@ -1,0 +1,37 @@
+\setupbodyfont[dejavu]
+
+\definetextbackground[normal][location=paragraph,mp=mpos:region:show]
+\definetextbackground[shaped][location=paragraph,mp=mpos:region:show,method=mpos:regionshape]
+
+\starttext
+
+    \starttextbackground[normal]
+        \placefigure[right]{}{} \input ward \par \input ward
+    \stoptextbackground
+
+    \starttextbackground[normal]
+        \placefigure[right]{}{} \input ward
+    \stoptextbackground
+
+    \page
+
+    \starttextbackground[shaped]
+        \placefigure[right]{}{} \input ward \par \input ward
+    \stoptextbackground
+
+    \starttextbackground[shaped]
+        \placefigure[right]{}{} \input ward
+    \stoptextbackground
+
+    \page
+
+    \starttextbackground[shaped]
+        \placefigure[right]{}{} \dorecurse{2}{test test test\par}
+        \input ward
+    \stoptextbackground
+
+    \starttextbackground[shaped]
+        \placefigure[right]{}{} \dorecurse{20}{test test test\par}
+    \stoptextbackground
+
+\stoptext

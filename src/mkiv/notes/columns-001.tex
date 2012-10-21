@@ -1,0 +1,7 @@
+\setupenumerations[footnote][location=left,width=1em] \setupnote[footnote][n=2]
+
+\starttext
+    \dorecurse {3} {
+        \input hawking\footnote{\input hawking }
+    }
+\stoptext

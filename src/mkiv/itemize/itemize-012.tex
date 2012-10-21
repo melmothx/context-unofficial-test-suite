@@ -1,0 +1,52 @@
+% example by WS
+
+\starttext
+
+\startitemize[n,fit]
+\item text 1
+\item text 1
+\stopitemize
+
+\settrialtypesetting % no information about the largest number is saved in trialtypesetting
+
+\startitemize[n,fit]
+\item text 2
+\item text 2
+\stopitemize
+
+\resettrialtypesetting
+
+\startitemize[n,fit]
+\item text 2
+\item text 2
+\stopitemize
+
+\startitemize[n,fit][start=1000]
+\item text 3
+\item text 3
+\stopitemize
+
+\page
+
+\startitemize[n,fit]
+\item text 4
+\item text 4
+\stopitemize
+
+\settrialtypesetting % simulate the trial runs in a natural table
+
+\startnointerference
+\startitemize[n,fit,continue]
+\item text 5
+\item text 5
+\stopitemize
+\stopnointerference
+
+\resettrialtypesetting
+
+\startitemize[n,fit,continue]
+\item text 5
+\item text 5
+\stopitemize
+
+\stoptext

@@ -1,0 +1,16 @@
+\starttext
+
+\def\TestLookup#1%
+  {pattern: #1, found: \dolookupnoffound
+   \blank
+   \dolookupfontbyspec{#1}
+   \dorecurse {\dolookupnoffound} {%
+     \recurselevel:~\dolookupgetkeyofindex{fontname}{\recurselevel}\quad
+   }%
+   \blank}
+
+\TestLookup{familyname=helveticaneue}
+\TestLookup{familyname=helveticaneue,weight=bold}
+\TestLookup{familyname=helveticaneue,weight=bold,style=italic}
+
+\stoptext

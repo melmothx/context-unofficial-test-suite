@@ -1,0 +1,27 @@
+\usemodule[mathml]
+
+\starttext
+
+\startTEXpage[offset=10pt]
+
+\startbuffer[test-1]
+<math xmlns="http://www.w3c.org/mathml" version="2.0">
+    <mfenced open="{" close="" separators="|+-">
+        <mn> 1 </mn>
+        <mover>
+            <mn> 2 </mn>
+            <mn> 3 </mn>
+        </mover>
+        <mn> 4 </mn>
+        <mn> 5 </mn>
+    </mfenced>
+</math>
+\stopbuffer
+
+\typebuffer[test-1][option=xml] \blank
+
+\xmlprocessbuffer{test}{test-1}{}
+
+\stopTEXpage
+
+\stoptext

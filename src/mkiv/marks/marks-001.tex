@@ -1,0 +1,100 @@
+\starttext
+
+\startsetups[header]
+    first=(
+    \getmarking[chapter]   [first]/
+    \getmarking[section]   [first]/
+    \getmarking[subsection][first])
+    \quad
+    first:nocheck=(
+    \getmarking[chapter]   [first:nocheck]/
+    \getmarking[section]   [first:nocheck]/
+    \getmarking[subsection][first:nocheck])
+\stopsetups
+
+\startsetups[footer]
+    last=(
+    \getmarking[chapter]   [last]/
+    \getmarking[section]   [last]/
+    \getmarking[subsection][last])
+    \quad
+    last:nocheck=(
+    \getmarking[chapter]   [last:nocheck]/
+    \getmarking[section]   [last:nocheck]/
+    \getmarking[subsection][last:nocheck])
+\stopsetups
+
+\setupheadertexts[\setups{header}]
+\setupfootertexts[\setups{footer}]
+
+% \setuphead[chapter][marking=page] % default
+
+\chapter   {One}     x
+\section   {Alpha}   x
+\subsection{First}   x
+\subsection{Second}  x
+\section   {Beta}    x
+
+\chapter   {Two}     x
+\section   {Gamma}   x
+\section   {Delta}   x
+\subsection{Third}   x
+\subsection{Fourth}  x
+
+\page  \resetmarking[chapter]
+
+\startsetups[footer]
+    first=(\getmarking[mymark][first])
+    \quad
+    last=(\getmarking[mymark][last])
+\stopsetups
+
+\definemarking[mymark]
+
+\starttabulate
+\NC \marking[mymark]{tufte} tufte \NC \input tufte \NC \NR
+\NC \marking[mymark]{tufte} tufte \NC \input tufte \NC \NR
+\NC \marking[mymark]{knuth} knuth \NC \input knuth \NC \NR
+\NC \marking[mymark]{knuth} knuth \NC \input knuth \NC \NR
+\NC \marking[mymark]{ward}  ward  \NC \input ward  \NC \NR
+\NC \marking[mymark]{ward}  ward  \NC \input ward  \NC \NR
+\stoptabulate
+
+\page
+
+\definemarking[boxmark]
+
+\setbox0\ruledvbox{
+    \marking[boxmark]{tufte} \input tufte \par
+    \marking[boxmark]{ward}  \input ward  \par
+}
+
+\synchronizemarking[zerobox][0] \box0
+
+(\getmarking[boxmark][zerobox][first],\getmarking[boxmark][zerobox][last])
+
+\page
+
+\startsetups header
+    \getmarking[chapter][first:nocheck]/
+    \getmarking[chapter][page][first:nocheck]/
+    \getmarking[chapter][column:first][first:nocheck]/
+    \getmarking[chapter][column:1][first:nocheck]/
+    \getmarking[chapter][1][first:nocheck]
+\stopsetups
+
+\startcolumnset
+    \chapter{Columnset}
+    \input tufte \par
+    \input zapf \par
+\stopcolumnset
+
+\page
+
+\startcolumns
+    \chapter{Columns}
+    \input tufte \par
+    \input zapf \par
+\stopcolumns
+
+\stoptext

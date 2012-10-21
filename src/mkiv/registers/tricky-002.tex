@@ -1,0 +1,21 @@
+% \enabletrackers[sorters.tests]
+
+\setuplayout[topspace=1cm,height=middle]
+
+\setupbodyfont[dejavu,11pt]
+
+\starttext
+
+\subject{before : Oo Öo oo öo} \placeregister[index][language=en,method=before] \par
+\subject{after  : oo öo Oo Öo} \placeregister[index][language=en,method=after]  \par
+\subject{first  : Oo oo Öo öo} \placeregister[index][language=en,method=last]   \par
+\subject{last   : oo Oo öo Öo} \placeregister[index][language=en,method=first]  \par
+
+\dorecurse {3} {
+    \page \recurselevel:
+        \index{boo} \index{Boo} \index{BOo} \index{bOo} \index{bõö} \index{bõo} \index{boö}
+        \index{oo}  \index{öo}  \index{Oo}  \index{Öo}
+    done
+}
+
+\stoptext

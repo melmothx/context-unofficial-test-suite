@@ -1,0 +1,15 @@
+% images from imagemagick suite
+
+\starttext
+
+\startbuffer
+\startMPcode
+    draw externalfigure "mask-001.png"
+        xsized 10cm
+        withmask "mask-002.png" ;
+\stopMPcode
+\stopbuffer
+
+\typebuffer \getbuffer
+
+\stoptext

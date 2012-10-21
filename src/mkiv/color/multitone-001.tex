@@ -1,0 +1,20 @@
+\nopdfcompression
+
+\definecolor         [xcyan]   [c=1]
+\definecolor         [xmagenta][m=1]
+\definecolor         [xyellow] [y=1]
+
+\definespotcolor     [scyan]   [xcyan]   [p=1]
+\definespotcolor     [smagenta][xmagenta][p=1]
+\definespotcolor     [syellow] [xyellow] [p=1]
+
+\definemultitonecolor[scombi]  [xcyan=.2,xmagenta=.4,xyellow=.6][c=.2,m=.4,y=.6]
+
+\startTEXpage
+    \hbox \bgroup
+        \blackrule[color=scyan,   width=1cm,height=1cm,depth=0cm]%
+        \blackrule[color=smagenta,width=1cm,height=1cm,depth=0cm]%
+        \blackrule[color=syellow, width=1cm,height=1cm,depth=0cm]%
+        \blackrule[color=scombi,  width=1cm,height=1cm,depth=0cm]%
+    \egroup
+\stopTEXpage

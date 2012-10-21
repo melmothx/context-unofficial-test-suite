@@ -1,0 +1,38 @@
+\nopdfcompression
+
+\setupinteraction[state=start]
+
+\defineinteraction[mine][color=blue]
+
+\setupbodyfont[palatino]
+
+\definecolor[MyRed][r=1,t=.5,a=1]
+
+\starttext
+    \startTEXpage[offset=2cm]
+
+        1\attachment[\jobname.tex]
+        2\attachment[file=\jobname.tex,color=MyRed]
+        3\attachment[file=\jobname.tex,symbol=x]
+        4\attachment[file=\jobname.tex,method=hidden]
+
+        \startinteraction[mine]
+            5\attachment[name=newname,file=\jobname.tex]
+        \stopinteraction
+
+        6\attachment[title=mytitle,name=newname,file=\jobname.tex]
+
+        \definesymbol[MyAttachment][attached]
+        7\startattachment[symbol=MyAttachment,author=SomeAuthor,title=SomeTitle]
+            some text here
+        \stopattachment
+
+        \startbuffer[MyBuffer]
+            some more text here
+        \stopbuffer
+
+        8\attachment[buffer=MyBuffer]
+
+
+    \stopTEXpage
+\stoptext

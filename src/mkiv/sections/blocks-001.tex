@@ -1,0 +1,29 @@
+\defineenumeration [exercise]
+\defineenumeration [solution]
+
+\defineblock[exercise]
+\defineblock[solution]
+\hideblocks[solution]
+
+\starttext
+
+\section{Exercises}
+
+\startexercise
+    Exercise one.
+
+\stopexercise
+
+\beginsolution
+    \startsolution
+        Solution one.
+    \stopsolution
+\endsolution
+
+\section{Solutions}
+
+\resetcounter[solution]
+
+\useblocks[solution]
+
+\stoptext

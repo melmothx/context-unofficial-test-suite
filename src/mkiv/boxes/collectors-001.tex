@@ -1,0 +1,25 @@
+\starttext
+
+\definecollector[test]
+
+\setcollector[test]
+  [location=rb]
+  {\externalfigure[koe][frame=on,width=3cm]}
+
+\setcollector[test]
+  [corner={right,bottom},location={left,top}]
+  {\framed{gans}}
+
+\setcollector[test]
+  [corner={left,top},location={right,bottom}]
+  {\framed{gans}}
+
+\composedcollector{test}
+
+\collectedtext
+  [rotation=90,corner={right,bottom},location={right,top}]
+  [frame=on,offset=0pt]
+  {gans}
+  {\externalfigure[koe][width=3cm]}
+
+\stoptext

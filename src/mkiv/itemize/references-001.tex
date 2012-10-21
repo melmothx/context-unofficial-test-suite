@@ -1,0 +1,18 @@
+\setupitemgroup[itemize][1][n]
+\setupitemgroup[itemize][2][a]
+
+\starttext
+
+\startitemize
+    \startitem One
+        \startitemize
+            \item First
+            \item[second] Second
+        \stopitemize
+    \stopitem
+    \startitem Two \stopitem
+\stopitemize
+
+In \in[second] we \unknown
+
+\stoptext

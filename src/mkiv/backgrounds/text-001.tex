@@ -1,0 +1,44 @@
+% example by Armin Varmaz
+
+\setupnarrower[right=-1.0cm,left=-1.0cm] % this is the testcase
+
+\definetextbackground[zhu]
+  [location=paragraph,
+   background=color,backgroundcolor=orange,
+   leftoffset=0.5\bodyfontsize,
+   rightoffset=.5\bodyfontsize,
+   topoffset=.5\bodyfontsize,
+   bottomoffset=.5\bodyfontsize,
+   before={\startnarrower[left,right]},
+   after={\stopnarrower},
+   frame=off]
+
+\startsetups important:start
+    \starttextbackground[zhu]
+\stopsetups
+
+\startsetups important:stop
+    \endgraf
+    \stoptextbackground
+\stopsetups
+
+\definestartstop
+  [important]
+  [before=\setups{important:start},
+   after=\setups{important:stop}]
+
+\starttext
+
+\dorecurse{1}{\input knuth\endgraf}
+
+\startimportant \dorecurse{2}{\input bryson\endgraf} \stopimportant
+
+\dorecurse{1}{\input knuth\endgraf}
+
+\startimportant \dorecurse{3}{\input bryson\endgraf} \stopimportant
+
+\dorecurse{1}{\input knuth\endgraf}
+
+\startimportant \input bryson\endgraf \stopimportant
+
+\stoptext

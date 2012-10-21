@@ -1,0 +1,40 @@
+% Author  : Hans Hagen
+% Comment : xml ends up in the tuc file
+
+% \enabletrackers[structures.processors]
+
+\setupstructurehead[chapter][expansion=xml]
+
+\startxmlsetups xml:demo:define:base
+    \xmlsetsetup{#1}{document|section|p|b|i}{xml:demo:*}
+\stopxmlsetups
+
+\xmlregisterdocumentsetup{*}{xml:demo:define:base}
+
+\startxmlsetups xml:demo:document
+    \title{Contents}
+    \placelist[chapter]
+    \page
+    \xmlflush{#1}
+\stopxmlsetups
+
+\startxmlsetups xml:demo:section
+    \chapter{\xmltext{#1}{/title}}
+    \xmlfirst{#1}{/content}
+\stopxmlsetups
+
+\startxmlsetups xml:demo:p
+    \xmlflush{#1}\endgraf
+\stopxmlsetups
+
+\startxmlsetups xml:demo:b
+    \bgroup\bf\xmlflush{#1}\egroup
+\stopxmlsetups
+
+\startxmlsetups xml:demo:i
+    \bgroup\it\xmlflush{#1}\egroup
+\stopxmlsetups
+
+\starttext
+    \xmlprocessfile{demo}{sections-xml-001.xml}{}
+\stoptext

@@ -1,0 +1,16 @@
+% Author  : Peter Munster
+% Comment : special catcodes in titles
+
+\unprotect
+
+\def\bla@bla{sec title}
+
+\def\mySection{\section{\bla@bla}} % better use proper labels
+
+\protect
+
+\setuphead[section][catcodes=prtcatcodes]
+
+\starttext
+    \mySection bla bla
+\stoptext

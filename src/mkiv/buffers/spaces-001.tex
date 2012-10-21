@@ -1,0 +1,25 @@
+\enabletrackers[buffers.grab]
+
+\starttext
+
+\definebuffer[test]
+
+\unexpanded\def\stoptest{“\ctxcommand{getbuffer("\currentdefinedbuffer")}”}
+
+\starttest TEST\stoptest
+
+\starttest TEST \stoptest
+
+\starttest TEST
+TEST \stoptest
+
+\unexpanded\def\stoptest{“\ctxlua{context(buffers.getcontent("\currentdefinedbuffer"))}”}
+
+\starttest TEST\stoptest
+
+\starttest TEST \stoptest
+
+\starttest TEST
+TEST \stoptest
+
+\stoptext

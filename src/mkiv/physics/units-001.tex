@@ -1,0 +1,18 @@
+\defineunit[textunit][alternative=text]
+\defineunit[cunit]   [alternative=text,color=darkred]
+
+\starttext
+
+test \unit{kilo meter per second} test
+
+test \unit{cubic meter per second} test
+
+test $10 \unit{cubic meter per second}$ test
+
+test $10 \textunit{cubic meter per second}$ test
+
+test $10 \cunit{cubic meter per second}$ test
+
+test \cunit{10 cubic meter per second} test
+
+\stoptext

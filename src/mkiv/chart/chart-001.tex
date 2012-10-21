@@ -1,0 +1,74 @@
+\usemodule [chart]
+
+\setupFLOWcharts[dx=1cm,dy=2cm]
+
+\startFLOWchart [mychart]
+	\startFLOWcell
+		\name                {foo}
+		\location            {2,1}
+		\shape               {action}
+		\text                {Foo 1,1}
+		\connection [ll]     {bar 4}
+        \comment    [lt]     {\blue LT}
+        \comment    [lb]     {\blue LB}
+        \comment    [rt]     {\blue RT}
+        \comment    [rb]     {\blue RB}
+        \comment    [tl:*]   {\green TL:*}
+        \comment    [tr:*]   {\green TR:*}
+        \comment    [bl:*]   {\green BL:*}
+        \comment    [br:*]   {\green BR:*}
+        \comment    [tl:0.2] {\green TL:0.2}
+        \comment    [tr:0.2] {\green TR:0.2}
+        \comment    [bl:0.2] {\green BL:0.2}
+        \comment    [br:0.2] {\green BR:0.2}
+        \connection [tr]     {foo}
+        \comment    [tl]     {\red TL}
+        \comment    [tr]     {\red TR}
+        \comment    [bl]     {\red BL}
+        \comment    [br]     {\red BR}
+    \stopFLOWcell
+    \startFLOWcell
+        \name                {bar 4}
+        \location            {2,3}
+        \shape               {action}
+        \text                {Bar 4}
+        \exit       [t]      {ET}
+        \exit       [b]      {EB}
+        \exit       [l]      {EL}
+        \exit       [r]      {ER}
+    \stopFLOWcell
+    \startFLOWcell
+        \name                {bar 4l}
+        \location            {1,3}
+    \stopFLOWcell
+    \startFLOWcell
+        \name                {bar 4r}
+        \location            {3,3}
+    \stopFLOWcell
+    \startFLOWcell
+        \name                {bar 4t}
+        \location            {2,2}
+        \label      [tr]     {tr}
+        \label      [t]      {t}
+        \label      [tl]     {tl}
+        \label      [br]     {br}
+        \label      [b]      {b}
+        \label      [bl]     {bl}
+        \label      [lb]     {lb}
+        \label      [l]      {l}
+        \label      [lt]     {lt}
+        \label      [rb]     {rb}
+        \label      [r]      {r}
+        \label      [rt]     {rt}
+    \stopFLOWcell
+    \startFLOWcell
+        \name                {bar 4b}
+        \location            {2,4}
+        \text                {first}
+        \text                {second}
+    \stopFLOWcell
+\stopFLOWchart
+
+\startTEXpage
+	\FLOWchart [mychart][offset=2cm]
+\stopTEXpage

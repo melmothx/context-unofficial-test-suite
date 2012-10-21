@@ -1,0 +1,16 @@
+% \enabletrackers[graphics.floats]
+
+\setuplayout[grid=yes]
+
+\starttext
+
+\startcolumns
+    \dorecurse{10}{
+        \input tufte
+        \placefigure{\recurselevel:1}{\recurselevel:1}
+        \placefigure{\recurselevel:2}{\recurselevel:2}
+        \placefigure{\recurselevel:3}{\recurselevel:3}
+    }
+\stopcolumns
+
+\stoptext

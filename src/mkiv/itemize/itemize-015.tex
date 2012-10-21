@@ -1,0 +1,33 @@
+\starttext
+
+\startluacode
+    function itemize(n)
+        if n > 0 then
+            context.startitemize()
+            for i=1,n do
+                context.startitem()
+                    context("whatever")
+                    if i == 1 then
+                        itemize(n-1)
+                    end
+                context.stopitem()
+            end
+            context.stopitemize()
+        end
+    end
+\stopluacode
+
+\setupitemgroup[itemize][each][n]
+
+\startluacode
+    itemize(10)
+\stopluacode
+
+\setupitemgroup[itemize][levels=10]
+\setupitemgroup[itemize][each][a]
+
+\startluacode
+    itemize(10)
+\stopluacode
+
+\stoptext

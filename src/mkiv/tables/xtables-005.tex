@@ -1,0 +1,52 @@
+\startbuffer[test]
+<table>
+    <tablerow>
+        <tablecell>
+            One
+        </tablecell>
+        <tablecell>
+            Two
+        </tablecell>
+    </tablerow>
+    <tablerow>
+        <tablecell>
+            <b>Three</b>
+        </tablecell>
+        <tablecell>
+            Four
+        </tablecell>
+    </tablerow>
+</table>
+\stopbuffer
+
+\startxmlsetups xml:testsetups
+    \xmlsetsetup{main}{b|table|tablerow|tablecell}{xml:*}
+\stopxmlsetups
+
+\xmlregistersetup{xml:testsetups}
+
+\startxmlsetups xml:b
+    \bold{\xmlflush{#1}}
+\stopxmlsetups
+
+\startxmlsetups xml:table
+    \startembeddedxtable
+        \xmlflush{#1}
+    \stopembeddedxtable
+\stopxmlsetups
+
+\startxmlsetups xml:tablerow
+    \startxrow
+        \xmlflush{#1}
+    \stopxrow
+\stopxmlsetups
+
+\startxmlsetups xml:tablecell
+    \startxcell
+        \xmlflush{#1}
+    \stopxcell
+\stopxmlsetups
+
+\starttext
+    \xmlprocessbuffer{main}{test}{}
+\stoptext

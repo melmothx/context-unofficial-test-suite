@@ -1,0 +1,31 @@
+\startluacode
+
+local classes = fonts.protrusions.classes
+local vectors = fonts.protrusions.vectors
+
+classes.myown = {
+    vector = 'myown',
+    factor = 1,
+}
+
+vectors.myown = table.merged (vectors.quality, {
+
+    [0x002C] = { 0, 2 }, -- comma
+
+})
+
+\stopluacode
+
+\starttext
+
+\showframe
+
+\definefontfeature[whatever][default][protrusion=quality]
+
+\definedfont[Serif*whatever] \setupalign[hanging] \input tufte
+
+\definefontfeature[whatever][default][protrusion=myown]
+
+\definedfont[Serif*whatever] \setupalign[hanging] \input tufte
+
+\stoptext

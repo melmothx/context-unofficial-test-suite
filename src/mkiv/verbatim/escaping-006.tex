@@ -1,0 +1,139 @@
+% \enabletrackers[buffers.visualize,structures.processors]
+
+\starttext
+
+\setuptyping[escape=/,color=darkred]
+
+\starttyping
+bla = test               /bgroup /sl oeps /egroup
+                         /bgroup /bf some more /egroup
+    | test
+    | somethingverylong  /bgroup /it oeps /egroup
+\stoptyping
+
+\setuptyping[escape={//,*},color=darkred,escapecommand=\black // \cmt]
+
+\definestartstop[cmt][style=\rm\bf]
+
+\starttyping
+bla = test               // \black // \cmt{oeps} *
+                         // \black // \cmt{some more} *
+    | test
+    | somethingverylong  // \black // \cmt{oeps} *
+\stoptyping
+
+\setuptyping[escape={//,},color=darkred,escapecommand=\black // \cmt]
+
+\definestartstop[cmt][style=\rm\bf]
+
+\starttyping
+bla = test               // \black // \cmt{oeps}
+                         // \black // \cmt{some more}
+    | test
+    | somethingverylong  // \black // \cmt{oeps}
+\stoptyping
+
+\definestartstop[cmt][color=black,style=\black //\rm\bf\space]
+
+\starttyping
+bla = test               // \cmt{oeps}
+                         // \cmt{some more}
+    | test
+    | somethingverylong  // \cmt{oeps}
+\stoptyping
+
+\defineprocessor[escape][style=bold,color=black,left=(,right=)]
+
+\setuptyping[escape=escape->{//,},color=darkred]
+
+\starttyping
+bla = test               // first
+                         // second
+    | test
+    | somethingverylong  // fourth
+\stoptyping
+
+\defineprocessor[escape][style=bold,color=black,left=(,right=)]
+
+\setuptyping[escape={<<,>>},color=darkred]
+
+\starttyping
+bla = test               << \rm\bf first  >> test
+                         << \rm\bf second >> test
+    | test
+    | somethingverylong  << \rm\bf fourth >> test
+\stoptyping
+
+\defineprocessor[escape][style=\rm\tf,color=black,left=,right=]
+
+\setuptyping[escape=escape->{\letterhash\letterhash,},color=darkred]
+
+\starttyping
+bla = test               ## first \bf test
+                         ## second \sl test
+    | test
+    | somethingverylong  ## third \it test
+\stoptyping
+
+\defineprocessor[escape_a][style=bold,color=darkblue,left=(,right=)]
+\defineprocessor[escape_b][style=bold,color=darkgreen,left=(,right=)]
+
+% multiple escapes
+
+% \setuptyping[escape={escape_a->{[[,]]},escape_b->{[(,)]}},color=darkred]
+\setuptyping[escape=escape_a->{[[,]]},color=darkred]
+
+\starttyping
+bla = test               [[ first  ]] test
+                         [[ second ]] test
+    | test
+    | somethingverylong  [[ fourth ]] test
+\stoptyping
+
+\defineprocessor[comment][style=\rm,color=black,left={\tttf\letterpercent\space}]
+
+\setuptyping[escape=comment->{\letterpercent\letterpercent,},color=darkred]
+
+\starttyping
+bla = test               %% first \bf test
+                         %% second \sl test
+    | test
+    | somethingverylong  %% third \it test
+\stoptyping
+
+\defineprocessor[escape_a][style=bold,color=darkblue, left=(,right=)]
+\defineprocessor[escape_b][style=bold,color=darkgreen,left=(,right=)]
+
+\setuptyping[escape={escape_a->{[[,]]},escape_b->{[(,)]}},color=darkred]
+
+\starttyping
+bla = test               [[ first  ]] test [( first  )]
+                         [[ second ]] test [( second )]
+    | test
+    | somethingverylong  [[ fourth ]] test [( fourth )]
+\stoptyping
+
+\setuptyping[escape={//,*},color=darkred]
+
+\definestartstop[cmt][style=\rm\bf]
+
+\starttyping
+bla = test               // \black // \cmt{oeps} *
+                         // \black // \cmt{some more} *
+    | test
+    | somethingverylong  // \black // \cmt{oeps} *
+\stoptyping
+
+
+\setuptyping[escape={{!!,},{//,}},color=darkred,escapecommand=\black // \cmt]
+
+\definestartstop[cmt][style=\rm\bf]
+
+\starttyping
+bla = test               // \rmbf one
+                         !! \rmbf two
+    | test
+    | somethingverylong  // \rmbf three
+\stoptyping
+
+\stoptext

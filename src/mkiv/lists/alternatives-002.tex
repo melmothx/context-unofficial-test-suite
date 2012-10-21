@@ -1,0 +1,19 @@
+\setuplist
+  [section]
+  [alternative=MyListItem,
+   after=\blank,
+   before=\blank]
+
+\definelistplacement[MyListItem][command]#1#2#3{(#1) (#2) (#3)\par}
+
+\definecombinedlist[whatever][chapter,section]
+
+\starttext
+
+    \placecombinedlist[whatever]
+
+    \chapter{test}
+
+    \section{test}
+
+\stoptext

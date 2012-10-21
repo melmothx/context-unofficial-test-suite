@@ -1,0 +1,57 @@
+\usemodule[art-01]
+
+\showframe
+
+\enabletrackers[typesetters.margindata,typesetters.margindata.stack]
+
+\starttext
+
+\inleft{TEST 1}abcdefg
+
+\inright{TEST 2}abcdefg
+
+\vbox {
+    \inright{TEST 2}abcdefg
+}
+
+\startlinecorrection
+\startcombination[2*2]
+    {abcdefg\inleft[stack=yes]{TEST 3}hijklm} {test 3}
+    {abcdefg\inleft[stack=yes]{TEST 4}hijklm} {test 4}
+\stopcombination
+\stoplinecorrection
+
+\startlinecorrection
+\startcombination[2*2]
+    {abcdefghijklm} {test 5\inright[scope=local,stack=yes]{TEST 5}}
+    {abcdefghijklm} {test 6\inright[scope=local,stack=yes]{TEST 6}}
+\stopcombination
+\stoplinecorrection
+
+\startlinecorrection
+\startcombination[2*2]
+    {abcdefg\inright[scope=local,hoffset=4cm,stack=yes]{TEST 5}hijklm} {test 5}
+    {abcdefg\inright[scope=local,hoffset=4cm,stack=yes]{TEST 6}hijklm} {test 6}
+\stopcombination
+\stoplinecorrection
+
+\startlinecorrection
+\startcombination[2*2]
+    {abcdefg\inleft[scope=global,stack=yes]{TEST 7}hijklm} {test 7}
+    {abcdefg\inleft[scope=global,stack=yes]{TEST 8}hijklm} {test 8}
+\stopcombination
+\stoplinecorrection
+
+\startlinecorrection
+\startcombination[2*2]
+    {abcdefg\inleft[stack=yes]{TEST 9}hijklm} {test 9}
+    {abcdefg\inleft[stack=yes]{TEST 0}hijklm} {test 0}
+\stopcombination
+\stoplinecorrection
+
+\starttabulate
+\NC test \NC \inleftmargin{test} test \NC \NR
+\NC test \NC \inrightmargin{test} test \NC \NR
+\stoptabulate
+
+\stoptext

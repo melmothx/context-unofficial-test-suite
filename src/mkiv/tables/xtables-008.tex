@@ -1,0 +1,54 @@
+\setupwhitespace[big]
+
+\starttext
+
+\startbuffer
+\blank
+
+Span aan het begin:
+
+\bTABLE
+\bTABLEbody
+\bTR \bTD[nr=2] Span over two rows \eTD \bTD Cell 1 B \eTD \bTD Cell 1 C \eTD \eTR
+\bTR                                    \bTD Cell 2 B \eTD \bTD Cell 2 C \eTD \eTR
+\eTABLEbody
+\eTABLE
+
+\blank
+
+Span in het midden:
+
+\blank
+
+\bTABLE
+\bTABLEbody
+\bTR \bTD Cell 1 A \eTD \bTD[nr=2] Span over two rows \eTD \bTD Cell 1 C \eTD \eTR
+\bTR \bTD Cell 2 A \eTD                                    \bTD Cell 2 C \eTD \eTR
+\eTABLEbody
+\eTABLE
+
+\blank
+
+Span aan het eind:
+
+\blank
+
+\bTABLE
+\bTABLEbody
+\bTR \bTD Cell 1 A \eTD \bTD Cell 1 B \eTD \bTD[nr=2] Span over two rows \eTD \eTR
+\bTR \bTD Cell 2 A \eTD \bTD Cell 2 B \eTD                                    \eTR
+\eTABLEbody
+\eTABLE
+
+\blank
+\stopbuffer
+
+\subject{Met ntb}
+
+\getbuffer
+
+\subject{Met ntb-to-xtb}
+
+\getbuffer
+
+\stoptext

@@ -1,0 +1,14 @@
+\starttext
+
+\definelow       [MyLow]   [style=\txx]
+\definehigh      [MyHigh]  [style=\txx]
+\definelowhigh   [MyLoHi]  [style=\txx]
+\definelowmidhigh[MyLoMiHi][style=\txx]
+
+We have
+    \ruledhbox{\low         {L}} and \ruledhbox{\MyLow         {L}} and
+    \ruledhbox{\high        {H}} and \ruledhbox{\MyHigh        {H}} and
+    \ruledhbox{\lohi     {L}{H}} and \ruledhbox{\MyLoHi     {L}{H}} and
+    \ruledhbox{\lomihi{L}{M}{H}} and \ruledhbox{\MyLoMiHi{L}{M}{H}}.
+
+\stoptext

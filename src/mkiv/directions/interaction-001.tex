@@ -1,0 +1,40 @@
+\setuppapersize[S6][S8] \showframe
+
+\setupheadertexts[left][right]
+
+\setuplayout[rightedge=3cm,rightmargin=30pt,leftmargin=30pt,leftedge=2cm,location=middle,height=middle]
+
+\startinteractionmenu[right] \but [page(1)]test \\ \but [page(2)]test \\ \stopinteractionmenu
+
+\setupinteraction[state=start,menu=on]
+
+\starttext
+
+    \inleft{left}xxx\inright{right}xxx
+
+    test test test \inleft{xxx}test test test
+
+
+    test {\textdir TRT \goto{HERE1}[page(1)] x} test \par
+    test {\textdir TRT \goto{HERE2}[page(1)] x} test \par
+    test \goto{\textdir TRT HERE3}[page(2)] test \par
+    test \goto{HERE \textdir TLT HERE}[page(2)] test \par
+    test \goto{HERE \textdir TRT HERE}[page(2)] test \par
+    test \goto{HERE {\textdir TRT HERE}}[page(2)] test \par
+    test \goto{HERE {\textdir TRT HERE} HERE}[page(2)] test \par
+
+    oeps \footnote{oeps} oeps
+
+    \righttoleft
+
+    \inleft{left}zzz\inright{right}zzz
+
+    oeps \footnote{oeps}
+
+    \chapter{first}  test \goto{HERE}[page(2)] test \goto{\input tufte\relax}[page(2)] \page
+    \chapter{second} test \goto{HERE}[page(1)] test \goto{\input tufte\relax}[page(1)] \page
+
+    \placefigure[left]{}{}
+
+\stoptext
+

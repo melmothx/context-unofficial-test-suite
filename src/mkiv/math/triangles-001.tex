@@ -1,0 +1,29 @@
+\setuplayout[header=0pt,footer=0pt,height=middle,width=middle]
+\setupbodyfont[dejavu,10pt]
+
+\startbuffer
+\starttabulate[|||pT|]
+\HL
+\NC \type{\blacktriangle     } \NC \blacktriangle      \NC \meaning\blacktriangle      \NC \NR
+\NC \type{\blacktriangledown } \NC \blacktriangledown  \NC \meaning\blacktriangledown  \NC \NR
+\NC \type{\blacktriangleleft } \NC \blacktriangleleft  \NC \meaning\blacktriangleleft  \NC \NR
+\NC \type{\blacktriangleright} \NC \blacktriangleright \NC \meaning\blacktriangleright \NC \NR
+\HL
+\NC \type{\triangle     }      \NC \triangle           \NC \meaning\triangle           \NC \NR
+\NC \type{\bigtriangleup}      \NC \bigtriangleup      \NC \meaning\bigtriangleup      \NC \NR
+\NC \type{\triangledown }      \NC \triangledown       \NC \meaning\triangledown       \NC \NR
+\NC \type{\bigtriangledown}    \NC \bigtriangledown    \NC \meaning\bigtriangledown    \NC \NR
+\NC \type{\triangleleft }      \NC \triangleleft       \NC \meaning\triangleleft       \NC \NR
+\NC \type{\triangleright}      \NC \triangleright      \NC \meaning\triangleright      \NC \NR
+\HL
+\stoptabulate
+\stopbuffer
+
+\starttext
+
+\switchtobodyfont[modern-designsize] \subject{modern-designsize} \getbuffer \blank
+\switchtobodyfont[modern]            \subject{modern}            \getbuffer \blank
+\switchtobodyfont[xits]              \subject{xits}              \getbuffer \blank
+\switchtobodyfont[pagella]           \subject{pagella}           \getbuffer \blank
+
+\stoptext

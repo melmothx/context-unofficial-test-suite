@@ -1,0 +1,16 @@
+\definecolor[tcolor_a][c=1,a=1,t=0.6]
+\definecolor[tcolor_b][m=1,a=1,t=0.6]
+\definecolor[tcolor_c][y=1,a=1,t=0.6]
+
+\startMPpage
+    property p ; p = properties(withcolor (1,1,0,1)) ;
+    fill fullcircle scaled 20cm withproperties p ;
+
+    def myoptions_a = \MPoptions{tcolor_a} enddef ;
+    def myoptions_b = \MPoptions{tcolor_b} enddef ;
+    def myoptions_c = \MPoptions{tcolor_c} enddef ;
+    fill unitcircle scaled 20cm shifted (-10cm,0) rotated   0 myoptions_a ;
+    fill unitcircle scaled 20cm shifted (-10cm,0) rotated 120 myoptions_b ;
+    fill unitcircle scaled 20cm shifted (-10cm,0) rotated 240 myoptions_c ;
+\stopMPpage
+

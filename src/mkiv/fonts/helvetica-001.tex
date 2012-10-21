@@ -1,0 +1,59 @@
+\enabletrackers[fonts.defining]
+
+\starttext
+
+    \starttyping
+    helveticaneue   medium       normal   normal      helveticaneuemedium             HelveticaNeue.ttc   index:  0
+    helveticaneue   bold         normal   condensed   helveticaneuecondensedbold      HelveticaNeue.ttc   index:  1
+    helveticaneue   black        normal   condensed   helveticaneuecondensedblack     HelveticaNeue.ttc   index:  2
+    helveticaneue   ultralight   italic   thin        helveticaneueultralightitalic   HelveticaNeue.ttc   index:  3   conflict: thin
+    helveticaneue   ultralight   normal   thin        helveticaneueultralight         HelveticaNeue.ttc   index:  4   conflict: thin
+    helveticaneue   light        italic   normal      helveticaneuelightitalic        HelveticaNeue.ttc   index:  5
+    helveticaneue   light        normal   normal      helveticaneuelight              HelveticaNeue.ttc   index:  6
+    helveticaneue   bold         italic   normal      helveticaneuebolditalic         HelveticaNeue.ttc   index:  7
+    helveticaneue   normal       italic   normal      helveticaneueitalic             HelveticaNeue.ttc   index:  8   conflict: book
+    helveticaneue   bold         normal   normal      helveticaneuebold               HelveticaNeue.ttc   index:  9
+    helveticaneue   normal       normal   normal      helveticaneue                   HelveticaNeue.ttc   index: 10   conflict: book
+    helveticaneue   normal       normal   condensed   helveticaneuecondensed          hlc_____.afm                    conflict: roman
+    helveticaneue   bold         normal   condensed   helveticaneueboldcond           hlbc____.afm
+    helveticaneue   black        normal   normal      helveticaneueblackcond          hlzc____.afm                    conflict: normal
+    helveticaneue   black        normal   normal      helveticaneueblack              hlbl____.afm                    conflict: normal
+    helveticaneue   normal       normal   normal      helveticaneueroman              lt_50259.afm                    conflict: regular
+    \stoptyping
+
+    \starttabulate[|cT|T|l|]
+    \NC 0  \NC name:helveticaneue(medium)         \NC \definedfont[name:helveticaneue(medium)]         Helvetica Neue Medium            \NC \NR
+    % \NC 0  \NC name:helveticaneuemedium           \NC \definedfont[name:helveticaneuemedium]           Helvetica Neue Medium            \NC \NR
+    % \NC 1  \NC name:helveticaneuecondensedbold    \NC \definedfont[name:helveticaneuecondensedbold]    Helvetica Neue Condensed Bold    \NC \NR
+    % \NC 2  \NC name:helveticaneuecondensedblack   \NC \definedfont[name:helveticaneuecondensedblack]   Helvetica Neue Condensed Black   \NC \NR
+    % \NC 3  \NC name:helveticaneueultralightitalic \NC \definedfont[name:helveticaneueultralightitalic] Helvetica Neue UltraLight Italic \NC \NR
+    % \NC 4  \NC name:helveticaneueultralight       \NC \definedfont[name:helveticaneueultralight]       Helvetica Neue UltraLight        \NC \NR
+    % \NC 5  \NC name:helveticaneuelightitalic      \NC \definedfont[name:helveticaneuelightitalic]      Helvetica Neue Light Italic      \NC \NR
+    % \NC 6  \NC name:helveticaneuelight            \NC \definedfont[name:helveticaneuelight]            Helvetica Neue Light             \NC \NR
+    % \NC 7  \NC name:helveticaneuebolditalic       \NC \definedfont[name:helveticaneuebolditalic]       Helvetica Neue Bold Italic       \NC \NR
+    % \NC 8  \NC name:helveticaneueitalic           \NC \definedfont[name:helveticaneueitalic]           Helvetica Neue Italic            \NC \NR
+    % \NC 9  \NC name:helveticaneuebold             \NC \definedfont[name:helveticaneuebold]             Helvetica Neue Bold              \NC \NR
+    % \NC 10 \NC name:helveticaneue                 \NC \definedfont[name:helveticaneue]                 Helvetica Neue                   \NC \NR
+    \stoptabulate
+
+\stoptext
+
+
+
+
+
+define font    : name:helveticaneue(medium) -> lookup: name, name: helveticaneue, sub: medium, method: -, detail: -
+!define font    : memory usage before: 42 MB (ctx: 43 MB)
+!define font    : loading from cache: helveticaneue-helvetica-neue
+!define font    : math disabled for: name 'HelveticaNeue', fullname: 'Helvetica Neue', filename: 'c:/data/develop/tex/texmf-fonts/fonts/data/osx/HelveticaNeue.ttc'
+!define font    : used for accesing subfont: 'HelveticaNeue'
+!define font    : used for subsetting: 'HelveticaNeue'
+!define font    : registering HelveticaNeue as ttc (used: HelveticaNeue.ttc)
+!define font    : using real font with id ?, name:c:/data/develop/tex/texmf-fonts/fonts/data/osx/HelveticaNeue.ttc size:786432 bytes:2 encoding:unicode fullname:Helvetica Neue filename:HelveticaNeue.ttc
+!define font    : loading at 2 id 45, hash: Helvetica Neue @ helveticaneue @ unknown @ 786432
+!define font    : defining helveticaneue with id 45 as \**thedefinedfont** (features: /, fallbacks: /)
+!define font    : memory usage after: 46 MB (ctx: 47 MB)
+!define font    : name:helveticaneue(medium) -> lookup: name, name: helveticaneue, sub: medium, method: -, detail: -
+!define font    : memory usage before: 46 MB (ctx: 47 MB)
+!define font    : reusing helveticaneue with id 45 as \**thedefinedfont** (features: /, fallbacks: /)
+!define font    : memory usage after: 46 MB (ctx: 47 MB)

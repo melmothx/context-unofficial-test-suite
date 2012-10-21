@@ -1,0 +1,17 @@
+\starttext
+
+\usetypescriptfile[type-ghz]
+\usetypescript[palatino-nova]
+\setupbodyfont[palatino]
+
+\showframe \setuplayout[width=8cm]
+
+\setupalign[normal,tolerant,hanging]
+
+\definefontfeature[one]  [default][]
+\definefontfeature[two]  [default][protrusion=quality]
+
+\definedfont[Serif*one]  \input tufte \par
+\definedfont[Serif*two]  \input tufte \par
+
+\stoptext

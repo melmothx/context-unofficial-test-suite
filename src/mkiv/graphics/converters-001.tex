@@ -1,0 +1,15 @@
+\startluacode
+
+figures.converters["png"] = {
+    ["lowres.png"] = function(oldname,newname,resolution)
+        os.execute(string.format('gm convert -depth 1 "%s" "%s"',oldname,newname))
+    end,
+}
+
+-- figures.suffixes["lowres.png"] = figures.suffixes.png -- suffix is automatically done
+
+\stopluacode
+
+\starttext
+    \externalfigure[mill.png][conversion=lowres.png]
+\stoptext

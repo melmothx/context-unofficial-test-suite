@@ -1,0 +1,16 @@
+
+% engine=pdftex
+
+\nopdfcompression
+
+\usemodule[tikz] \usetikzlibrary[patterns]
+
+\starttext
+
+\startTEXpage
+    \starttikzpicture
+       \draw[pattern color=red,pattern=bricks] (0,0) circle (1cm);
+    \stoptikzpicture
+\stopTEXpage
+
+\stoptext

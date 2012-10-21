@@ -1,0 +1,29 @@
+% mode=base => 485 MB
+% mode=node =>  91 MB \definefontfeature[default][default][mode=node]
+% mode=base => 200 MB \ctxlua{ fonts.tfm.share_base_kerns = true } % now gone
+% mode=base => 120 MB pass over shared from tma
+
+% \enabletrackers[otf.loading]
+
+\definefontfeature[default][default][mode=node]
+
+\starttypescript [serif] [arno]
+    \definefontsynonym [SerifBold]       [ArnoPro-Bold.otf]       [features=default]
+    \definefontsynonym [SerifBoldItalic] [ArnoPro-BoldItalic.otf] [features=default]
+    \definefontsynonym [SerifItalic]     [ArnoPro-Italic.otf]     [features=default]
+    \definefontsynonym [Serif]           [ArnoPro-Regular.otf]    [features=default]
+\stoptypescript
+
+\starttypescript [arno]
+    \definetypeface [arno] [rm] [serif] [arno] [default]
+\stoptypescript
+
+\usetypescript[arno] \setupbodyfont[arno, 11pt]
+
+\starttext
+    This is a test Voor Va VA Ty Ta Tz To oTp
+
+    So, let's see if kerning works ok. \input tufte
+
+    \rm test\par \it test\par \bf test\par \bi test\par
+\stoptext

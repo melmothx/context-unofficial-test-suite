@@ -1,0 +1,24 @@
+\setuplayout[grid=yes] \showgrid % tolerant] \showgrid
+
+\setuppapersize[S6][S6]
+
+\starttext
+
+\setuphead[chapter][after=]
+
+\definegridsnapping[MyOne]  [global,strut]
+\definegridsnapping[MyTwo]  [local,strut]
+\definegridsnapping[MyThree][global,strut,top:3]
+\definegridsnapping[MyThree][local,strut,top:3]
+
+\setuphead[chapter][grid=MyOne]   \startchapter[title={Global, Strut}]               test \par test \par test \stopchapter
+\setuphead[chapter][grid=MyTwo]   \startchapter[title={Local, Strut}]                test \par test \par test \stopchapter
+\setuphead[chapter][grid=MyThree] \startchapter[title={Global, Strut, 3 Top Lines}]  test \par test \par test \stopchapter
+\setuphead[chapter][grid=MyFour]  \startchapter[title={Local, Strut, 3 Top Lines}]   test \par test \par test \stopchapter
+
+\setuphead[chapter][grid=MyOne]   \startchapter[title={Global,\\Strut}]              test \par test \par test \stopchapter
+\setuphead[chapter][grid=MyTwo]   \startchapter[title={Local,\\Strut}]               test \par test \par test \stopchapter
+\setuphead[chapter][grid=MyThree] \startchapter[title={Global, Strut,\\3 Top Lines}] test \par test \par test \stopchapter
+\setuphead[chapter][grid=MyFour]  \startchapter[title={Local, Strut,\\3 Top Lines}]  test \par test \par test \stopchapter
+
+\stoptext

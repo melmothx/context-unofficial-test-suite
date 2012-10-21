@@ -1,0 +1,9 @@
+% test for samepage (contrastcolor)
+
+\setupinteraction[state=start]
+
+\starttext
+
+    \dorecurse{1000}{test \goto{page}[page(1)] test } \page
+
+\stoptext

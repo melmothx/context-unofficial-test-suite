@@ -1,0 +1,13 @@
+% characters.filters.utf
+
+\ctxlua{characters.filters.utf.collapsing=false}
+
+\definefontfeature[tex][mode=node,script=latn,ccmp=yes,calt=yes]
+
+\starttext
+    \showotfcomposition{file:TeXCalt.otf*tex at 20pt}{1}{TEX}
+    \page
+    \showotfcomposition{file:TeXCalt.otf*tex at 20pt}{1}{TÈX}
+    \page
+    \showotfcomposition{file:TeXCalt.otf*tex at 20pt}{1}{TÈ̀̀̀X}
+\stoptext

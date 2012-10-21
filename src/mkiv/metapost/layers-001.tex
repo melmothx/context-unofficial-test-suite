@@ -1,0 +1,27 @@
+\defineviewerlayer[rotation:30]
+\defineviewerlayer[rotation:60]
+\defineviewerlayer[rotation:90]
+
+\setupinteraction[state=start]
+
+\starttext
+
+\startTEXpage[offset=10pt]
+
+\startMPcode
+    fill fullsquare scaled 10cm rotated 30 withcolor red   withtransparency(1,.5) onlayer "rotation:30" ;
+    fill fullsquare scaled 10cm rotated 60 withcolor green withtransparency(1,.5) onlayer "rotation:60" ;
+    fill fullsquare scaled 10cm rotated 90 withcolor blue  withtransparency(1,.5) onlayer "rotation:90" ;
+\stopMPcode
+
+\blank[3*big] \midaligned \bgroup
+    \button{Toggle 30}[ToggleLayer{rotation:30}]%
+    \quad
+    \button{Toggle 60}[ToggleLayer{rotation:60}]%
+    \quad
+    \button{Toggle 90}[ToggleLayer{rotation:90}]%
+\egroup
+
+\stopTEXpage
+
+\stoptext

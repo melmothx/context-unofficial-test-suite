@@ -1,0 +1,45 @@
+context.starttext()
+
+context.framed( {
+        frame="on",
+        align="middle"
+    },
+    function() context.input("knuth") end
+)
+
+--~ context.framed( {
+--~         frame="on",
+--~         align="middle"
+--~     },
+--~     resolvers.loadtexfile("knuth.tex")
+--~ )
+
+context.placefigure(
+    "caption",
+    function()
+        context.framed( {
+            frame="on",
+            align="middle"
+        },
+            function() context.input("knuth") end
+        )
+    end
+)
+
+context.par()
+
+function text ()
+    context.framed( {
+            frame="on",
+            align="middle"
+        },
+        function() context.input("knuth") end
+    )
+end
+
+context.placefigure(
+    "none",
+    function () text() end
+)
+
+context.stoptext()

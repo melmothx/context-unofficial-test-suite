@@ -1,0 +1,39 @@
+% \enabletrackers[marks.set]
+% \enabletrackers[marks.get]
+% \enabletrackers[marks.detail]
+
+\setupheadertexts [
+    {[top      : \getmarking[section][top]]}
+    {[previous : \getmarking[section][previous]]}
+    {[first    : \getmarking[section][first]]}
+    {[last     : \getmarking[section][last]]}
+    {[next     : \getmarking[section][next]]}
+    {[bottom   : \getmarking[section][bottom]]}
+]
+
+\starttext
+
+\section{Test 11} test
+\section{Test 12} test
+\section{Test 13} test
+\section{Test 14} test
+
+\marking[section]{Test 15} oeps
+
+\page
+
+\section{Test 21} test
+\section{Test 22} test
+\section{Test 23} test
+\section{Test 24} test
+
+\marking[section]{Test 15} oeps
+
+\page
+
+\section{Test 31} test
+\section{Test 32} test
+\section{Test 33} test
+\section{Test 34} test
+
+\stoptext

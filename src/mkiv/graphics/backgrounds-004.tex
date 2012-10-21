@@ -1,0 +1,24 @@
+% there will also be a more clever mechanism some day operating at
+% a different level (not the parshape spec but the typeset par)
+
+\setupbodyfont[dejavu,10pt]
+
+\showframe
+
+\definetextbackground[mine]
+
+\starttext
+
+test\space\strut
+    \starttextbackground[mine]
+    \input ward
+    \par
+    \parshape 5 5cm 8cm 4cm 8cm 3cm 8cm 2cm 8cm 1cm 8cm
+        \input ward
+        \input ward
+    \par
+    \input ward
+    \stoptextbackground
+\strut\space test
+
+\stoptext

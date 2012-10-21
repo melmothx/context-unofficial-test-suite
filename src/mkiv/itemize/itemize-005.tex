@@ -1,0 +1,48 @@
+
+\showframe
+
+\starttext
+
+\setupitemize[start=9]
+
+\startitemize[n]
+\dorecurse{2}{\item bla \dorecurse{25}{foo }}
+\stopitemize
+
+\startitemize[n,broad]
+\dorecurse{2}{\item broad \dorecurse{25}{foo }}
+\stopitemize
+
+\startitemize[n][itemalign=flushright]
+\dorecurse{2}{\item flushright: \dorecurse{25}{foo }}
+\stopitemize
+
+\startitemize[n][itemalign=flushright,distance=1cm]
+\dorecurse{2}{\item flushright distance: \dorecurse{25}{foo }}
+\stopitemize
+
+\startitemize[n,fit]
+\dorecurse{2}{\item fit}
+\stopitemize
+
+\startitemize[n,fit][distance=1cm]
+\dorecurse{2}{\item fit distance \dorecurse{25}{foo }}
+\stopitemize
+
+\startitemize[n,fit][itemalign=flushright]
+\dorecurse{2}{\item fit flushright \dorecurse{25}{foo }}
+\stopitemize
+
+\startitemize[n,fit][itemalign=flushright,distance=1cm]
+\dorecurse{2}{\item fit flushright distance \dorecurse{25}{foo }}
+\stopitemize
+
+\startitemize[n][itemalign=flushright,width=4cm]
+\dorecurse{2}{\item width flushright \dorecurse{25}{foo }}
+\stopitemize
+
+\startitemize[n][itemalign=flushright,distance=1cm,width=4cm]
+\dorecurse{2}{\item width flushright distance \dorecurse{25}{foo }}
+\stopitemize
+
+\stoptext

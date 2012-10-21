@@ -1,0 +1,27 @@
+\starttext
+
+    \definefontfeature[test][mode=node,tlig=yes,liga=yes,kern=yes]
+
+    \startTEXpage
+        \definedfont[Serif*test]
+        \startlines
+            fiets
+            effe
+            flink
+        \stoplines
+        \definedfont[arial*test]
+        \startlines
+          1  \endash
+          2  \emdash
+          3  \char 45\char 45
+          4  \char173\char173
+          5  \char173\char 45
+          6  \char 45\char173
+          7  \char 45\char 45\char 45
+          8  \char173\char173\char173
+          9  \char173\char 45\char 45
+          0  \char 45\char173\char173
+        \stoplines
+    \stopTEXpage
+
+\stoptext

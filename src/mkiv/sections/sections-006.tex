@@ -1,0 +1,20 @@
+\starttext
+
+\placelist[chapter]
+
+% \setuphead[chapter][placehead=no]
+\setuphead[chapter][placehead=hidden]
+
+\chapter {test}
+
+% (\synchronizestructurehead{chapter}) % \getstructureheadsyncs
+% (\getfullstructurenumber{\thenamedstructureheadlevel{chapter}})
+% (\getspecificstructuretitle{\thenamedstructureheadlevel{chapter}})
+
+\blank
+
+(\placerawheaddata  [chapter])
+(\placerawheadnumber[chapter])
+(\placerawheadtext  [chapter])
+
+\stoptext

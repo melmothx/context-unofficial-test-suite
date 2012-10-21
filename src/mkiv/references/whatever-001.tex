@@ -1,0 +1,40 @@
+% example by ws
+
+\starttexdefinition ReferenceTable [#1]
+
+  \starttabulate[|l|l|]
+  \NC \bf #1   \NC                             \NC\NR
+  \TB[small]
+  \NC in       \EQ \in[#1]                     \NC\NR
+  \NC at       \EQ \at[#1]                     \NC\NR
+  \NC about    \EQ \about[#1]                  \NC\NR
+  \NC number   \EQ \getreference[number][#1]   \NC\NR
+  \NC page     \EQ \getreference[page][#1]     \NC\NR
+  \NC title    \EQ \getreference[title][#1]    \NC\NR
+  \NC text     \EQ \getreference[text][#1]     \NC\NR
+  \NC default  \EQ \getreference[default][#1]  \NC\NR
+  \NC realpage \EQ \getreference[realpage][#1] \NC\NR
+  \stoptabulate
+
+\stoptexdefinition
+
+\setupbodyfont[11pt]
+
+\starttext
+
+    \section[zero]{Zero}
+
+    \reference    [one]{First}
+    \textreference[two]{Second}
+    \pagereference[three]
+    \setreference [four][page=3,default=4,number=12,text=Fourth,title=Four]
+
+    \page
+
+    \ReferenceTable[zero]
+    \ReferenceTable[one]
+    \ReferenceTable[two]
+    \ReferenceTable[three]
+    \ReferenceTable[four]
+
+\stoptext

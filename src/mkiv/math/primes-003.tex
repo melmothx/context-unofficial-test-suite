@@ -1,0 +1,41 @@
+\startTEXpage[offset=10pt]
+
+\switchtobodyfont[modern]
+\switchtobodyfont[cambria]
+\switchtobodyfont[xits]
+\switchtobodyfont[lucidanova]
+\switchtobodyfont[palatino]
+
+\setupbodyfont[dejavu]
+
+\startbuffer
+\def\SampleLine#1{%
+   \NC#1
+   \NC\switchtobodyfont[#1]$f^2$                       %  1
+   \NC\switchtobodyfont[#1]$f\prime^2$                 %  2
+   \NC\switchtobodyfont[#1]$f\prime\prime^2$           %  3
+   \NC\switchtobodyfont[#1]$f\prime\prime\prime^2$     %  4
+   \NC\switchtobodyfont[#1]$f{\prime}^2$               %  5
+   \NC\switchtobodyfont[#1]$f{\prime\prime}^2$         %  6
+   \NC\switchtobodyfont[#1]$f{\prime\prime\prime}^2$   %  7
+   \NC\switchtobodyfont[#1]$f'(x)$                     %  8
+   \NC\switchtobodyfont[#1]$f''(x)$                    %  9
+   \NC\switchtobodyfont[#1]$f'''(x)$                   % 10
+   \NC\NR
+}
+
+\starttabulate[|Tl|Tc|Tc|Tc|Tc|Tc|Tc|Tc|Tc|Tc|Tc|]
+    \NC\NC1\NC2\NC3\NC4\NC5\NC6\NC7\NC8\NC9\NC10\NC\NR
+    \SampleLine{modern}
+    \SampleLine{cambria}
+    \SampleLine{xits}
+    \SampleLine{lucidanova}
+    \SampleLine{palatino}
+\stoptabulate
+\stopbuffer
+
+% \typebuffer
+
+\getbuffer
+
+\stopTEXpage

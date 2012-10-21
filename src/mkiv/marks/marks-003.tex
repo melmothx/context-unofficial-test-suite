@@ -1,0 +1,15 @@
+\setuppagenumbering
+    [alternative=doublesided,location=]
+
+\setupheadertexts
+    [{\getmarking[sectionnumber]\enskip\getmarking[section]}]
+    [{\getmarking[chapternumber]\enskip\getmarking[chapter]}]
+
+\setupfootertexts
+    [{(\fetchallmarks[sectionnumber])\enskip(\fetchallmarks[section])}]
+
+\starttext
+    \chapter[title={T},marking={T}] \dorecurse{14}{\input tufte}
+    \section[title={A},marking={A}] \dorecurse{14}{\input tufte}
+    \section[title={B},marking={B}] \dorecurse{14}{\input tufte}
+\stoptext

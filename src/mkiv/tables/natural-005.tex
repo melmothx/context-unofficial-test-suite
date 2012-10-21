@@ -1,0 +1,21 @@
+% example from list, tricky head
+
+\starttext
+
+\bTABLE[split=repeat]
+    \bTABLEhead
+        \bTR
+          \bTH[nr=2] head l\eTH
+          \bTH head r\eTH
+        \eTR
+        \bTR
+          \bTH head r\eTH
+        \eTR
+    \eTABLEhead
+    \bTABLEbody
+        \bTR\bTD first l\eTD\bTD first r\eTD\eTR
+        \dorecurse{50}{\bTR\bTD subsequent l\eTD\bTD subsequent r\eTD\eTR}
+    \eTABLEbody
+\eTABLE
+
+\stoptext

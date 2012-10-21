@@ -1,0 +1,25 @@
+% example by Andreas Harder
+
+\setuplayout[header=\lineheight,headerdistance=\lineheight]
+\setupinterlinespace[line=18pt]
+\setupdelimitedtext[blockquote][style={\tfx\setuplocalinterlinespace[line=2.8ex]}]
+\setupheader[style=\tfxx]
+
+\setupheadertexts[chapter][section] % try this
+% \setupheadertexts[\setups{head}]  % or this
+
+\startsetups[head]
+  \framed
+    [width=broad,strut=yes,height=\lineheight,framecolor=red]
+    {\getmarking[chapter]\hfill\getmarking[section]}
+\stopsetups
+
+\starttext  \showstruts  \showframe[text]
+\chapter{ÄÖÜy}  \section{ÄÖÜy}
+\dorecurse{3}{
+  \dorecurse{3}{\input tufte \par}
+  \startblockquote
+    \dorecurse{3}{\input tufte \par}
+  \stopblockquote
+}
+\stoptext

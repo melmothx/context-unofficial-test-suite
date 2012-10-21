@@ -1,0 +1,13 @@
+% Here we define a global bodyfont after \type {\starttext} which has
+% no math. This means that we don't set math properly in the page
+% builder. We catch this case but it's actually a style error.
+
+\starttext
+
+\definetypeface[test][rm][serif][pagella][default]
+
+\setupbodyfont[test]
+
+test
+
+\stoptext

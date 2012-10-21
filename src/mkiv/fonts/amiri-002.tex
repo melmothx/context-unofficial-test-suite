@@ -1,0 +1,18 @@
+\enabledirectives[otf.analyze.useunicodemarks]
+
+\definefont[Amiri]   [file:amiri-regular.ttf*arabic at 15pt]
+\definefont[Arabtype][file:arabtype*arabic at 20pt]
+
+% \enabletrackers[otf.replacements,otf.contexts,otf.applied,otf.bugs]
+% \enabletrackers[otf.analyzing]
+
+\starttext
+
+\startTEXpage
+
+    \textdir TRT \Amiri    بِسْم اللَّهِ الرَّحْمَنِ الرَّحِيم \par
+    \textdir TRT \Arabtype بِسْم اللَّهِ الرَّحْمَنِ الرَّحِيم \par
+
+\stopTEXpage
+
+\stoptext

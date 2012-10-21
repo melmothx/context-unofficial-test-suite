@@ -1,0 +1,30 @@
+% nested escapes are still somewhat messy and we currently
+% use a signal so that we have some dummy content
+
+\starttext
+
+\setuptyping[TEX][escape=yes,numbering=line]
+
+\startTEX
+/BTEX\em sometex/ETEX
+c/BTEX\em sometex/ETEX \after
+/BTEX\em sometex/ETEX \after
+c/BTEX\em sometex/ETEX \after
+\stopTEX
+
+\setuptyping[TEX][escape={[[,]]}]
+
+\startTEX
+[[\em sometex]]
+[[\em sometex]] \after
+\stopTEX
+
+\definetyping[Test][escape={/,/}, numbering=line]
+
+\startTest
+bla
+/bla/
+bla
+\stopTest
+
+\stoptext

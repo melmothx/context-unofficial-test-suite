@@ -1,0 +1,25 @@
+\starttext
+
+\setupxtable[suffix][align=middle,foregroundcolor=red]
+\setupxtable[blabla][foregroundstyle=slanted]
+\setupxtable[crap]  [foregroundcolor=blue]
+\setupxtable[bold]  [crap][foregroundstyle=bold]
+
+\startxtable[frame=off]
+    \startxtablehead
+        \startxrow[bold]
+            \startxcell[suffix] a 0 \stopxcell
+            \startxcell[blabla] a 1 \stopxcell
+            \startxcell         a 2 \stopxcell
+        \stopxrow
+    \stopxtablehead
+    \startxtablebody
+        \startxrow \startxcell[suffix][ny=2] a 1 \stopxcell \startxcell b 1 \stopxcell \startxcell c 1 \stopxcell \stopxrow
+        \startxrow                                          \startxcell b 2 \stopxcell \startxcell c 2 \stopxcell \stopxrow
+        \startxrow \startxcell[suffix]       a 3 \stopxcell \startxcell b 3 \stopxcell \startxcell c 3 \stopxcell \stopxrow
+        \startxrow \startxcell[suffix]       a 4 \stopxcell \startxcell b 4 \stopxcell \startxcell c 4 \stopxcell \stopxrow
+        \startxrow \startxcell[suffix]       a 5 \stopxcell \startxcell b 5 \stopxcell \startxcell c 5 \stopxcell \stopxrow
+    \stopxtablebody
+\stopxtable
+
+\stoptext

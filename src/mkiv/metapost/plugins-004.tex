@@ -1,0 +1,38 @@
+\starttext
+
+\definecolor [red-t]  [r=1,t=.6,a=1]
+\definecolor [blue-t] [b=1,t=.4,a=1]
+
+\startMPpage
+path p ; p := fullsquare scaled 6cm ;
+
+fill p ;
+
+path p ; p := fullsquare scaled 6cm shifted (-4cm,-4cm);
+
+fill p
+    withshading("linear", llcorner p, urcorner p)
+    withcolor \MPcolor{red} shadedinto \MPcolor{blue} ;
+
+path p ; p := fullsquare scaled 6cm shifted (4cm,4cm) ;
+
+fill p
+    withshading("linear", llcorner p, urcorner p)
+    withcolor \MPcolor{red} shadedinto \MPcolor{blue}
+    withtransparency(1,.5) ;
+
+path p ; p := fullsquare scaled 6cm shifted (-4cm,4cm) ;
+
+fill p
+    withshading("linear", llcorner p, urcorner p)
+    withcolor \MPcolor{red} shadedinto \MPcolor{blue-t};
+
+path p ; p := fullsquare scaled 6cm shifted (4cm,-4cm) ;
+
+fill p
+    withshading("linear", llcorner p, urcorner p)
+    withcolor \MPcolor{blue-t} shadedinto \MPcolor{red};
+  % withfromshadecolor \MPcolor{blue-t} withtoshadecolor \MPcolor{red};
+\stopMPpage
+
+\stoptext

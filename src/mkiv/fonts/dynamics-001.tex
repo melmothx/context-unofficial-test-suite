@@ -1,0 +1,15 @@
+% example by Andreas Harder
+
+\definefontfeature[default][default][mode=node,onum=yes]
+\definefontfeature[sc]     [default][smcp=yes]
+
+\def\sc{\groupedcommand{\setfontfeature{sc}}{}}
+
+\setupbodyfont[palatino]
+
+\starttext
+
+    \startTEXpage[offset=1ex]      {\sc Abc} 0369 \par      \sc{Abc} 0369 \stopTEXpage
+    \startTEXpage[offset=1ex] 0369 {\sc Abc} 0369 \par 0369 \sc{Abc} 0369 \stopTEXpage
+
+\stoptext

@@ -1,0 +1,25 @@
+% adapted example from list
+
+\mainlanguage[la]
+
+\setuplinenote
+  [linenote]
+  [rule=off,
+   paragraph=yes,
+   numbercommand=,
+   inbetween=\qquad]
+
+\setupnotations
+  [linenote]
+  [display=yes,
+   location=serried,
+   compress=yes, % new
+   distance=1em]
+
+\starttext
+
+\startlinenumbering
+Sed \startlinenote[one]{entia: entitates W} entia \stoplinenote[one] non
+sunt multiplicanda \startlinenote[two]{praeter necessitatem: sine
+necessitate H} praeter necessitatem \stoplinenote[two].
+\stoplinenumbering

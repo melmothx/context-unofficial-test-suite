@@ -1,0 +1,12 @@
+\setupcolors [x11]
+
+\definepalet [colorful] [primary=green]
+
+\definepalet [bleak] [primary=darkgray,colorful]
+
+\starttext
+    \setuppalet [colorful]
+    \color[primary]{Ain’t I a colorful entity?}
+    \setuppalet [bleak]
+    \color[primary]{Ain’t I a colorful entity?}
+\stoptext

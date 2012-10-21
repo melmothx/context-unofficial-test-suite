@@ -1,0 +1,21 @@
+\setupinteraction[state=start]
+\setupinteractionscreen[option=bookmark]
+
+\enabletrackers[structure.lists]
+
+\placebookmarks[chapter]
+
+\placebookmarks[title][force=yes] % normally not placed as unnumbered
+
+\starttext
+
+\starttitle[title=Test title, bookmark=TitleBookMark?]
+    bla
+\stoptitle
+
+\startchapter[title=Test title, bookmark=ChapterBookMark?]
+    bla
+\stopchapter
+
+\stoptext
+

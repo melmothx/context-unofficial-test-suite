@@ -1,0 +1,38 @@
+\enabletrackers[buffers.visualize]
+
+\starttext
+
+\definetyping[C] % [option=C]
+\setuptyping[C][escape=yes]
+
+\startC
+#include <stdio.h>
+int main(){
+   return 0;
+   /BTEX{\em unreachedCode;}/ETEX
+}
+\stopC
+
+\setuptyping[escape=yes]
+
+\startTEX
+/BTEX\em sometex/ETEX
+/BTEX\em sometex/ETEX \after
+\before /BTEX\em sometex/ETEX
+\before /BTEX\em sometex/ETEX \after
+\before /BTEX\em sometex/ETEX \inbetween /BTEX\em sometex/ETEX \after
+\before \after
+\stopTEX
+
+\setuptyping[TEX][escape=no]
+
+\startTEX
+/BTEX\em sometex/ETEX
+/BTEX\em sometex/ETEX \after
+\before /BTEX\em sometex/ETEX
+\before /BTEX\em sometex/ETEX \after
+\before /BTEX\em sometex/ETEX \inbetween /BTEX\em sometex/ETEX \after
+\before \after
+\stopTEX
+
+\stoptext

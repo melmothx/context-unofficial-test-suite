@@ -1,0 +1,35 @@
+\starttext
+
+\enabletrackers[structures.counters]
+
+\setupuserpagenumber
+  [way=byblock]
+
+\setuppagenumbering
+  [alternative=doublesided]
+
+\setupheadertexts
+  [\realfolio:\completepagenumber]
+
+\startsectionblockenvironment[frontpart]
+    \setupuserpagenumber[numberconversion=romannumerals]
+\stopsectionblockenvironment
+
+\startsectionblockenvironment[bodypart]
+    \setupuserpagenumber[numberconversion=numbers]
+\stopsectionblockenvironment
+
+\startsectionblockenvironment[backpart]
+    \setupuserpagenumber[numberconversion=characters]
+\stopsectionblockenvironment
+
+\startsectionblockenvironment[appendix]
+    \setupuserpagenumber[numberconversion=numbers]
+\stopsectionblockenvironment
+
+\startfrontmatter \dorecurse{3}{frontmatter\page} \stopfrontmatter
+\startbodymatter  \dorecurse{3}{bodymatter \page} \stopbodymatter
+\startappendices  \dorecurse{3}{appendices \page} \stopappendices
+\startbackmatter  \dorecurse{3}{backmatter \page} \stopbackmatter
+
+\stoptext

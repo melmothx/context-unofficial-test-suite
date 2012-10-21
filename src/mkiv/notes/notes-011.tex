@@ -1,0 +1,41 @@
+% \enabletrackers[structure.notes]
+
+\setupnote        [footnote][paragraph=yes,numbercommand=,inbetween=\hskip.5em\vl\hskip.5em]
+\setupdescriptions[footnote][display=no,location=serried,distance=.5em] % before=,after=
+
+\starttext
+
+\startlocalfootnotes
+    local 1a\footnote{local note 1a}
+    local 1b\footnote{local note 1b}
+    \placelocalfootnotes
+\stoplocalfootnotes
+
+\blank
+global 1a\footnote{global note 1a}
+global 1b\footnote{global note 1b}
+\blank
+
+\startlocalfootnotes
+    local 2a\footnote{local note 2a}
+    local 2b\footnote{local note 2b}
+    \placelocalfootnotes
+\stoplocalfootnotes
+
+\blank
+global 2a\footnote{global note 2a}
+global 2b\footnote{global note 2b}
+\blank
+
+\startlocalfootnotes
+    local 3a\footnote{local note 3a}
+    local 3b\footnote{local note 3b}
+    \placelocalfootnotes
+\stoplocalfootnotes
+
+\blank
+global 2a\footnote{\input tufte }
+global 2b\footnote{global note 2b}
+\blank
+
+\stoptext

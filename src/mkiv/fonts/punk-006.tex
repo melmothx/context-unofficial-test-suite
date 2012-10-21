@@ -1,0 +1,31 @@
+% We do (officially) support multiple features sets and (inofficially, as messy) a direct
+% assignment as it's much cleaner to define a proper feature (as it is also much more
+% efficient) but for a quick hack it's ok.
+%
+% Because it does not work out well with an overload this trickery is currently disabled
+% but we keep the test.
+
+\definefontfeature [punknova]         [mode=node,script=latn,rand=yes,kern=yes,liga=yes,tlig=yes]
+\definefontfeature [slanted-25]       [slant=.25]
+
+\starttypescript [serif] [punknovax]
+    \definefontsynonym [Serif]           [file:punknova-regular] [features=punknova]
+    \definefontsynonym [SerifSlanted]    [file:punknova-regular] [features={punknova,slanted-25}]
+    \definefontsynonym [SerifBold]       [file:punknova-bold]    [features=punknova]
+    \definefontsynonym [SerifBoldSlanted][file:punknova-bold]    [features={punknova,slant=.25}]
+    \definefontsynonym [SerifItalic]     [SerifSlanted]
+    \definefontsynonym [SerifBoldItalic] [SerifBoldSlanted]
+\stoptypescript
+
+\starttypescript [punknovax]
+    \definetypeface [punknovax] [rm] [serif] [punknovax] [default]
+\stoptypescript
+
+\setupbodyfont[punknovax,32pt]
+
+\startTEXpage[offset=1em]
+    \tf All animals are equal, but some animals are more equal than others.\blank
+    \bf All animals are equal, but some animals are more equal than others.\blank
+    \sl All animals are equal, but some animals are more equal than others.\blank
+    \bs All animals are equal, but some animals are more equal than others.\blank
+\stopTEXpage

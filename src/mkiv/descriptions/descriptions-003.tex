@@ -1,0 +1,42 @@
+\setupenumerations
+  [footnote]
+  [     style=\type{(es)},
+    headstyle=\type{(hs)}]
+
+\setupnote
+  [footnote]
+  [        style=\type{(s)},
+         command=\type{(c)},
+     textcommand=\type{(tc)},
+       textstyle=\type{(ts)},
+     numberstyle=\type{(ns)},
+   numbercommand=\type{(nc)}]
+
+\setuplayout[backspace=6cm,marginwidth=cm,width=middle]
+
+\starttext
+    \dorecurse{9}{This\footnote{Hello World #1} is a test.\par }
+\stoptext
+
+% \starttypescript [serif] [linlibertine]
+%     \definefontsynonym [Serif] [LinLibertine-Regular] [features=default]
+% \stoptypescript
+% \starttypescript [serif] [linlibertine]
+%     \definefontsynonym [LinLibertine-Regular] [name:linuxlibertineo] [features=default]
+% \stoptypescript
+% \starttypescript [linlibertine]
+%     \definetypeface [linlibertine] [rm] [serif] [linlibertine] [default]
+%     \definetypeface [linlibertine] [tt] [mono]  [modern]       [default]
+% \stoptypescript
+%
+% \definefontfeature[sups][sups=yes]
+%
+% \usetypescript[linlibertine]
+% \setupbodyfont[linlibertine]
+%
+% \setupnote
+%   [footnote]
+%   [command=,
+%    textstyle=,
+%    numbercommand=\setff{sups},
+%    textcommand=\setff{sups}]

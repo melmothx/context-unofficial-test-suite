@@ -1,0 +1,13 @@
+\starttext
+
+    \enabletrackers[fonts.stripping]
+
+    \definefontfeature[default][default][mode=node,formatters=strip]
+
+    \setupbodyfont[palatino,11pt]
+
+    test\zwnj test\zwnj test
+    test\char"200C test\char"200D test
+    test\utfchar{"200C}test\utfchar{"200D}test
+
+\stoptext

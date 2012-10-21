@@ -1,0 +1,14 @@
+\starttext
+
+    \showframe \setupalign[hanging] \enabletrackers[fonts.protrusion]
+
+    \definefontfeature[default] [default][mode=node,script=latn]
+%   \definefontfeature[whatever][default][mode=node,lfbd=yes,rtbd=yes,script=latn]
+    \definefontfeature[whatever][default][mode=node,protrusion=quality]
+    \definefontfeature[whocares][default][mode=node,protrusion=quality,opbd=yes,script=latn]
+
+    \definedfont[fxlbi.otf*default]  \input tufte 0123456789 \par \dorecurse{15}{1 2 3 4 5 6 7 8 9 0 } \par
+    \definedfont[fxlbi.otf*whatever] \input tufte 0123456789 \par \dorecurse{15}{1 2 3 4 5 6 7 8 9 0 } \par
+    \definedfont[fxlbi.otf*whocares] \input tufte 0123456789 \par \dorecurse{15}{1 2 3 4 5 6 7 8 9 0 } \par
+
+\stoptext

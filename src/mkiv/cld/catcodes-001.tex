@@ -1,0 +1,13 @@
+\starttext
+
+    \startluacode
+        context.startTEXpage()
+            context.starttext()
+            context.pushcatcodes("txtcatcodes")
+            context("bla % bla")
+            context.popcatcodes()
+            context.stoptext()
+        context.stopTEXpage()
+    \stopluacode
+
+\stoptext

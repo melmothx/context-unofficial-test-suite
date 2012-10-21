@@ -1,0 +1,24 @@
+\enabletrackers[colors.define]
+
+% \nopdfcompression
+
+% \setupcolors[rgb=no, cmyk=no]
+% \setupcolors[rgb=yes,cmyk=yes]
+% \setupcolors[rgb=yes,cmyk=no]
+% \setupcolors[rgb=no, cmyk=yes]
+
+\definecolor[PantoneOneEightSeven][r=.9,e=Pantone 187 U]
+
+\definespotcolor[dtkred]     [PantoneOneEightSeven][p=1.0]
+\definespotcolor[dtkredlight][PantoneOneEightSeven][p=0.6]
+
+\starttext
+
+dark: \blackrule[width=4cm,height=4cm,color=dtkred]
+
+light: \blackrule[width=4cm,height=4cm,color=dtkredlight]
+
+check: \blackrule[width=4cm,height=4cm,color=PantoneOneEightSeven]
+
+\stoptext
+

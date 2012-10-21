@@ -1,0 +1,19 @@
+\starttypescript[serif][myfonts]
+    \definefontsynonym[hereos][name:texgyreherosregular]
+    \definefontfallback[song][name:adobesongstd][0x00400-0x2FA1F]
+    \definefontsynonym[fbsong][hereos][fallbacks=song]
+    \definefontsynonym[Serif][fbsong]
+\stoptypescript
+
+\definetypeface[myfonts][rm][serif][myfonts]
+\setupbodyfont[myfonts,rm,11pt]
+
+\starttext
+
+    夹杂 English 的中文文本\blank
+    {\tfa 夹杂 English 的中文文本}\blank
+    {\tfb 夹杂 English 的中文文本}\blank
+    {\tfc 夹杂 English 的中文文本}\blank
+    {\tfd 夹杂 English 的中文文本}
+
+\stoptext

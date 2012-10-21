@@ -1,0 +1,29 @@
+% example posted on the list (marks on postponed pages)
+
+\definemakeup[my] \setupmakeup[my][headerstate=start,page=yes]
+
+\startbuffer[mkup]
+    \startmymakeup
+        \vbox to \vsize {\vfill\externalfigure[cow][width=\hsize]\vfill}
+    \stopmymakeup
+\stopbuffer
+
+\setuppagenumbering
+  [alternative=doublesided,
+   location=footer]
+
+\setupheadertexts
+    [{\getmarking[section]}] [outer]
+    [outer] [{\getmarking[section]}]
+
+% \enabletrackers[marks.get]
+
+\starttext
+
+    \startpostponing[+2]
+        \getbuffer[mkup]
+    \stoppostponing
+
+    \dorecurse{10}{\section{Dons quote} \input knuth }
+
+\stoptext

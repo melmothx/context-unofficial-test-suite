@@ -1,0 +1,24 @@
+\usemodule[fnt-31]
+
+\setupbodyfont[10pt]
+
+\setuplayout
+  [backspace=1cm,
+   topspace=1cm,
+   footer=1cm,
+   header=0cm,
+   height=middle,
+   width=middle]
+
+\starttext
+
+\startluacode
+    fonts.tracers.coverage {
+        "file:PTF55F.ttf",
+        "file:PTF56F.ttf",
+        "file:PTF75F.ttf",
+        "file:PTF76F.ttf",
+        "file:PTZ55F.ttf",
+        "file:PTZ56F.ttf",
+    }
+\stopluacode

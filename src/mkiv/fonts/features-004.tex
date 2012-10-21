@@ -1,0 +1,21 @@
+\starttext
+
+\definefontfeature[one]  [default]
+\definefontfeature[two]  [default][itlc=yes]
+\definefontfeature[three][default][itlc=2]
+\definefontfeature[four] [default][itlc=10]
+
+
+\def\TestMe#1%
+  {\definefont[test][SerifItalic*#1]
+   \setbox\scratchbox\hbox{A short sentence with a {\test italic} word.}
+   \dontleavehmode\hbox to 3cm{\the\wd\scratchbox\hss} \box\scratchbox\par
+   \setbox\scratchbox\hbox{A short sentence with a {\test italic\/} word.}
+   \dontleavehmode\hbox to 3cm{\the\wd\scratchbox\hss} \box\scratchbox\par}
+
+\TestMe{one}
+\TestMe{two}
+\TestMe{three}
+\TestMe{four}
+
+\stoptext

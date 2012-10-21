@@ -1,0 +1,195 @@
+% Part of Alan's experiments and fixups:
+
+% \enabletrackers[chemistry.structure]
+% \enabletrackers[chemistry.textstack]
+%\usemodule [chemic]
+
+\setupchemical [width=fit,height=fit,scale=1250]
+
+\starttext
+
+\startcombination [3*2]
+	{
+		\startchemical [axis=on]
+			\chemical [ONE,SB,Z0..8] [0,1,2,3,4,5,6,7,8]
+		\stopchemical
+	} {ONE}
+	{
+		\startchemical [axis=on]
+			\chemical [THREE,B,Z] [1,2,3]
+		\stopchemical
+	} {THREE}
+	{
+		\startchemical [axis=on]
+			\chemical [FOUR,B,Z] [1,2,3,4]
+		\stopchemical
+	} {FOUR}
+	{
+		\startchemical [axis=on]
+			\chemical [FIVE,B,Z] [1,2,3,4,5]
+		\stopchemical
+	} {FIVE}
+	{
+		\startchemical [axis=on]
+			\chemical [SIX,B,Z] [1,2,3,4,5,6]
+		\stopchemical
+	} {SIX}
+	{
+		\startchemical [axis=on]
+			\chemical [EIGHT,B,Z] [1,2,3,4,5,6,7,8]
+		\stopchemical
+	} {EIGHT}
+\stopcombination
+
+\startchemical [axis=on,frame=on]
+	\chemical [ONE,B,Z0..8] [O,1,2,3,4,5,6,7,8]
+	\chemical [THREE,B]
+	\chemical [FOUR,B]
+	\chemical [FIVE,B]
+	\chemical [SIX,B,R,RZ] [R1,R2,R3,R4,R5,R6]
+	\chemical [EIGHT,B]
+\stopchemical
+
+\page
+
+\startcombination [2*3]
+{
+\startchemical
+	\chemical [ONE,Z0..8,SB] [0,1,2,3,4,5,6,7,8]
+	\chemical [MOV1,Z0..8,SB]
+		[{\red 0},{\red 1},{\red 2},{\red 3},{\red 4},{\red 5},{\red 6},{\red 7},{\red 8}]
+\stopchemical
+} {MOV1}
+{
+\startchemical
+	\chemical [ONE,Z0..8,SB] [0,1,2,3,4,5,6,7,8]
+	\chemical [ADJ1,Z0..8,SB]
+		[{\red 0},{\red 1},{\red 2},{\red 3},{\red 4},{\red 5},{\red 6},{\red 7},{\red 8}]
+\stopchemical
+} {ADJ1}
+{
+\startchemical
+	\chemical [ONE,Z0..8,SB] [0,1,2,3,4,5,6,7,8]
+	\chemical [SUB1,Z0..8,SB]
+		[{\red 0},{\red 1},{\red 2},{\red 3},{\red 4},{\red 5},{\red 6},{\red 7},{\red 8}]
+\stopchemical
+} {SUB1}
+{
+\startchemical
+	\chemical [ONE,Z0..8,SB] [0,1,2,3,4,5,6,7,8]
+	\chemical [DIR1,Z0..8,SB]
+		[{\red 0},{\red 1},{\red 2},{\red 3},{\red 4},{\red 5},{\red 6},{\red 7},{\red 8}]
+\stopchemical
+} {DIR1}
+{
+\startchemical
+	\chemical [ONE,Z0..8,SB] [0,1,2,3,4,5,6,7,8]
+	\chemical [OFF1,Z0..8,SB]
+		[{\red 0},{\red 1},{\red 2},{\red 3},{\red 4},{\red 5},{\red 6},{\red 7},{\red 8}]
+\stopchemical
+} {OFF1}
+{} {}
+\stopcombination
+
+\startcombination [2*3]
+{
+\startchemical
+	\chemical [ONE,Z0..8,SB] [0,1,2,3,4,5,6,7,8]
+	\chemical [MOV2,Z0..8,SB]
+		[{\red 0},{\red 1},{\red 2},{\red 3},{\red 4},{\red 5},{\red 6},{\red 7},{\red 8}]
+\stopchemical
+} {MOV2}
+{
+\startchemical
+	\chemical [ONE,Z0..8,SB] [0,1,2,3,4,5,6,7,8]
+	\chemical [ADJ2,Z0..8,SB]
+		[{\red 0},{\red 1},{\red 2},{\red 3},{\red 4},{\red 5},{\red 6},{\red 7},{\red 8}]
+\stopchemical
+} {ADJ2}
+{
+\startchemical
+	\chemical [ONE,Z0..8,SB] [0,1,2,3,4,5,6,7,8]
+	\chemical [SUB2,Z0..8,SB]
+		[{\red 0},{\red 1},{\red 2},{\red 3},{\red 4},{\red 5},{\red 6},{\red 7},{\red 8}]
+\stopchemical
+} {SUB2}
+{
+\startchemical
+	\chemical [ONE,Z0..8,SB] [0,1,2,3,4,5,6,7,8]
+	\chemical [DIR2,Z0..8,SB]
+		[{\red 0},{\red 1},{\red 2},{\red 3},{\red 4},{\red 5},{\red 6},{\red 7},{\red 8}]
+\stopchemical
+} {DIR2}
+{
+\startchemical
+	\chemical [ONE,Z0..8,SB] [0,1,2,3,4,5,6,7,8]
+	\chemical [OFF2,Z0..8,SB]
+		[{\red 0},{\red 1},{\red 2},{\red 3},{\red 4},{\red 5},{\red 6},{\red 7},{\red 8}]
+\stopchemical
+} {OFF2}
+{} {}
+\stopcombination
+
+\startcombination [2*3]
+{
+\startchemical
+	\chemical [ONE,Z0..8,SB] [0,1,2,3,4,5,6,7,8]
+	\chemical [MOV3,Z0..8,SB]
+		[{\red 0},{\red 1},{\red 2},{\red 3},{\red 4},{\red 5},{\red 6},{\red 7},{\red 8}]
+\stopchemical
+} {MOV3}
+{
+\startchemical
+	\chemical [ONE,Z0..8,SB] [0,1,2,3,4,5,6,7,8]
+	\chemical [ADJ3,Z0..8,SB]
+		[{\red 0},{\red 1},{\red 2},{\red 3},{\red 4},{\red 5},{\red 6},{\red 7},{\red 8}]
+\stopchemical
+} {ADJ3}
+{
+\startchemical
+	\chemical [ONE,Z0..8,SB] [0,1,2,3,4,5,6,7,8]
+	\chemical [SUB3,Z0..8,SB]
+		[{\red 0},{\red 1},{\red 2},{\red 3},{\red 4},{\red 5},{\red 6},{\red 7},{\red 8}]
+\stopchemical
+} {SUB3}
+{
+\startchemical
+	\chemical [ONE,Z0..8,SB] [0,1,2,3,4,5,6,7,8]
+	\chemical [DIR3,Z0..8,SB]
+		[{\red 0},{\red 1},{\red 2},{\red 3},{\red 4},{\red 5},{\red 6},{\red 7},{\red 8}]
+\stopchemical
+} {DIR3}
+{
+\startchemical
+	\chemical [ONE,Z0..8,SB] [0,1,2,3,4,5,6,7,8]
+	\chemical [OFF3,Z0..8,SB]
+		[{\red 0},{\red 1},{\red 2},{\red 3},{\red 4},{\red 5},{\red 6},{\red 7},{\red 8}]
+\stopchemical
+} {OFF3}
+{} {}
+\stopcombination
+
+\startcombination [2*2]
+{
+\startchemical
+	\chemical [ONE,SB,MOV8,SB,MOV2,SB,MOV8,SB]
+\stopchemical
+} {MOV}
+{
+\startchemical
+	\chemical [ONE,SB,ADJ8,SB,ADJ2,SB,ADJ8,SB]
+\stopchemical
+} {ADJ}
+{
+\startchemical
+	\chemical [ONE,SB,SUB8,SB,SUB2,SB,SUB8,SB]
+\stopchemical
+} {SUB}
+{
+\startchemical
+	\chemical [ONE,SB,DIR8,SB,DIR2,SB,DIR8,SB]
+\stopchemical
+} {DIR}
+\stopcombination
+
+\stoptext

@@ -1,0 +1,31 @@
+\usemodule[mathml]
+
+\starttext
+
+\startTEXpage[offset=10pt]
+
+\startbuffer[test-1]
+<math xmlns='http://www.w3c.org/mathml' version='2.0'>
+    <mrow>
+        <mi>a</mi>
+        <mo>+</mo>
+        <mtext>&#xaf;</mtext>
+        <mi>b</mo>
+        <mo>+</mo>
+        <mmultiscripts>
+            <mi>c</mi>
+            <mprescripts/>
+            <none/>
+            <mo>-</mo>
+        </mmultiscripts>
+    </mrow>
+</math>
+\stopbuffer
+
+\typebuffer[test-1][option=xml] \blank
+
+\xmlprocessbuffer{test}{test-1}{}
+
+\stopTEXpage
+
+\stoptext

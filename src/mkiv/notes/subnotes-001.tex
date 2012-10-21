@@ -1,0 +1,16 @@
+% posted on list, check for subreset
+
+\defineseparatorset [footnote][][]
+\defineconversionset[footnote][number,characters][numbers]
+\setupenumerations[footnote][numberconversionset=footnote,numberseparatorset=footnote]
+
+\setupfootnotes[way=bytext]
+
+\starttext
+    test \footnote{xxxx}
+    text
+    test \startfootnote note \stopfootnote\
+    test \startsubfootnote subnote \stopsubfootnote\
+    test \startfootnote note \stopfootnote\
+    test \startfootnote note \stopfootnote
+\stoptext

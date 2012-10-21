@@ -1,0 +1,73 @@
+% posted by mm, lua code replaced by hh
+
+\mainlanguage[sl]
+\setuphead[section][style=\bf,before=\blank,after=,number=no]
+\def\person#1#2{\hbox{{\sc #1}, #2}}
+
+\starttext
+
+\startluacode
+document.whatever = { names = { } }
+
+function document.whatever.sortnames()
+    local names = document.whatever.names
+    local split = sorters.splitters.utf
+    for i=1,#names do
+        local name = names[i]
+        name.split = {
+            split(name.last),
+            split(name.first),
+        }
+    end
+    sorters.sort(names, sorters.comparers.basic)
+end
+
+function document.whatever.flushnames()
+    local names = document.whatever.names
+    local previous = false
+    for i=1,#names do
+        local name = names[i]
+        local letter, current = sorters.firstofsplit(name)
+        if previous ~= current then
+            previous = current
+            context.section(letter)
+        end
+        context.person(name.last,name.first)
+    end
+end
+
+document.whatever.names = {
+	{ first = "Hans",    last = "Hagen" },
+	{ first = "Hartmut", last = "Henkel" },
+	{ first = "Taco",    last = "Hoekwater" },
+	{ first = "Caron",   last = "Haček" },
+	{ first = "Ančka",   last = "Car" },
+	{ first = "Ana",     last = "Car" },
+	{ first = "Anita",   last = "Car" },
+	{ first = "Matija",  last = "Čop" },
+}
+
+sorters.setlanguage("sl")
+document.whatever.sortnames()
+document.whatever.flushnames()
+\stopluacode
+
+\crlf\crlf
+
+Desired result:
+
+\section{C}
+\person{Car}{Ana}
+\person{Car}{Ančka}
+\person{Car}{Anita}
+
+\section{Č}
+\person{Čop}{Matija}
+
+\section{H}
+\person{Haček}{Caron}
+\person{Hagen}{Hans}
+\person{Henkel}{Hartmut}
+\person{Hoekwater}{Taco}
+
+\stoptext

@@ -1,0 +1,27 @@
+\defineindentedtext[one][text=one]
+\defineindentedtext[two][text=two]
+
+\starttext
+
+\one test test \par
+\subone test test \par
+\subtwo test test \par
+\subsubone test test \par
+
+\startone
+    test test
+    \startone
+        test test
+        \startone
+            test test
+        \stopone
+        \starttwo
+            test test
+            \startone
+                test test
+            \stopone
+        \stoptwo
+    \stopone
+\stopone
+
+\stoptext

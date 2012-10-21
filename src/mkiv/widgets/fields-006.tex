@@ -1,0 +1,29 @@
+% \nopdfcompression
+
+\setupinteraction[state=start]
+
+\setupfield
+  [ShortLine]
+  [label,frame,horizontal]
+  [offset=5mm,
+   height=fit]
+  [height=2cm,
+   width=3cm,
+   align={lohi,middle}]
+  [height=2cm,
+   width=5cm,
+   offset=overlay,
+   style=\tttf,
+   regionin=JS(Initialize_TeX_Key),
+   afterkey=JS(Convert_TeX_Key),
+   validate=JS(Convert_TeX_String)]
+
+\definefield [Email] [line] [ShortLine] [] [ë]
+
+\starttext
+
+    \startTEXpage
+        \field [Email] [your email]
+    \stopTEXpage
+
+\stoptext

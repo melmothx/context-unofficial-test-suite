@@ -1,0 +1,22 @@
+% \enabletrackers[typesetters.margindata]
+% \enabletrackers[typesetters.margindata.stack]
+
+\setuplayout[backspace=4cm]
+
+\setupmargindata[inmargin][stack=yes]
+\setupmarginframed[inmargin][frame=on]
+
+\showstruts
+
+\starttext
+
+\inmargin{\darkred     one two three four five six}
+\inmargin{\darkgreen   seven eight nive ten eleven}
+\inmargin{\darkblue    twelve}
+\inmargin{\darkyellow  thirteen fourteen}
+\inmargin{\darkmagenta fifteen}
+\inmargin{\darkcyan    sixteen}
+
+\input ward \par \input ward
+
+\stoptext

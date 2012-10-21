@@ -1,0 +1,28 @@
+\starttext
+
+\placefigure[fig:mill]{}{\externalfigure[mill]}
+\placefigure[fig:cow] {}{\externalfigure[cow]}
+
+\page
+
+\startluacode
+    context.bTABLE { spit = "yes", offset = "1ex" }
+    for k, v in next, figures.found do
+        inspect(v)
+        context.bTR()
+            context.bTD { width = "4cm", align = "middle" }
+                context.dontleavehmode()
+                context.externalfigure( { v.foundname }, { height = "2cm" } )
+            context.eTD()
+            context.bTD()
+                context(v.askedname)
+            context.eTD()
+            context.bTD()
+                context(file.basename(v.foundname))
+            context.eTD()
+        context.eTR()
+    end
+    context.eTABLE()
+\stopluacode
+
+\stoptext

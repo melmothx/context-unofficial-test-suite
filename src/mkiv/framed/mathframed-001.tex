@@ -1,0 +1,13 @@
+\starttext
+
+    \dontleavehmode test \mframed{x} test $x^{\mframed{x}}$ test \inmframed{x} test $x^{\inmframed{x}}$ test
+
+    \definemathframed[whatever][location=low]
+
+    \dontleavehmode test \whatever{x} test $x^{\whatever[framecolor=red]{x}}$ test
+
+    \definemathframed[another][whatever][background=color,backgroundcolor=blue,foregroundcolor=white]
+
+    \dontleavehmode test \another{x} test $x^{\another[framecolor=red]{x}}$ test
+
+\stoptext

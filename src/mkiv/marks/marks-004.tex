@@ -1,0 +1,20 @@
+\enabletrackers[marks.get,marks.detail]
+
+\setupheadertexts
+%     [{(\getmarking[section]) / (\fetchallmarks[section])}]
+%     [{\getmarking[section][previous]}]
+    [{\getmarking[section][top]}]
+%     [{\getmarking[section][first]}]
+%     [{\getmarking[section][first:nocheck]}]
+
+\starttext
+%     \chapter[title={T},marking={T}] % \dorecurse{14}{\input tufte}
+    \section[title={A},marking={A}]
+%     \dorecurse{10}{\input tufte}
+    \dorecurse{5}{\input tufte}
+    \section[title={B},marking={B}]
+%     \dorecurse{10}{\input tufte}
+    \section[title={C},marking={C}]
+%     \section[title={D},marking={D}]
+%     \dorecurse{10}{\input tufte}
+\stoptext

@@ -1,0 +1,11 @@
+\environment notes-000
+
+% \enabletrackers[mixedcolumns.trace,mixedcolumns.boxes]
+
+\starttext
+
+    \startmixedcolumns[n=3,alternative=global]
+        \dorecurse{200}{Zomaar wat #1 met een footnote\footnote{note #1}. }
+    \stopmixedcolumns
+
+\stoptext

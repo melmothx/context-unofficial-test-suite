@@ -1,0 +1,97 @@
+% <bibtex>
+%   <entry tag="hagen:tb19-3-311" category="article">
+%     <field name="number">3</field>
+%     <field name="bibdate">Fri Jul 13 10:24:20 MDT 2007</field>
+%     <field name="author">Hans Hagen</field>
+%     <field name="journal">TUGboat</field>
+%     <field name="title">{Visual Debugging in \TeX, Part 1: The Story}</field>
+%     <field name="ISSN">0896-3207</field>
+%     <field name="year">1998</field>
+%     <field name="pages">311--317</field>
+%     <field name="volume">19</field>
+%   </entry>
+% </bibtex>
+
+\starttext
+
+\usemodule[abr-01]
+
+\startsetups bibtex-commands
+    \def\MF  {MF}
+    \def\MP  {MP}
+    \def\TUB {TUGboat}
+    \def\Mc  {Mac}
+    \def\sltt{\tt}
+    \let\acro\firstofoneargument
+\stopsetups
+
+\definebibtexsession [somebibtex]
+
+\registerbibtexfile [somebibtex] [tugboat.bib]
+% \registerbibtexfile [somebibtex] [komoedie.bib]
+
+\preparebibtexsession [somebibtex] % [convert]
+
+\startxmlsetups bibtex:one
+  \starttabulate[|Bl|p|]
+  \NC tag   \NC \xmlatt{#1}{tag} \NC\NR
+  \NC author\NC \xmlfilter{#1}{/field[@name='author']/context()} \NC\NR
+  \NC title \NC \xmlfilter{#1}{/field[@name='title' ]/context()} \NC\NR
+  \stoptabulate
+\stopxmlsetups
+
+\startxmlsetups bibtex:bibtex
+    \xmlfilter{#1}{
+        /entry[@category='article']
+        /field[@name='author' and (find(text(),'Hans Hagen') or find(text(),'Taco Hoekwater'))]
+        /../command(bibtex:one)
+    }
+\stopxmlsetups
+
+% \startxmlsetups bibtex:bibtex
+%     \xmlfilter{#1}{
+%         /entry[@category='article']/command(bibtex:one)
+%     }
+% \stopxmlsetups
+
+\bgroup
+    \setups[bibtex-commands]
+    \applytobibtexsession[somebibtex][bibtex]
+\egroup
+
+\startxmlsetups bibtex:entry:getkeys
+    \xmladdsortentry{bibtex}{#1}{\xmlfilter{#1}{/field[@name='author']/text()}}
+    \xmladdsortentry{bibtex}{#1}{\xmlfilter{#1}{/field[@name='year'  ]/text()}}
+    \xmladdsortentry{bibtex}{#1}{\xmlatt{#1}{tag}}
+\stopxmlsetups
+
+\startbuffer
+\startxmlsetups xml:bibtex:sorter
+    \xmlresetsorter{bibtex}
+  % \xmlfilter{#1}{entry/command(bibtex:entry:getkeys)}
+    \xmlfilter{#1}{
+        bibtex
+        /entry[@category='article']
+        /field[@name='author' and find(text(),'Knuth')]
+        /../command(bibtex:entry:getkeys)}
+    \xmlsortentries{bibtex}
+    \xmlflushsorter{bibtex}{bibtex:entry:flush}
+\stopxmlsetups
+\stopbuffer
+
+\bgroup
+    \setups[bibtex-commands]
+    \getbuffer
+\egroup
+
+\startxmlsetups bibtex:entry:flush
+    \xmlfilter{#1}{/field[@name='author']/context()} / %
+    \xmlfilter{#1}{/field[@name='year'  ]/context()} / %
+    \xmlatt{#1}{tag}\par
+\stopxmlsetups
+
+\startpacked
+\getbuffer
+\stoppacked
+
+\stoptext

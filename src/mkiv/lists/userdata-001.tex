@@ -1,0 +1,39 @@
+% posted by Wolfgang, for Harrald Koenig
+
+\define[3]\ChapterList
+  {\bTABLE[offset=0pt,strut=yes,frame=off,width=.5\textwidth]
+     \bTR
+       \bTD \structurelistuservariable{date} \eTD
+       \bTD #2 \eTD
+     \eTR
+   \eTABLE}
+
+\setuplist
+  [chapter]
+  [alternative=command,
+   command=\ChapterList]
+
+\define[2]\ChapterHead
+  {\startframedtext[frame=off,width=\textwidth,offset=0pt,align=middle]
+   \doifsomething{\structureuservariable{date}}{\structureuservariable{date}\blank}
+   #2
+   \doifsomething{\structureuservariable{author}}{\blank\structureuservariable{author}}
+   \stopframedtext}
+
+\setuphead
+  [chapter]
+  [command=\ChapterHead]
+
+\starttext
+
+\completecontent
+
+\startchapter[title=Rom][date=12.06.2010,author=Knuth]
+    \input knuth
+\stopchapter
+
+\startchapter[title=Pisa][date=14.06.2010,author=Tufte]
+    \input tufte
+\stopchapter
+
+\stoptext

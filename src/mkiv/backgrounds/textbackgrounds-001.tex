@@ -1,0 +1,25 @@
+\definetextbackground[one][location=text,     background=color,backgroundcolor=yellow]
+\definetextbackground[two][location=paragraph,background=color,backgroundcolor=green]
+
+\starttext
+
+\showframe
+
+\startitemize
+\startitem \starttextbackground[one]\input tufte \stoptextbackground \stopitem
+\stopitemize
+
+\startnarrower
+\starttextbackground[one]\input tufte \stoptextbackground
+\stopnarrower
+
+\startnarrower
+\starttextbackground[two]\input tufte \stoptextbackground
+\stopnarrower
+
+\starttextbackground[two]\startnarrower
+\input tufte
+\stopnarrower
+\stoptextbackground
+
+\stoptext

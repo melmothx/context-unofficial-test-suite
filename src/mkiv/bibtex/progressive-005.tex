@@ -1,0 +1,60 @@
+\setuplayout[backspace=1cm,topspace=.5cm,header=.5cm,footer=0cm,width=middle,height=middle]
+
+\setuppapersize[S8][S8]
+
+\starttypescript[serif][zhfont]
+    \definefontsynonym[western][name:latinmodernromanregular]
+    \definefontfallback[song][name:adobesongstd][0x00400-0x2FA1F]
+    \definefontsynonym[fbsong][western][fallbacks=song]
+    \definefontsynonym[Serif][fbsong]
+    \definefontsynonym[SerifItalic][fbsong]
+\stoptypescript
+
+\starttypescript[myfonts]
+    \definetypeface[myfonts][rm][serif][zhfont]
+\stoptypescript
+
+\usetypescript[myfonts]
+\setupbodyfont[myfonts,rm,11pt]
+
+\starttext
+
+\definebibtexsession  [somebibtex]
+\registerbibtexfile   [somebibtex] [cjk.bib]
+\preparebibtexsession [somebibtex] [convert,strip]
+
+% \setuplist[somebibtex][before={\blank[medium]},after={\blank[medium]}] % hm
+
+% \settrue \tracebibtexformat
+
+\setupbibtexpublications[somebibtex][before={\blank[small]},after={\blank[small]}]
+
+\startxmlsetups bibtex:bibtex
+    \xmlfilter{#1}{/entry/command(bibtex:format)}
+\stopxmlsetups
+
+\startxmlsetups bibtex:show
+    \xmlshow{#1}
+\stopxmlsetups
+
+\applytobibtexsession[somebibtex][bibtex:list]
+
+cite: \bibtexcitation[somebibtex][test-entry] (中国工业生产率的增长与收敛)
+
+% \applytobibtexsession[somebibtex][bibtex:show]
+
+\blank data        ref: \bibtexdataref       [somebibtex][test-entry]\blank
+\blank type        ref: \bibtextyperef       [somebibtex][test-entry]\blank
+\blank key         ref: \bibtexkeyref        [somebibtex][test-entry]\blank
+\blank serial      ref: \bibtexserialref     [somebibtex][test-entry]\blank
+\blank url         ref: \bibtexurlref        [somebibtex][test-entry]\blank
+\blank doi         ref: \bibtexdoiref        [somebibtex][test-entry]\blank
+\blank short       ref: \bibtexshortref      [somebibtex][test-entry]\blank
+\blank year        ref: \bibtexyearref       [somebibtex][test-entry]\blank
+\blank author      ref: \bibtexauthorref     [somebibtex][test-entry]\blank
+\blank authoryear  ref: \bibtexauthoryearref [somebibtex][test-entry]\blank
+\blank authoryears ref: \bibtexauthoryearsref[somebibtex][test-entry]\blank
+
+\placebibtexpublications[somebibtex]
+
+\stoptext

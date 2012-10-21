@@ -1,0 +1,18 @@
+% example by Stefan Müller
+
+\starttext
+
+\defineframedtext[framedcode][strut=yes,offset=2mm,width=7cm,align=right]
+\definetyping[code][numbering=line,before=\startframedcode,after=\stopframedcode]
+
+\setuplinenumbering[location=text]
+
+\startcode
+This is the first line % line 1
+This is a rather long line that is wrapped, so look how the line numbering is done % line 2
+Another line % line 3
+% line 4
+Last line after an empty line % line 5
+\stopcode
+
+\stoptext

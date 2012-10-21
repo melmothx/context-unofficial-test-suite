@@ -1,0 +1,103 @@
+% macros=mkvi
+
+\nopdfcompression
+
+\unprotect
+
+% \def\strc_constructions_register
+%   {\ctxcommand{doiflisthasentry(\currentconstructionlistentry)}%
+%      \strc_constructions_register_nop
+%      {\loggingall\strc_constructions_register_yes}}
+
+% \setupnotation[footnote][marking=]
+% \setupnotation[footnote][list=]
+% \setupnotation[footnote][title=]
+
+\protect
+
+% TODO: map onto list ... play with endnotes .. sort .. ist renderer a la description
+% with hang etc
+
+
+\setupnotes[interaction=yes]
+% \setupnotes[interaction=all]
+% \setupnotes[interaction=number]
+% \setupnotes[interaction=text]
+% \setupnotes[interaction=no]
+
+\setupbodyfont[dejavu]
+
+% \enabletrackers[nodes.destinations]
+% \enabletrackers[nodes.references]
+
+\setupinteraction[state=start]
+
+\starttext
+
+test \footnote{one}
+test \footnote{two}
+
+test \footnote[one]{one}
+test \footnote[two]{two}
+
+test \in{whatever}[one]
+
+test \note[one]
+test \note[footnote][one]
+
+test \page
+
+% \defineconstruction[zero]
+% \startzero[title=Zero or nul] test \stopzero
+
+% \definenote[fourth]
+
+% test\fourth{The Fourth A}
+% test\fourth{The Fourth B}
+% test\fourth{The Fourth C}
+
+% \definenotation[third]
+
+% \startlines
+% note: \third[reference]{text}
+% note: \third[reference=reference,title=text]
+% note: \startthird[reference] text \stopthird
+% note: \startthird text \stopthird
+% \stoplines
+
+% \definedescription[first]
+
+% \startfirst{one-f}       \input zapf \stopfirst
+% \startfirst[title=two-f] \input zapf \stopfirst
+% \first     {three-f}     \input zapf \par
+
+% \defineenumeration[second][title=yes]
+
+% \startsecond{one-s}      \input zapf \stopsecond
+% \startsecond[title=two-s]\input zapf \stopsecond
+
+% \setbox0\vbox\bgroup
+%     \settrialtypesetting
+%     \startsecond[title=three-s]\input zapf \stopsecond
+%     \startsecond[title=four-s] \input zapf \stopsecond
+% \egroup
+
+% \startsecond[title=three-s]\input zapf \stopsecond
+% \startsecond[title=four-s] \input zapf \stopsecond
+
+% \placefigure{}{}
+
+% \page
+
+\definenote[extranote] % [footnote]
+
+\dorecurse {100} {
+    test  \normalexpanded{\footnote {test  \recurselevel}}
+    extra \normalexpanded{\extranote{extra \recurselevel}}
+}
+
+\page
+
+% \placelist[footnote]
+
+\stoptext

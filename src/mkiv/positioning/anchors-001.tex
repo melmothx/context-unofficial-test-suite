@@ -1,0 +1,26 @@
+\useMPlibrary[dum]
+
+\showframe
+
+\starttext
+
+\defineanchor[one][text-1][hoffset=-3mm,voffset=-3mm]
+\defineanchor[two][text-2][hoffset=3mm,voffset=-9mm]
+
+\input tufte
+
+\placefigure
+    [left,none]
+    {}
+    {\anchor[one]{\externalfigure[dummy][width=5cm,frame=on]}%
+     \anchor[two]{\externalfigure[dummy][width=5cm,frame=on]}}
+
+\input tufte
+
+\definetextbackground[whatever]
+
+\starttextbackground[whatever] \input tufte \stoptextbackground
+
+\input tufte
+
+\stoptext

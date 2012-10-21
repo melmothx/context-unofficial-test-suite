@@ -1,0 +1,31 @@
+\usetypescript[postscript]
+\setupbodyfont[postscript,10pt]
+\setupinterlinespace[line=20pt]
+
+\def\MyChapter
+  {\switchtobodyfont[rm,13pt]%
+   \setuplocalinterlinespace[line=30pt]}
+
+\showstruts
+
+\defineinterlinespace[bagger][line=50pt]
+
+% the interline space in MyChapter wins, when not set there, the interline space
+% is adapted anyway to the font
+%
+% \setuphead[chapter][style=\MyChapter,textstyle=,numberstyle=]
+%
+% the given interlinespace takes precedence
+%
+% \setuphead[chapter][style=\MyChapter,textstyle=,numberstyle=,interlinespace={line=40pt}]
+% \setuphead[chapter][style=\MyChapter,textstyle=,numberstyle=,interlinespace=40pt]
+
+\setuphead[chapter][style=\MyChapter,textstyle=,numberstyle=,interlinespace=bagger]
+
+\starttext
+
+\chapter{Éç\\Éç\\Éç\\Éç}
+
+Éç\par Éç\par Éç\par Éç
+
+\stoptext

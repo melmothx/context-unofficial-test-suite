@@ -1,0 +1,45 @@
+\usemodule[mathml]
+
+\starttext
+
+\startTEXpage[offset=10pt]
+
+\startbuffer[test-1]
+<math xmlns='http://www.w3c.org/mathml' version='2.0'>
+    <OMOBJ xmlns="http://www.openmath.org/OpenMath" version="2.0" cdbase="http://www.openmath.org/cd">
+        <OMA>
+            <OMS cd="relation1" name="eq"/>
+            <OMA>
+                <OMS cd="arith1" name="times"/>
+                <OMA>
+                    <OMS cd="arith1" name="power"/>
+                    <OMV name="a"/>
+                    <OMV name="p"/>
+                </OMA>
+                <OMA>
+                    <OMS cd="arith1" name="power"/>
+                    <OMV name="a"/>
+                    <OMV name="q"/>
+                </OMA>
+            </OMA>
+            <OMA>
+                <OMS cd="arith1" name="power"/>
+                <OMV name="a"/>
+                <OMA>
+                    <OMS cd="arith1" name="plus"/>
+                    <OMV name="p"/>
+                    <OMV name="q"/>
+                </OMA>
+            </OMA>
+        </OMA>
+    </OMOBJ>
+</math>
+\stopbuffer
+
+\typebuffer[test-1][option=xml] \blank
+
+\xmlprocessbuffer{test}{test-1}{}
+
+\stopTEXpage
+
+\stoptext

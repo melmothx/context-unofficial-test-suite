@@ -1,0 +1,107 @@
+\definefontfeature[default][default][itlc=yes]
+
+\setupbodyfont[cambria]
+
+\enabletrackers[typesetters.italics]
+
+\starttext
+
+
+% \definefontfeature[itclyes][default][itlc=yes,notextitalics=no]
+
+% \definefont[itlcregular]   [name:cambria*itclyes sa 3]
+% \definefont[itlcbold]      [name:cambriabold*itclyes sa 3]
+% \definefont[itlcitalic]    [name:cambriaitalic*itclyes sa 3]
+% \definefont[itlcbolditalic][name:cambriabolditalic*itclyes sa 3]
+
+% \definefont[itlcregular]   [name:cambria*default sa 3]
+% \definefont[itlcbold]      [name:cambriabold*default sa 3]
+% \definefont[itlcitalic]    [name:cambriaitalic*default sa 3]
+% \definefont[itlcbolditalic][name:cambriabolditalic*default sa 3]
+
+% \startpacked
+% \ruledhbox{\setitaliccorrection[0]\itlcregular test {\itlcitalic test} test}   \par % nothing
+% \ruledhbox{\setitaliccorrection[0]\itlcregular test {\itlcitalic test\/} test} \par % tex
+% \ruledhbox{\setitaliccorrection[1]\itlcregular test {\itlcitalic test} test}   \par % inserted
+% \stoppacked
+
+% \resetitaliccorrection
+
+% \startpacked
+%     \ruledhbox{\switchtobodyfont[36pt]test {\it testt} ttest}
+%     \par
+%     \ruledhbox{\switchtobodyfont[36pt]test {\it testt\/} ttest}
+%     \par
+%     \start
+%         \setitaliccorrection[1]
+%         \ruledhbox{\switchtobodyfont[36pt]test {\it testt} ttest}
+%     \stop
+% \stoppacked
+
+\startpacked
+    \ruledhbox{\switchtobodyfont[36pt]\setupitaliccorrection[none]\tf test {\it test}{\bi test}}   \par
+    \ruledhbox{\switchtobodyfont[36pt]\setupitaliccorrection[none]\tf test {\it test\/}{\bi test}} \par
+    \ruledhbox{\switchtobodyfont[36pt]\setupitaliccorrection[text]\tf test {\it test}{\bi test}}   \par
+    \ruledhbox{\switchtobodyfont[36pt]\setupitaliccorrection[none]\tf test {\it test\/}{\bi test}} \par
+\stoppacked
+
+\startpacked
+    \ruledhbox{\switchtobodyfont[36pt]\setupitaliccorrection[none]\tf test {\it test   {\bi test} test}} \par
+    \ruledhbox{\switchtobodyfont[36pt]\setupitaliccorrection[none]\tf test {\it test\/ {\bi test} test}} \par
+    \ruledhbox{\switchtobodyfont[36pt]\setupitaliccorrection[text]\tf test {\it test   {\bi test} test}} \par
+    \ruledhbox{\switchtobodyfont[36pt]\setupitaliccorrection[none]\tf test {\it test\/ {\bi test} test}} \par
+\stoppacked
+
+
+%     \startpacked
+%         \setitaliccorrection[1]
+%         \ruledhbox{\switchtobodyfont[36pt]test {\it testt} {\bi ttest}}
+%         \par
+%         \ruledhbox{\switchtobodyfont[36pt]test {\it testt\/} {\bi ttest}}
+%     \stoppacked
+
+%     \startpacked
+%         \setitaliccorrection[1]
+%         \ruledhbox{\switchtobodyfont[36pt]test {\it testt}ttest}
+%         \par
+%         \ruledhbox{\switchtobodyfont[36pt]test {\it testt\/}ttest}
+%     \stoppacked
+
+%     \startpacked
+%         \setitaliccorrection[1]
+%         \ruledhbox{\switchtobodyfont[36pt]\it test}
+%         \par
+%         \ruledhbox{\switchtobodyfont[36pt]\it test\/}
+%     \stoppacked
+
+%     \startpacked
+%         \setitaliccorrection[2]
+%         \ruledhbox{\switchtobodyfont[36pt]\it test}
+%         \par
+%         \ruledhbox{\switchtobodyfont[36pt]\it test\/}
+%     \stoppacked
+
+%     \startpacked
+%         \setitaliccorrection[2]
+%         \ruledhbox{\switchtobodyfont[36pt]test {\it test}; test}
+%         \par
+%         \ruledhbox{\switchtobodyfont[36pt]test {\it test\/}; test}
+%     \stoppacked
+
+%     \startpacked
+%         \setitaliccorrection[0]
+%         \ruledhbox{\switchtobodyfont[36pt]test {\em test {\bf test}} test}
+%         \par
+%         \let\emphasiscorrection\donothing
+%         \ruledhbox{\switchtobodyfont[36pt]test {\em test {\bf test}} test}
+%     \stoppacked
+
+%     \startpacked
+%         \setitaliccorrection[2]
+%         \ruledhbox{\switchtobodyfont[36pt]test {\em test {\bf test}} test}
+%         \par
+%         \let\emphasiscorrection\donothing
+%         \ruledhbox{\switchtobodyfont[36pt]test {\em test {\bf test}} test}
+%     \stoppacked
+
+\stoptext

@@ -1,0 +1,51 @@
+\enabletrackers[visualizers.all]
+
+% \enabletrackers[visualizers.fontkern]
+
+% \setvisualizerfont
+
+\setupinterlinespace[1.5]
+
+\setuplayout[middle]
+
+\starttext
+
+    \framed{let's see what is involved}
+
+    \blank
+
+    \ruledhbox{\strut test \ruledhbox{test} \kern1cm test}
+
+    \blank
+
+    \ruledhbox to 4cm{\strut test \ruledhbox{test} \kern1cm test}
+
+    \penalty12345
+
+    \penalty\maxdimen
+
+    \ruledhbox to 4cm{\strut test \penalty100 test}
+
+    \input ward
+
+    \startitemize
+        \startitem test \stopitem
+        \startitem test \stopitem
+        \startitem test \stopitem
+    \stopitemize
+
+    test\kern-10pt test\kern10pt test
+
+    \kern5pt
+
+    test\kern-10pt test\kern10pt test
+
+    \kern-5pt
+
+    test\kern-10pt test\kern10pt test
+
+    \blank
+
+    \dorecurse{10}{\input ward \par}
+
+\stoptext

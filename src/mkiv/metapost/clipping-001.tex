@@ -1,0 +1,9 @@
+% posted on list by peter rolf
+
+\startMPclip{mpcliptest}
+    clip currentpicture to unitcircle scaled 5cm;
+\stopMPclip
+
+\starttext
+    \clip[mp=mpcliptest]{\blackrule[width=5cm,height=5cm]}
+\stoptext

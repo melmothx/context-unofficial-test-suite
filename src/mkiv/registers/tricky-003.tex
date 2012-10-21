@@ -1,0 +1,16 @@
+\starttext
+
+\subject{before} \placeregister[index][language=nl,method=before] \par
+\subject{after}  \placeregister[index][language=nl,method=after]  \par
+\subject{first}  \placeregister[index][language=nl,method=last]   \par
+\subject{last}   \placeregister[index][language=nl,method=first]  \par
+
+\dorecurse {3} {
+    \page \recurselevel:
+        \index{blij} \index{blijven} \index{ijsje} \index{IJsjes}
+        \index{wijsje} \index{ijverig}
+        \index{ikke}
+    done
+}
+
+\stoptext

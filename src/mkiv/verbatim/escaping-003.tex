@@ -1,0 +1,25 @@
+% escapes starting at position 1 and preceding newlines
+
+\definetyping[Test][escape={/,/}]
+
+\starttext
+
+\startTest
+foo
+
+/\em bar/ foo /bar/
+\stopTest
+
+\startTest
+foo
+
+/\em bar/
+\stopTest
+
+\startTest
+/\em foo/
+bar
+\stopTest
+
+\stoptext
+

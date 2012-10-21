@@ -1,0 +1,71 @@
+\mainlanguage[kr]
+
+\definefontfeature[korean][script=hang,language=kor,mode=node,analyze=yes]
+
+\starttypescript [serif] [myungjo]
+    \definefontsynonym[Serif]    [adobemyungjostd-medium*korean]
+    \definefontsynonym[SerifBold][adobemyungjostd-medium*korean]
+\stoptypescript
+
+\starttypescript[myungjo]
+    \definetypeface [myungjo] [rm] [serif] [myungjo] [default] [features=korean]
+    \definetypeface [myungjo] [mm] [math]  [modern]  [default]
+\stoptypescript
+
+\setupbodyfont[myungjo]
+
+\setuplayout[width=middle,height=middle,backspace=1cm,topspace=1cm,footer=0pt]
+
+\starttext
+
+\enabletrackers[sorters.methods,sorters.tests]
+
+\placeregister
+  [index]
+  [n=1]
+
+\def\xxindex#1{#1\index{#1}\par}
+
+\blank[3*big]
+
+\startcolumns[n=1]
+
+% \xxindex{paa}
+% \xxindex{aa}
+% \xxindex{aaa}
+\xxindex{aap}
+% \xxindex{zz}
+
+\xxindex{가급적}
+\xxindex{가끔}
+% \xxindex{가능성}
+% \xxindex{강력한도구}
+% \xxindex{개념}
+% \xxindex{건조일정}
+% \xxindex{경영과학}
+% \xxindex{고등학생}
+% \xxindex{곱의원리}
+% \xxindex{공}
+% \xxindex{공학}
+% \xxindex{과학자}
+% \xxindex{관점의변화}
+% \xxindex{구조}
+% \xxindex{구조물}
+% \xxindex{그래프}
+% \xxindex{그렇지만}
+% \xxindex{기본원리}
+% \xxindex{기본핵산}
+% \xxindex{기초}
+% \xxindex{깊은}
+% \xxindex{깜빡}
+% \xxindex{깨달음}
+
+
+\xxindex{첫}
+\xxindex{첫 6개}
+\xxindex{첫6개}
+\xxindex{첫개6}
+
+\stopcolumns
+
+\stoptext

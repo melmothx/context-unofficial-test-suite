@@ -1,0 +1,75 @@
+% engine=luatex
+
+% engine=pdftex
+
+% result of email exchange with Reinhard Kotucha
+
+\doifnotmode{mkiv}{
+    \usetypescript[modern][t5]
+    \enableregime[utf]
+    \setupbodyfont[modern]
+}
+
+\starttext
+
+\subsection{Test of lowercase letters}
+
+á ạ à ả ã ă ắ ặ ằ ẳ ẵ â ấ ậ ầ ẩ ẫ đ \crlf
+é ẹ è ẻ ẽ ê ế ệ ề ể ễ í ị ì ỉ ĩ     \crlf
+ó ọ ò ỏ õ ô ố ộ ồ ổ ỗ ơ ớ ợ ờ ở ỡ   \crlf
+ú ụ ù ủ ũ ư ứ ự ừ ử ữ ý ỵ ỳ ỷ ỹ
+
+\subsection{Test of uppercase letters}
+
+Á Ạ À Ả Ã Ă Ắ Ặ Ằ Ẳ Ẵ Â Ấ Ậ Ầ Ẩ Ẫ Đ \crlf
+É Ẹ È Ẻ Ẽ Ê Ế Ệ Ề Ể Ễ Í Ị Ì Ỉ Ĩ     \crlf
+Ó Ọ Ò Ỏ Õ Ô Ố Ộ Ồ Ổ Ỗ Ơ Ớ Ợ Ờ Ở Ỡ   \crlf
+Ú Ụ Ù Ủ Ũ Ư Ứ Ự Ừ Ử Ữ Ý Ỵ Ỳ Ỷ Ỹ
+
+\subsection{Test whether lowercasing works correctly}
+
+\uppercased {
+Á Ạ À Ả Ã Ă Ắ Ặ Ằ Ẳ Ẵ Â Ấ Ậ Ầ Ẩ Ẫ Đ \crlf
+É Ẹ È Ẻ Ẽ Ê Ế Ệ Ề Ể Ễ Í Ị Ì Ỉ Ĩ     \crlf
+Ó Ọ Ò Ỏ Õ Ô Ố Ộ Ồ Ổ Ỗ Ơ Ớ Ợ Ờ Ở Ỡ   \crlf
+Ú Ụ Ù Ủ Ũ Ư Ứ Ự Ừ Ử Ữ Ý Ỵ Ỳ Ỷ Ỹ
+}
+
+\subsection{Test whether uppercasing works correctly}
+
+\lowercased {
+á ạ à ả ã ă ắ ặ ằ ẳ ẵ â ấ ậ ầ ẩ ẫ đ \crlf
+é ẹ è ẻ ẽ ê ế ệ ề ể ễ í ị ì ỉ ĩ     \crlf
+ó ọ ò ỏ õ ô ố ộ ồ ổ ỗ ơ ớ ợ ờ ở ỡ   \crlf
+ú ụ ù ủ ũ ư ứ ự ừ ử ữ ý ỵ ỳ ỷ ỹ
+}
+
+\subsection{Some text sample}
+
+\placefigure
+  {Đêm Hà Nội}
+  {\blackrule[width=4cm,height=3cm]}
+
+\def\fn{\footnote{Thử coi chú thích có chạy không hè.}}
+
+Hắn vừa đi vừa chửi\fn. Bao giờ cũng thế, cứ rượu xong là hắn chửi. Bắt đầu
+chửi trời. Có hề gì? Trời có của riêng nhà nào? Rồi hắn chửi đời. Thế
+cũng chẳng sao: đời là tất cả nhưng chẳng là ai. Tức mình hắn chửi ngay tất
+cả làng Vũ Đại. Nhưng cả làng Vũ Đại ai cũng nhủ, \italic{``Chắc nó trừ
+mình ra!''} Không ai lên tiếng cả. Tức thật! Ồ! Thế này thì tức thật! Tức
+chết đi được mất! Đã thế, hắn phải chửi cha đứa nào không chửi nhau với
+hắn. Nhưng cũng không ai ra điều. Mẹ kiếp! Thế thì có phí rượu không? Thế
+thì có khổ hắn không? Không biết đứa chết mẹ nào đẻ ra thân hắn cho hắn khổ
+đến nông nỗi này? A ha! Phải đấy, hắn cứ thế mà chửi, hắn chửi đứa chết mẹ
+nào đẻ ra thân hắn, đẻ ra cái thằng \bold{Chí Phèo}! Hắn nghiến răng vào
+mà chửi cái đứa đã đẻ ra Chí Phèo. Nhưng mà biết đứa nào đã đẻ ra
+Chí Phèo? Có trời mà biết! Hắn không biết, cả làng Vũ Đại cũng không ai
+biết.
+
+\subsection{Test of Vietnamese in sectioning commands}
+\subsubsection{Đêm qua tát nước đầu đình}
+\subsubsection{Bỏ quên chiếc áo trên cành hoa sen}
+\subsubsection{Em được thì cho anh xin}
+\subsubsection{Hay là em để làm tin trong nhà}
+
+\stoptext

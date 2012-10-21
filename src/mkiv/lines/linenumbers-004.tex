@@ -1,0 +1,34 @@
+\enabletrackers[lines.numbers]
+
+\definetyping[code][numbering=line]
+
+\starttext
+
+\startcode
+. 1 .
+. 2 .
+\stopcode
+
+\startcode[continue]
+. 3 .
+. 4..
+\stopcode
+
+\startcode[continue=yes]
+. 5 .
+. 6 .
+\stopcode
+
+\startcode[start=10]
+. 10 .
+. 11 .
+\stopcode
+
+\startcode[start=20]
+. 20 .
+. 21 .
+\stopcode
+
+\typefile[numbering=file]{\jobname.tex}
+
+\stoptext

@@ -1,0 +1,16 @@
+% \definefontfeature[default][default][mode=node,mark=yes,mkmk=yes]
+\definefontsynonym[a][file:LucidaBright.otf][features=default]
+
+\starttext
+
+    \enabletrackers[nodes.injections,fonts.automode]
+
+    \definedfont[a]
+
+    a\ruledhbox to 1cm{}\ruledhbox to 1cm{U\char"032F}a
+
+    U\char"032F
+
+    \disabletrackers[nodes.injections,fonts.automode]
+
+\stoptext

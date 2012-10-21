@@ -1,0 +1,32 @@
+\setupinteraction
+  [state=start]
+
+\setupsubpagenumber
+  [state=start]
+
+\setuplayout
+  [middle]
+
+\setuppapersize
+  [S4][S4]
+
+\startsetups bars
+    \ruledvbox to \textheight \bgroup
+        a \ruledhbox{\interactionbar[a]}\vss
+        b \ruledhbox{\interactionbar[b]}\vss
+        c \ruledhbox{\interactionbar[c]}\vss
+        d \ruledhbox{\interactionbar[d]}\vss
+        e \ruledhbox{\interactionbar[e]}\vss
+        f \ruledhbox{\interactionbar[f]}\vss
+        g \ruledhbox{\interactionbar[g]}\vss
+    \egroup
+\stopsetups
+
+\setuptexttexts[\setups{bars}]
+
+\starttext
+    \dorecurse {12} {
+        \startstandardmakeup
+        \stopstandardmakeup
+    }
+\stoptext

@@ -1,0 +1,17 @@
+\setupinteraction[state=start]
+
+\placebookmarks[chapter,section,subject][chapter,section][force=yes,number=no]
+
+\placelist[chapter,section][criterium=all]
+
+\starttext
+    \chapter{One}
+    \section{Alpha}
+    \section{Beta}
+    \subject{Gamma}
+    \startappendices
+        \chapter{One}
+        \section{Alpha}
+        \section{Beta}
+    \stopappendices
+\stoptext

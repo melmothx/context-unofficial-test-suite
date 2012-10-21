@@ -1,0 +1,45 @@
+\setuppapersize
+  [S6]
+
+\setuplayout
+  [margin=0cm,
+   edge=5cm,
+   header=0pt,
+   width=12cm]
+
+\setuphead
+  [section]
+  [page=yes]
+
+\setupinteraction
+  [state=start,
+   menu=on]
+
+\startinteractionmenu[right]
+    \startbut [section(first   {chapter})]    first chapter \stopbut
+    \startbut [section(previous{chapter})] previous chapter \stopbut
+    \startbut [section(next    {chapter})]     next chapter \stopbut
+    \startbut [section(last    {chapter})]     last chapter \stopbut
+    \blank[2*big]
+    \startbut [section(first   {section})]    first section \stopbut
+    \startbut [section(previous{section})] previous section \stopbut
+    \startbut [section(next    {section})]     next section \stopbut
+    \startbut [section(last    {section})]     last section \stopbut
+\stopinteractionmenu
+
+\starttext
+    \startchapter[title=First]
+        \startsection[title=One]   \dorecurse{5}{\input Ward} \stopsection
+        \startsection[title=Two]   \dorecurse{5}{\input Ward} \stopsection
+        \startsection[title=Three] \dorecurse{5}{\input Ward} \stopsection
+        \startsection[title=Four]  \dorecurse{5}{\input Ward} \stopsection
+        \startsection[title=Five]  \dorecurse{5}{\input Ward} \stopsection
+    \stopchapter
+    \startchapter[title=Second]
+        \startsection[title=One]   \dorecurse{5}{\input Ward} \stopsection
+        \startsection[title=Two]   \dorecurse{5}{\input Ward} \stopsection
+        \startsection[title=Three] \dorecurse{5}{\input Ward} \stopsection
+        \startsection[title=Four]  \dorecurse{5}{\input Ward} \stopsection
+        \startsection[title=Five]  \dorecurse{5}{\input Ward} \stopsection
+    \stopchapter
+\stoptext

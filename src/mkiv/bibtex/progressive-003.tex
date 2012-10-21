@@ -1,0 +1,70 @@
+\starttext
+
+\enabletrackers[publications.bibxml]
+
+\usemodule[abr-01]
+
+% Maybe even per database but i need a pretty good reason to waste time on
+% that, after all I don't need bibtex myself.
+
+\defbibtexcommand\MF  {MF}
+\defbibtexcommand\MP  {MP}
+\defbibtexcommand\TUB {TUGboat}
+\defbibtexcommand\Mc  {Mac}
+\defbibtexcommand\sltt{\tt}
+\defbibtexcommand\<#1>{\type{#1}}
+\defbibtexcommand\acro#1{#1}
+
+\definebibtexsession  [somebibtex]
+\registerbibtexfile   [somebibtex] [tugboat.bib]
+\registerbibtexfile   [somebibtex] [komoedie.bib]
+\preparebibtexsession [somebibtex] [convert,strip]
+
+\def\currentbibtexformat{apa} \input bxml-\currentbibtexformat.mkiv
+
+% apply to root element /bibtex and use default xmlsetup 'bibtex'
+
+\startbuffer[default]
+    \startxmlsetups bibtex
+        \xmlregistereddocumentsetups{#1}{}
+        \xmlsetsetup{#1}{bibtex|entry|field}{bibtex:*}
+        \xmlmain{#1}
+    \stopxmlsetups
+
+    \startxmlsetups bibtex:bibtex
+        \xmlfilter{#1}{
+            /entry[@category='article']
+            /field[@name='author' and (find(text(),'Hagen') or find(text(),'Hoekwater'))]
+            /../command(bibtex:format)
+        }
+    \stopxmlsetups
+
+    \applytobibtexsession[somebibtex][bibtex]
+\stopbuffer
+
+% define handler and use that one directly, watch the /bibtex in the path
+
+\startbuffer[list]
+    \startxmlsetups bibtex:list
+        \xmlfilter{#1}{/bibtex/entry/command(bibtex:format)}
+    \stopxmlsetups
+
+    \applytobibtexsession[somebibtex][bibtex:list]
+\stopbuffer
+
+\startbuffer[filter]
+    \startxmlsetups bibtex:filter
+        \xmlfilter{#1}{
+            /bibtex
+            /entry[@category='article']
+            /field[@name='author' and (find(text(),'Hagen') or find(text(),'Hoekwater'))]
+            /../command(bibtex:format)
+        }
+    \stopxmlsetups
+
+    \applytobibtexsession[somebibtex][bibtex:filter]
+\stopbuffer
+
+\getbuffer[filter]
+
+\stoptext

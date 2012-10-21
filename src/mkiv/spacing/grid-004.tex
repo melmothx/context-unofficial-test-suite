@@ -1,0 +1,14 @@
+\setuplayout[grid=yes] \showgrid
+
+\definegridsnapping[chapter][mindepth,maxheight,local]
+
+\setupwhitespace[none]
+\setupblank[line]
+
+\setuphead[chapter][grid=chapter,after=\blank] % ,alternative=top]
+
+\starttext
+    \chapter{one}        \input tufte
+    \chapter{one\\two}        \input tufte
+    \chapter{one\\two\\three} \input tufte
+\stoptext

@@ -1,0 +1,17 @@
+\starttext
+
+\def\test#1{#1 }
+
+\startluacode
+    local t = os.clock()
+    for i=1,1000 do
+        context.startnointerference()
+        for i=1,1000 do
+            context.test(i)
+        end
+        context.stopnointerference()
+    end
+    context.test(os.clock()-t)
+\stopluacode
+
+\stoptext

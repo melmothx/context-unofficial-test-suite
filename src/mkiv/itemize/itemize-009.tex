@@ -1,0 +1,22 @@
+\setupindenting[yes,big,first]
+
+\starttext
+
+\page \input knuth \par \startitemize
+    \item \input knuth
+\stopitemize \input tufte \par
+
+\page \input knuth \par \startitemize[indenting={yes,first,big}]
+    \item \input knuth
+\stopitemize \input tufte \par
+
+\page \input knuth \par \startitemize[indenting={yes,first,big},alignsymbol=yes]
+    \item \input knuth
+\stopitemize \input tufte \par
+
+\page \input knuth \par \startitemize[indenting={yes,next,big}]
+    \item \input knuth
+\stopitemize \input tufte \par
+
+\stoptext
+

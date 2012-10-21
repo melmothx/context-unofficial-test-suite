@@ -1,0 +1,19 @@
+\starttext
+
+% \setuphead[number=no]
+
+\definehead[xxx][subsubsection]
+
+\chapter{Chapter}
+\section{Section}
+\subsection{Subsection}
+\subsubsection{Subsubsection}
+
+\xxx{Xxx}
+
+c:\sectionheadcoupling{subsubsection}          s:\sectionheadsection{subsubsection}          \par
+c:\sectionheadcoupling{xxx}                    s:\sectionheadsection{xxx}                    \par
+c:\namedheadparameter{subsubsection}{coupling} s:\namedheadparameter{subsubsection}{section} \par
+c:\namedheadparameter{xxx}{coupling}           s:\namedheadparameter{xxx}{section}           \par
+
+\stoptext

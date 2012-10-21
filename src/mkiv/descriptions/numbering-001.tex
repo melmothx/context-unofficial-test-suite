@@ -1,0 +1,28 @@
+\starttext
+
+\defineenumeration
+  [example]
+
+\setupenumerations
+  [example]
+  [prefix=yes,
+   prefixsegments=2:2,
+   title=yes,
+   titleleft=,
+   titleright=]
+
+\startchapter[title=x]
+    \startexample[bagger1]{first}  \input tufte \stopexample
+    \startexample[bagger2]{second} \input tufte \stopexample
+    \placefigure{}{}
+    \in {example} [bagger1]
+\stopchapter
+
+\startchapter[title=x]
+    \startexample[bagger1]{first}  \input tufte \stopexample
+    \startexample[bagger2]{second} \input tufte \stopexample
+    \placefigure{}{}
+    \in {example} [bagger1]
+\stopchapter
+
+\stoptext

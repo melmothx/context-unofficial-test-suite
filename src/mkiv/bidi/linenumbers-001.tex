@@ -1,0 +1,63 @@
+\showframe
+
+\definefont[MyMono][file:dejavusansmono sa 1]
+
+\setuptyping             [style=\MyMono,numbering=line,start=1,step=1]
+\definetyping [RLtyping] [align=r2l]
+\definetyping [LRtyping] [align=l2r]
+
+\starttext
+
+\startbuffer[sample]
+\startLRtyping
+At the left!
+أهلا
+\stopLRtyping
+
+\startRLtyping
+At the right!
+أهلا
+\stopRLtyping
+
+\startalignment[l2r]
+\starttyping
+At the left!
+أهلا
+\stoptyping
+\stopalignment
+
+\startalignment[r2l]
+\starttyping
+At the right!
+أهلا
+\stoptyping
+\stopalignment
+\stopbuffer
+
+\typebuffer[sample] \page
+
+\startbuffer[settings]
+\setuplinenumbering[typing][location=left]
+\stopbuffer
+
+\typebuffer[settings] \getbuffer[settings,sample] \page
+
+\startbuffer[settings]
+\setuplinenumbering[typing][location=right]
+\stopbuffer
+
+\typebuffer[settings] \getbuffer[settings,sample] \page
+
+\startbuffer[settings]
+\setuplinenumbering[typing][location=begin]
+\stopbuffer
+
+\typebuffer[settings] \getbuffer[settings,sample] \page
+
+\startbuffer[settings]
+\setuplinenumbering[typing][location=end]
+\stopbuffer
+
+\typebuffer[settings] \getbuffer[settings,sample] \page
+
+\stoptext

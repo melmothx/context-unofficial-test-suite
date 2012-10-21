@@ -1,0 +1,20 @@
+\setupinteraction[state=start]
+
+\definereferenceformat [intesta] [left=(,right=),text=Whatever~,style=\sl,color=black]
+\definereferenceformat [intestb] [left=(,right=),label=figure]
+
+\starttext
+
+\placeformula[x]\startformula a \stopformula
+
+\starttabulate[|||||]
+\NC \in     [x] \NC \in     {left}[x] \NC \in     {}{right}[x] \NC \in     {left}{right}[x] \NC \NR
+\NC \intesta[x] \NC \intesta{left}[x] \NC \intesta{}{right}[x] \NC \intesta{left}{right}[x] \NC \NR
+\NC \intestb[x] \NC \intestb{left}[x] \NC \intestb{}{right}[x] \NC \intestb{left}{right}[x] \NC \NR
+\stoptabulate
+
+% \in     [x] \quad \in     {left}[x] \quad \in     {}{right}[x] \quad \in     {left}{right}[x] \par
+% \intesta[x] \quad \intesta{left}[x] \quad \intesta{}{right}[x] \quad \intesta{left}{right}[x] \par
+% \intestb[x] \quad \intestb{left}[x] \quad \intestb{}{right}[x] \quad \intestb{left}{right}[x] \par
+
+\stoptext

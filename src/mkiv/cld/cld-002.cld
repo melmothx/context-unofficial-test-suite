@@ -1,0 +1,12 @@
+-- taken from the list (and adapted a bit)
+
+context.startMPpage()
+
+    context("draw origin")
+    for i=0,100,10 do
+        context("..{down}(%d,0)",i)
+    end
+    context(" withcolor red ;")
+
+context.stopMPpage()
+

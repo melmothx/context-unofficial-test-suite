@@ -1,0 +1,262 @@
+% macros=mkvi
+
+\starttext
+
+% \definextable[myxtable]
+% \definextable[myxtable:important][myxtable]
+
+\setupxtable[myxtable][width=4cm,foregroundcolor=red,split=yes]
+\setupxtable[myxtable:important][background=color,backgroundcolor=red,foregroundcolor=white]
+
+% \definextable[myztable]
+\setupxtable[myztable][option=stretch,foregroundcolor=blue,columndistance=10pt,leftmargindistance=20pt,rightmargindistance=30pt]
+
+% \definextable[mywtable]
+\setupxtable[mywtable][option={stretch,width},foregroundcolor=cyan,distance=2pt,spaceinbetween=medium]
+
+\blank
+\startxtable[myxtable]
+    \startxrow[foregroundcolor=green]
+        \startxcell one   \stopxcell
+        \startxcell two   \stopxcell
+        \startxcellgroup[foregroundcolor=blue]
+            \startxcell tree  \stopxcell
+            \startxcell four  \stopxcell
+        \stopxcellgroup
+    \stopxrow
+    \startxrow
+        \startxcell alpha \stopxcell
+        \startxcell beta  \stopxcell
+        \startxcellgroup[myxtable:important]
+            \startxcell gamma \stopxcell
+            \startxcell delta \stopxcell
+        \stopxcellgroup
+    \stopxrow
+\stopxtable
+\blank
+
+\blank
+\startxtable[myxtable]
+    \startxrow
+        \startxcell[width=1cm] one   \stopxcell
+        \startxcell[width=2cm] two   \stopxcell
+        \startxcell[width=3cm] tree  \stopxcell
+        \startxcell[width=4cm] four  \stopxcell
+    \stopxrow
+    \startxrow
+        \startxcell[width=4cm] alpha \stopxcell
+        \startxcell[width=3cm] beta  \stopxcell
+        \startxcell[width=2cm] gamma \stopxcell
+        \startxcell[width=1cm] delta \stopxcell
+    \stopxrow
+\stopxtable
+\blank
+
+\blank
+\startxtable
+    \startxtablehead
+        \startxrow
+            \startxcell head one   \stopxcell
+            \startxcell head two   \stopxcell
+            \startxcell head tree  \stopxcell
+            \startxcell head four  \stopxcell
+        \stopxrow
+    \stopxtablehead
+    \startxtablebody
+        \dorecurse {10} {
+            \startxrow
+                \startxcell body alpha \stopxcell
+                \startxcell body beta  \stopxcell
+                \startxcell body gamma \stopxcell
+                \startxcell body delta \stopxcell
+            \stopxrow
+        }
+    \stopxtablebody
+\stopxtable
+\blank
+
+\blank
+\startxtable[myztable]
+    \startxrow
+        \startxcell[width=1cm] one   \stopxcell
+        \startxcell[width=2cm] two   \stopxcell
+        \startxcell[width=3cm] tree  \stopxcell
+        \startxcell[width=4cm] four  \stopxcell
+    \stopxrow
+    \startxrow
+        \startxcell[width=1cm] alpha \stopxcell
+        \startxcell[width=2cm] beta  \stopxcell
+        \startxcell[width=3cm] gamma \stopxcell
+        \startxcell[width=4cm] delta \stopxcell
+    \stopxrow
+\stopxtable
+\blank
+
+\blank
+\startxtable[mywtable]
+    \startxrow
+        \startxcell[width=1cm] one   \stopxcell
+        \startxcell[width=2cm,distance=5pt] two   \stopxcell
+        \startxcell[width=3cm] tree  \stopxcell
+        \startxcell[width=4cm] four  \stopxcell
+    \stopxrow
+    \startxrow
+        \startxcell[width=1cm] alpha \stopxcell
+        \startxcell[width=2cm] beta  \stopxcell
+        \startxcell[width=3cm] gamma \stopxcell
+        \startxcell[width=4cm] delta \stopxcell
+    \stopxrow
+\stopxtable
+\blank
+
+\blank
+\startxtable
+    \startxrow
+        \startxcell one   \stopxcell
+        \startxcell[nx=2] two +three \stopxcell
+        \startxcell four  \stopxcell
+        \startxcell five  \stopxcell
+    \stopxrow
+    \startxrow
+        \startxcell[nx=3] alpha + beta + gamma \stopxcell
+        \startxcell[nx=2] delta + epsilon \stopxcell
+    \stopxrow
+\stopxtable
+\blank
+
+\blank
+\startxtable
+    \startxrow
+        \startxcell alpha 1\stopxcell
+        \startxcell beta  1\stopxcell
+        \startxcell gamma 1\stopxcell
+        \startxcell delta 1\stopxcell
+    \stopxrow
+    \startxrow
+        \startxcell alpha 2\stopxcell
+        \startxcell[nx=2,ny=2] whatever \stopxcell
+        \startxcell delta 2\stopxcell
+    \stopxrow
+    \startxrow
+        \startxcell alpha 3\stopxcell
+        \startxcell delta 3\stopxcell
+    \stopxrow
+    \startxrow
+        \startxcell alpha 4\stopxcell
+        \startxcell beta  4\stopxcell
+        \startxcell gamma 4\stopxcell
+        \startxcell delta 4\stopxcell
+    \stopxrow
+\stopxtable
+\blank
+
+\startbuffer
+\startxtable
+    \startxtablehead
+        \startxrow
+            \startxcell head one  \stopxcell
+            \startxcell head two  \stopxcell
+            \startxcell head tree \stopxcell
+            \startxcell head four \stopxcell
+        \stopxrow
+    \stopxtablehead
+    \startxtablenext
+        \startxrow
+            \startxcell next one  \stopxcell
+            \startxcell next two  \stopxcell
+            \startxcell next tree \stopxcell
+            \startxcell next four \stopxcell
+        \stopxrow
+    \stopxtablenext
+    \startxtablebody
+        \dorecurse{200} {
+            \startxrow
+                \startxcell body one  \stopxcell
+                \startxcell body two  \stopxcell
+                \startxcell body tree \stopxcell
+                \startxcell body four \stopxcell
+            \stopxrow
+        }
+    \stopxtablebody
+\stopxtable
+\stopbuffer
+
+\placefigure[here,split]{test}{\getbuffer}
+
+\startbuffer
+\setupxtable[header=repeat,footer=repeat]
+\startxtable
+    \startxtablehead
+        \startxrow
+            \startxcell head one  \stopxcell
+            \startxcell head two  \stopxcell
+            \startxcell head tree \stopxcell
+            \startxcell head four \stopxcell
+        \stopxrow
+    \stopxtablehead
+    \startxtablefoot
+        \startxrow
+            \startxcell foot one  \stopxcell
+            \startxcell foot two  \stopxcell
+            \startxcell foot tree \stopxcell
+            \startxcell foot four \stopxcell
+        \stopxrow
+    \stopxtablefoot
+    \startxtablebody
+        \dorecurse{200} {
+            \startxrow
+                \startxcell body one  \stopxcell
+                \startxcell body two  \stopxcell
+                \startxcell body tree \stopxcell
+                \startxcell body four \stopxcell
+            \stopxrow
+        }
+    \stopxtablebody
+\stopxtable
+\stopbuffer
+
+\placefigure[here,split]{test}{\getbuffer}
+
+\startbuffer
+\startxtable[myxtable]
+    \startxrow[foregroundcolor=green]
+        \startxcell one   \stopxcell
+        \startxcell two   \stopxcell
+        \startxcellgroup[foregroundcolor=blue]
+            \startxcell tree  \stopxcell
+            \startxcell four  \stopxcell
+        \stopxcellgroup
+    \stopxrow
+    \startxrow
+        \startxcell alpha \stopxcell
+        \startxcell beta  \stopxcell
+        \startxcellgroup[myxtable:important]
+            \startxcell gamma \stopxcell
+            \startxcell delta \stopxcell
+        \stopxcellgroup
+    \stopxrow
+\stopxtable
+\stopbuffer
+
+
+\setupfloat[figure][background=color,backgroundcolor=yellow]
+\placefigure[here,split]{test}{\getbuffer}
+
+\blank
+\startxtable[myztable]
+    \startxrow
+        \startxcell \type{test test}   \stopxcell
+        \startxcell two   \stopxcell
+        \startxcell tree  \stopxcell
+        \startxcell four  \stopxcell
+    \stopxrow
+    \startxrow
+        \startxcell alpha \par test \stopxcell
+        \startxcell beta  \stopxcell
+        \startxcell gamma \stopxcell
+        \startxcell delta \stopxcell
+    \stopxrow
+\stopxtable
+\blank
+
+\stoptext

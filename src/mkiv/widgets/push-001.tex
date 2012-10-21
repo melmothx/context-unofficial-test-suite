@@ -1,0 +1,25 @@
+\nopdfcompression
+
+\setupinteraction[state=start]
+
+\definepushbutton [reset]
+
+\startuniqueMPgraphic{whatever}{color}
+    fill fullcircle xysized (OverlayWidth,OverlayHeight) withcolor \MPvar{color} ;
+\stopuniqueMPgraphic
+
+\definepushsymbol [reset] [n] [\uniqueMPgraphic{whatever}{color=red}]
+\definepushsymbol [reset] [r] [\uniqueMPgraphic{whatever}{color=green}]
+\definepushsymbol [reset] [d] [\uniqueMPgraphic{whatever}{color=blue}]
+
+\starttext
+
+    \startTEXpage[offset=10pt]
+        \pushbutton [reset] [page(2)]
+    \stopTEXpage
+
+    \startTEXpage[offset=10pt]
+        \pushbutton [reset] [page(1)]
+    \stopTEXpage
+
+\stoptext

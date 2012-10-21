@@ -1,0 +1,31 @@
+% initiated by Alan B
+
+\definehead[xxxxxxsection][subsubsection]
+\setuphead [xxxxxxsection][color=red]
+
+\definestructurelevels[main][chapter,section,subsection,subsubsection]
+\definestructurelevels[next][chapter,section,subsection,xxxxxxsection]
+
+\starttext
+
+\startstructurelevel [main] [title=first top level]
+
+    \startstructurelevel [main] [title=first lower level]
+        \startstructurelevel [main] [title=second lower level]
+            \startstructurelevel [main] [title=third lower level]
+                test
+            \stopstructurelevel
+        \stopstructurelevel
+    \stopstructurelevel
+
+    \startstructurelevel [main] [title=first lower level]
+        \startstructurelevel [main] [title=second lower level]
+            \startstructurelevel [next] [title=third lower level]
+                test
+            \stopstructurelevel
+        \stopstructurelevel
+    \stopstructurelevel
+
+\stopstructurelevel
+
+\stoptext

@@ -1,0 +1,35 @@
+\usemodule[fnt-28]
+
+\setuplayout
+  [height=middle,
+   width=middle,
+   backspace=1.5cm,
+   topspace=1.5cm,
+   header=0pt,
+   footer=0pt]
+
+\enabletrackers[fonts.specifications,fonts.goodies]
+
+\loadfontgoodies[antykwapoltawskiego]
+
+\starttext
+
+    \start
+        \definedfont[spec:antykwapoltawskiego-bold-italic-normal]
+        \input tufte \par
+    \stop
+
+    \blank
+
+    \startluacode
+        if fonts.tracers.files then
+            fonts.tracers.files("antykwapoltawskiego")
+        end
+    \stopluacode
+
+    \page
+
+    \typefile[option=tex]{goodies-003.tex}
+
+\stoptext
+

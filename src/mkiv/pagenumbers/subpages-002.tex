@@ -1,0 +1,10 @@
+\setupheadertexts[\subpagenumber\ -- \nofsubpages\ -- \pagenumber]
+
+\setuppagenumber[number=10]
+\setupsubpagenumber[way=bytext,state=start,start=1,number=10]
+
+\starttext
+
+\dorecurse{3}{Page #1\page}
+
+\stoptext

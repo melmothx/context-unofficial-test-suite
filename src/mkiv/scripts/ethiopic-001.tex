@@ -1,0 +1,56 @@
+
+\startluacode
+scripts.installdataset {
+   method  = "ethiopic",
+   name    = "none",
+   dataset = {
+        inter_character_space_factor   = 0,
+        inter_character_stretch_factor = 0,
+        inter_character_shrink_factor  = 0,
+   },
+}
+\stopluacode
+
+\definefontfeature
+  [ethiopic]
+  [script=ethi]
+
+\starttypescript[serif][abyssinica]
+	\definefontsynonym [Serif] [file:abyssinicasil-r.ttf] [features=ethiopic]
+\stoptypescript
+
+\starttypescript[abyssinica]
+	\definetypeface [abyssinica] [rm] [serif] [abyssinica] [default]
+\stoptypescript
+
+\setupbodyfont[abyssinica]
+
+\showframe[text][text]
+
+\enabletrackers[scripts.analyzing]
+
+\starttext
+
+\startscript[ethiopic]
+እስመ፡አግዚአብሔር፡አምላክ፡ማእምር፡ውእቱ።እግዚአብሔር፡አስተደወ፡መንብሮ።ወአድከመ፡ቅሥተ፡ኀያላን።ወአቅነቶሙ፡ኀይለ፡ለድኩማን።ጽጉማን፡እክል፡ርኅቡ።ወርኁባን፡ጸግቡ።እስመ፡መካን፡ወለደት፡ሰብዐተ፡ወወለድሰ፡ስእነት፡ወሊደ፡እግዚአብሔር፡ይቀትል፡ወየሐዩ።ያወርድኒ፡ውስተ፡ሲእል፡ወየዐርግ።እግዚአብሔር፡ያነዲ፡ወያብዕል።ያኀስርሂ፡ወያከብር፡ዘያነሥኦ፡እምድር፡ለነዳይ።ከመ፡ያንብሮ፡ምስለ፡ዓበይ።
+\stopscript
+
+\setupscript[ethiopic][preset=half]
+
+\startscript[ethiopic]
+እስመ፡አግዚአብሔር፡አምላክ፡ማእምር፡ውእቱ።እግዚአብሔር፡አስተደወ፡መንብሮ።ወአድከመ፡ቅሥተ፡ኀያላን።ወአቅነቶሙ፡ኀይለ፡ለድኩማን።ጽጉማን፡እክል፡ርኅቡ።ወርኁባን፡ጸግቡ።እስመ፡መካን፡ወለደት፡ሰብዐተ፡ወወለድሰ፡ስእነት፡ወሊደ፡እግዚአብሔር፡ይቀትል፡ወየሐዩ።ያወርድኒ፡ውስተ፡ሲእል፡ወየዐርግ።እግዚአብሔር፡ያነዲ፡ወያብዕል።ያኀስርሂ፡ወያከብር፡ዘያነሥኦ፡እምድር፡ለነዳይ።ከመ፡ያንብሮ፡ምስለ፡ዓበይ።
+\stopscript
+
+\setupscript[ethiopic][preset=quarter]
+
+\startscript[ethiopic]
+እስመ፡አግዚአብሔር፡አምላክ፡ማእምር፡ውእቱ።እግዚአብሔር፡አስተደወ፡መንብሮ።ወአድከመ፡ቅሥተ፡ኀያላን።ወአቅነቶሙ፡ኀይለ፡ለድኩማን።ጽጉማን፡እክል፡ርኅቡ።ወርኁባን፡ጸግቡ።እስመ፡መካን፡ወለደት፡ሰብዐተ፡ወወለድሰ፡ስእነት፡ወሊደ፡እግዚአብሔር፡ይቀትል፡ወየሐዩ።ያወርድኒ፡ውስተ፡ሲእል፡ወየዐርግ።እግዚአብሔር፡ያነዲ፡ወያብዕል።ያኀስርሂ፡ወያከብር፡ዘያነሥኦ፡እምድር፡ለነዳይ።ከመ፡ያንብሮ፡ምስለ፡ዓበይ።
+\stopscript
+
+\setupscript[ethiopic][preset=none] \setupalign[stretch,verytolerant]
+
+\startscript[ethiopic]
+እስመ፡አግዚአብሔር፡አምላክ፡ማእምር፡ውእቱ።እግዚአብሔር፡አስተደወ፡መንብሮ።ወአድከመ፡ቅሥተ፡ኀያላን።ወአቅነቶሙ፡ኀይለ፡ለድኩማን።ጽጉማን፡እክል፡ርኅቡ።ወርኁባን፡ጸግቡ።እስመ፡መካን፡ወለደት፡ሰብዐተ፡ወወለድሰ፡ስእነት፡ወሊደ፡እግዚአብሔር፡ይቀትል፡ወየሐዩ።ያወርድኒ፡ውስተ፡ሲእል፡ወየዐርግ።እግዚአብሔር፡ያነዲ፡ወያብዕል።ያኀስርሂ፡ወያከብር፡ዘያነሥኦ፡እምድር፡ለነዳይ።ከመ፡ያንብሮ፡ምስለ፡ዓበይ።
+\stopscript
+
+\stoptext

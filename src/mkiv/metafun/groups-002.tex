@@ -1,0 +1,29 @@
+\starttext
+
+\startMPpage[offset=1mm]
+
+    draw image (
+        drawarrow (1cm,0cm) -- (0cm,0cm) withcolor .5red withtransparency(1,.5)  ;
+    ) shifted (0,-0mm) ;
+
+    draw image (
+        drawarrow (1cm,0cm) -- (0cm,0cm) withcolor .5green withtransparency(1,.5)  ;
+    ) shifted (0,-2mm) asgroup "" ;
+
+    draw image (
+        drawarrow (1cm,0cm) -- (0cm,0cm) withcolor .5blue withtransparency(1,.5)  ;
+    ) shifted (0,-4mm) asgroup "isolated" ;
+
+    draw image (
+        drawarrow (1cm,0cm) -- (0cm,0cm) withcolor .5cyan withtransparency(1,.5)  ;
+    ) shifted (0,-6mm) asgroup "knockout" ;
+
+    draw image (
+        drawarrow (1cm,0cm) -- (0cm,0cm) withcolor .5magenta withtransparency(1,.5)  ;
+    ) shifted (0,-8mm) asgroup "isolated,knockout" ;
+
+    addbackground withcolor .5white ;
+
+\stopMPpage
+
+\stoptext

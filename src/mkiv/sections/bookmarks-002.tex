@@ -1,0 +1,13 @@
+\setupinteraction
+	[state=start,focus=width]
+
+\setupinteractionscreen
+	[option=bookmark]
+
+\placebookmarks
+	[section,subsection,subsubsection]
+	[section,subsection]
+
+\starttext
+    \dorecurse{20}{\section{title} \input tufte}
+\stoptext

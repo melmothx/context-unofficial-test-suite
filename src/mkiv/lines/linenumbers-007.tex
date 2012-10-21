@@ -1,0 +1,35 @@
+\setuplinenumbering
+  [style=\ttx,
+   distance=0em,
+   width=1em]
+
+\definefloat
+  [algorithm]
+  [algorithms]
+
+\setuptyping
+  [file]
+  [numbering=line]
+
+\startsetups algorithm
+    \startlinenumbering
+    \setuptyping[file][before=,after=]
+    \framed[strut=no,align=normal,frame=off]{\typebuffer}
+    \stoplinenumbering
+\stopsetups
+
+\starttext
+
+\startbuffer
+for i=1,10 do
+    print("useless code",i)
+end
+\stopbuffer
+
+\placealgorithm
+  [here][alg:myalgorithm]
+  {Some useless code.}
+  {\directsetup{algorithm}}
+
+
+\stoptext

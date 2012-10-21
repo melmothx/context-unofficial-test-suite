@@ -1,0 +1,19 @@
+\setuppapersize[S6][S6]
+
+\definenote[mynoteone]             [style=bold]
+\definenote[mynotetwo]  [mynoteone][style=boldslanted]
+\definenote[mynotethree][mynotetwo]
+
+\starttext
+
+test test
+    \mynoteone{mynoteone}
+test test
+    \mynotetwo{mynotetwo}
+test test
+    \mynotethree{mynotethree}
+test test
+    \footnote{footnote}
+test test
+
+\stoptext

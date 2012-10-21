@@ -1,0 +1,29 @@
+\setupinteraction
+  [state=start]
+
+\defineinteraction
+  [whatever]
+  [color=blue,
+   contrastcolor=darkyellow]
+
+\starttext
+
+\startchapter[title={One}]
+
+    \goto{This Page}[page(1)]
+    \goto{Next Page}[page(2)]
+
+\stopchapter
+
+\startchapter[title={Two}]
+
+    \startinteraction[whatever]
+
+        \goto{This Page}[page(2)]
+        \goto{First Page}[page(1)]
+
+    \stopinteraction
+
+\stopchapter
+
+\stoptext

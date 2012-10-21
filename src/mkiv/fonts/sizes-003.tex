@@ -1,0 +1,38 @@
+\starttypescript [sans] [arialmt]
+    \definefontsynonym [ArialMT][name:arialmt][features=default]
+    \definefontsynonym [ArialMTItalic][name:arialitalicmt][features=default]
+    \definefontsynonym [ArialMTBold][name:arialboldmt][features=default]
+    \definefontsynonym [ArialMTBoldItalic][name:arialbolditalicmt][features=default]
+\stoptypescript
+
+\starttypescript [sans] [arialmt]
+    \definefontsynonym [Sans][ArialMT][features=default]
+    \definefontsynonym [SansItalic][ArialMTItalic][features=default]
+    \definefontsynonym [SansBold][ArialMTBold][features=default]
+    \definefontsynonym [SansBoldItalic][ArialMTBoldItalic][features=default]
+\stoptypescript
+
+\starttypescript [sans] [arialmtblack]
+    \definefontsynonym [ArialMT][name:arialmt][features=default]
+    \definefontsynonym [ArialMTItalic][name:arialitalicmt][features=default]
+    \definefontsynonym [ArialMTBoldItalic][name:arialbolditalicmt][features=default]
+    \definefontsynonym [ArialMTBlack][name:arialblack][features=default]
+\stoptypescript
+
+\starttypescript [sans] [arialmtblack]
+    \definefontsynonym [Sans][ArialMT][features=default]
+    \definefontsynonym [SansItalic][ArialMTItalic][features=default]
+    \definefontsynonym [SansBold][ArialMTBlack][features=default]
+    \definefontsynonym [SansBoldItalic][ArialMTBoldItalic][features=default]
+\stoptypescript
+
+\definetypeface[arialmt]     [ss][sans][arialmt]     [default]
+\definetypeface[arialmtblack][ss][sans][arialmtblack][default]
+
+\setupbodyfont[arialmt,24pt,ss]
+% \setupbodyfont[arialmt,ss,24pt]
+% \setupbodyfont[24pt,arialmt,ss]
+
+\starttext
+    A {\bfb A} {\bfx A} A\high{A}
+\stoptext

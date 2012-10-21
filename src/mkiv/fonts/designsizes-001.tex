@@ -1,0 +1,54 @@
+% WS: test file for simple fonts support of design sizes.
+
+\startluacode
+
+    local register = fonts.goodies.designsizes.register
+
+    register("antykwapoltawskiegoregular","6pt","file:antpoltexpd-regular.otf")
+    register("antykwapoltawskiegoregular","8pt","file:antpoltsemiexpd-regular.otf")
+    register("antykwapoltawskiegoregular","10pt","file:antpolt-regular.otf")
+    register("antykwapoltawskiegoregular","12pt","file:antpoltsemicond-regular.otf")
+    register("antykwapoltawskiegoregular","17.2pt","file:antpoltcond-regular.otf")
+    register("antykwapoltawskiegoregular","default","file:antpolt-regular.otf")
+
+    register("antykwapoltawskiegoitalic","6pt","file:antpoltexpd-italic.otf")
+    register("antykwapoltawskiegoitalic","8pt","file:antpoltsemiexpd-italic.otf")
+    register("antykwapoltawskiegoitalic","10pt","file:antpolt-italic.otf")
+    register("antykwapoltawskiegoitalic","12pt","file:antpoltsemicond-italic.otf")
+    register("antykwapoltawskiegoitalic","17.2pt","file:antpoltcond-italic.otf")
+    register("antykwapoltawskiegoitalic","default","file:antpolt-italic.otf")
+
+    register("antykwapoltawskiegobold","6pt","file:antpoltexpd-bold.otf")
+    register("antykwapoltawskiegobold","8pt","file:antpoltsemiexpd-bold.otf")
+    register("antykwapoltawskiegobold","10pt","file:antpolt-bold.otf")
+    register("antykwapoltawskiegobold","12pt","file:antpoltsemicond-bold.otf")
+    register("antykwapoltawskiegobold","17.2pt","file:antpoltcond-bold.otf")
+    register("antykwapoltawskiegobold","default","file:antpolt-bold.otf")
+
+    register("antykwapoltawskiegobolditalic","6pt","file:antpoltexpd-bolditalic.otf")
+    register("antykwapoltawskiegobolditalic","8pt","file:antpoltsemiexpd-bolditalic.otf")
+    register("antykwapoltawskiegobolditalic","10pt","file:antpolt-bolditalic.otf")
+    register("antykwapoltawskiegobolditalic","12pt","file:antpoltsemicond-bolditalic.otf")
+    register("antykwapoltawskiegobolditalic","17.2pt","file:antpoltcond-bolditalic.otf")
+    register("antykwapoltawskiegobolditalic","default","file:antpolt-bolditalic.otf")
+
+\stopluacode
+
+\startfontclass[mainface]
+    \definefontsynonym [Serif]           [antykwapoltawskiegoregular]    [features=default]
+    \definefontsynonym [SerifItalic]     [antykwapoltawskiegoitalic]     [features=default]
+    \definefontsynonym [SerifBold]       [antykwapoltawskiegobold]       [features=default]
+    \definefontsynonym [SerifBoldItalic] [antykwapoltawskiegobolditalic] [features=default]
+\stopfontclass
+
+\definetypeface[mainface][rm][serif][][default][designsize=auto]
+
+\setupbodyfont[mainface]
+
+\starttext
+    \scale[width=\textwidth]{\switchtobodyfont   [6pt]\tf Regular, \it Italic \bf Bold and \bi BoldItalic}
+    \scale[width=\textwidth]{\switchtobodyfont   [8pt]\tf Regular, \it Italic \bf Bold and \bi BoldItalic}
+    \scale[width=\textwidth]{\switchtobodyfont  [10pt]\tf Regular, \it Italic \bf Bold and \bi BoldItalic}
+    \scale[width=\textwidth]{\switchtobodyfont  [12pt]\tf Regular, \it Italic \bf Bold and \bi BoldItalic}
+    \scale[width=\textwidth]{\switchtobodyfont[17.2pt]\tf Regular, \it Italic \bf Bold and \bi BoldItalic}
+\stoptext

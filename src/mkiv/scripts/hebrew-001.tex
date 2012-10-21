@@ -1,0 +1,22 @@
+\definefontfeature
+  [hebrew]
+  [mode=node,
+   language=dflt,
+   script=hebr,
+   fina=yes,
+   init=yes,
+   isol=yes,
+   medi=yes,
+   mark=yes]
+
+\definefont[test][file:micross*hebrew]
+
+\starttext
+
+    \startTEXpage
+
+        \test \righttoleft  יִשְׂרָאֵל \quad בָּיִת שֶל אָבִי
+
+    \stopTEXpage
+
+\stoptext

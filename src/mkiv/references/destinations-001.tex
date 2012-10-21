@@ -1,0 +1,21 @@
+% for taco
+
+\setupinteraction
+  [state=start,
+   focus=standard]
+
+\setupheader
+  [state=stop]
+
+\starttext
+
+    See page \goto{page 2}[page2]
+
+    \page
+
+    \contentreference
+      [page2]
+      [offset=1cm,toffset=2cm,frame=on]
+      {\externalfigure[cow.pdf][factor=fit]}
+
+\stoptext

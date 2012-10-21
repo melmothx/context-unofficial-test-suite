@@ -1,0 +1,33 @@
+\def\TestA
+  {\setbuffer[demo]
+     \startxtable
+       \startxrow
+         \startxcell cell one \stopxcell
+         \startxcell cell two \stopxcell
+       \stopxrow
+       \startxrow
+         \startxcell cell one \stopxcell
+         \startxcell cell two \stopxcell
+       \stopxrow
+     \stopxtable
+   \endbuffer
+   \processxtablebuffer[demo]}
+
+\def\TestB
+  {\startembeddedxtable
+     \startxrow
+       \startxcell cell one \stopxcell
+       \startxcell cell two \stopxcell
+     \stopxrow
+     \startxrow
+       \startxcell cell one \stopxcell
+       \startxcell cell two \stopxcell
+     \stopxrow
+   \stopembeddedxtable}
+
+\starttext
+
+\TestA
+\TestB
+
+\stoptext

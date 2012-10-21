@@ -1,0 +1,25 @@
+\setupheadertexts[chapter]
+
+\define[2]\ChapterCommand
+  {\vbox\bgroup\starttabulate
+   \NC Title   \EQ \structurevariable{titledata.title}   \NC\NR
+   \NC Marking \EQ \structurevariable{titledata.marking} \NC\NR
+   \stoptabulate\egroup}
+
+\setuphead[chapter][command=\ChapterCommand]
+
+\starttext
+
+\startchapter[title={Hello World},marking={Goodbye continent}][mybla=whatever]
+
+\starttabulate
+\NC Title    \EQ \namedstructurevariable{chapter}{title}   \NC\NR
+\NC Title    \EQ \namedstructurevariable{chapter}{titledata.title}   \NC\NR
+\NC Marking  \EQ \namedstructurevariable{chapter}{titledata.marking} \NC\NR
+\NC Whatever \EQ \namedstructurevariable{chapter}{userdata.mybla} \NC\NR
+\stoptabulate
+
+\stopchapter
+
+\stoptext
+

@@ -1,0 +1,22 @@
+\setuplayout
+  [margin=1cm]
+
+\showframe
+
+\starttext
+
+\dorecurse {3} {
+    \ininner[stack=yes]{\expanded{\dorecurse{12}{IM\recurselevel\space}}}%
+    \inouter[stack=yes]{\expanded{\dorecurse{12}{OM\recurselevel\space}}}%
+    \input tufte \par
+}
+
+\page
+
+\dorecurse {3} {
+    \ininner[stack=continue]{\expanded{\dorecurse{12}{IM\recurselevel\space}}}%
+    \inouter[stack=continue]{\expanded{\dorecurse{12}{OM\recurselevel\space}}}%
+    \input tufte \par
+}
+
+\stoptext

@@ -1,0 +1,15 @@
+\setuppublicationlayout[image]{{\sc url}: \inserturl{}{}{}}
+
+\startpublication[k=bib:one,t=image]
+    \biburl{http://www.aa.bb/cc/dd/%7Eee/ff/gg.jpg}
+\stoppublication
+
+\setupinteraction[state=start]
+
+\starttext
+
+    \cite[bib:one]
+
+    \placepublications
+
+\stoptext

@@ -1,0 +1,51 @@
+\setuplayout[backspace=1cm,topspace=.5cm,header=.5cm,footer=0cm,width=middle,height=middle]
+\setuppapersize[S8][S8]
+\setupbodyfont[10pt]
+
+\starttext
+
+\definebibtexsession  [somebibtex]
+\registerbibtexfile   [somebibtex] [cont-xampl.bib]
+\preparebibtexsession [somebibtex] [convert,strip]
+
+% \setuplist[somebibtex][before={\blank[medium]},after={\blank[medium]}] % hm
+
+\settrue \tracebibtexformat
+
+\setupbibtexpublications[somebibtex][before={\blank[small]},after={\blank[small]}]
+
+\startxmlsetups bibtex:bibtex
+    \xmlfilter{#1}{/entry/command(bibtex:format)}
+\stopxmlsetups
+
+\startxmlsetups bibtex:show
+    \xmlshow{#1}
+\stopxmlsetups
+
+\applytobibtexsession[somebibtex][bibtex:list]
+
+\page
+
+cite: \bibtexcitation[somebibtex][book-minimal]
+
+\blank data        ref: \bibtexdataref       [somebibtex][incollection-minimal,whole-set,book-full]\blank
+\blank type        ref: \bibtextyperef       [somebibtex][incollection-minimal,whole-set,book-full]\blank
+\blank key         ref: \bibtexkeyref        [somebibtex][incollection-minimal,whole-set,book-full]\blank
+\blank serial      ref: \bibtexserialref     [somebibtex][incollection-minimal,whole-set,book-full]\blank
+\blank url         ref: \bibtexurlref        [somebibtex][incollection-minimal,whole-set,book-full]\blank
+\blank doi         ref: \bibtexdoiref        [somebibtex][incollection-minimal,whole-set,book-full]\blank
+\blank short       ref: \bibtexshortref      [somebibtex][incollection-minimal,whole-set,book-full]\blank
+\blank year        ref: \bibtexyearref       [somebibtex][incollection-minimal,whole-set,book-full]\blank
+\blank author      ref: \bibtexauthorref     [somebibtex][incollection-minimal,whole-set,book-full]\blank
+\blank authoryear  ref: \bibtexauthoryearref [somebibtex][incollection-minimal,whole-set,book-full]\blank
+\blank authoryears ref: \bibtexauthoryearsref[somebibtex][incollection-minimal,whole-set,book-full]\blank
+
+\page
+
+\placebibtexpublications[somebibtex]
+
+\page
+
+\applytobibtexsession[somebibtex][bibtex:show]
+
+\stoptext

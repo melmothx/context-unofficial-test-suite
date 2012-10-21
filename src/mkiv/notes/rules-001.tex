@@ -1,0 +1,17 @@
+% \unexpanded\def\myrule{\blackrule[width=10cm,color=red,height=1pt,depth=0pt]}
+% \setupnote[footnote][rule=command,rulecommand=\myrule]
+
+\startuniqueMPgraphic{noterule}{width,color,line}
+    draw origin -- (\MPvar{width},0)
+        withcolor \MPvar{color}
+        withpen pencircle scaled \MPvar{line}
+        dashed evenly ;
+\stopuniqueMPgraphic
+
+\setupnote[footnote][rule=command,rulecommand=\uniqueMPgraphic{noterule}{width=7cm,color=red,line=1pt}]
+
+\starttext
+
+    test \footnote{test}
+
+\stoptext

@@ -1,0 +1,15 @@
+% \enabletrackers[graphics.floats]
+
+\starttext
+
+test
+\dorecurse{20}{
+    \ifodd\recurselevel\relax
+        \placefigure[page,none]       {with    header \recurselevel}{}
+    \else
+        \placefigure[page,header,high]{without header \recurselevel}{}
+    \fi
+}
+test \page test
+
+\stoptext

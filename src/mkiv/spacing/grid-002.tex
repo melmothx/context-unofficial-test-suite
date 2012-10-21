@@ -1,0 +1,23 @@
+\setuplayout[grid=yes]
+
+\showgrid
+\showframe
+
+\definegridsnapping[whatever][strut,offset:-3pt]
+
+\definehead[topsection][section]
+
+\setuphead
+  [section]
+  [grid=strut]
+
+\setuphead
+  [topsection]
+  [grid=whatever]
+
+\starttext
+    \topsection{test} test
+    \section{test} test
+    \section{test} test
+    \section{test} test
+\stoptext

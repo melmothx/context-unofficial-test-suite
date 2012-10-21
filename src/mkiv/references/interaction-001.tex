@@ -1,0 +1,17 @@
+\starttext
+
+\setupinteraction[state=start]
+
+\enabletrackers[nodes.references,nodes.destinations]
+
+\section[test]{Test}
+
+\placeformula[eq:test-1] \startformula x = 1 \stopformula
+\placeformula[eq:test-2] \startformula x = 2 \stopformula
+\placeformula[eq:test-3] \startformula x = 3 \stopformula
+
+\page
+
+\in[eq:test-1] and \in[eq:test-2] and \in[eq:test-3] and \in[test]
+
+\stoptext

@@ -1,0 +1,28 @@
+\starttext
+
+\startMPcode
+    fill fullcircle scaled 1cm ;
+    draw textext("\\bold{test}") ;
+\stopMPcode
+
+\startluacode
+    function test(a,b,c)
+        return table.concat{ a, b, d }
+    end
+\stopluacode
+
+\starttyping[option=lua]
+    function test(a,b,c)
+        return table.concat{ a, b, d }
+    end
+\stoptyping
+
+\ctxlua{ print("oeps") }
+\ctxlua { print("oeps") }
+
+\page \typefile[option=tex]{whatever.tex}
+
+\page \typefile[option=context]{whatever.tex}
+
+\stoptext
+

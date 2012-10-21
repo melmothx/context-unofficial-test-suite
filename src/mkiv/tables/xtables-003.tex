@@ -1,0 +1,34 @@
+\usemodule[ntb-to-xtb]
+
+\starttext
+
+\startbuffer
+\bTABLE
+  \bTR
+    \bTH th one \eTH
+    \bTH th two \eTH
+  \eTR
+  \bTR
+    \bTD[background=color,backgroundcolor=red] one \eTD
+    \bTD two \eTD
+  \eTR
+  \bTR
+    \bTD alpha \eTD
+    \bTD beta  \eTD
+  \eTR
+\eTABLE
+\stopbuffer
+
+\startlinecorrection
+\getbuffer
+\stoplinecorrection
+
+\startlinecorrection
+\mapTABLEtoxtable \getbuffer
+\stoplinecorrection
+
+\startlinecorrection
+\restoreTABLEfromxtable \getbuffer
+\stoplinecorrection
+
+\stoptext

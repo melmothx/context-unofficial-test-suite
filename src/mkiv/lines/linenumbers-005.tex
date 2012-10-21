@@ -1,0 +1,35 @@
+% engine=luatex
+
+\starttext
+
+\startbuffer[demo]
+\startlinenumbering
+    \input ward
+    \startcolumns
+        \input tufte
+    \stopcolumns
+    \input ward
+\stoplinenumbering
+\stopbuffer
+
+\startbuffer[setup]
+\setuplinenumbering[align=middle]
+\stopbuffer
+\getbuffer[demo,setup] \page
+
+\startbuffer[setup]
+\setuplinenumbering[align=left]
+\stopbuffer
+\getbuffer[demo,setup] \page
+
+\startbuffer[setup]
+\setuplinenumbering[align=right]
+\stopbuffer
+\getbuffer[demo,setup] \page
+
+\startbuffer[setup]
+\setuplinenumbering[align=auto]
+\stopbuffer
+\getbuffer[demo,setup] \page
+
+\stoptext

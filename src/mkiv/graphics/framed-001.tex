@@ -1,0 +1,39 @@
+% example by WS
+
+% \defineframed[framed]
+
+\defineframed[wolf][framecolor=red]
+
+\starttext
+
+\framed{text}
+
+\wolf{text}
+
+\wolf[framecolor=blue]{text}
+
+\setupframed[wolf][framecolor=green]
+
+\wolf{text}
+
+\setupframed[wolf][framecolor=] % both frames should give the same output
+
+\framed{one
+    \framed[foregroundcolor=blue]{two
+        \framed{three
+            \framed[foregroundcolor=orange]{four}
+                five}
+                    six}
+                        seven}
+
+\wolf {one
+    \wolf [foregroundcolor=blue]{two
+        \wolf {three
+            \wolf[foregroundcolor=orange]{four}
+                five}
+                    six}
+                        seven}
+
+\stoptext
+
+

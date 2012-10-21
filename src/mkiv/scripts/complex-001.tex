@@ -1,0 +1,94 @@
+% adapted from test code bij Kaj Eigner:
+
+\setupbodyfont[dejavu]
+
+\setuplayout
+ [backspace=2cm,
+  width=middle]
+
+\starttext
+
+\definefontfeature
+  [minion]
+  [mode=node,
+   language=dflt,script=latn,
+   calt=yes,
+   liga=yes,clig=yes,
+   kern=yes]
+
+\definefontfeature
+  [arabtype]
+  [mode=node,analyze=yes,
+   language=dflt,script=arab,
+   calt=yes,ccmp=yes,locl=yes,
+   clig=yes,dlig=yes,liga=yes,rlig=yes,
+   fina=yes,init=yes,isol=yes,medi=yes,
+   kern=yes,curs=yes,mark=yes,mkmk=yes]
+
+\definefontfeature
+  [tahoma-thai]
+  [mode=node,
+   language=dflt,script=thai,
+   ccmp=yes,locl=yes,
+   liga=yes,
+   kern=yes,mark=yes,mkmk=yes]
+
+\definefontfeature
+  [estre-syriac]
+  [mode=node,
+   script=syrc,
+   ccmp=yes,locl=yes,
+   isol=yes,fina=yes,fin2=yes,fin3=yes,medi=yes,med2=yes,init=yes,
+   rlig=yes,liga=yes,cswh=yes,
+   calt=yes,mset=yes,
+   curs=yes,kern=yes,mark=yes,mkmk=yes]
+
+\definefont[ArabTypeOld] [file:arabtype-test-501*arabtype at 30pt]
+\definefont[ArabTypeNew] [file:arabtype-test-591*arabtype at 30pt]
+\definefont[TahomaThai]  [file:tahoma-test-1*tahoma-thai  at 30pt]
+\definefont[StreSyriac]  [file:estre-test-1*estre-syriac  at 30pt]
+
+\startbuffer
+\char"0644\char"062D\char"062C\enspace
+\char"0644\char"064F\char"062D\char"062C\enspace
+\char"0644\char"062D\char"064F\char"062C\enspace
+\char"0645 \char"062D \char"0645 \char"062F\enspace
+\char"0645\char"0610 \char"062D \char"0645 \char"062F\enspace
+\char"0645 \char"062D\char"0610 \char"0645 \char"062F\enspace
+\char"0645\char"0610 \char"062D\char"0610 \char"0645 \char"062F\enspace
+\char"0645 \char"062D \char"0645\char"0610 \char"062F\enspace
+\char"0645\char"0610 \char"062D \char"0645\char"0610 \char"062F\enspace
+\char"0645 \char"062D\char"0610 \char"0645\char"0610 \char"062F\enspace
+\char"0645\char"0610 \char"062D\char"0610 \char"0645\char"0610 \char"062F
+\stopbuffer
+
+\start \righttoleft \ArabTypeOld \getbuffer \par \stop \blank[2*big]
+\start \righttoleft \ArabTypeNew \getbuffer \par \stop \blank[2*big]
+
+\startbuffer
+\char"0644\char"0610\char"0629\enspace
+\char"0644\char"0629\char"0610\enspace
+\char"0644\char"0650\char"0651\char"0629\char"0651\enspace
+\char"0644\char"0651\char"0629\char"0650\char"0651\enspace
+\char"0644\char"0651\char"0629\char"0651\char"0650\enspace
+\char"0644\char"0650\char"0644\char"0651\char"0670\char"0647\char"0650
+\stopbuffer
+
+\start \righttoleft \ArabTypeOld \getbuffer \par \stop \blank[2*big]
+\start \righttoleft \ArabTypeNew \getbuffer \par \stop \blank[2*big]
+
+\startbuffer
+\char3588\char3609\char3607\char3637\char3656\char3648\char3594\char3639\char3656\char3629\char3585\char3655
+\stopbuffer
+
+\start \TahomaThai \getbuffer \stop \blank[2*big]
+
+\startbuffer
+\char"0715\char"071D\char"0722\enspace
+\char"0710\char"0722\enspace
+\char"071D\char"0307\char"0715\char"0725
+\stopbuffer
+
+\start \righttoleft \StreSyriac \getbuffer \par \stop
+
+\stoptext

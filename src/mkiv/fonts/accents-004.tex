@@ -1,0 +1,20 @@
+\setupbodyfont[dejavu]
+% \setupbodyfont[lucidanova]
+
+\starttext
+
+\startbuffer
+\starttabulate[|l|c|c|]
+    \NC precomposed \NC \char"00EB           \NC ë  \NC \NR
+    \NC decomposed  \NC \char"0065\char"0308 \NC ë \NC \NR
+\stoptabulate
+\stopbuffer
+
+\definefontfeature[composed][default][tcom=yes]
+
+\typebuffer
+
+\subject{tcom=no}  {\definedfont[Normal*default]  \getbuffer}
+\subject{tcom=yes} {\definedfont[Normal*composed] \getbuffer}
+
+\stoptext

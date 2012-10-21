@@ -1,0 +1,43 @@
+\starttext
+
+\definetabulate[test][|l|c|r|]
+\definetabulate[test][two][|r|c|l|]
+
+\definetabulation[more][format={|l|c|r|}]
+\definetabulation[more:two][format={|r|c|l|}]
+
+\starttest
+\NC t \NC t \NC t \NC \NR
+\NC te \NC te \NC te \NC \NR
+\NC tes \NC tes \NC tes \NC \NR
+\NC test \NC test \NC test \NC \NR
+\stoptest
+
+\starttest[two]
+\NC t \NC t \NC t \NC \NR
+\NC te \NC te \NC te \NC \NR
+\NC tes \NC tes \NC tes \NC \NR
+\NC test \NC test \NC test \NC \NR
+\stoptest
+\startmore
+\NC t \NC t \NC t \NC \NR
+\NC te \NC te \NC te \NC \NR
+\NC tes \NC tes \NC tes \NC \NR
+\NC test \NC test \NC test \NC \NR
+\stopmore
+
+\startmore[two]
+\NC t \NC t \NC t \NC \NR
+\NC te \NC te \NC te \NC \NR
+\NC tes \NC tes \NC tes \NC \NR
+\NC test \NC test \NC test \NC \NR
+\stopmore
+
+\starttabulate[|l|c|r|]
+\NC t \NC t \NC t \NC \NR
+\NC te \NC te \NC te \NC \NR
+\NC tes \NC tes \NC tes \NC \NR
+\NC test \NC test \NC test \NC \NR
+\stoptabulate
+
+\stoptext

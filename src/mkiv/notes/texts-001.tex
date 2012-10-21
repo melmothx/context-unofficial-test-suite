@@ -1,0 +1,21 @@
+\setupfootnotes[location=text]
+
+\starttext
+
+Second Note\note[footnote][2]\par
+First  Note\note[footnote][1]\par
+
+note 1: \setnotetext[footnote][1]{Footnote 1}\par
+note 2: \setnotetext[footnote][2]{Footnote 2}\par
+
+% note 1: \footnote[1]{Footnote 1}\par
+% note 2: \footnote[2]{Footnote 2}\par
+
+Second Note\note[footnote][2]\par
+ First Note\note[footnote][1]\par
+
+\placenotes[footnote]
+
+\stopfootnote
+
+\stoptext

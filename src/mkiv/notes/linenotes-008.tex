@@ -1,0 +1,35 @@
+\unprotect
+
+\def\strc_linenotes_define[#1][#2][#3]%
+  {\tracingall\definenote[#1][#2][#3]%
+   \expandafter\let\csname\??linenote#1\expandafter\endcsname\csname#1\endcsname % use copy command
+   \setuevalue        {#1}{\strc_linenotes_direct{#1}}%
+   \setuevalue{\e!start#1}{\strc_linenotes_start {#1}}%
+   \setuevalue{\e!stop #1}{\strc_linenotes_stop      }}
+
+\protect
+
+\starttext
+
+\definedescription[lemma]
+\setupdescriptions[lemma][before=,after=,location=serried,width=fit]
+
+% ln: will disappear when this is stable
+
+\setupnote[linenote][paragraph=yes,numbercommand=,inbetween=\hskip.5em\vl\hskip.5em]
+\setupnotation [linenote][display=no,location=serried,distance=.5em]
+
+\setuplinenumbering[align=flushleft]
+
+\startlinenumbering[100]
+test \linenote {\startlemma{oeps 1} \input tufte\stoplemma} test test test test test test
+test \startlinenote [well] {oeps X} test test test test test test
+test \linenote {oeps 2} test test test test test test
+test \linenote {oeps 3} test test test test test test
+test \linenote {oeps 4} test test test test test test
+test \linenote {oeps 5} test test test test test test
+test \stoplinenote [well] test test test test test test
+\stoplinenumbering
+
+\stoptext
+

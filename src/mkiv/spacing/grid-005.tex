@@ -1,0 +1,20 @@
+\setuplayout[grid=tolerant,lines=40]
+\setupbodyfontenvironment[10pt][default][interlinespace=12pt]
+\setupbodyfont[10pt]
+\setuphead[section][grid=strut,before=\blank,after=]
+\setupfloats[spacebefore=,spaceafter=]
+
+\showgrid
+
+\starttext
+    \section{one} \input knuth \dorecurse {100} {\expanded{\index{taco \recurselevel}}}
+    \section{two} \input knuth \dorecurse {100} {\expanded{\index{hans \recurselevel}}}
+    \page
+    \placefigure[left] {}{} \input knuth \input knuth \input knuth
+    \placefigure[left] {}{} \input knuth \input knuth \input knuth
+    \page
+    \placefigure[right]{}{} \input knuth \input knuth \input knuth
+    \placefigure[right]{}{} \input knuth \input knuth \input knuth
+    \page
+    \placeregister[index]
+\stoptext

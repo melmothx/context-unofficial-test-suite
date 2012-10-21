@@ -1,0 +1,47 @@
+\definefontfeature[zh][mode=node, script=hang, lang=zhs]
+\definefont[ChineseFont][AdobeSongStd-Light*zh at 10pt]
+
+\starttext
+
+\startscript[hangul]
+\ruledvbox dir RTT {\ChineseFont 道可道，非常道。名可名}
+\stopscript
+
+\page
+
+\startscript[hangul]
+\ChineseFont \dorecurse {10}
+    {道可道，非常道。名可名，非常名。无名天地之始。有名万物之母。故常>无欲以观其妙。常有欲以观其徼。此两者同出而异名，同谓之玄。玄之又玄，众妙之门。}
+\stopscript
+
+\page
+
+\startcolumns[n=20,width=1em]
+\startscript[hangul]
+\ChineseFont \dorecurse {10}
+    {道可道，非常道。名可名，非常名。无名天地之始。有名万物之母。故常>无欲以观其妙。常有欲以观其徼。此两者同出而异名，同谓之玄。玄之又玄，众妙之门。}
+\stopscript
+\stopcolumns
+
+\page
+
+\definecolumnset[mine][n=20]
+\setupcolumnset[mine][all][width=1em]
+
+\startcolumnset[mine]
+\startscript[hangul]
+\ChineseFont \dorecurse {10}
+    {道可道，非常道。名可名，非常名。无名天地之始。有名万物之母。故常>无欲以观其妙。常有欲以观其徼。此两者同出而异名，同谓之玄。玄之又玄，众妙之门。}
+\stopscript
+\stopcolumnset
+
+\page
+
+\pagedir RTT \bodydir RTT \pardir  RTT \textdir RTT
+
+\startscript[hangul]
+\ChineseFont \dorecurse{10}
+    {道可道，非常道。名可名，非常名。无名天地之始。有名万物之母。故常>无欲以观其妙。常有欲以观其徼。此两者同出而异名，同谓之玄。玄之又玄，众妙之门。}
+\stopscript
+
+\stoptext

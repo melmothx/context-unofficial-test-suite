@@ -1,0 +1,32 @@
+\automigrateinserts
+
+% \enabletrackers[nodes.migrations]
+
+\starttext
+
+  \in{Note}[note:here:1]
+  \in{Note}[note:here:2]
+  \in{Note}[note:here:3]
+  \in{Note}[note:top:1]
+  \in{Note}[note:top:2]
+  \in{Note}[note:top:3]
+  \in{Note}[note:bottom:1]
+
+  \placefigure[here]  {test\footnote[note:here:1]  {here   footnote 1}}{}
+  \placefigure[here]  {test\footnote[note:here:2]  {here   footnote 2}}{}
+  \placefigure[here]  {test\footnote[note:here:3]  {here   footnote 3}}{}
+  \placefigure[top]   {test\footnote[note:top:1]   {top    footnote 1}}{}
+  \placefigure[top]   {test\footnote[note:top:2]   {top    footnote 2}}{}
+  \placefigure[top]   {test\footnote[note:top:3]   {top    footnote 3}}{}
+  \placefigure[bottom]{test\footnote[note:bottom:1]{bottom footnote 1}}{}
+
+  \in{Note}[note:here:1]
+  \in{Note}[note:here:2]
+  \in{Note}[note:here:3]
+  \in{Note}[note:top:1]
+  \in{Note}[note:top:2]
+  \in{Note}[note:top:3]
+  \in{Note}[note:bottom:1]
+
+\stoptext
+

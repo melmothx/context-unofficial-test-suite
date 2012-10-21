@@ -1,0 +1,21 @@
+\starttext
+
+\setupreferencing[prefix=a]
+
+\chapter[one]{First}
+
+\placefigure[here][fig:alpha]{alpha}{}
+
+\in{one}[one] \in{one}[a:one] \in{alpha}[fig:alpha] \par
+\in{two}[two] \in{two}[b:two] \in{beta} [fig:beta]
+
+\setupreferencing[prefix=b]
+
+\chapter[two]{Two}
+
+\placefigure[here][fig:beta]{beta}{}
+
+\in{one}[one] \in{one}[a:one] \in{alpha}[fig:alpha] \par
+\in{two}[two] \in{two}[b:two] \in{beta} [fig:beta]
+
+\stoptext

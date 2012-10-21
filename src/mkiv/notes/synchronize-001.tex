@@ -1,0 +1,18 @@
+\definelinenote[whatever]
+
+\starttext
+
+    \startlines
+        footnote 1 \footnote{one}
+        footnote 2 \footnote{two}
+        \setupnotation[footnote][start=40]
+        footnote (40+1) \footnote{three}
+    \stoplines
+
+    \startlinenumbering
+        dummy line \par
+        dummy line \par
+        \dorecurse{10}{line \the\numexpr2+#1\relax\space (\footnote{footnote #1}) (\whatever{whatever #1})\par}
+    \stoplinenumbering
+
+\stoptext

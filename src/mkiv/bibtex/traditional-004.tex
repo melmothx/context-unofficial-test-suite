@@ -1,0 +1,35 @@
+% by TS: also check for blockwise
+
+\startpublication[k=ackermanmyth,t=book,a={{Ackerman}},y=1991,n=34,s=Ack91]
+    \author[]{Robert}[R.]{}{Ackerman}
+    \pubyear{1991}
+    \title{The Myth and Ritual School: J. G. Frazer and the Cambridge Ritualists}
+    \city{New York}
+    \pubname{Garland}
+\stoppublication
+
+\startpublication[k=ackrillaristotle,t=book,a={{Ackrill}},y=1981,n=366,s=Ack81]
+    \author[]{J.~L.}[J.~L.]{}{Ackrill}
+    \pubyear{1981}
+    \title{Aristotle the Philosopher}
+    \city{Oxford}
+    \pubname{Oxford UP}
+\stoppublication
+
+\enabletrackers[structures.lists]
+
+\starttext
+
+\section{One}
+
+\nocite[ackrillaristotle]
+
+\placepublications[criterium=cite]
+
+\section{Two}
+
+\nocite[ackermanmyth]
+
+\placepublications[criterium=cite]
+
+\stoptext

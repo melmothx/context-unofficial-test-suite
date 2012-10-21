@@ -1,0 +1,11 @@
+\showframe
+
+\starttext
+
+    \def\MyHead#1#2{\inleftmargin[scope=local]{#1}#2}
+
+    \setuphead[section][command=\MyHead]
+
+    \section{test}
+
+\stoptext

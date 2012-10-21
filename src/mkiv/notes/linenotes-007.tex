@@ -1,0 +1,114 @@
+\starttext
+
+\setuppapersize[S6][S6]
+\setuplayout[width=middle,height=middle,margin=1.5cm,footer=0pt,header=1cm]
+
+\setupcolors[state=start] \setuptyping[option=color]
+
+\definelinenote[extralinenote][rule=off,frame=on,framecolor=darkgreen]
+\setuplinenote [linenote] [rule=off,frame=on,framecolor=darkred,n=2]
+
+\showframe
+
+\startbuffer[test]
+\doglobal\increment\Sample
+\startlinenumbering[100] test \linenote {oeps}
+test test test test test test test \startlinenote [\Sample:well] {oeps}
+test test test test test test test \linenote {oeps} test test test
+test test test test \extralinenote {oeps} test test test test test
+test test \linenote {oeps} test test test test test test test
+\extralinenote {oeps} test test test test test test test
+\stoplinenote [\Sample:well] test test test test test test
+\stoplinenumbering
+\par
+\stopbuffer
+
+{\typebuffer[test] \getbuffer[test] \page}
+
+% \stoptext
+
+\startbuffer[setup]
+\setuplinenumbering
+  [align=left]
+\stopbuffer
+
+{\typebuffer[setup] \getbuffer[setup,test] \page}
+
+\startbuffer[setup]
+\setuplinenumbering
+  [width=1em,
+   align=left]
+\stopbuffer
+
+{\typebuffer[setup] \getbuffer[setup,test] \page}
+
+\startbuffer[setup]
+\setuplinenumbering
+  [width=2em,
+   distance=.5em,
+   align=left]
+\stopbuffer
+
+{\typebuffer[setup] \getbuffer[setup,test] \page}
+
+\startbuffer[setup]
+\setuplinenumbering
+  [width=2em,
+   align=middle]
+\stopbuffer
+
+{\typebuffer[setup] \getbuffer[setup,test] \page}
+
+\startbuffer[setup]
+\setuplinenumbering
+  [conversion=romannumerals,
+   start=1,
+   step=1,
+   location=text,
+   style=slanted,
+   color=blue,
+   width=1.5em]
+\stopbuffer
+
+{\typebuffer[setup] \startnarrower\getbuffer[setup,test]\stopnarrower \page}
+
+\startbuffer[setup]
+\setuplinenumbering
+  [width=4em,
+   left=--,
+   right=--,
+   align=middle]
+\stopbuffer
+
+{\typebuffer[setup] \getbuffer[setup,test] \page}
+
+\startbuffer[setup-1]
+\setuplinenumbering
+  [style=\bfxx,
+   command=\WatchThis]
+\stopbuffer
+
+\startbuffer[setup-2]
+\def\WatchThis#1%
+  {\ifodd\linenumber
+     \definecolor[linecolor][red]%
+   \else
+     \definecolor[linecolor][green]%
+   \fi
+   \inframed
+     [offset=1pt,frame=off,background=color,backgroundcolor=linecolor]
+     {#1}}
+\stopbuffer
+
+{\typebuffer[setup-1,setup-2] \getbuffer[setup-1,setup-2,test] \page}
+
+\startbuffer[setup-1]
+\setuplinenumbering
+  [location=inright,
+   style=\bfxx,
+   command=\WatchThis]
+\stopbuffer
+
+{\typebuffer[setup-1] \getbuffer[setup-1,setup-2,test] \page}
+
+\stoptext

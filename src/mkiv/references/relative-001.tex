@@ -1,0 +1,16 @@
+\startbuffer
+\starttabulate[|l|l|l|l|]
+    \NC one   \NC \atpage[one]   \NC \somewhere{(see before)}{(see later)}[one]   \NC \NR
+    \NC two   \NC \atpage[two]   \NC \somewhere{(see before)}{(see later)}[two]   \NC \NR
+    \NC three \NC \atpage[three] \NC \somewhere{(see before)}{(see later)}[three] \NC \NR
+\stoptabulate
+\stopbuffer
+
+\starttext
+
+    \section[one]  {One}   \getbuffer \page
+    \section[two]  {Two}   \getbuffer \page
+    \section[three]{Three} \getbuffer \page
+
+\stoptext
+

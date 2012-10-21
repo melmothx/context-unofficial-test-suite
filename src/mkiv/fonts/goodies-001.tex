@@ -1,0 +1,16 @@
+\starttext
+
+\definefontfeature
+  [demo-smallcaps]
+  [goodies=demo,
+   featureset=smallcaps]
+
+\setupbodyfont[palatino]
+
+\definedfont[Serif*demo-smallcaps at 42pt]
+
+\startTEXpage[offset=10pt]
+    Hello World
+\stopTEXpage
+
+\stoptext

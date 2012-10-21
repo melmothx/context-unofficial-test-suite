@@ -1,0 +1,59 @@
+\starttext
+
+\defineitemgroup[itemizeone]
+
+\setupitemgroup[itemizeone][1][symbol=numbers,      width=1cm,left=(,right=),stopper=]
+\setupitemgroup[itemizeone][2][symbol=characters,   width=1cm,left=(,right=),stopper=]
+\setupitemgroup[itemizeone][3][symbol=romannumerals,width=1cm,left=(,right=),stopper=]
+\setupitemgroup[itemizeone][4][symbol=Characters,   width=1cm,left=(,right=),stopper=]
+
+\startitemizeone
+    \startitem
+        level 1: (1)
+        \startitemizeone
+            \startitem
+                level 2: (a)
+                \startitemizeone
+                    \startitem
+                        level 3: (i)
+                        \startitemizeone
+                            \startitem
+                                level 4: (A)
+                            \stopitem
+                        \stopitemizeone
+                    \stopitem
+                \stopitemizeone
+            \stopitem
+        \stopitemizeone
+    \stopitem
+\stopitemizeone
+
+\defineitemgroup[itemizetwo]
+
+\setupitemgroup[itemizetwo][1][symbol=numbers,width=1cm,left=(,right=),stopper=]
+\setupitemgroup[itemizetwo][2][symbol=numbers,stopper=.]
+\setupitemgroup[itemizetwo][3][symbol=Romannumerals,width=1cm,left=(,right=),stopper=]
+\setupitemgroup[itemizetwo][4][symbol=Romannumerals,stopper=.]
+
+\startitemizetwo
+    \startitem
+        level 1: (1)
+        \startitemizetwo
+            \startitem
+                level 2: 1.
+                \startitemizetwo
+                    \startitem
+                        level 3: (I)
+                        \startitemizetwo
+                            \startitem
+                                level 4: I.
+                            \stopitem
+                        \stopitemizetwo
+                    \stopitem
+                \stopitemizetwo
+            \stopitem
+        \stopitemizetwo
+    \stopitem
+\stopitemizetwo
+
+\stoptext

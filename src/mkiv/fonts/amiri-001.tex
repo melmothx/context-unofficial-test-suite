@@ -1,0 +1,25 @@
+\enabledirectives[otf.analyze.useunicodemarks]
+
+\usemodule[s-fnt-20]
+
+\starttext
+
+\ctxlua{fonts.analyzers.useunicodemarks = true}
+
+\setvariables
+  [otftracker]
+  [font=amiri-regular,
+   features=arabic,
+   size=48pt,
+   sample={بِسْمِ الله الرحمن الرحيم},
+   direction=-1]
+
+% \setvariables
+%   [otftracker]
+%   [font=amiri-regular,
+%    features=arabic,
+%    size=48pt,
+%    sample={بِسْمِ بسم},
+%    direction=-1]
+
+\stoptext

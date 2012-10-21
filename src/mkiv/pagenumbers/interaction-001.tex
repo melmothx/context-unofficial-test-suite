@@ -1,0 +1,28 @@
+\setupinteraction
+  [state=start]
+
+\defineconversionset[frontpart:pagenumber][][romannumerals]
+\defineconversionset[bodypart:pagenumber] [][numbers]
+\defineconversionset[backpart:pagenumber] [][characters]
+
+\setupuserpagenumber
+  [way=byblock]
+
+\setupuserpagenumber
+  [numberconversionset=pagenumber]
+
+\starttext
+
+\startfrontmatter
+    \chapter{Bla} \dorecurse{20}{\input zapf \par}
+\stopfrontmatter
+
+\startbodymatter
+    \chapter{Bla} \dorecurse{20}{\input tufte\par}
+\stopbodymatter
+
+\startbackmatter
+    \chapter{Bla} \dorecurse{20}{\input tufte\par}
+\stopbackmatter
+
+\stoptext

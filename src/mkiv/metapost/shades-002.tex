@@ -1,0 +1,17 @@
+\startuniqueMPgraphic{foo:special}
+    path p ; p := unitsquare xyscaled(2cm,2cm);
+    linear_shade(p,1,red,green);
+    draw p withpen pencircle scaled 10;
+\stopuniqueMPgraphic
+\startuniqueMPgraphic{foo:nospecial}
+    path p ; p := unitsquare xyscaled(2cm,2cm);
+    draw p withpen pencircle scaled 10;
+\stopuniqueMPgraphic
+
+\starttext
+    \startTEXpage
+        \uniqueMPgraphic{foo:special}
+        \uniqueMPgraphic{foo:nospecial}
+    \stopTEXpage
+\stoptext
+

@@ -1,0 +1,19 @@
+\starttext
+
+\setuptolerance[verytolerant,stretch] \dontcomplain
+
+\dorecurse{100} {
+    \startboxedcolumns[n=3]
+        \input zapf
+    \stopboxedcolumns
+    \blank
+}
+
+% \dorecurse{100} {
+%     \startsimplecolumns[n=3]
+%         \input zapf
+%     \stopsimplecolumns
+%     \blank
+% }
+
+\stoptext

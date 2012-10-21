@@ -1,0 +1,38 @@
+\definemakeup
+  [test]
+
+\setupheadertexts[Some Header Text]
+\setupfootertexts[Some Footer Text]
+
+\starttext
+
+\setuppagenumbering[alternative=doublesided]
+
+\showframe
+
+first
+
+% \startmakeup
+%     makeup
+% \stopmakeup
+
+% \startstandardmakeup
+%     standardmakeup
+% \stopstandardmakeup
+
+% \starttestmakeup[footerstate=start,top=,bottom=]
+%     testmakeup
+% \stoptestmakeup
+
+% \starttestmakeup[page=,doublesided=]
+%     testmakeup 1
+% \stoptestmakeup
+
+\starttestmakeup[page=,doublesided=]
+    testmakeup 2
+\stoptestmakeup
+
+last
+
+\stoptext
+

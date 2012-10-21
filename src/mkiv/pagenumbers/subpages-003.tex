@@ -1,0 +1,12 @@
+\enabletrackers[structures.counters]
+
+\setupheadertexts[\tt sub:\subpagenumber \ – nofsub:\nofsubpages  – lastsub:\lastsubpage]
+\setupfootertexts[\tt usr:\userpagenumber\ – nofusr:\nofuserpages – lastusr:\lastuserpage]
+
+\setupsubpagenumber[way=bychapter,state=start]
+
+\starttext
+
+\dorecurse{3}{\chapter{!!}\dorecurse{10}{\input knuth\par}\resetsubpagenumber}
+
+\stoptext

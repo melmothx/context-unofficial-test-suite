@@ -1,0 +1,18 @@
+\setupfootnotes[rule=off]
+
+\definenote[starrednote][footnote][numberconversion=set 2]
+\setupnote[footnote][symbol={$*$}]
+
+\starttext
+
+This is just a test!\footnote   {Just a footnote (a).}
+This is just a test!\starrednote{Just a footnote (b).}
+This is just a test!\footnote[-]{Just a footnote (-).}
+This is just a test!\footnote[+]{Just a footnote (+).}
+This is just a test!\footnote   {Just a footnote (c).}
+This is just a test!\starrednote{Just a footnote (d).}
+This is just a test!\footnote   {Just a footnote (e).}
+
+\typefile{symbols-001.tex}
+
+\stoptext

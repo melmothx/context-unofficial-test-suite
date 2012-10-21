@@ -1,0 +1,38 @@
+% Andreas Harder
+
+\setuplayout[height=fit,header=0pt,footer=0pt,topspace=0pt,bottom=0pt,location=middle,]
+
+\setuplinenumbering
+  [location=right,
+%  location=left,
+   location=outer,
+   align=right,
+   width=1em,
+   command=\WatchThis,
+   distance=1em,
+   style=\ssx]
+
+\def\WatchThis#1%
+  {\inframed[offset=1pt,frame=off,background=color,backgroundcolor=linecolor]{\ifodd\linenumber\red\else\green\fi#1}}
+
+\setupdelimitedtext
+  [blockquote]
+  [before=\startlinenumbering,
+    after=\stoplinenumbering,
+    style=\tfxx\setupinterlinespace]
+
+\starttext \showframe
+
+\dorecurse{4}{\input tufte \par}
+
+\startlinenumbering
+  \dorecurse{4}{\input tufte \par}
+\stoplinenumbering
+
+\dorecurse{4}{\input tufte \par}
+
+\startblockquote
+  \dorecurse{10}{\input tufte \par}
+\stopblockquote
+
+\stoptext

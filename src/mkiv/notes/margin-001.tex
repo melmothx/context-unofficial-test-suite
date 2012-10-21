@@ -1,0 +1,31 @@
+% example by Elias Oltmanns - criterium=page
+
+\setuplayout[backspace=5cm,width=middle,rightmarginwidth=3cm,rightmargindistance=3mm]
+
+\setupnote[footnote][location=text,rule=off,align=right,criterium=page]
+
+\setupnotation[footnote][location=left]
+
+\startsetups flushnotes
+    \framed
+      [frame=off,
+       offset=none,
+       align=low,
+       height=\textheight,
+       width=broad]
+      {\placenotes[footnote]}
+\stopsetups
+
+\setuptexttexts
+  [margin]
+  []
+  [\setups{flushnotes}]
+
+\starttext
+
+    \dorecurse{10}
+      {\section{Section}
+       As Knuth himself wrote\footnote{See knuth.tex (part of every \CONTEXT--distribution)}:
+       \input knuth\par}
+
+\stoptext

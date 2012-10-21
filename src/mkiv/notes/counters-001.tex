@@ -1,0 +1,17 @@
+\setupnotation[footnote][way=bychapter]
+
+\starttext
+
+\startchapter[title=One]
+
+Chapter\footnote{Note 1} with two\footnote{Note 2} footnotes.
+
+\stopchapter
+
+\startchapter[title=Two]
+
+Chapter\footnote{Should be Note 1} with two additional\footnote{should be Note 2} footnotes.
+
+\stopchapter
+
+\stoptext

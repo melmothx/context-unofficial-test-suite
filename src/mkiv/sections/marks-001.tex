@@ -1,0 +1,27 @@
+\startsetups footer
+    \getmarking[subject][first]\space-\space\getmarking[subject][last]
+\stopsetups
+
+\startsetups header
+    \getmarking[section][first]\space-\space\getmarking[section][last]
+\stopsetups
+
+\setupfootertexts[\setups{footer}]
+\setupheadertexts[\setups{header}]
+
+\starttext
+
+    \startsubject[title=One,marking=Whatever]
+        \input knuth \par
+    \stopsubject
+
+    \subject{Two}
+    \input knuth
+
+    \subject{Three}
+    \input knuth
+
+    \subject{Four}
+    \input knuth
+
+\stoptext

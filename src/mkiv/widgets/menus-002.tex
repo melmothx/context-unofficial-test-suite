@@ -1,0 +1,69 @@
+% macros=mkvi
+
+% benchmark
+
+\setuppapersize
+  [S6][S6]
+
+\setuplayout
+  [backspace=6cm,
+   cutspace=10cm,
+   leftedge=3cm,
+   rightedge=3cm,
+   leftmargin=1cm,
+   rightmargin=1cm,
+   margindistance=5mm,
+   edgedistance=5mm,
+   topspace=4cm,
+   bottomspace=4cm,
+   header=0pt,
+   footer=0pt,
+   top=1cm,
+   bottom=1cm,
+   topdistance=5mm,
+   bottomdistance=5mm,
+   width=middle,
+   height=middle]
+
+\dontcomplain
+
+\setupinteraction
+  [state=start,
+   menu=on]
+
+\setupinteractionmenu
+  [right]
+  [state=start,background=color,frame=off,backgroundcolor=red,color=white]
+\setupinteractionmenu
+  [left]
+  [state=start,background=color,frame=off,backgroundcolor=green,color=white]
+\setupinteractionmenu
+  [top]
+  [state=start,background=color,frame=off,backgroundcolor=blue,color=white]
+\setupinteractionmenu
+  [bottom]
+  [state=start,background=color,frame=off,backgroundcolor=yellow,color=white]
+
+\startinteractionmenu[right]
+    \startbut [page(1)] Page 1 \stopbut
+    \startbut [page(2)] Page 2 \stopbut
+\stopinteractionmenu
+
+\startinteractionmenu[left]
+    \startbut [page(1)] Page 1 \stopbut
+    \startbut [page(2)] Page 2 \stopbut
+\stopinteractionmenu
+
+\startinteractionmenu[top]
+    \startbut [page(1)] Page 1 \stopbut
+    \startbut [page(2)] Page 2 \stopbut
+\stopinteractionmenu
+
+\startinteractionmenu[bottom]
+    \startbut [page(1)] Page 1 \stopbut
+    \startbut [page(2)] Page 2 \stopbut
+\stopinteractionmenu
+
+\starttext
+    \dorecurse{1000}{test \page}
+\stoptext

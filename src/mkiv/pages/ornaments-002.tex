@@ -1,0 +1,18 @@
+% variation posted on list
+
+\defineoverlay[left page]   [left page]
+\defineoverlay[right page]  [right page]
+\setupbackgrounds[leftpage] [background=left page]
+\setupbackgrounds[rightpage][background=right page]
+
+\setuppagenumbering[alternative=doublesided]
+
+\definepagebreak[chapterpagebreak][left,header,blank,right]
+\setuphead[chapter][page=chapterpagebreak]
+
+\starttext
+    \chapter{x}
+    \chapter{x}
+\stoptext
+
+

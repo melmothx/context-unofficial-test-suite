@@ -1,0 +1,65 @@
+
+\defineenumeration
+  [exercise]
+  [way=bysection,
+   text=Exercise,
+   coupling=solution,
+   location=hanging]
+
+\defineenumeration
+  [solution]
+  [text=Solution,
+   way=bysection,
+   coupling=exercise,
+   location=hanging]
+
+\defineblock[exercise]
+\defineblock[solution]
+\hideblocks[solution]
+
+\setupinteraction
+  [state=start]
+
+\starttext
+
+\section{Main Text}
+
+\subsection[subsec:1]{problem section 1}
+
+\startexercise[ex:1]
+Addition\index{addition} problem: $1+1=?$ (\in{solution}[sol:1])
+\stopexercise
+
+\beginsolution[one]
+\startsolution[sol:1]
+Answer: 2. (\in{problem}[ex:1])
+\stopsolution
+\endsolution
+
+\subsection[subsec:2]{problem section 2}
+
+\startexercise[ex:2]
+Multiplication problem: $1\times1=?$ (\in{solution}[sol:2])
+\stopexercise
+
+\beginsolution[two]
+\startsolution[sol:2]
+Answer: 1. (\in{problem}[ex:2])
+\stopsolution
+\endsolution
+
+\page
+
+\resetcounter[solution]
+
+\section{Answers to the Problems}
+
+\subsection{Answers to \in{section}[subsec:1]}
+
+\useblocks[solution][one]
+
+\subsection{Answers to \in{section}[subsec:2]}
+
+\useblocks[solution][two]
+
+\stoptext

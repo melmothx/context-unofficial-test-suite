@@ -1,0 +1,22 @@
+\definefloat   [chemicalformula] [chemicalformulae]
+\setuplabeltext[chemicalformula=Reaction~,chemicalformulae=Reactions]
+\setupfloat    [chemicalformula] [location=here,frame=on,inner=\hsize.8\textwidth\dontleavehmode,align={flushleft,lohi}]
+\setupcaption  [chemicalformula] [location=right,distance=0cm,width=.2\textwidth,align=flushright]
+
+\setupbodyfont [dejavu,10pt]
+
+\showframe
+
+\starttext
+
+\startplacechemicalformula
+    \dontleavehmode\startchemicalformula
+        \chemical{2H_2}
+        \chemical{PLUS}
+        \chemical{O_2}
+        \chemical{GIVES}
+        \chemical{2H_2O}
+    \stopchemicalformula
+\stopplacechemicalformula
+
+\stoptext

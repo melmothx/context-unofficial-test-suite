@@ -1,0 +1,250 @@
+% engine=luatex
+
+\setuplayout[backspace=5cm]
+
+\starttext
+
+\setupcolors[state=start]
+\setuphead[chapter][distance=1em,style=bold,color=red]
+\setuphead[section][distance=2em,style=slanted,color=blue]
+
+\definedescription[test][location=left,hang=4,headalign={right},distance=1em,list=test]
+\defineenumeration[ammel][title=yes,right=:,textdistance=.5em,location=left,titlestyle=\it,width=9em]
+\defineenumeration[lemma][title=yes,right=:,textdistance=1em,location=top, titlestyle=\bs,list=lemma]
+
+\definelist[hanslist]
+
+\placelist[chapter,section]
+\placelist[enumeration:lemma]
+\placelist[description:test][width=0pt]
+\placelist[hanslist][width=4cm]
+
+
+% \defineenumeration [test] [way=bypage,text=\lastchangedpage]
+%
+% \starttext \dorecurse{10}{\test \input tufte \par} \stoptext
+
+
+\chapter{chapter}
+\section{section}
+\section{section}
+% \subsection{subsection}
+% \subsection{subsection}
+% \subsection{subsection}
+
+\writetolist[hanslist]{the first a}{the second a}
+\writetolist[hanslist]{the first b}{the second b}
+
+
+\startbuffer
+\defineenumeration[one]
+\defineenumeration[two]   [one]
+\defineenumeration[three] [number=one,style=slanted]
+\defineenumeration[four]  [three]
+\defineenumeration[five]  [three] [number=five]
+
+\startone   test test 1 \stopone
+\starttwo   test test 2 \stoptwo
+\startthree test test 3 \stopthree
+\startfour  test test 4 \stopfour
+\startfive  test test 1 \stopfive
+\stopbuffer
+
+% \chapter{x}
+
+% \typebuffer \start \getbuffer \stop
+
+\starttest  {something something something}       \input zapf  \stoptest
+\startlemma {with a title of a certain length}    \input tufte \stoplemma
+\startsublemma {with a title of a certain length} \input tufte \stopsublemma
+\startammel {with a title}                        \input zapf  \stopammel
+
+% \definelabel[oeps][text=OEPS] \oeps\par \oeps\par \oeps\par
+
+\stoptext
+
+\chapter{Test}
+
+\defineenumeration[question][location=margin,text=Q,way=bychapter,prefixsegments=1:3]
+\defineenumeration[exercise][question][text=E,headstyle=slanted]
+\defineenumeration[answer]  [location=margin,text=A]
+
+\setupenumerations[subquestion][left=(,right=),stopper=!!!,headstyle=boldslanted]
+\setupenumerations[subsubquestion][left=<,right=>,stopper=]
+
+\dorecurse{1}{
+    \startquestion Is this the first question? \stopquestion
+    \startexercise Is this the first question? \stopexercise
+    \startquestion Is this the first question? \stopquestion
+    \startexercise Is this the first question? \stopexercise
+    \startsubquestion Is this the first question? \stopsubquestion
+    \startsubquestion Is this the first question? \stopsubquestion
+    \startsubsubquestion Is this the first question? \stopsubsubquestion
+    \startquestion[whow:\recurselevel] Is this the first question? \stopquestion
+    \startquestion Is this the first question? \stopquestion
+}
+
+\stoptext
+
+\chapter{Normal block use}
+
+    % test normal block use
+
+\defineenumeration[question][location=margin,text=Q,way=bychapter]
+\defineenumeration[answer]  [location=margin,text=A]
+
+\defineblock[easyanswer]
+\defineblock[difficultanswer]
+\defineblock[easyquestion]
+\defineblock[difficultquestion]
+\defineblock[practice]
+\defineblock[nestedquestion]
+\defineblock[nestedanswer]
+\defineblock[formula]
+\defineblock[answer]
+\defineblock[question]
+\defineblock[feedback]
+
+\hideblocks[answer,question]
+
+\beginquestion
+\startquestion Is this the first question? \stopquestion
+\endquestion
+
+\beginanswer
+\startanswer Yes it is the first one. \stopanswer
+\endanswer
+
+\beginquestion
+\startquestion Is this the second question? \stopquestion
+\endquestion
+
+\beginanswer
+\startanswer Yes, it is the second one. \stopanswer
+\endanswer
+
+Call for questions:
+
+\reset[question] generates error
+\useblocks[question]
+
+Call for answers:
+
+\reset[answer] generates error
+\useblocks[answer]
+
+\chapter{Test criterium: First Chapter}
+
+    % test criterium
+
+\hideblocks[feedback]
+
+\beginfeedback[wow]
+Wow! First chapter!
+\endfeedback
+
+Here we call the feedback of only this first chapter.
+
+\selectblocks[feedback][wow][criterium=chapter]
+
+\chapter{Test criterium: Second Chapter}
+
+    % test criterium
+
+\beginfeedback[wow]
+Wow! Second chapter!
+\endfeedback
+
+Here we call for the feedback both chapters.
+
+\useblocks[feedback]
+
+\chapter{Nested blocks}
+
+    % test nested block
+
+\hideblocks[practice,nestedquestion,nestedanswer]
+
+\beginpractice
+Some text before the question.
+\beginnestedquestion
+\startquestion Is this a question in a nested block? \stopquestion
+\endnestedquestion
+\beginnestedanswer
+\startanswer Yes it sure is nested.\stopanswer
+\endnestedanswer
+\endpractice
+
+Here we call for the nested block:
+
+\useblocks[practice]
+
+\selectblocks[nestedquestion][criterium=chapter]
+
+\chapter{Lets try processblocks}
+
+    % test process blocks
+
+\hideblocks[easyanswer,difficultanswer,easyquestion,difficultquestion]
+
+\begineasyquestion
+\startquestion Is this the easy question? \stopquestion
+\endeasyquestion
+
+\begineasyanswer
+\startanswer Yes it is the easy one.\stopanswer
+\endeasyanswer
+
+\begindifficultquestion
+\startquestion Is this the difficult question? \stopquestion
+\enddifficultquestion
+
+\begindifficultanswer
+\startanswer Yes it is the difficult one. \stopanswer
+\enddifficultanswer
+
+Here I would expect to see only one (difficult) question with the number
+2 since I only process easyquestion (not select or use). So what happens
+here?
+
+\processblocks[easyquestion]
+\useblocks[difficultquestion]
+
+\chapter{Skip formulas}
+
+\beginformula
+\placeformula[first]  $$ x^1$$
+\endformula
+
+\beginformula[-]
+\placeformula[second] $$ x^2$$
+\endformula
+
+\beginformula[+]
+\placeformula[third]  $$ x^3$$
+\endformula
+
+\beginformula
+\placeformula[fourth] $$ x^4$$
+\endformula
+
+And then we repeat them here and we expect that the formulanumbers
+are remembered. Anyhow, how can we reset them.
+
+\resetformula
+
+\useblocks[formula]
+
+\chapter{Test for keepblocks}
+
+    % test keepblocks
+
+What does \type{\keepblocks} (in Dutch: handhaafblokken) do?
+
+\chapter{Test for external file}
+
+    % test external file blocks
+
+Is not necessary yet.
+
+\stoptext

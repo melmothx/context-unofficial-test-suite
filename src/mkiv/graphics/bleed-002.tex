@@ -1,0 +1,47 @@
+% Adapted from test file Willi Egger.
+% This file tests bleeding on the right side.
+% 2010-09-06
+
+\setuppapersize[A4][A3]
+
+\setuplayout
+   [topspace=1.5cm,
+	backspace=1.5cm,
+	header=0pt,
+	footer=0pt,
+	height=middle,
+	width=middle,
+	marking=on,
+	location=middle]
+
+\showframe
+
+\starttext
+
+Right
+
+\placefigure
+	[right,none,fit]
+	{}
+	{\externalfigure[hacker][width=4cm,height=3cm]}
+
+\placefigure
+	[right,none,fit]
+	{}
+	{\bleed[offset=0pt,width=4cm,height=3cm,location=r]{\externalfigure[hacker][bleed]}}
+
+\placefigure
+	[right,none,fit]
+	{}
+	{\bleed[offset=25mm,width=4cm,height=3cm,location=r]{\externalfigure[hacker][bleed]}}
+
+\placefigure
+	[right,none,fit]
+	{}
+	{\bleed[offset=-25mm,width=4cm,height=3cm,location=r]{\externalfigure[hacker][bleed]}}
+
+\placefigure
+	{}
+	{\bleed[width=4cm,height=3cm,location=r]{\externalfigure[hacker][bleed]}}
+
+\stoptext

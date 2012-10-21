@@ -1,0 +1,47 @@
+\setupbodyfont[dejavu]
+
+% \ctxlua{print(utf.char(0x2260))}
+
+\starttext
+
+\definetyping[XXX]
+
+\startXXX
+  If int(N/2) ≠ N/2
+  Then
+    Disp "N MUST BE EVEN"
+    Stop
+  End
+\stopXXX
+
+\setuptyping[XXX][escape=yes]
+
+\startXXX
+  If int(N/2) /BTEX\ne/ETEX N/2
+  Then
+    Disp "N MUST BE EVEN"
+    Stop
+  End
+\stopXXX
+
+\setuptyping[XXX][escape={[[,]]}]
+
+\startXXX
+  If int(N/2) [[\ne]] N/2
+  Then
+    Disp "N MUST BE EVEN"
+    Stop
+  End
+\stopXXX
+
+\setuptyping[XXX][escape={$,$}]
+
+\startXXX
+  If int(N/2) $\ne$ N/2
+  Then
+    Disp "N MUST BE EVEN"
+    Stop
+  End
+\stopXXX
+
+\stoptext

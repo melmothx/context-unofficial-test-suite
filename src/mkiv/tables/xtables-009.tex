@@ -1,0 +1,31 @@
+\usemodule[ntb-to-xtb]
+
+\enabletrackers[xtable.construct]
+
+\starttext
+
+\bTABLE
+\bTR \bTD b 1 \eTD \bTD c 1 \eTD \bTD d 1 \eTD \bTD e 1 \eTD \bTD f 1 \eTD \eTR
+\bTR \bTD b 2 \eTD \bTD c 2 \eTD \bTD d 2 \eTD \bTD e 2 \eTD \bTD f 2 \eTD \eTR
+\bTR \bTD b 3 \eTD \bTD c 3 \eTD \bTD d 3 \eTD \bTD e 3 \eTD \bTD f 3 \eTD \eTR
+\bTR \bTD b 4 \eTD \bTD c 4 \eTD \bTD d 4 \eTD \bTD e 4 \eTD \bTD f 4 \eTD \eTR
+\bTR \bTD b 5 \eTD \bTD c 5 \eTD \bTD d 5 \eTD \bTD e 4 \eTD \bTD f 4 \eTD \eTR
+\eTABLE
+
+\bTABLE
+\bTR \bTD[nr=3] a 1 \eTD \bTD b 1 \eTD \bTD c 1 \eTD \bTD d 1 \eTD \bTD e 1 \eTD \bTD f 1 \eTD \eTR
+\bTR                     \bTD b 2 \eTD \bTD c 2 \eTD \bTD d 2 \eTD \bTD e 2 \eTD \bTD f 2 \eTD \eTR
+\bTR                     \bTD b 3 \eTD \bTD c 3 \eTD \bTD d 3 \eTD \bTD e 3 \eTD \bTD f 3 \eTD \eTR
+\bTR \bTD[nr=2] a 2 \eTD \bTD b 4 \eTD \bTD c 4 \eTD \bTD d 4 \eTD \bTD e 4 \eTD \bTD f 4 \eTD \eTR
+\bTR                     \bTD b 5 \eTD \bTD c 5 \eTD \bTD d 5 \eTD \bTD e 4 \eTD \bTD f 4 \eTD \eTR
+\eTABLE
+
+\bTABLE
+\bTR \bTD[nr=3,nc=3] a 1 \eTD                        \bTD d 1 \eTD \bTD e 1 \eTD \bTD f 1 \eTD \eTR
+\bTR                                                 \bTD d 2 \eTD \bTD e 2 \eTD \bTD f 2 \eTD \eTR
+\bTR                                                 \bTD d 3 \eTD \bTD e 3 \eTD \bTD f 3 \eTD \eTR
+\bTR \bTD[nr=2] a 2 \eTD \bTD b 4 \eTD \bTD c 4 \eTD \bTD d 4 \eTD \bTD e 4 \eTD \bTD f 4 \eTD \eTR
+\bTR                     \bTD b 5 \eTD \bTD c 5 \eTD \bTD d 5 \eTD \bTD e 4 \eTD \bTD f 4 \eTD \eTR
+\eTABLE
+
+\stoptext

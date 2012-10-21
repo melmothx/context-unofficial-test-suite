@@ -1,0 +1,66 @@
+% \enabletrackers[sorters.tests]
+\enabletrackers[sorters.methods]
+
+\mainlanguage[kr]
+
+\definefontfeature[korean][script=hang,language=kor,mode=node,analyze=yes]
+
+\starttypescript [serif] [myungjo]
+    \definefontsynonym[Serif]    [adobemyungjostd-medium*korean]
+    \definefontsynonym[SerifBold][adobemyungjostd-medium*korean]
+\stoptypescript
+
+\starttypescript[myungjo]
+    \definetypeface [myungjo] [rm] [serif] [myungjo] [default] [features=korean]
+    \definetypeface [myungjo] [mm] [math]  [modern]  [default]
+\stoptypescript
+
+\setupbodyfont[myungjo]
+
+\setscript[hangul]
+
+\def\idx#1{\index{#1}{\bf #1}}
+
+\enabletrackers[sorters.tests]
+
+\starttext
+
+\startcolumns
+
+\startlines
+ㄱ
+가급적
+가끔
+가능성
+강력한 도구
+개념
+건조일정
+경영과학
+고등학생
+곱의 원리
+공
+공학
+과학자
+관점의 변화
+구조
+구조물
+그래프
+그렇지만
+기본 원리
+기본 핵산
+기초
+깊은
+깜빡
+깨달음
+\stoplines
+
+\placeregister[index][n=1]
+
+\stopcolumns
+
+\idx{가급적} \idx{공} \idx{공학} \idx{과학자} \idx{관점의 변화} \idx{구조} \idx{구조물}
+\idx{그래프} \idx{기초} \idx{깊은} \idx{깜빡} \idx{깨달음} \idx{가끔} \idx{가능성}
+\idx{강력한 도구} \idx{그렇지만} \idx{기본 원리} \idx{기본 핵산} \idx{개념} \idx{건조일정}
+\idx{경영과학} \idx{고등학생} \idx{곱의 원리}
+
+\stoptext

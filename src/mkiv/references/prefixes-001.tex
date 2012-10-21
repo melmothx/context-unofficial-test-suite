@@ -1,0 +1,24 @@
+\starttext
+
+\chapter{test}
+
+\placefigure[here][xx:1]{}{\framed{one}} \placefigure[here][xx:2]{}{\framed{three}}
+\placetable [here][xx:3]{}{\framed{two}} \placetable [here][xx:4]{}{\framed{four}}
+
+\start
+    \in{fig}[xx:1] and \in{fig}[xx:2] \in{tab}[xx:3] and \in{tab}[xx:4]
+\stop \blank
+\start
+    \setupreferencestructureprefix[default][prefix=no]
+    \in{fig}[xx:1] and \in{fig}[xx:2] \in{tab}[xx:3] and \in{tab}[xx:4]
+\stop \blank
+\start
+    \setupreferencestructureprefix[float][default][prefix=no]
+    \in{fig}[xx:1] and \in{fig}[xx:2] \in{tab}[xx:3] and \in{tab}[xx:4]
+\stop \blank
+\start
+    \setupreferencestructureprefix[figure][default][prefix=no]
+    \in{fig}[xx:1] and \in{fig}[xx:2] \in{tab}[xx:3] and \in{tab}[xx:4]
+\stop \blank
+
+\stoptext

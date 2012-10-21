@@ -1,0 +1,57 @@
+% Adapted from test file Willi Egger.
+% This file tests bleeding at the bottom.
+% 2010-09-06
+
+
+\setuppapersize[A4][A3]
+
+\setuplayout
+   [topspace=1.5cm,
+	backspace=1.5cm,
+	header=0pt,
+	footer=0pt,
+	height=middle,
+	width=middle,
+	marking=on,
+	location=middle]
+
+\showframe
+
+\starttext
+
+Bottom-center
+\vfill
+\placefigure
+	[bottom,none,fit]
+	{}
+	{\bleed[offset=10mm,width=4cm,height=3cm,location=b]{\externalfigure[hacker][bleed]}}
+
+\page
+Bottom-left
+\vfill
+
+\placefigure
+	[bottom,none,fit]
+	{}
+	{\bleed[offset=10mm,width=4cm,height=3cm,location=bl]{\externalfigure[hacker][bleed]}}
+
+\page
+Bottom-right
+\vfill
+
+\placefigure
+	[bottom,none,fit]
+	{}
+	{\bleed[offset=10mm,width=4cm,height=3cm,location=br]{\externalfigure[hacker][bleed]}}
+
+\page
+
+Bottom
+\vfill
+
+\placefigure
+	[bottom,none,fit]
+	{}
+	{\bleed[width=4cm,height=3cm,location=b]{\externalfigure[hacker][bleed]}}
+
+\stoptext

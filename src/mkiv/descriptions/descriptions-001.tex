@@ -1,0 +1,26 @@
+\unexpanded\def\sample{\dorecurse{30}{xx }}
+
+\starttext
+
+\defineenumeration
+  [exercise]
+  [title=yes,
+   text=TEST]
+
+\exercise {\sample} \input tufte
+
+\definedescription
+  [whatever]
+  [title=yes,
+   text=TEST: ]
+
+\whatever {\sample} \input tufte
+
+\definedescription
+  [whatever]
+  [location=top,
+   text=TEST: ]
+
+\whatever {\sample} \input tufte
+
+\stoptext

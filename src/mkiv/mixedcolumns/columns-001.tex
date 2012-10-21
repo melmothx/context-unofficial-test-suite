@@ -1,0 +1,26 @@
+\starttext
+
+    \definemixedcolumns
+      [whatevercolumns]
+      [n=2,
+       before={\blank[line]},
+       after={\blank[line]},
+       background=color,
+       backgroundcolor=darkred,
+       backgroundoffset=.5mm,
+       rulethickness=1mm,
+       rulecolor=darkgreen,
+       color=white,
+       separator=rule]
+
+    \input zapf
+
+    \startnarrower
+        \startwhatevercolumns
+            \input zapf
+        \stopwhatevercolumns
+    \stopnarrower
+
+    \input zapf
+
+\stoptext

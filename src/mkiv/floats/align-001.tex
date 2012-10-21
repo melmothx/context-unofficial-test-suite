@@ -1,0 +1,35 @@
+\setuplayout[width=10cm,height=middle,header=0pt,footer=0pt]
+
+\useMPlibrary[dum]
+
+\setupfloats[ntop=30]
+
+\definefloat[one][ones][figure]
+\definefloat[two][twos][figure]
+\setupfloat[one][availablewidth=15cm,location=right]
+\setupfloat[two][availablewidth=15cm,location=left]
+
+\showframe
+
+\starttext
+
+\input ward
+
+\placefloat[one][top]{right}{\externalfigure[dummy][width=\availablefloatwidth,height=1cm]}
+\placefloat[two][top]{left} {\externalfigure[dummy][width=\availablefloatwidth,height=1cm]}
+
+\placefloat[one][top]{right}{\externalfigure[dummy][width=.5\availablefloatwidth,height=1cm]}
+\placefloat[two][top]{left} {\externalfigure[dummy][width=.5\availablefloatwidth,height=1cm]}
+
+\setupfloat[one][availablewidth=15cm,location=flushright]
+\setupfloat[two][availablewidth=15cm,location=flushleft]
+
+\placefloat[one][top]{flushright}{\externalfigure[dummy][width=\availablefloatwidth,height=1cm]}
+\placefloat[two][top]{flushleft}{\externalfigure[dummy][width=\availablefloatwidth,height=1cm]}
+
+\placefloat[one][top]{flushright}{\externalfigure[dummy][width=.5\availablefloatwidth,height=1cm]}
+\placefloat[two][top]{flushleft}{\externalfigure[dummy][width=.5\availablefloatwidth,height=1cm]}
+
+\placefloat[figure][top]{}{\externalfigure[dummy][width=\availablefloatwidth,height=1cm]}
+
+\stoptext

@@ -1,0 +1,40 @@
+\enabletrackers[otf.loading]
+
+% \definefontfeature[punky][default][mode=node,script=latn,rand=yes,slant=0.5]
+% \font\punk=file:PunkNova.otf*punky at 12pt
+% \punk AAAAAAAAAAAAAAAA
+
+\usemodule[punk]
+
+\setupbodyfont[punknova]
+% \setupbodyfont[punk]
+
+\starttext
+
+\input knuth
+
+\startluacode
+    local byte, char, rep = string.byte, string.char, string.rep
+    local function showtime(f,t)
+        f = type(f) == "string" and byte(f) or f
+        t = type(t) == "string" and byte(t) or t or f
+        for i=f,t do
+            context.par()
+            context(rep(char(i),32))
+            context.par()
+        end
+    end
+    showtime("A","Z")
+    showtime("a","z")
+    showtime("0","9")
+    showtime("!")
+    showtime("?")
+    showtime(".")
+    showtime(",")
+    showtime(":")
+    showtime(";")
+\stopluacode
+
+\input zapf
+
+\stoptext

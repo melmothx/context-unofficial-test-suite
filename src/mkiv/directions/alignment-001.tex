@@ -1,0 +1,27 @@
+\starttext
+
+test \inframed{This is a test} test
+
+\start \righttoleft test \framed{This is a test} test  \par \stop
+
+\startalignment[right]
+    test \inframed{This is a test} test
+\stopalignment
+
+\startalignment[left]
+    test \inframed{This is a test} test
+\stopalignment
+
+\startalignment[right,r2l]
+    test \inframed[align=right]{This is a test} test
+\stopalignment
+
+\startalignment[left,r2l]
+    test \inframed[align={left,l2r}]{This is a test} test
+\stopalignment
+
+\startalignment[left,r2l]
+    test \inframed[align=left]{This is a test} test
+\stopalignment
+
+\stoptext

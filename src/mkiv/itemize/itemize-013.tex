@@ -1,0 +1,25 @@
+\starttext
+
+\startitemize[n,fit]
+\item text
+\item text
+\stopitemize
+
+\settrialtypesetting % simulate the trial runs in a natural table
+
+\startnointerference
+\startitemize[n,fit,continue]
+\item text
+\item text
+\stopitemize
+\stopnointerference
+
+\resettrialtypesetting
+
+\startitemize[n,fit,continue]
+\item text
+\item text
+\stopitemize
+
+\stoptext
+

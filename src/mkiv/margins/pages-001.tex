@@ -1,0 +1,16 @@
+% \enabletrackers[parbuilders.keeptogether]
+
+\starttext
+
+\dorecurse{4}{\input knuth} \blank[2*line]
+
+\dorecurse{3}{\inmargin[stack=yes]{note}} \input tufte
+
+\page
+
+\dorecurse{4}{\input knuth} \blank[2*line]
+
+\dorecurse{3}{\inmargin[stack=yes,bottomspace=10cm]{note}} \input tufte
+
+\stoptext
+

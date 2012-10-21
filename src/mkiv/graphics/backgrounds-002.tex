@@ -1,0 +1,27 @@
+% benchmark
+
+\setuptextbackground
+  [mp=mpos:region:kind,
+   method=mpos:region]
+
+\setupbodyfont[dejavu,10pt]
+
+% \setuppapersize[A4][A3]
+% \setuplayout[location=middle]
+
+\definetextbackground[r]
+
+% \loggingall
+
+\starttext
+
+    \dorecurse{200}{
+        \starttextbackground[r]
+        \input ward
+        \stoptextbackground
+        \
+        \input ward
+        \par
+    }
+
+\stoptext

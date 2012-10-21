@@ -1,0 +1,24 @@
+\showframe
+
+\definelayout
+  [test]
+  [width=12cm,
+   height=10cm]
+
+\definelayout
+  [more]
+  [test]
+  [height=12cm]
+
+\starttext
+
+    \setuplayout         \subject{normal} \input ward \page
+    \setuplayout [test]  \subject{test}   \input ward \page
+    \setuplayout         \subject{normal} \input ward \page
+    \setuplayout [test]  \subject{test}   \input ward \page
+    \setuplayout [more]  \subject{more}   \input ward \page
+    \setuplayout [test]  \subject{test}   \input ward \page
+    \setuplayout [reset] \subject{reset}  \input ward \page
+
+\stoptext
+

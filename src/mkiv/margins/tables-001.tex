@@ -1,0 +1,27 @@
+\showframe
+
+\starttext
+
+    \inleftmargin [stack=yes]{test 1l} % don't use scope=local here
+    \inrightmargin[stack=yes]{test 1r} % don't use scope=local here
+
+    \inleftmargin [stack=yes]{test 2l} % don't use scope=local here
+    \inrightmargin[stack=yes]{test 2r} % don't use scope=local here
+
+    \starttabulate[|||]
+        \NC test \NC test \NC \NR
+    \stoptabulate
+
+    \starttabulate[||||]
+        \NC test \NC test \NC \inleftmargin [stack=yes,scope=global]{test 3l}test \NC \NR
+        \NC test \NC test \NC \inrightmargin[stack=yes,scope=global]{test 3r}test \NC \NR
+    \stoptabulate
+
+    \starttabulate[||||]
+        \NC test \NC test \NC \inleftmargin [stack=yes,scope=local]{test 4l}test \NC \NR
+        \NC test \NC test \NC \inrightmargin[stack=yes,scope=local]{test 4r}test \NC \NR
+    \stoptabulate
+
+    test
+
+\stoptext

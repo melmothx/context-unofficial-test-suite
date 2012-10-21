@@ -1,0 +1,18 @@
+\startMPpage
+    % beware: extensive scaling can make acrobat crash and okular drop the !
+    %
+    numeric w, h ; w := \the\textwidth ; h := w/2 ; % \the\textheight ;
+
+    picture p ; p := btex \colored[r=.375,g=.375]{Meta is a female lion!} etex xysized (w,h) ;
+    picture q ; q := btex \colored[r=.625]       {Meta is a female lion!} etex xysized (w,h) ;
+
+    path b ; b := boundingbox p ; draw p ;
+
+    for i=(.28w,.90h),(.85w,.90h),(w,.05h) :
+      picture r ; r := q ;
+      path s ; s := (fullsquare xscaled .05w yscaled .25h) shifted i ;
+      clip r to s ; draw r ; % draw s ;
+    endfor ;
+
+    setbounds currentpicture to b ;
+\stopMPpage

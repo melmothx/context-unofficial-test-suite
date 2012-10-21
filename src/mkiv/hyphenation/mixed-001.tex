@@ -1,0 +1,63 @@
+\enabletrackers[languages.patterns]
+
+\starttext
+
+\setupbodyfont[xits,12pt]
+
+\hyphenatedword{xxxyyyzzz}
+
+\startexceptions[english]
+    xxx-yyy-zzz
+\stopexceptions
+
+\hyphenatedword{xxxyyyzzz}
+
+\startbuffer
+\setuplanguage[ru][patterns={ru,us}]
+\setuplanguage[en][patterns={us,ru}]
+\setuplanguage[de][patterns={de,ru}]
+
+\start
+    \language[ru]
+    \dorecurse{50}{Multilingual }\dorecurse{50}{русский текст }
+    \par
+\stop
+\start
+    \language[en]
+    \dorecurse{50}{Multilingual }\dorecurse{50}{русский текст }
+    \par
+\stop
+\start
+    \language[de]
+    \dorecurse{50}{Multilingual }\dorecurse{50}{русский текст }
+    \par
+\stop
+\stopbuffer
+
+{\de test}
+
+\typebuffer \getbuffer
+
+\startluacode
+    local NC, NR, HL = context.NC, context.NR, context.HL
+    context.starttabulate { "|r|l|l|l|l|" }
+    NC() context("id")
+    NC() context("tag")
+    NC() context("synonyms")
+    NC() context("parent")
+    NC() context("loaded")
+    NC() NR() HL()
+    for i=1,#languages.numbers do
+        local tag = languages.numbers[i]
+        local data = languages.registered[tag]
+        NC() context(data.number)
+        NC() context(tag)
+        NC() context(table.concat(table.sortedkeys(data.synonyms)," "))
+        NC() context(data.parent)
+        NC() context(table.concat(table.sortedkeys(data.used),"+"))
+        NC() NR()
+    end
+    context.stoptabulate()
+\stopluacode
+
+\stoptext

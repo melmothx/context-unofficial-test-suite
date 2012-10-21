@@ -1,0 +1,18 @@
+% example from list by ws
+
+\setuppapersize[A7][A7]
+
+\setupfloatsplitting[conversion=continued]
+
+\starttext
+
+\placetable
+  [split]
+  {Test 1}
+  {\bTABLE
+   \dorecurse{20}{\bTR\bTD #1 \eTD\eTR}
+   \eTABLE}
+
+\stoptext
+
+

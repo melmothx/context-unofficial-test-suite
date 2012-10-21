@@ -1,0 +1,29 @@
+\setupbodyfont[dejavu,10pt]
+
+\definetextbackground[b]
+
+\setupwhitespace[big]
+
+\starttext
+
+test
+\starttextbackground[b] test test \stoptextbackground
+test
+
+test
+\starttextbackground[b] test test \par \stoptextbackground
+test
+
+test
+\starttextbackground[b] \par test test \stoptextbackground
+test
+
+test
+\starttextbackground[b] \par test test \par \stoptextbackground
+test
+
+test
+\starttextbackground[b] \par test \par test \par \stoptextbackground
+test
+
+\stoptext

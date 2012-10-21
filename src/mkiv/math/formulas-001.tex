@@ -1,0 +1,72 @@
+\starttext
+
+\placeformula[whocares:1] \startformula x = \text{yes whocares:1} \stopformula
+\placeformula[whocares:2] \startformula x = \text{yes whocares:2} \stopformula
+\placeformula[-]          \startformula x = \text{nop minus} \stopformula
+\placeformula[+]          \startformula x = \text{yes plus} \stopformula
+\placeformula             \startformula x = \text{yes none} \stopformula
+
+\in{whocares:1}[whocares:1]
+\in{whocares:2}[whocares:2]
+
+\placeformula
+    \startsubformulas[whocares:3]% 1a 1b 1c 1d
+        \startformulas
+            \startformula \startalign
+                \NC 1 \NC = \text{nop} \NR
+                \NC 2 \NC = \text{yes plus} \NR[+]
+            \stopalign \stopformula
+            \startformula \startalign
+                \NC 3 \NC = \text{yes whocares:4} \NR[whocares:4]
+                \NC 4 \NC = \text{nop} \NR[-]
+            \stopalign \stopformula
+       \stopformulas
+    \stopsubformulas
+
+\in{whocares:3}[whocares:3]
+\in{whocares:4}[whocares:4]
+
+\startsubformulas[eq:sub1]
+    \placeformula
+        \startformula
+            \startalign
+                \NC a_1 x + b_1 y \NC = c_1 \NR[eq:11]
+                \NC a_2 x + b_2 y \NC = c_2 \NR[eq:12]
+                \NC a_2 x + b_2 y \NC = c_2 \NR[eq:13]
+            \stopalign
+        \stopformula
+\stopsubformulas
+
+\in{eq:11}[eq:11]
+\in{eq:12}[eq:12]
+\in{eq:13}[eq:13]
+
+\placeformula
+    \startformula
+        \startsubformulas[eq:sub2]
+            \startalign
+                \NC a_1 x + b_1 y \NC = c_1 \NR[eq:21]
+                \NC a_2 x + b_2 y \NC = c_2 \NR[eq:22]
+                \NC a_2 x + b_2 y \NC = c_2 \NR[eq:23]
+            \stopalign
+        \stopsubformulas
+    \stopformula
+
+\in{eq:21}[eq:21]
+\in{eq:22}[eq:22]
+\in{eq:23}[eq:23]
+
+\placeformula
+    \startformula
+        \startalign
+            \NC a_1 x + b_1 y \NC = c_1 \NR[eq:31]
+            \NC a_2 x + b_2 y \NC = c_2 \NR[eq:32]
+            \NC a_2 x + b_2 y \NC = c_2 \NR[eq:33]
+        \stopalign
+    \stopformula
+
+\in{eq:31}[eq:31]
+\in{eq:32}[eq:32]
+\in{eq:33}[eq:33]
+
+\stoptext

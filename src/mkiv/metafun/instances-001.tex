@@ -1,0 +1,26 @@
+\startsetups mp:instance:one
+    indeed:\space
+\stopsetups
+
+\setupMPinstance
+  [metafun]
+  [textstyle=bold,
+   textcolor=darkgreen,
+   setups=mp:instance:one]
+
+\defineMPinstance
+  [mympinstance]
+  [metafun]
+  [textcolor=red]
+
+\starttext
+
+    \startMPcode
+        draw textext("some text") ;
+    \stopMPcode
+
+    \startMPcode{mympinstance}
+        draw textext("some text") ;
+    \stopMPcode
+
+\stoptext

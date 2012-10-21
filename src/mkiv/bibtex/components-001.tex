@@ -1,0 +1,32 @@
+% adapted example from list
+
+\startpublication[
+        k=me,
+        t=manual,
+        a=Hoekwater,
+        y=2006,
+        s=TH2006,
+        n=1,
+        u=http://contextgarden.net/Bibliography,
+    ]
+    \author{Taco}[T.]{}{Hoekwater}
+    \title{\CONTEXT\ Publication Module, The user documententation}
+    \pubyear{2006}
+    \note{In case you didn’t know: it’s the document you are reading now}
+    \pages{14}
+\stoppublication
+
+\startproduct components-001
+
+\startfrontmatter
+
+  \component components-002
+
+  two: \cite[me]
+
+\stopfrontmatter
+
+\placepublications
+  [criterium=text]
+
+\stopproduct

@@ -1,0 +1,13 @@
+\starttext
+
+\setupinteraction[state=start,contrastcolor=]
+\placeregister[index]
+
+\blank[3*big]
+
+w \dorecurse{100}{\index{test #1}}
+x \seeindex{test 101 }{oeps} test \page
+y \index{oeps} \page
+z \index{whatever}
+
+\stoptext

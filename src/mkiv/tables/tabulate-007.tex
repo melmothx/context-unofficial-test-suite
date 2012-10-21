@@ -1,0 +1,69 @@
+\settrue\splitofftabulatewhitespace
+
+\starttext
+
+\startTEXpage
+
+    \starttabulate[|p(2cm)|p(2cm)|p(2cm)|]
+        \NC test 1a \NC test 2a \NC test 3a
+                                    \par
+                                    test 3b          \NC \NR
+        \NC test 1a \NC test 2a \NC test 3a
+                                    \blank[line]
+                                    test 3b          \NC \NR
+        \NC test 1a \NC test 2a \NC test 3a
+                                    \blank[halfline]
+                                    test 3b
+                                    \blank[halfline]
+                                    test 3c          \NC \NR
+        \NC \blank  \NC \blank  \NC \blank           \NC \NR
+        \NC test 1a \NC test 2a \NC test 3a
+                                    \blank[halfline]
+                                    test 3b
+                                    \blank[halfline]
+                                    test 3c          \NC \NR
+        \NC \blank  \NC \blank  \NC                  \NC \NR
+        \NC test 1a
+            \par
+            test 1b
+            \par
+            test 1b \NC test 2a
+                        \par
+                        test 2b
+                        \par
+                        test 2b \NC test 3a          \NC \NR
+        \NC test 1a
+            \blank
+            test 1b
+            \par
+            test 1b \NC test 2a
+                        \par
+                        test 2b
+                        \blank
+                        test 2b \NC test 3a          \NC \NR
+    \stoptabulate
+
+\stopTEXpage
+
+\startTEXpage
+
+    \starttabulate[|p(2cm)|p(2cm)|]
+        \NC test 1a      \NC test 2a \par
+                             test 2b                  \NC \NR
+        \NC test 1a      \NC test 2a \blank[line]
+                             test 2b                  \NC \NR
+        \NC test 1a      \NC test 2a \blank[halfline]
+                             test 2b \blank[halfline]
+                             test 2c                  \NC \NR
+        \NC test 1a      \NC test 2a \blank[halfline]
+                             test 2b \blank[halfline]
+                             test 2c                  \NC \NR
+        \NC test 1a \par
+            test 1b \par
+            test 1b      \NC test 2a                  \NC \NR
+    \stoptabulate
+
+\stopTEXpage
+
+\stoptext
+

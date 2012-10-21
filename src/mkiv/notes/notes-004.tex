@@ -1,0 +1,36 @@
+\automigrateinserts
+
+\starttext
+
+\setupnotes[continue=yes]
+
+\input tufte
+
+\input tufte \footnote{oeps}
+
+\startstandardmakeup
+    \setuptabulate[before=,after=]
+    \rotate [rotation=90] \bgroup \vbox to \textwidth \bgroup
+        \hsize\textheight
+        \startlocalnotes[footnote]
+        \placefigure [fixed] {} {
+            \starttabulate
+                \NC test \footnote{\input tufte } \NC \input tufte \NC \NR
+                \NC test \NC \input tufte \NC \NR
+            \stoptabulate
+        }
+        \vfill
+        \strut
+        \placelocalnotes[footnote]
+        \stoplocalnotes
+    \egroup \egroup
+\stopstandardmakeup
+
+\input tufte \footnote{oeps}
+
+\starttabulate
+    \NC test \footnote{\input tufte } \NC \input tufte \NC \NR
+    \NC test \NC \input tufte \NC \NR
+\stoptabulate
+
+\stoptext

@@ -1,0 +1,15 @@
+\starttext
+
+\defineseparatorset [test-a][demo:a->+,demo:a->++,demo:a->+++,demo:a->++++]
+\defineconversionset[test-b][demo:b->number,demo:b->number,demo:b->number,demo:b->number]
+
+\setuphead[section][sectionseparatorset=test-a,sectionconversionset=test-b]
+
+\defineprocessor[demo:a][style=\bfb,color=red]
+\defineprocessor[demo:b][style=\bfb,color=blue]
+
+\chapter{test}
+
+\section{test}
+
+\stoptext

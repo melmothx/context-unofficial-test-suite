@@ -1,0 +1,30 @@
+\starttext
+
+\section{test}
+
+\unexpanded\def\whatever#1#2{[#1][#2]}
+
+\setuphead[section][command=\whatever]
+
+\section{test}
+
+\defineheadplacement[whatever]#1#2{(#1)(#2)}
+
+\setuphead[section][command=,alternative=whatever]
+
+\section{test}
+
+\defineheadalternative
+  [whatever]
+  [alternative=vertical,
+   renderingsetup=whatever]
+
+\startsetups[whatever]
+    /\headnumbercontent/\headtextcontent/
+\stopsetups
+
+\setuphead[section][command=,alternative=whatever]
+
+\section{test}
+
+\stoptext

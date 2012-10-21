@@ -1,0 +1,112 @@
+\unprotect
+
+\def\@@descriptionleftpure
+  {\def\\{\crlf}%
+   \noindent
+% \dontleavehmode
+   \leftskip\dimexpr\leftdescriptionskip+\descriptionsheadwidth\relax
+   \rightskip\rightdescriptionskip
+   \@@makedescriptionpurebox\raggedright
+   \advance\leftskip\descriptionsheaddistance
+% \begingroup
+% \righttoleft
+   \llap
+     {\hbox to \leftskip
+        {\hskip\leftdescriptionskip
+         \copy\descriptionheadbox\hss}}%
+% \endgroup
+   \@@dodescription}
+
+\def\@@descriptionleftmargin
+  {\def\\{\crlf}%
+   \noindent
+   \llap
+     {\@@makedescriptionpurebox\raggedright
+      \hbox to \descriptionsheadwidth{\copy\descriptionheadbox\hss}%
+      \hskip\descriptionsheaddistance}%
+   \@@dodescription}
+
+\def\do@@description#1% temp hack, the scope
+  {\def\\{\crlf}%
+   \noindent
+% \begingroup
+% \lefttoright
+% \dontleavehmode
+   #1[\c!scope=\v!local]{\ifhbox\descriptionheadbox\unhcopy\else\copy\fi\descriptionheadbox}%
+% \endgroup
+   \@@dodescription}
+
+\def\@@dostartdescription
+  {\descriptionparameter\c!before
+   \begingroup
+   \doadaptleftskip{\descriptionparameter\c!margin}%
+   \showcomposition
+   \setlocalhsize % so we can use \localhsize in width assignments
+   \descriptionsheaddistance\descriptionlocationparameter\c!distance\relax
+   \ifdim\descriptionsheaddistance=\zeropoint\relax
+     \doif{\descriptionlocationparameter\c!width}\v!broad{\descriptionsheaddistance=1em}%
+   \fi
+   \setbox\descriptionheadbox\hbox
+     {\forgetall\dontcomplain
+      \settrialtypesetting
+      \doifelsenothing{\descriptionparameter\c!sample}
+        {\dodescriptionhandler\currentdescriptiontext}%
+        {\dodescriptionhandler\currentdescriptionsample}}%
+   \assignwidth
+     \descriptionsheadwidth
+     {\descriptionlocationparameter\c!width}
+     {\unhcopy\descriptionheadbox}
+     \descriptionsheaddistance
+   \setbox\descriptionheadbox\hbox
+     {\forgetall\dontcomplain
+      \doifelse{\descriptionparameter\c!location}\v!serried % brrr, hack
+        {\dodescriptionhandler\currentdescriptiontext}
+        {\dodescriptionhandler{\boxeddescriptionhead\currentdescriptiontext}}}%
+   \doifelse{\descriptionparameter\c!aligntitle}\v!no
+     {\leftdescriptionskip\leftskip\rightdescriptionskip\rightskip}
+     {\ifcase\nesteddescriptionstate\leftdescriptionskip\leftskip\rightdescriptionskip\rightskip\fi}%
+   \doifsomething{\descriptionparameter\c!align}{\setupalign[\descriptionparameter\c!align]}%
+   \normalexpanded{\noexpand\indenting[\descriptionparameter\c!indenting]}%
+   % better a system mode
+   \ifcase\nesteddescriptionstate
+     \nesteddescriptionstate\plusone
+   \or
+     \nesteddescriptionstate\plustwo
+   \fi % now happens elsewhere : \noindent\ignorespaces
+   \@@resetdescriptionclosesymbol}
+
+\def\boxeddescriptionhead#1%
+  {\vtop
+    %{\hsize\dimexpr\descriptionsheadwidth-\descriptionsheaddistance\relax
+     {\hsize\descriptionsheadwidth
+      \doifsomething{\descriptionparameter\c!headalign}{\setupalign[\descriptionparameter\c!headalign]}%
+      #1}}
+
+\protect
+
+\setupalign[r2l]
+\setuppapersize[A4][A2,landscape]
+\setuplayout   [location=middle]
+
+\setupnote[footnote][rule={on,right}]
+
+% \setupnotedefinition[footnote][location=left,width=1cm] % !!!
+% \setupnotedefinition[footnote][location=left,command={\smash[w]}] % !!!
+% \setupnotedefinition[footnote][location=left] % !!!
+
+\definedescription[testa][location=left]
+\definedescription[testb][location=right]
+\definedescription[testc][location=inleft]
+\definedescription[testd][location=inright]
+
+\showframe
+
+\starttext
+    \starttesta{a} \input ward \stoptesta
+    \starttestb{b} \input ward \stoptestb
+    \starttestc{c} \input ward \stoptestc
+    \starttestd{d} \input ward \stoptestd
+
+
+    Text\footnote{Note}
+\stoptext

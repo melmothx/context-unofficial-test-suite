@@ -1,0 +1,23 @@
+\setuppapersize[A8,landscape][A4,landscape]
+
+\setuplayout[nx=3,ny=4,dx=3.5cm]
+
+\setuplayout
+  [height=middle,
+   width=middle,
+   topspace=3mm,
+   backspace=3mm,
+   header=0pt,
+   footer=0pt]
+
+\starttext
+
+\startstandardmakeup
+    \externalfigure[cow][width=\textwidth,height=\textheight]
+\stopstandardmakeup
+
+\startstandardmakeup
+    \externalfigure[cow][width=\textwidth,height=\textheight]
+\stopstandardmakeup
+
+\stoptext

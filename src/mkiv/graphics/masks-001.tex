@@ -1,0 +1,13 @@
+% images from imagemagick suite
+
+\starttext
+
+\startbuffer
+    \externalfigure[mask-001.png][height=5cm,frame=on]
+    \externalfigure[mask-002.png][height=5cm,frame=on]
+    \externalfigure[mask-001.png][mask=mask-002.png,height=5cm,frame=on]
+\stopbuffer
+
+\typebuffer \getbuffer
+
+\stoptext

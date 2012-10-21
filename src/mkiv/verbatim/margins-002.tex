@@ -1,0 +1,35 @@
+\starttext
+
+test
+
+    \starttyping
+    test test
+         test test
+    test test
+    \stoptyping
+
+test
+
+\starttyping[strip=yes]
+   test test
+        test test
+   test test
+\stoptyping
+
+test
+
+\startbuffer[x]
+   test test
+        test test
+   test test
+\stopbuffer
+
+\typebuffer[x][strip=yes]
+
+test
+
+\typebuffer[x][strip=8]
+
+test
+
+\stoptext

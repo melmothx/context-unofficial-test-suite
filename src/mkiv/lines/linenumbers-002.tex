@@ -1,0 +1,137 @@
+\starttext
+
+\setuplinenumbering[start=20,step=5,continue=no,method=next]
+
+\startlinenumbering
+Thus, I came to the conclusion that the designer of a new system
+must not only be the implementer and first large--scale
+user;\someline [here] the designer should also write the first
+user manual.
+
+The separation of any of these four components would have hurt
+\TeX\ significantly. If I had not participated fully in all these
+activities, literally hundreds of improvements would never have
+\someline[there]been made, because I would never have thought of
+them or perceived why they were important.
+
+But a system \startline[range]cannot be successful if it is too
+strongly influenced by a single person. Once the initial design is
+complete and fairly robust, the real test begins as people with
+many different\stopline [range] viewpoints undertake their own
+experiments. (DEK)
+\stoplinenumbering
+
+\blank oeps \blank
+
+\startlinenumbering
+Thus, I came to the conclusion that the designer of a new system
+must not only be the implementer and first large--scale
+user; the designer should also write the first
+user manual.
+
+The separation of any of these four components would have hurt
+\TeX\ significantly. If I had not participated fully in all these
+activities, literally hundreds of improvements would never have
+been made, because I would never have thought of
+them or perceived why they were important.
+
+But a system cannot be successful if it is too
+strongly influenced by a single person. Once the initial design is
+complete and fairly robust, the real test begins as people with
+many different viewpoints undertake their own
+experiments. (DEK)
+\stoplinenumbering
+
+\blank
+
+see at \inline{line}[here], \inline{line}[there] and also at
+\inline [range]
+
+\stoptext
+
+
+
+Issues:
+
+I. Non-bidi issues
+
+0. very first linenote range is incorrect; says 100--109, not correct. seems
+to add up the other environments.
+
+1. Default formatting is offset from the margin, but you know that already :-)
+
+2. Can we increment line numerals? eg
+
+\setuplinenumbering[increment=5,next=yes]
+
+Increment by 5 and ignore the first line numeral:
+
+	blah blah
+	blah blah
+	blah blah
+	blah blah
+5	blah blah
+	blah blah
+	blah blah
+	blah blah
+	blah blah
+10	blah blah
+
+3. Can we change the size or style of the main line numerals? eg, oldstyle or a different font?
+
+4. Can we format the notes?
+
+a. multicolumn notes with n columns -- eg p. 396 of the TeXBook
+
+b. paragraphed notes -- eg p. 398
+
+c. Is the first argument [<reference>] for \start-\stoplinenote mandatory?
+For lots and lots of notes it can be unwieldy.
+
+d. Can we add a note seperator line between note classes, eg linenote and extralinenote layers? Can we control the internote glue?
+
+e. Can we control the formtting of the note seperator line? Choose another
+seperator altogether, like a figure?
+
+f. Can we add a(n optional) lemma argument, eg
+
+\setuplinenote[lemmasep={]}]
+
+\startlinenote [one][A linenote\textellipsis 3--5] {The lemma is followed by the actual note.}
+A linenote environment has a line range. That is, if the environment is, eg,
+3 lines long, then we'll get a number range in the margin such as 3--5.
+\stoplinenote [one]
+
+Then the note will give us, say
+
+3--5 A linenote... 3--5] The lemma is followed by the
+actual note.
+
+g. Instead of linenote numeral ranges in the margin, can we bring them into
+the textblock? paragraphed notes would need this any way....
+
+h. can we we change the size or style of the linenote numerals? eg, oldstyle or a different font?
+
+II. Bidi issues
+
+1 Bidi: Line numerals enter text. Should mirror the ltr case. I could use a hack
+
+\setuplinenumbering
+[width=-1em,
+% location=inright,
+align=r2l]
+
+the align=r2l is ignored i guess.
+
+but linenote numerals works as expected.
+
+2. \lefttoright and \righttoleft interfere with \startlinenumbering if either
+occurs inside the buffer or immediately before --ie no space -- \startbuffer. I wonder why...
+
+3. Line-numeral ranges in linenotes should be reversed in rtl text, eg
+
+110--115
+[reading ltr]
+=>
+115--110
+[reading rtl]

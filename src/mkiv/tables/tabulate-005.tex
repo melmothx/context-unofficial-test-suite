@@ -1,0 +1,79 @@
+\starttext
+
+% \setuptabulate[distance=none]
+
+\starttabulate[|CR{red}|CC{yellow}|CM{green}|CL{blue}|]
+\NC test \NC test \NC test \NC test \NC \NR
+\NC test \NC test \NC test \NC test \NC \NR
+\NC test \NC test \NC test \NC test \NC \NR
+\NC test \NC test \NC test \NC test \NC \NR
+\stoptabulate
+
+\starttabulate[|CM{red}|CM{green}|CM{blue}|]
+\NC test \NC test \NC test \NC \NR
+\NC test \NC test \NC test \NC \NR
+\NC test \NC test \NC test \NC \NR
+\NC test \NC test \NC test \NC \NR
+\stoptabulate
+
+\ruledvbox{\starttabulate[||||][before=,after=]
+\NC test \CC[red]    CC \NC test \NC \NR
+\NC test \CL[green]  CL \NC test \NC \NR
+\NC test \CM[blue]   CM \NC test \NC \NR
+\NC test \CR[yellow] CR \NC test \NC \NR
+\stoptabulate}
+
+\starttabulate[||||]
+\VL test \VL[red]    CC \VL test \VL \NR
+\VL test \VL[green]  CL \VL test \VL \NR
+\VL test \VL[blue]   CM \VL test \VL \NR
+\VL test \VL[yellow] CR \VL test \VL \NR
+\stoptabulate
+
+\starttabulate[|{10,red}|{10,green}|{10,blue}|{10,magenta}]
+\NC test \NC test \NC test \NC \NR
+\NC test \NC test \NC test \NC \NR
+\NC test \NC test \NC test \NC \NR
+\NC test \NC test \NC test \NC \NR
+\stoptabulate
+
+\starttabulate[|{red}|{green}|{blue}|{magenta}]
+\NC test \NC test \NC test \NC \NR
+\NC test \NC test \NC test \NC \NR
+\NC test \NC test \NC test \NC \NR
+\NC test \NC test \NC test \NC \NR
+\stoptabulate
+
+\starttabulate[*{4}{|{red}}]
+\NC test \NC test \NC test \NC \NR
+\NC test \NC test \NC test \NC \NR
+\NC test \NC test \NC test \NC \NR
+\NC test \NC test \NC test \NC \NR
+\stoptabulate
+
+% \starttabulate[||p||]
+% \CC[green] test \CC[red] test \CC[blue] test \NC \NR
+% \NC \setlocalhsize \the\localhsize test \NC test \NC test \NC \NR
+% \HL
+% \NC test \CC[green] \input tufte  \CC[yellow] test \NC \NR
+% \RC rc   \NC test \NC test \NC \NR
+% \NC qqqq \EQ[blue] test \NC test \NC \NR
+% \NC test \NC test \NC test \NC \NR
+% \NC test \NC test \NC test \NC \NR
+% \CC[blue] test \CC[red] test \NC test \NC \NR
+% \NC test \VL[red] test \NC test \NC \NR
+% \NC test \VL test \NC test \NC \NR
+% \NC test \VL test \NC test \NC \NR
+% \NC test \VL test \CC[gray] test \NC \NR
+% \NC test \VL test \NC test \NC \NR
+% \NC test \VL test \NC test \NC \NR
+% \CC[blue] test \NC test \NC test \NC \NR
+% \NC test \NC test \NC test \NC \NR
+% \NC test \NC test \CC[magenta] test \NC \NR
+% \NC test \NC test \NC test \NC \NR
+% \NC test \CC[cyan] \dorecurse{10}{\input ward }\NC test \NC \NR
+% \NC test \NC test \NC test \NC \NR
+% \NC test \CC[yellow] test \NC test \NC \NR
+% \stoptabulate
+
+\stoptext

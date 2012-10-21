@@ -1,0 +1,35 @@
+\nopdfcompression
+
+\setupinteraction[state=start]
+
+% \setupinteraction
+%   [openaction=JS(HighlightOff),
+%   ]%  closeaction=JS(HighlightOn)]
+
+% \enabletrackers[backends.javascript]
+
+% \input java-imp-rhh.mkiv
+
+\setupinteraction
+  [state=start]
+
+\definesymbol[yes][1]
+\definesymbol[nop][0]
+
+\setupfield[whatever][width=20mm,height=20mm,frame=off]
+
+\definefield[what][radio][whatever][whatone,whattwo][whatone]
+\definesubfield[whatone][][yes,nop]
+\definesubfield[whattwo][][yes,nop]
+
+\setupfield[textstuff][horizontal][width=50mm,height=15mm,offset=0pt,option={printable},offset=overlay]
+
+\definefield[whatthree][text][textstuff]
+
+\starttext
+
+\startTEXpage[offset=2cm]
+    \field[whatone]\space\field[whattwo]\space\field[whatthree]
+\stopTEXpage
+
+\stoptext

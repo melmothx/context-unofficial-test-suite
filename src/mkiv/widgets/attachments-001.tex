@@ -1,0 +1,15 @@
+% \nopdfcompression
+
+\setupinteraction[state=start]
+
+\definesymbol     [attachment] [SomeSymbol]
+\setupattachments [symbol=attachment]
+\useattachment    [datafile] [\jobname.tex]
+
+\setupbodyfont[palatino]
+
+\starttext
+    \startTEXpage[offset=2cm]
+        \underbar{test \attachment[datafile]\ test \symbol[attachment]}
+    \stopTEXpage
+\stoptext

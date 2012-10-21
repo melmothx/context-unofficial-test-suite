@@ -1,0 +1,35 @@
+% by Alan Braslau (checks blockwise)
+
+\enabletrackers[structures.lists]
+
+\starttext
+
+\startfrontmatter
+    \placecontent [criterium=all]
+\stopfrontmatter
+
+\startbodymatter
+    \startchapter [title=first chapter]
+        \placecontent
+        \startsection [title=first section]  \stopsection
+        \startsection [title=second section] \stopsection
+    \stopchapter
+    \startchapter [title=second chapter]
+        \placecontent[criterium=current]
+        \startsection [title=first section]  \stopsection
+        \startsection [title=second section] \stopsection
+    \stopchapter
+\stopbodymatter
+
+\startappendices
+    \startchapter [title=first appendix]
+        \startsection [title=first section]  \stopsection
+        \startsection [title=second section] \stopsection
+    \stopchapter
+    \startchapter [title=second appendix]
+        \startsection [title=first section]  \stopsection
+        \startsection [title=second section] \stopsection
+    \stopchapter
+\stopappendices
+
+\stoptext

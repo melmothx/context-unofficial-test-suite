@@ -1,0 +1,22 @@
+\starttext
+
+\placeinitial \input ward \par \input ward \par
+
+\placeinitial \input tufte
+
+\setupinitial
+  [variant]
+  [location=text,
+   n=2,
+   color=darkred,
+   distance=-1em,
+   hoffset=1em,
+   voffset=-3ex,
+   before=\blank]
+
+\placeinitial[variant] \input ward \par \input ward
+
+\placeinitial[variant] \input tufte
+
+\stoptext
+

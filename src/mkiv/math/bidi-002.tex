@@ -1,0 +1,29 @@
+\usemodule[mathml]
+
+\setupbodyfont[xitsbidi]
+\setupalign[r2l]
+
+\starttext
+
+\setupmathematics[align=r2l]
+
+\startformula
+\sqrt{ف^2\over 4ب}
+\stopformula
+
+\setupmathematics[align=l2r]
+
+\startbuffer[test]
+<math xmlns="http://www.w3.org/1998/Math/MathML" dir="rtl">
+    <msqrt>
+        <mfrac>
+            <msup><mi>ف</mi><mn>2</mn></sup>
+            <mrow><mn>4</mn><mi>ب</mi></mrow>
+        </mfrac>
+    </msqrt>
+</math>
+\stopbuffer
+
+\xmlprocessbuffer{main}{test}{}
+
+\stoptext

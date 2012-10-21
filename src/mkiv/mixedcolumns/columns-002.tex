@@ -1,0 +1,29 @@
+\starttext
+
+    \input zapf
+
+    \startnarrower
+        \startitemize[columns,two,packed][before=,after=]
+            \dorecurse{10}{\startitem item #1 \stopitem}
+        \stopitemize
+    \stopnarrower
+
+    \input zapf
+
+    \startnarrower
+        \startitemize[columns,two][before=,after=]
+            \dorecurse{10}{\startitem item #1 \stopitem}
+        \stopitemize
+    \stopnarrower
+
+    \input zapf
+
+    \startnarrower
+        \startitemize[columns,two]
+            \dorecurse{10}{\startitem item #1 \stopitem}
+        \stopitemize
+    \stopnarrower
+
+    \input zapf
+
+\stoptext

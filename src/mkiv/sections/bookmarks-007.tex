@@ -1,0 +1,59 @@
+% A rather weird bordercase. Normally this should not happen
+% as one is supposed to provide structure.
+
+\nopdfcompression
+
+\setupinteraction
+  [state=start]
+
+\setupinteractionscreen
+  [option=bookmark]
+
+\enabletrackers
+  [references.bookmarks]
+
+\placebookmarks
+  [chapter,section,subsection,subsubsection,subject]
+  [all]
+  [force=yes]
+
+\starttext
+
+\placelist[chapter,section,subsection,subsubsection,subject][criterium=all]
+
+\subject{First  Unstructured Subject}
+\subject{Second Unstructured Subject}
+\subject{Third  Unstructured Subject}
+\subject{Fourth Unstructured Subject}
+
+\chapter{First Chapter}
+    \subject{First Structured Subject}
+    \section{First Structured Section}
+    \section{Second Structured Section}
+    \subsection{First Structured Subsection}
+    \subsection{Second Subsection}
+
+\chapter{Second Chapter}
+
+\chapter{Third Chapter}
+    \subject{First Structured Subject}
+    \subject{Second Structured Subject}
+    \section{First Structured Section}
+    \section{Second Structured Section}
+    \subsection{First Structured Subsection}
+    \subsection{Second Subsection}
+
+\chapter{Fourth Chapter}
+
+
+\page
+
+\startappendices
+
+    \subject{Fifth Unstructured Subject}
+
+    \chapter{Fifth Chapter}
+
+\stopappendices
+
+\stoptext

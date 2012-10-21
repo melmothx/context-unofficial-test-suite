@@ -1,0 +1,15 @@
+% variant on test file of KH
+
+\starttext
+
+  % \enabletrackers[nodes.injections]
+
+    \ctxlua{characters.filters.utf.collapsing=false}
+
+    \definefontfeature[default][default][mode=node,script=latn,language=dflt,mark=yes]
+
+    \definedfont[GenBasR*default] ä Ä \par \textdir TRT ä Ä \par
+
+    \definedfont[GenBasI*default] ä Ä \par \textdir TRT ä Ä \par
+
+\stoptext

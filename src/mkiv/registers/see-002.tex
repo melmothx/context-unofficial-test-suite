@@ -1,0 +1,17 @@
+\setupinteraction[state=start]
+
+\defineprocessor[smallcaps][style=\sc]
+\defineprocessor[bold]     [style=\bf]
+
+\starttext
+
+Apples\index{smallcaps->Apple}
+Pears\index{Pears}
+
+Malus domestica\seeindex{smallcaps->Malus domestica}{bold->Apple}
+
+Bonus domestica\seeindex{Bonus domestica}{Pears}
+
+\placeindex[n=1]
+
+\stoptext

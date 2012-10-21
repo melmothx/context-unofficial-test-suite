@@ -1,0 +1,34 @@
+% example by WS (mailing list new byhead option)
+
+\definecounter[test]
+
+%\setupcounter[test][way=bytext]
+\setupcounter[test][way=byhead]
+
+\define\test
+  {\incrementcounter[test]%
+   \convertedcounter[test]}
+
+\starttext
+
+\startbodymatter
+
+\chapter{Chapter}\test
+
+\section{Section}\test
+
+\subsection{Subsection}\test
+
+\subsubsection{Subsubsection}\test
+
+\stopbodymatter
+
+\startbackmatter
+
+%\chapter{Another chapter}
+
+\test
+
+\stopbackmatter
+
+\stoptext

@@ -1,0 +1,52 @@
+\showframe
+
+\starttext
+
+\unexpanded\def\startbufferx{\begingroup}
+\unexpanded\def\stopbufferx {\endgroup}
+
+\startbuffer
+    first
+    \startbufferx
+        whatever
+    \stopbuffer
+x
+    last
+\stopbuffer
+\typebuffer
+\startbuffer
+    first
+    \startbufferx
+        whatever
+    \stopbufferx
+    last
+\stopbuffer
+\typebuffer
+\startbuffer
+    first
+    \startbufferx
+        whatever
+    \stopbuffer x
+    last
+\stopbuffer
+\typebuffer
+\startbuffer
+    first
+    \startbufferx
+        whatever
+    \stopbuffer
+    x
+    last
+\stopbuffer
+\typebuffer
+\startbuffer
+    first
+    \startbufferx
+        whatever
+    \stopbuffer
+x
+    last
+\stopbuffer
+\typebuffer
+
+\stoptext

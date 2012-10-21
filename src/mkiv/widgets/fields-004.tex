@@ -1,0 +1,22 @@
+\nopdfcompression
+
+\setupinteraction
+  [state=start]
+
+\setupfield
+  [ShortLine]
+  [label,frame,horizontal]
+  [height=24pt,framecolor=green]
+  [height=24pt]
+  [height=24pt,style=sstf]
+
+\definefield [Email] [line] [ShortLine] [] [pragma@wxs.nl]
+
+% \enabletrackers[backend.objects,backend.detail]
+
+\starttext
+    \startTEXpage[offset=1ex]
+        \switchtobodyfont[16pt]\field [Email] [E-Mail:] \page
+        \switchtobodyfont[16pt]\field [Email] [E-Mail:]
+    \stopTEXpage
+\stoptext

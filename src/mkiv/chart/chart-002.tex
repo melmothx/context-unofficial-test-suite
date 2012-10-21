@@ -1,0 +1,27 @@
+\usemodule[chart]
+
+\startFLOWchart[A]
+    \startFLOWcell
+        \name{A}
+        \location{1,1}
+        \text{A}
+    \stopFLOWcell
+\stopFLOWchart
+
+\startFLOWchart[B]
+    \includeFLOWchart[A][x=1,y=1]
+\stopFLOWchart
+
+\startFLOWchart[C]
+    \includeFLOWchart[B][x=1,y=1]
+\stopFLOWchart
+
+\starttext
+
+    \FLOWchart[A]
+
+    \FLOWchart[B]
+
+    \FLOWchart[C]
+
+\stoptext

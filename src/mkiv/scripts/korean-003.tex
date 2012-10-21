@@ -1,0 +1,59 @@
+\mainlanguage[kr]
+
+\definefontfeature[korean][script=hang,language=kor,mode=node,analyze=yes]
+
+\starttypescript [serif] [myungjo]
+    \definefontsynonym[Serif]    [adobemyungjostd-medium*korean]
+    \definefontsynonym[SerifBold][adobemyungjostd-medium*korean]
+\stoptypescript
+
+\starttypescript[myungjo]
+    \definetypeface [myungjo] [rm] [serif] [myungjo] [default] [features=korean]
+    \definetypeface [myungjo] [tt] [mono]  [dejavu]  [default]
+    \definetypeface [myungjo] [mm] [math]  [modern]  [default]
+\stoptypescript
+
+\setuplayout[width=middle,height=middle,backspace=1cm,topspace=1cm,footer=0pt]
+
+\setupbodyfont[myungjo,10pt]
+
+\starttext
+
+% This can be a module.
+
+\startluacode
+local utfchar = utf.char
+
+local NC, NR = context.NC, context.NR
+
+local data = characters.data
+local map  = characters.hangul.remapped
+
+local first, last = characters.getrange("hangulsyllables")
+
+context.starttabulate { "|T||T||T||T||T|" }
+for unicode = first, last do
+    local character = data[unicode]
+    local specials = character.specials
+    if specials then
+        NC() context("0x%04X",unicode)
+        NC() context(utfchar(unicode))
+        for i=2,4 do
+            local chr = specials[i]
+            if chr then
+                chr = map[chr] or chr
+                NC() context("0x%04X",chr)
+                NC() context(utfchar(chr))
+            else
+                NC()
+                NC()
+            end
+        end
+        NC() context(character.description)
+        NC() NR()
+    end
+end
+context.stoptabulate()
+\stopluacode
+
+\stoptext

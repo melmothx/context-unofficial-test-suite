@@ -1,0 +1,13 @@
+\starttext
+
+\definetextext[framed][#1]#2{\framed[width=4cm]{\switchtobodyfont[#1]#2}}
+\definetextext[simple]{\framed[width=8cm]}
+
+\startMPcode
+    draw \sometxt{This is for} rotated 45 ;
+    draw \sometxt [framed] [ss,16pt] {Mojca's};
+    draw \sometxt[framed]{eyes only!} rotated -45 ;
+    draw \sometxt[simple]{Quotes "indeed" w\"{o}rk!} rotated 180 ;
+\stopMPcode
+
+\stoptext

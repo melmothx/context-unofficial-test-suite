@@ -1,0 +1,7 @@
+\def\MyRegisterPageCommand#1%
+  {#1\currentregisterpageuserdata{whatever}}
+
+\starttext
+    \setregisterentry[index][entries=aaa][whatever=f.] test \index{bbb} test
+    \placeregister[index][n=1,pagecommand=\MyRegisterPageCommand]
+\stoptext

@@ -1,0 +1,30 @@
+\definestyle[mystyle]  [style=bold,color=darkred,method=none]
+\definestyle[yourstyle][style=bold,color=darkcyan]
+
+\starttext
+
+test \style[bold]{black} test
+
+test \style[style=bold,color=darkgreen]{green} test
+
+test \startstyle[style=italic,color=darkblue]blue\stopstyle test
+
+test \style[mystyle]{red} test
+
+test \startstyle[yourstyle]cyan\stopstyle test
+
+\startluacode
+    context("test ")
+    context.style({ style = "bolditalic", color = "darkyellow" }, "test")
+    context(" test")
+\stopluacode
+
+\startluacode
+    context("test ")
+    context.startstyle { style = "bolditalic", color = "darkmagenta" }
+    context("test")
+    context.stopstyle()
+    context("test")
+\stopluacode
+
+\stoptext

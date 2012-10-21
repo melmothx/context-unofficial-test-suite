@@ -1,0 +1,27 @@
+\loadfontgoodies[antykwapoltawskiego]
+
+% \definefontfeature[smallcaps][smallcaps][language=nld,script=latn]
+
+% \definedfont[file:Iwona-Regular*smallcaps at 100pt] test test
+% \definedfont[file:AntykwaTorunska-Regular*smallcaps at 100pt] test test
+% \definedfont[file:antpoltltcond-regular*smallcaps at 100pt] test test
+% \definedfont[spec:antykwapoltawskiego-bold-italic-condensed-normal*smallcaps at 100pt] test test
+% \setupbodyfont[mainbodyfont-smallcaps] {\bf yes or no} \input tufte \par
+
+\setupbodyfont[mainbodyfont-light]       {\bf yes or no} \input tufte \par
+\setupbodyfont[mainbodyfont]             {\bf yes or no} \input tufte \par
+\setupbodyfont[mainbodyfont-condensed]   {\bf yes or no} \input tufte \par
+
+\definetypeface
+  [name=mojcasfavourite,
+   preset=antykwapoltawskiego,
+   normalweight=light,
+   boldweight=bold,
+   width=expanded]
+
+\setupbodyfont
+  [mojcasfavourite]
+
+{\bf yes or no} \input tufte \par
+
+\stoptext

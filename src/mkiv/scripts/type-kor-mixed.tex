@@ -1,0 +1,305 @@
+\definefontfallback [whatever] [Slanted]     [0x0060-0x007F]    [force=yes]
+\definefontfallback [whatever] [Bold] [0x0080:0x00FF,0x00A0:0x00AF] [rscale=2.0]
+\definefontfallback [whatever] [BoldSlanted] ["00C0-"00C7]    [check=yes,force=yes]
+\definefontfallback [whatever] [Mono]        [latinextendeda]    [force=yes] % 0x0100:0x017F
+\definefontfallback [whatever] [Mono]        [latin extended a]    [force=yes] % 0x0100:0x017F
+
+\definefontsynonym[SerifPlus][Serif][fallbacks=whatever]
+
+\definefont[MySerif][SerifPlus at 10pt]
+
+\definefontfeature[kr][mode=node,script=hang,lang=kor]
+
+ \definefontfallback[serifwhatever]          	[file:texgyrepagellaregular]   [0x0000-0x0400][force=yes]
+ \definefontfallback[serifboldwhatever]	[file:texgyrepagellabold]      [0x0000-0x0400][force=yes]
+ \definefontfallback[serifitalicwhatever] 	[file:texgyre-pagella-italic]    [0x0000-0x0400][force=yes]
+ \definefontfallback[serifbolditalicwhatever][file:texgyre-pagellabold-italic][0x0000-0x0400][force=yes]
+ \definefontfallback[serifslantwhatever]	[file:texgyre-pagella-italic][0x0000-0x0400][force=yes]
+ \definefontfallback[serifcapswhatever][file:texgyre-pagella-regular] [0x0000-0x0400][force=yes]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Un Font
+% unfonts batang
+\starttypescript[serif][unbatang]
+% Regular variant:
+ \definefontsynonym[unbatangRegular][file:UnBatang.ttf][features=kr,fallbacks=serifwhatever]
+\definefontsynonym[unbatangBold][file:UnBatangBold.ttf][features=kr,fallbacks=serifboldwhatever]
+ \definefontsynonym[unbatangItalic][file:UnGraphic.ttf][features=kr,fallbacks=serifitalicwhatever]
+ \definefontsynonym[unbatangBoldItalic][file:UnGraphicBold.ttf][features=kr,fallbacks=serifbolditalicwhatever]
+ \definefontsynonym [unbatangSlanted][file:UnBatang.ttf][features=kr,fallbacks=serifslantwhatever]
+ \definefontsynonym [unbatangCaps][file:UnBatang.ttf][features=kr,fallbacks=serifcapswhatever]
+
+\stoptypescript
+
+% mid-level names:
+\starttypescript[serif][unbatang][name]
+ \definefontsynonym[Serif][unbatangRegular]
+ \definefontsynonym[SerifBold][unbatangBold]
+ \definefontsynonym[SerifItalic][unbatangItalic]
+ \definefontsynonym[SerifBoldItalic][unbatangBoldItalic]
+% The fallbacks
+ \definefontsynonym[SerifSlanted][unbatangSlanted]
+ \definefontsynonym[SerifBoldSlanted][unbatnagBold]
+ \definefontsynonym[SerifCaps][unbatnagCaps]
+\stoptypescript
+
+%%% unfonts dotum
+\starttypescript[sans][undotum]
+% Regular variant:
+ \definefontsynonym[dotumRegular][file:UnDotum.ttf]
+ \definefontsynonym[dotumBold][file:UnDotumBold.ttf]
+ \definefontsynonym[dotumItalic][file:UnGraphic.ttf]
+ \definefontsynonym[dotumBoldItalic][file:UnYetgul.ttf]
+\stoptypescript
+
+% mid-level names:
+\starttypescript[sans][undotum][name]
+ \definefontsynonym[Sans][dotumRegular]
+ \definefontsynonym[SansBold][dotumBold]
+ \definefontsynonym[SansItalic][dotumItalic]
+ \definefontsynonym[SansBoldItalic][dotumBoldItalic]
+% The fallbacks
+ \definefontsynonym[SansSlanted][Sans]
+ \definefontsynonym[SansBoldSlanted][SansBold]
+ \definefontsynonym[SansCaps][Sans]
+\stoptypescript
+
+%%% unfonts untype
+\starttypescript[mono][untype]
+% Regular variant:
+ \definefontsynonym[monoRegular][file:UnTaza.ttf]
+ \definefontsynonym[monoBold][file:UnGungseo.ttf]
+ \definefontsynonym[monoItalic][file:UnGraphic.ttf]
+ \definefontsynonym[monoDB][file:UnYetgul.ttf]
+\stoptypescript
+
+% mid-level names:
+\starttypescript[mono][untype][name]
+ \definefontsynonym[Mono][monoRegular]
+ \definefontsynonym[MonoBold][monoBold]
+% The fallbacks
+ \definefontsynonym[MonoItalic][monoItalic]
+ \definefontsynonym[MonoSlanted][Mono]
+ \definefontsynonym[MonoDB][monoDB]
+ \definefontsynonym[MonoBoldSlanted][MonoBold]
+ \definefontsynonym[MonoCaps][Mono]
+\stoptypescript
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Start a convenience typescript that ties it all together:
+\starttypescript[unFonts]
+ \definetypeface[Myface][rm][serif][unbatang][default]%[encoding=uc]
+ \definetypeface[Myface][ss][sans][undotum][default]%[encoding=uc]
+ \definetypeface[Myface][tt][mono][untype][default]%[encoding=uc]
+\definetypeface [Myface][mm][math] [modern] [modern]   %[encoding=uc]
+\stoptypescript
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% arita fonts
+%\starttypescript[sans][aritasans][uc]
+% Regular variant:
+%  \definefontsynonym[aritaRegular][file:æ∆∏Æµ˚M.otf][encoding=uc]
+% \definefontsynonym[aritaBold][file:æ∆∏Æµ˚SB.otf][encoding=uc]
+%\definefontsynonym[aritaItalic][file:æ∆∏Æµ˚L.otf][encoding=uc]
+%\stoptypescript
+
+% mid-level files:
+%\starttypescript[sans][aritaserif][name]
+% \definefontsynonym[Sans][aritaRegular]
+ %\definefontsynonym[SansBold][aritaBold]
+% \definefontsynonym[SansItalic][aritaItalic]
+% \definefontsynonym[SansBoldItalic][aritaBold]
+% The fallbacks
+% \definefontsynonym[SansSlanted][Sans]
+% \definefontsynonym[SansBoldSlanted][SansBold]
+% \definefontsynonym[SansCaps][Sans]
+%\stoptypescript
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Nanum Font
+%%% nanum serif
+\starttypescript[serif][nanumserif]
+% Regular variant:
+ \definefontsynonym[namjRegular][file:NanumMyeongjoOTF.otf]
+ \definefontsynonym[namjBold][file:NanumMyeongjoOTFBold.otf]
+\definefontsynonym[namjItalic][file:ChosunM.ttf]
+\stoptypescript
+
+% mid-level files:
+\starttypescript[serif][nanumserif][name]
+ \definefontsynonym[Serif][namjRegular]
+ \definefontsynonym[SerifBold][namjBold]
+ \definefontsynonym[SerifItalic][namjItalic]
+ \definefontsynonym[SerifBoldItalic][namjBold]
+% The fallbacks
+ \definefontsynonym[SerifSlanted][Serif]
+ \definefontsynonym[SerifBoldSlanted][SerifBold]
+ \definefontsynonym[SerifCaps][Serif]
+\stoptypescript
+
+\starttypescript[sans][nanumsans]
+\definefontsynonym[nagoRegula][file:NanumGothicOTF.otf]
+\definefontsynonym[nagoBold][file:NanumGothicOTFBold.otf]
+\definefontsynonym[nagoItalic][file:YBLA05.ttf]
+\stoptypescript
+
+% mid-level files:
+\starttypescript[sans][nanumsans][name]
+ \definefontsynonym[Sans][nagoRegular]
+ \definefontsynonym[SansBold][nagoBold]
+ \definefontsynonym[SansItalic][nagoItalic]
+ \definefontsynonym[SansBoldItalic][nagoBold]
+% The fallbacks
+ \definefontsynonym[SansSlanted][Sans]
+ \definefontsynonym[SansBoldSlanted][SansBold]
+ \definefontsynonym[SansCaps][Sans]
+\stoptypescript
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Chosun Ilbo Font
+%chosun+arita+hy
+\starttypescript[serif][hyserif]
+% Regular variant:
+ \definefontsynonym[hymjRegular][file:ChosunM.ttf]
+ \definefontsynonym[hymjItalic][file:HYMPRL.TTF]
+ \definefontsynonym[hymjBold][file:HYMJRE.ttf]
+\stoptypescript
+
+% Start another typescript that associates generic files with
+% mid-level files:
+\starttypescript[serif][hyserif][name]
+ \definefontsynonym[Serif][hymjRegular]
+ \definefontsynonym[SerifBold][hymjBold]
+ \definefontsynonym[SerifItalic][hymjItalic]
+ \definefontsynonym[SerifBoldItalic][hymjBold]
+% The fallbacks
+ \definefontsynonym[SerifSlanted][SerifItalic]
+ \definefontsynonym[SerifBoldSlanted][SerifBold]
+ \definefontsynonym[SerifCaps][Serif]
+\stoptypescript
+
+\starttypescript[sans][hysans]
+% Regular variant:
+ \definefontsynonym[hygoRegular][file:æ∆∏Æµ˚M.otf]
+ \definefontsynonym[hygoBold][file:æ∆∏Æµ˚SB.otf]
+\definefontsynonym[hygoItalic][file:HYnamL.ttf]
+\stoptypescript
+
+% Start another typescript that associates generic files with
+% mid-level files:
+\starttypescript[sans][hysans][name]
+ \definefontsynonym[Sans][hygoRegular]
+ \definefontsynonym[SansBold][hygoBold]
+ \definefontsynonym[SansItalic][hygoItalic]
+ \definefontsynonym[SansBoldItalic][hygoBold]
+% The fallbacks
+ \definefontsynonym[SansSlanted][Sans]
+ \definefontsynonym[SansBoldSlanted][SansBold]
+ \definefontsynonym[SansCaps][Sans]
+\stoptypescript
+
+
+\starttypescript[mono][hymono]
+% Regular variant:
+ \definefontsynonym[hymonoRegular][file:HYbdaL.ttf]
+ \definefontsynonym[hymonoBold][file:HYbdaM.ttf]
+\definefontsynonym[hymonoItalic][file:HYgprM.ttf]
+\stoptypescript
+
+% Start another typescript that associates generic files with
+% mid-level files:
+\starttypescript[mono][hymono][name]
+ \definefontsynonym[Mono][hymonoRegular]
+ \definefontsynonym[MonoBold][hymonoBold]
+ \definefontsynonym[MonoItalic][hymonoItalic]
+ \definefontsynonym[MonoBoldItalic][hymonoBold]
+% The fallbacks
+ \definefontsynonym[MonoSlanted][MonoItalic]
+ \definefontsynonym[MonoBoldSlanted][MonoBold]
+ \definefontsynonym[MonoCaps][Mono]
+\stoptypescript
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Yoon Font
+
+\starttypescript[serif][yoonmj]
+% Regular variant:
+ \definefontsynonym[yoonmjLight][file:YoonMyungjoL.otf]%[encoding=uc]
+ \definefontsynonym[yoonmjRegular][file:YoonMyungjoM.otf]%[encoding=uc]
+ \definefontsynonym[yoonmjBold][file:YoonMyungjoB.otf]%[encoding=uc]
+\stoptypescript
+
+% mid-level names:
+\starttypescript[serif][yoonmj][name]
+ \definefontsynonym[Serif][yoonmjRegular]
+ \definefontsynonym[SerifBold][yoonmjBold]
+ \definefontsynonym[SerifItalic][yoonmjLight]
+ \definefontsynonym[SerifBoldItalic][yoonmjBold]
+% The fallbacks
+ \definefontsynonym[SerifSlanted][SerifItalic]
+ \definefontsynonym[SerifBoldSlanted][SerifBold]
+ \definefontsynonym[SerifCaps][Serif]
+\stoptypescript
+
+\starttypescript[sans][yoongo]
+% Regular variant:
+ \definefontsynonym[yoongoItalic][file:YoonGothicM.otf]%[encoding=uc]
+ \definefontsynonym[yoongoBold][file:YoonGothicB.otf]%[encoding=uc]
+\definefontsynonym[yoongoRegular][file:YoonGothicL.otf]%[encoding=uc]
+\stoptypescript
+
+% mid-level names:
+\starttypescript[sans][yoongo][name]
+ \definefontsynonym[Sans][yoongoRegular]
+ \definefontsynonym[SansBold][yoongoBold]
+ \definefontsynonym[SansItalic][yoongoItalic]
+ \definefontsynonym[SansBoldItalic][yoongoBold]
+% The fallbacks
+ \definefontsynonym[SansSlanted][Sans]
+ \definefontsynonym[SansBoldSlanted][SansBold]
+ \definefontsynonym[SansCaps][Sans]
+\stoptypescript
+
+\starttypescript[mono][yoonche]
+% Regular variant:
+ \definefontsynonym[yoonmonoItalic][file:YoonCheM.otf]%[encoding=uc]
+ \definefontsynonym[yoonmonoBold][file:YoonCheB.otf]%[encoding=uc]
+\definefontsynonym[yoonmonoRegular][file:YoonCheL.otf]%[encoding=uc]
+ \definefontsynonym[yoonmonoBlack][file:YoonCheEB.otf]%[encoding=uc]
+\stoptypescript
+
+% mid-level names:
+\starttypescript[mono][yoonche][name]
+ \definefontsynonym[Mono][yoonmonoRegular]
+ \definefontsynonym[MonoBold][yoonmonoBold]
+ \definefontsynonym[MonoItalic][yoonmonoItalic]
+ \definefontsynonym[MonoBoldItalic][yoonmonoBlack]
+% The fallbacks
+ \definefontsynonym[MonoSlanted][MonoItalic]
+ \definefontsynonym[MonoBoldSlanted][MonoBold]
+ \definefontsynonym[MonoCaps][Mono]
+\stoptypescript
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\starttypescript[yoonFonts]
+ \definetypeface[Myface][rm][serif][yoonmj][default][encoding=uc]
+ \definetypeface[Myface][ss][sans][yoongo][default][encoding=uc]
+ \definetypeface[Myface][tt][mono][yoonche][default][encoding=uc]
+%\definetypeface [Myface][mm][math] [iwona][default][encoding=uc]
+\stoptypescript
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Start a convenience typescript that ties it all together:
+\starttypescript[nanumFonts]
+ \definetypeface[Myface][rm][serif][nanumserif][default][encoding=uc]
+ \definetypeface[Myface][ss][sans][nanumsans][default][encoding=uc]
+ \definetypeface[Myface][tt][mono][hymono][default][encoding=uc]
+\definetypeface [Myface][mm][math][modern][modern]%[encoding=uc]
+%\definetypeface[Myface][mm][math] [iwona,iwona-light,iwona-medium,iwona-heavy] [default][encoding=uc]
+\stoptypescript
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Start a convenience typescript that ties it all together:
+\starttypescript[hyFonts]
+ \definetypeface[Myface][rm][serif][hyserif][default][encoding=uc]
+ \definetypeface[Myface][ss][sans][hysans][default][encoding=uc]
+ \definetypeface[Myface][tt][mono][hymono][default][encoding=uc]
+\definetypeface [Myface][mm][math][modern][modern]%[encoding=uc]
+%\definetypeface[Myface][mm][math] [iwona,iwona-light,iwona-medium,iwona-heavy] [default][encoding=uc]
+\stoptypescript
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

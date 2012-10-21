@@ -1,0 +1,17 @@
+\showframe
+
+% A test case for \vskip\zeropoint in
+%
+% \box\b_page_mix_collected
+% \vskip\zeropoint
+%
+% in \page_mix_routine_balance.
+
+\starttext
+    \input ward
+    \vskip160mm
+    \input ward
+    \blank
+    \startmixedcolumns test \column test \stopmixedcolumns
+    test \par
+\stoptext

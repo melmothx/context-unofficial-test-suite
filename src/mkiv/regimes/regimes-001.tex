@@ -1,0 +1,40 @@
+\enabletrackers[regimes.translating]
+
+\enableregime[cp1250]
+
+\setupbodyfont[palatino] % we don't want a regime applied here
+
+\starttext
+
+\startbuffer
+á è ï é ì í ò ó ø š  ú ù ı 
+Á È Ï É Ì Í Ò Ó Ø Š  Ú Ù İ 
+\stopbuffer
+
+type buffer:
+
+\typebuffer
+
+get buffer:
+
+\getbuffer
+
+type file:
+
+\typefile{regimes-001.tex}
+
+type file:
+
+\typefile{cz-cp1250.txt}
+
+type file:
+
+\startregime[utf]
+    \typefile{cz-utf8.txt}
+\stopregime
+
+type file:
+
+\typefile{cz-cp1250.txt}
+
+\stoptext

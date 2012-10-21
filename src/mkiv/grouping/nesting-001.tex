@@ -1,0 +1,12 @@
+\starttext
+
+\def\Colorit{\groupedcommand{\em\switchtocolor[blue]}{\/}}
+\def\Colorit{\groupedcommand{\switchtocolor[blue]\em}{\/}}
+\def\Colorit{\simplegroupedcommand{\em\switchtocolor[blue]}{\/}}
+\def\Colorit{\simplegroupedcommand{\switchtocolor[blue]\em}{\/}} % works
+
+\startcolumns[n=2]
+    test \Colorit{color} text.
+\stopcolumns
+
+\stoptext

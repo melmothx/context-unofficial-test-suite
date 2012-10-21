@@ -1,0 +1,55 @@
+\setupinteraction[state=start]
+\setupinteractionscreen[option=bookmark]
+
+\setupbodyfont[mscore,12pt]
+
+\defineconversion [greekone] [α,β,γ,δ,ε,ζ,η,θ,ι,κ,λ,μ,ν,ξ,ο,π,ρ,σ,τ,υ,φ,χ,ψ,ω]
+\defineconversion [greektwo] [αα,ββ,γγ,δδ,εε,ζζ,ηη,θθ,ιι,κκ,λλ,μμ,νν,ξξ,οο,ππ,ρρ,σσ,ττ,υυ,φφ,χχ,ψψ,ωω]
+
+\setuphead
+  [chapter]
+  [sectionsegments=2:2,conversion=greek,sectionstarter={(},sectionstopper={)}]
+\setuphead
+  [section]
+  [sectionsegments=3:3,conversion=arabic,sectionstarter={(},sectionstopper={)}]
+\setuphead
+  [subsection]
+  [sectionsegments=4:4,conversion=greekone,sectionstarter={(},sectionstopper={)}]
+\setuphead
+  [subsubsection]
+  [sectionsegments=5:5,conversion=greektwo,sectionstarter={(},sectionstopper={)}]
+
+\placebookmarks
+  [chapter,section,subsection,subsubsection,subject]
+  [all]
+  [force=yes]
+\setupbookmarks
+  [numberstarter=<,numberstopper=>]
+
+\starttext
+    \setuplist
+      [chapter]
+      [numberconversion=numbers]
+    \placelist
+      [chapter,section,subsection,subsubsection,subject]
+      [criterium=all]
+
+    \startbuffer
+        \chapter{One}
+        \section{Alpha}
+        \section{Beta}
+        \subsection{First}
+        \subsection{Second}
+        \subsubsection{Foo}
+        \subsubsection{Bar}
+        \subsubsubsection{ABC}
+        \subsubsubsection{XYZ}
+        \subject{Gamma}
+    \stopbuffer
+
+    \getbuffer
+
+    \startappendices
+        \getbuffer
+    \stopappendices
+\stoptext

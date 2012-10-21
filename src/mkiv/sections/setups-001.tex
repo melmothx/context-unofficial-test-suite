@@ -1,0 +1,25 @@
+\defineheadalternative
+  [mine]
+  [alternative=vertical,
+   renderingsetup=minetoo,
+   left=(,
+   right=)]
+
+\startsetups[minetoo]
+    \headsetupspacing
+    \ifconditional\headshownumber
+        \headalternativeparameter{left}
+        \headnumbercontent
+        \headalternativeparameter{right}
+    \fi
+    \quad
+    \headtextcontent
+\stopsetups
+
+\setuphead[section][alternative=mine]
+
+\starttext
+
+    \section{test}
+
+\stoptext

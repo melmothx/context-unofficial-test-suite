@@ -1,0 +1,41 @@
+\defineconversionset[frontpart:pagenumber][][romannumerals]
+\defineconversionset[bodypart:pagenumber] [][numbers]
+\defineconversionset[appendix:pagenumber] [][Characters]
+
+\setupuserpagenumber[numberconverionset=pagenumber,way=byblock]
+
+\setupheadertexts[Page \userpagenumber\ of \lastuserpagenumber]
+
+\starttext
+
+\startfrontmatter
+
+    \startchapter[title=Fontpart]
+
+        \dorecurse{20}{\input knuth \footnote{test}\par}
+
+    \stopchapter
+
+\stopfrontmatter
+
+\startbodymatter
+
+    \startchapter[title=Bodypart]
+
+        \dorecurse{20}{\input tufte\par}
+
+    \stopchapter
+
+\stopbodymatter
+
+\startappendices
+
+    \startchapter[title=Appendix]
+
+        \dorecurse{20}{\input zapf\par}
+
+    \stopchapter
+
+\stopappendices
+
+\stoptext

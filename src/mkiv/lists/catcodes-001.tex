@@ -1,0 +1,17 @@
+% \ctxlua{job.pack=false}
+
+\starttext
+
+\unprotect
+\placelist[section][\c!before={\blank[\v!line]}]
+\protect
+
+\section{a}
+
+\unprotect
+\writebetweenlist[section]{\blank[\v!line]}
+\protect
+
+\section{b}
+
+\stoptext

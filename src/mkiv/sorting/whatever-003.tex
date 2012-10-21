@@ -1,0 +1,82 @@
+\starttext
+
+\startluacode
+
+local list = {
+    { entry = "AA"  },
+    { entry = "Aa"  },
+    { entry = "aa"  },
+    { entry = "AAA" },
+    { entry = "aaa" },
+    { entry = "AaB" },
+    { entry = "Aab" },
+    { entry = "aab" },
+    { entry = "AB"  },
+    { entry = "Ab"  },
+    { entry = "ab"  },
+    { entry = "AbB" },
+    { entry = "Abb" },
+    { entry = "abb" },
+}
+
+sorters.setlanguage("en","zc,pc,zm,pm,uc")
+
+for i=1,#list do
+    list[i].split = { sorters.splitters.utf(list[i].entry) }
+end
+
+sorters.sort(list,sorters.comparers.basic)
+
+context.blank()
+for i=1,#list do
+    context(list[i].entry)
+    context.crlf()
+end
+context.blank()
+
+\stopluacode
+
+\defineregister[one] \setupregister[one][n=1,method={zc,pc,zm,pm,uc}]
+\defineregister[two] \setupregister[two][n=1,method={zc,pc,zm,pm,uc}]
+
+aa\one{aa} ab\one{ab} aab\one{aab} abb\one{abb}
+Aa\one{Aa} Ab\one{Ab} Aab\one{Aab} Abb\one{Abb}
+AA\one{AA} AB\one{AB} AaB\one{AaB} AbB\one{AbB}
+
+\startcolumns
+    \placeregister[one]
+    \startlines
+    {\bf wanted}
+    aa
+    Aa
+    AA
+    aab
+    Aab
+    AaB
+    ab
+    Ab
+    AB
+    abb
+    Abb
+    AbB
+    \stoplines
+\stopcolumns
+
+aa  \two{aa}   AA  \two{AA}
+aaa \two{aaa}  AAA \two{AAA}
+aaaa\two{aaaa} AAAA\two{AAAA}
+
+\startcolumns
+    \placeregister[two]
+    \startlines
+    {\bf wanted}
+    aa
+    AA
+    aaa
+    AAA
+    aaaa
+    AAAA
+    \stoplines
+\stopcolumns
+
+\stoptext

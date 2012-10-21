@@ -1,0 +1,42 @@
+\definefontfeature
+  [solution-demo]
+  [goodies=demo,
+   featureset=default]
+
+\definefont
+  [SomeTestFont]
+  [texgyrepagellaregular*solution-demo at 10pt]
+
+\definefontsolution
+  [solution-a]
+  [goodies=demo,
+   solution=experimental,
+   method={normal,preroll},
+   criterium=1]
+
+\definefontsolution
+  [solution-b]
+  [goodies=demo,
+   solution=experimental,
+   method={normal,preroll,split},
+   criterium=1]
+
+\starttext
+
+\enabletrackers
+  [builders.paragraphs.solutions.splitters.colors]
+
+\startsimplecolumns
+  \showfontkerns
+  \setuptolerance[verytolerant]
+  \start  \SomeTestFont
+    \input zapf \par
+  \stop
+  \column
+  \start  \SomeTestFont \startfontsolution[solution-a]
+    \input zapf \par
+  \stopfontsolution \stop
+\stopsimplecolumns
+
+\stoptext
+

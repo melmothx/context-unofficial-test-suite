@@ -1,0 +1,79 @@
+\setuppagenumbering
+  [alternative=doublesided]
+
+\setuplayout
+  [margin=2cm,
+   edge=2cm,
+   backspace=5cm,
+   leftmargindistance=2mm,
+   rightmargindistance=4mm,
+   edgedistance=5mm,
+   width=middle]
+
+\dontcomplain
+
+\showframe
+
+\starttext
+
+% \setupalign[inner] \dorecurse{100}{\input tufte \par}
+
+% \dorecurse{300}{\ininner{IM A}\inouter{OM A}test\par}
+
+% \ininner{IM A} \dorecurse{20}{before \recurselevel\space}%
+% <<\ininner[stack=yes]{IM B}>><<\ininner[stack=yes]{IM C}>>\dorecurse{20}{after \recurselevel\space}
+
+% \blank
+
+% \ininner[line=2]{IM A}
+% <<\ininner[stack=yes,line=1]{IM B}>><<\ininner[stack=yes]{IM C}>>\dorecurse{20}{after \recurselevel\space}
+
+% \blank
+
+% \ininner{IM A}
+% <<\ininner[stack=yes]{IM B}>><<\ininner[stack=yes]{IM C}>>\dorecurse{20}{after \recurselevel\space}
+
+
+\definemargindata [ininnerextra]  [margin=edge,location=inner,width=1.5cm,align=inner,category=edge]
+% \definemargindata [inouterextra]  [margin=edge,location=outer,width=1.5cm,align=outer,category=edge]
+
+% \definemarginframed [ininnerextra]
+% \definemarginframed [inouterextra]
+
+% \setupmargindata  [inouterextra]  [line=-1]
+
+% \doifrightpageelse{ONE}{TWO}\par \rightorleftpageaction{ONE}{TWO}
+
+% \ininner [method=first] {IM A} \ininner [method=first] {IM B} \input ward \par
+% \inmargin [method=first]{MARGIN} \inother [method=first] {OTHER} \input ward \par
+
+% \inmargin [method=first]                                            {first\\second} \input ward \par
+% \inmargin [method=first]             [offset=3pt]                   {first\\second} \input ward \par
+% \inmargin [method=first,voffset=-3pt][offset=3pt,rulethickness=3pt] {first\\second} \input ward \par
+% \inmargin [method=first,voffset=-6pt][offset=3pt,rulethickness=3pt] {first\\second} \input ward \par
+
+
+test \inleft{left 1} test
+
+% \ininner[stack=yes,dy=2ex] {IM A}
+% \ininner[stack=yes,dy=2ex] {IM B}
+% \input ward
+
+% \ininner{IM A} \dorecurse{20}{before \recurselevel\space}%
+% <<\ininner[stack=yes]{IM B}>><<\ininner[stack=yes]{IM C}>>\dorecurse{20}{after \recurselevel\space}
+
+% \blank
+
+% \ininner[stack=yes]{IM A} <<\ininner[stack=yes]{IM B}>><<\ininner[stack=yes]{IM C}>>\dorecurse{20}{after \recurselevel\space}
+
+% \dorecurse{100}{
+%     \ininnermargin {IM \recurselevel}
+%     \inoutermargin {OM \recurselevel}
+%     %     \ininner     {IM \recurselevel}
+%     %     \inouter     {OM \recurselevel}
+%     \ininnerextra{IE \recurselevel}
+%     \inouterextra{OE \recurselevel}
+%     line \recurselevel\par
+% }
+
+\stoptext

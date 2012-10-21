@@ -1,0 +1,32 @@
+\starttext
+
+    \enabletrackers[typesetters.characters]
+
+    \framed[align=flushright,width=broad]{Hello~World!}
+    \framed[align=flushright,width=broad]{Hello World!}
+    \framed[align=flushleft, width=broad]{Hello~World!}
+    \framed[align=flushleft, width=broad]{Hello World!}
+
+    \usemodule[nodechart]
+
+    \page
+
+    \vboxtoFLOWchart{dummy}{3}{\raggedleft a~b}
+    \FLOWchart[dummy][width=14em,height=3em,dx=1em,dy=.75em,hcompact=yes]
+
+    \page
+
+    \vboxtoFLOWchart{dummy}{3}{\raggedleft a b}
+    \FLOWchart[dummy][width=14em,height=3em,dx=1em,dy=.75em,hcompact=yes]
+
+    \page
+
+    \vboxtoFLOWchart{dummy}{3}{a~b}
+    \FLOWchart[dummy][width=14em,height=3em,dx=1em,dy=.75em,hcompact=yes]
+
+    \page
+
+    \vboxtoFLOWchart{dummy}{3}{a b}
+    \FLOWchart[dummy][width=14em,height=3em,dx=1em,dy=.75em,hcompact=yes]
+
+\stoptext

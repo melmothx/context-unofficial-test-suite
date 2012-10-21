@@ -1,0 +1,23 @@
+\starttext
+
+\startplacefigure[location=left,title=Whatever,reference=fig:1]
+    \externalfigure[cow]
+\stopplacefigure
+
+\input ward  \par \input ward \par
+
+\startplacetable[location={split},title={Function Details},reference={tab:09}]
+    \bTABLE[split=repeat,option=stretch]
+        \bTABLEhead
+            \bTR \bTH first \eTH \eTR
+        \eTABLEhead
+        \bTABLEnext
+            \bTR \bTH next  \eTH \eTR
+        \eTABLEnext
+        \bTABLEbody
+            \dorecurse{10}{\bTR \bTD \input{tufte} \eTD \eTR}
+        \eTABLEbody
+    \eTABLE
+\stopplacetable
+
+\stoptext

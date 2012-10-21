@@ -1,0 +1,27 @@
+\starttext
+
+\setupmarginrules
+  [rulecolor=darkred,
+   rulethickness=2pt]
+
+\setupmarginrules % sidebar
+  [2]
+  [rulecolor=darkblue]
+
+\startmarginrule[1]
+    \input ward
+    \startmarginrule[2]
+        \input ward
+        \startmarginrule[3]
+            \input ward
+            \startmarginrule[level=6,rulecolor=darkgreen]
+                \input ward
+            \stopmarginrule
+            \input ward
+        \stopmarginrule
+        \input ward
+    \stopmarginrule
+    \input ward
+\stopmarginrule
+
+\stoptext

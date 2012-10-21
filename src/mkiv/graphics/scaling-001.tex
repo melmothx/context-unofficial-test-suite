@@ -1,0 +1,20 @@
+\setupbodyfont[dejavu]
+
+\setuppapersize[A4][A4] %% [A1][A1]
+
+\showframe
+
+\starttext
+
+\scale[factor=max,width=\textwidth,height=\textheight]{\framed[frame=on]{\input tufte \input tufte \input tufte }}
+
+\externalfigure[cow][s=.1]
+\externalfigure[cow][width=15mm]
+\externalfigure[cow][scale=123]
+\externalfigure[cow][scale=1100]
+\externalfigure[cow]
+\externalfigure[cow][sx=.1,sy=.2]
+
+\externalfigure[cow][width=10cm,height=3mm]
+
+\stoptext

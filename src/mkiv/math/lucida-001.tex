@@ -1,0 +1,25 @@
+% \setupbodyfont[cambria]
+\setupbodyfont[lucidanova]
+
+\starttext
+
+\def\test#1%
+  {\hbox
+     {$
+      \char#1\Umathchar "1 "0 #1
+      \displaystyle
+\ctxlua{inspect(fonts.hashes.identifiers[node.family_font(1)].properties.filename)}
+\ctxlua{inspect(fonts.hashes.identifiers[node.family_font(1)].mathparameters.DisplayOperatorMinHeight)}
+      (\number\Umathoperatorsize\displaystyle):
+      \char#1\Umathchar "1 "0 #1
+      $}
+   \par}
+
+\test{"222B}
+% \test{"222C} \test{"222D} \test{"222E} \test{"222F}
+% \test{"2230} \test{"2231} \test{"2232} \test{"2233}
+% \test{"2A0C} \test{"2A0D} \test{"2A0E} \test{"2A0F}
+% \test{"2A10} \test{"2A11} \test{"2A12} \test{"2A13} \test{"2A14} \test{"2A15}
+% \test{"2A16} \test{"2A17} \test{"2A18} \test{"2A19} \test{"2A1A} \test{"2A1B} \test{"2A1C}
+
+\stoptext

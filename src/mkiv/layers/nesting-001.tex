@@ -1,0 +1,61 @@
+% \nopdfcompression
+
+\showlayoutcomponents
+
+\defineviewerlayer[test1]
+\defineviewerlayer[test2]
+\defineviewerlayer[test3]
+
+\starttext
+
+\input ward
+\startviewerlayer[test1]
+    \input ward
+    \startviewerlayer[test2]
+        \input ward
+        \startviewerlayer[test3]
+            \input ward
+        \stopviewerlayer
+        \input ward
+    \stopviewerlayer
+    \input ward
+\stopviewerlayer
+\input ward
+
+\input ward
+\startviewerlayer[test1]
+    \input ward
+    \startviewerlayer[test2]
+        \input ward
+    \stopviewerlayer
+    \input ward
+\stopviewerlayer
+\input ward
+
+\page
+
+\input ward
+\startviewerlayer[test1]
+    \input ward
+    \startviewerlayer[test2]
+        \input ward
+        \startviewerlayer[test3]
+            \input ward
+        \stopviewerlayer
+        \input ward
+    \stopviewerlayer
+    \input ward
+\stopviewerlayer
+\input ward
+
+\input ward
+\startviewerlayer[test1]
+    \input ward
+    \startviewerlayer[test2]
+        \input ward
+    \stopviewerlayer
+    \input ward
+\stopviewerlayer
+\input ward
+
+\stoptext

@@ -1,0 +1,40 @@
+\enabletrackers[structures.referencing.importing]
+
+\setupreferencing[autofile=yes]
+
+\startcomponent test-component-one
+
+\product test-components
+
+\chapter[first]{First component}
+
+Reference One\pagereference[one].
+
+Reference to the chapter headings.
+
+\startlines
+First: \at{page}[first]
+Second: \at{page}[second]
+\stoplines
+
+Reference to the \tex{pagerefence} settings.
+
+\startlines
+One: \at{page}[one]
+Two: \at{page}[two]
+\stoplines
+
+Reference to the \tex{pagerence} settings with the filename as prefix.
+
+\startlines
+One    : \at{page}[test-component-one:one]
+Two    : \at{page}[test-component-two:two]
+One    : \at{page}[test-component-one:::one]
+Two    : \at{page}[test-component-two:::two]
+first  : \at{page}[test-component-one:first]
+second : \at{page}[test-component-two:second]
+first  : \at{page}[test-component-one:::first]
+second : \at{page}[test-component-two:::second]
+\stoplines
+
+\stopcomponent

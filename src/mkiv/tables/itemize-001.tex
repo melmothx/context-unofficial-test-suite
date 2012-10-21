@@ -1,0 +1,47 @@
+% taken from the list
+
+\showframe
+
+\starttext
+
+\ifdefined\tabulatesplitlinemode
+    \tabulatesplitlinemode \plustwo
+\else
+    use the formal interface to tabulate split line mode \blank
+\fi
+
+\starttabulate[|p|]
+    \NC one \par \blank[penalty:10000] two \par \blank[penalty:10000] three \NC\NR
+\stoptabulate
+
+\vskip3cm
+
+\starttabulate[|p|]
+    \NC one \par two \par \blank[penalty:10000] three \NC\NR
+\stoptabulate
+
+\vskip3cm
+
+\starttabulate[|p|]
+    \NC one \par \blank[penalty:10000] two \par three \NC\NR
+\stoptabulate
+
+\starttabulate[|l|p|]
+    \NC
+        one
+    \NC
+        \startitemize[2,packed]
+            \item two
+            \item three
+            \head four \par
+                \startitemize[2,packed]
+                    \item five
+                    \item six
+                \stopitemize
+            \item seven
+        \stopitemize
+    \NC
+    \NR
+\stoptabulate
+
+\stoptext

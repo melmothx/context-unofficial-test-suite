@@ -1,0 +1,82 @@
+\usemodule[art-01]
+
+\enabletrackers[scripts.analyzing] % scripts.injections
+
+% \definefont[testfont][heiseikakugostd-w5][script=kana,language=jan]
+\definefont[testfont][heiseiminstd-w3]   [script=kana,language=jan]
+
+\starttext
+
+\testfont
+
+\startscript[nihongo]
+
+\enabletrackers[scripts.details]
+\startlines
+             国、『国』、『国』、『国』、『国』、『国』、
+\hbox to 3em{国、『国』、『国』、『国』、『国』、『国』、}
+             国：国：国：国：国：国：国：国：国：国
+\hbox to 3em{国：国：国：国：国：国：国：国：国：国}
+\stoplines
+\disabletrackers[scripts.details]
+
+\startbuffer[w3c-fig-3-1]
+
+日本語の表記においては，漢字や仮名だけで
+なく，ローマ字やアラビア数字，さらに句読
+点や括弧類などの記述記号を用いる．これら
+を組み合わせて表す日本語の文章では，表記
+上における種々の問題がある．
+
+\stopbuffer
+
+\startbuffer[w3c-fig-3-2]
+
+日本語の表記においては，漢字や仮名だけで
+なく，ローマ字やアラビア数字，さらに句読
+点や括弧類などの記述記号を用いる。これら
+を組み合わせて表す日本語の文章では，表記
+上における種々の問題がある。
+
+\stopbuffer
+
+\startbuffer[w3c-fig-3-3]
+
+日本語の表記においては、漢字や仮名だけで
+なく、ローマ字やアラビア数字、さらに句読
+点や括弧類などの記述記号を用いる。これら
+を組み合わせて表す日本語の文章では、表記
+上における種々の問題がある。
+
+\stopbuffer
+
+\startbuffer[w3c-fig-3-5]
+
+日本語の表記では“漢字”や”仮名”だけで
+なく，“ローマ字”や“アラビア数字”，さら
+に“句読点”や“括弧類”などの記述記号を
+用いる．
+
+\stopbuffer
+
+\dostepwiserecurse{40}{150}{5} {
+
+    \start
+
+        \page
+
+        \hsize\recurselevel mm
+
+        \getbuffer[w3c-fig-3-1] \blank
+        \getbuffer[w3c-fig-3-2] \blank
+        \getbuffer[w3c-fig-3-3] \blank
+        \getbuffer[w3c-fig-3-5] \blank
+
+        \page
+
+    \stop
+}
+
+\stopscript
+
+\stoptext

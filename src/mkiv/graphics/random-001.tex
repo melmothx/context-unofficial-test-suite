@@ -1,0 +1,36 @@
+% For Mari Voipio
+
+\startluacode
+
+    local files = { }
+
+    function document.collectgraphics(pattern)
+        files = table.merged(files,dir.glob(pattern))
+        files = table.unique(files)
+        table.sort(files)
+        logs.report(string.format("graphics: %s",table.concat(files," ")))
+    end
+
+    function document.choosegraphic()
+        if #files > 0 then
+            context(table.remove(files, math.random(1,#files)) or "dummy")
+        else
+            context("dummy")
+        end
+    end
+
+\stopluacode
+
+\def\CollectGraphics[#1]{\ctxlua{document.collectgraphics("#1")}}
+\def\ChooseGraphic      {\ctxlua{document.choosegraphic()}}
+
+\CollectGraphics[*.png]
+\CollectGraphics[*.jpg]
+
+\starttext
+
+    \dorecurse {10} {
+        \expanded{\externalfigure[\ChooseGraphic][width=4cm]}
+    }
+
+\stoptext

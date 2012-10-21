@@ -1,0 +1,37 @@
+\defineenumeration[one]
+\defineenumeration[two]   [one] % clone one
+\defineenumeration[three] [counter=one,style=slanted] % only use counter of one
+\defineenumeration[four]  [three] % clone three
+\defineenumeration[five]  [three] [counter=five] % clone three and use own counter
+\defineenumeration[six]   [three] [counter=four] % clone tree and use counter four (undefined)
+
+\setupenumerations[one]  [prefix=yes,prefixsegments=section]
+\setupenumerations[two]  [prefix=yes,prefixsegments=section]
+\setupenumerations[three][prefix=yes,prefixsegments=section]
+\setupenumerations[four] [prefix=yes,prefixsegments=chapter:section]
+\setupenumerations[five] [prefix=yes,prefixsegments=chapter:section]
+\setupenumerations[six]  [prefix=yes,prefixsegments=chapter:section]
+
+\starttext
+
+\chapter{test}
+
+\startone   test test  1 \stopone
+\starttwo   test test  2 \stoptwo
+\startthree test test  3 \stopthree
+\startfour  test test  4 \stopfour
+\startfive  test test  1 \stopfive
+\startsix   test test  1 \stopsix
+
+\chapter{test}
+
+\section{test}
+
+\startone   test test  6 \stopone
+\starttwo   test test  7 \stoptwo
+\startthree test test  8 \stopthree
+\startfour  test test  9 \stopfour
+\startfive  test test  2 \stopfive
+\startsix   test test  2 \stopsix
+
+\stoptext

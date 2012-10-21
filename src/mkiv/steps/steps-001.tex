@@ -1,0 +1,51 @@
+\usemodule[x][steps]
+
+\starttext
+
+\startbuffer[test]
+<ct:stepaligntable xmlns="http://www.pragma-ade.nl/stepcharts">
+    <ct:cells>
+        <ct:c1>expr</ct:c1>
+        <ct:c2>=</ct:c2>
+        <ct:c3>expr</ct:c3>
+    </ct:cells>
+    <ct:text background="color" backgroundcolor="blue" color="white">doe dit</ct:text>
+    <ct:cells background="color" backgroundcolor="red">
+        <ct:c1>expr</ct:c1>
+        <ct:c2>=</ct:c2>
+        <ct:c3>expr</ct:c3>
+    </ct:cells>
+    <ct:text style="bold">doe dat</ct:text>
+    <ct:cells>
+        <ct:c1>expr</ct:c1>
+        <ct:c2>=</ct:c2>
+        <ct:c3>expr</ct:c3>
+    </ct:cells>
+</ct:stepaligntable>
+\stopbuffer
+
+\framed{\xmlprocessbuffer{main}{test}{}}
+
+\startbuffer[test]
+<ct:stepchart xmlns="http://www.pragma-ade.nl/stepcharts">
+    <ct:cell>expr</ct:cell>
+    <ct:cell>expr</ct:cell>
+    <ct:text>doe dat</ct:text>
+    <ct:cell>expr</ct:cell>
+    <ct:text>doe dit</ct:text>
+    <ct:cell>expr</ct:cell>
+</ct:stepchart>
+\stopbuffer
+
+\framed{\xmlprocessbuffer{main}{test}{}}
+
+\startSTEPchart
+\cells {A}     {B}
+\cells {one}   {five}  \texts{$+2$}{$-2$}
+\cells {two}   {four}  \texts{$+3$}{$-3$}
+\cells {three} {three} \texts{$+4$}{$-4$}
+\cells {four}  {two}   \texts{$+5$}{$-5$}
+\cells {five}  {one}
+\stopSTEPchart
+
+\stoptext

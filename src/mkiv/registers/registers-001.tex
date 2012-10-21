@@ -1,0 +1,19 @@
+\starttext
+
+\placeregister
+  [index]
+  [n=1]
+
+\blank
+
+One
+    \startregister[index][mytilene]{Mytilene}
+    \index{Athens}Athens
+    \index{athenian}athenian
+    \index{aardvark}aardvark
+    \index{Azygous}Azygous
+    \dorecurse{15}{\input tufte}
+    \stopregister[index][mytilene]
+Two
+
+\stoptext

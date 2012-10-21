@@ -1,0 +1,41 @@
+﻿\setuppagenumbering[alternative=doublesided]
+
+\starttext
+
+\input ward
+
+\startnarrower[2*left]
+    \input ward
+    \startnarrower[2*left]
+        \input ward
+    \stopnarrower
+\stopnarrower
+
+\page
+
+\input ward \par
+    {\textdir TRT \input ward  \par}
+    \startnarrower[2*left]
+        \input ward \par
+        {\textdir TRT \input ward \par }
+    \startnarrower[2*left]
+        \input ward \par
+        {\textdir TRT \input ward \par }
+    \stopnarrower
+\stopnarrower
+
+\page
+
+\input ward \par
+{\righttoleft \input ward \par }
+
+\startnarrower[2*left]
+    \input ward \par
+    {\righttoleft \input ward \par }
+    \startnarrower[2*left]
+        \input ward \par
+        {\righttoleft \input ward \par }
+    \stopnarrower
+\stopnarrower
+
+\stoptext

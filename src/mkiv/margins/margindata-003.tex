@@ -1,0 +1,20 @@
+\starttext
+
+\def\TestLine#1#2{\backgroundline[#1]{\strut\white\tttf#2~\recurselevel}}
+
+\startbuffer
+\inleftmargin {\TestLine{red}   {lm}}  test test test \par
+\inrightmargin{\TestLine{green} {rm}}  test test test \par
+\inleftedge   {\TestLine{red}   {le}}  test test test \par
+\inrightedge  {\TestLine{green} {re}}  test test test \par
+\inoutermargin{\TestLine{blue}  {om}}  test test test \par
+\ininnermargin{\TestLine{yellow}{im}}  test test test \par
+\inouteredge  {\TestLine{blue}  {oe}}  test test test \par
+\ininneredge  {\TestLine{yellow}{ie}}  test test test \par
+\atleftmargin {\TestLine{red}   {alm}} \hfill test    \par
+\atrightmargin{\TestLine{green} {arm}} test \hfill    \par
+\stopbuffer
+
+\dorecurse{40}\getbuffer \page
+
+\stoptext

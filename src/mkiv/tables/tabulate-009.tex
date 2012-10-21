@@ -1,0 +1,14 @@
+% posted on list by AH
+
+\starttext
+
+\startbuffer
+\setuptabulate[bodyfont=small]
+\starttabulate
+  \NC test \NC test \NC\NR
+\stoptabulate
+\stopbuffer
+
+\placetable[split]{Should be in normal font size}{\getbuffer}
+
+\stoptext

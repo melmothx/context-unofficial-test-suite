@@ -1,0 +1,20 @@
+\nopdfcompression
+
+\setupinteraction
+  [state=start]
+
+\definecolor[MyBlue][b=.5,t=.25,a=1]
+
+\setupcomment
+  [location=leftmargin]
+
+\starttext
+
+\startcomment[color=MyBlue]
+buffer
+\stopcomment
+
+\comment[tag][width=1em,height=1ex,depth=1ex,color=MyBlue]{inline} \input tufte
+
+
+\stoptext

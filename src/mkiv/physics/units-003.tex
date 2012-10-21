@@ -1,0 +1,42 @@
+\startbuffer[definitions]
+
+\setupunittext
+  [whatever]
+  [meter=retem,
+   second=dnoces]
+
+\setupprefixtext
+  [whatever]
+  [kilo=olik]
+
+\setupoperatortext
+  [whatever]
+  [solidus={ rep }]
+\stopbuffer
+
+\startbuffer[sample]
+\startlines
+\lunit{10 km/s}
+\lunit{10 Kilo Meter/s}
+\lunit{10 kilo Meter/s}
+\lunit{10 Kilo m/s}
+\lunit{10 k Meter/s}
+\stoplines
+\stopbuffer
+
+\setuplayout[header=0pt] \setuplayout[middle]
+
+\starttext
+
+\typebuffer[definitions] \getbuffer[definitions]
+
+\startbuffer
+\typebuffer[sample]
+
+\defineunit[lunit]                    \getbuffer[sample]
+\defineunit[lunit][language=whatever] \getbuffer[sample]
+\stopbuffer
+
+\typebuffer \getbuffer
+
+\stoptext

@@ -1,0 +1,31 @@
+\setupbodyfont[dejavu]
+
+\starttext
+
+\startMPcode
+
+    def JerzyTalking(expr txt,offset,fraction) =
+        draw image (
+            picture text_path ; text_path := textext("\framed[align={middle,lohi},frame=off]{" & txt & "}") ;
+            numeric delta ; delta := min(bbwidth(text_path)/1.5,bbheight(text_path)/1.5) ;
+            path text_frame ; text_frame := (boundingbox text_path enlarged 10pt) smoothed (delta,delta) rotated 180 ;
+            pair left_part ; left_part     := (0.8fraction)[llcorner text_frame,lrcorner text_frame] ;
+            pair right_part ; right_part   := (1.2fraction)[llcorner text_frame,lrcorner text_frame] ;
+            pair start_point ; start_point := (1.0fraction)[llcorner text_frame,lrcorner text_frame] shifted offset ;
+            text_frame := text_frame cutbefore right_part .. text_frame cutafter left_part -- start_point -- cycle ;
+            fill text_frame withcolor .6green ;
+            draw text_frame withcolor .4yellow withpen pencircle scaled 1mm ;
+            draw text_path withcolor white ;
+        ) ;
+    enddef ;
+
+    JerzyTalking("Hello There!",(0,-30pt),0.3) ;
+
+    currentpicture := currentpicture shifted (0,-4cm) ;
+
+    JerzyTalking("Hello, Are You \\ Still There?",(10pt,-50pt),0.3) ;
+
+\stopMPcode
+
+\stoptext
+

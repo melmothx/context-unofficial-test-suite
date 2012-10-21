@@ -1,0 +1,19 @@
+\definetextbackground
+  [test]
+  [location=paragraph,
+   alternative=0,
+   frame=off,
+   background=color,
+   backgroundcolor=yellow]
+
+\starttext
+
+    \startlinenumbering
+        \starttest
+            \dorecurse{20}{some random text }
+        \stoptest
+        \dorecurse{20}{continue text }
+    \stoplinenumbering
+
+\stoptext
+

@@ -1,0 +1,13 @@
+% \setuppagenumbering[alternative=doublesided]
+
+\starttext
+
+\dorecurse{4}{
+    \rotate[rotation=left] {\externalfigure[cow.pdf][width=4cm]}
+    \rotate[rotation=right]{\externalfigure[cow.pdf][width=4cm]}
+    \rotate[rotation=inner]{\externalfigure[cow.pdf][width=4cm]}
+    \rotate[rotation=outer]{\externalfigure[cow.pdf][width=4cm]}
+    \page
+}
+
+\stoptext

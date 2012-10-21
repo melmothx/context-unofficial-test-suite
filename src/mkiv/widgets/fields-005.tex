@@ -1,0 +1,39 @@
+% macros=mkvi
+
+% adapted from mail on list by adam.reviczky
+
+\starttext
+
+\setupinteraction
+  [state=start]
+
+\setupfields
+  [label,frame,horizontal]
+  [offset=4pt,height=fit,framecolor=green,background=screen,backgroundscreen=.80]
+  [height=40pt,width=100pt,align=middle,background=screen,backgroundscreen=.90,frame=off]
+  [height=40pt,width=100pt,color=red,align=right,style=type,background=screen,backgroundscreen=.90,frame=off]
+
+\setupfield [sizea] [horizontal] [width=4cm,style={\switchtobodyfont[20pt]}]
+\setupfield [sizeb] [horizontal] [style={\switchtobodyfont[28pt]}]
+\setupfield [sizec] [horizontal] [style={\switchtobodyfont[20pt]}]
+\setupfield [sized] [horizontal] [style={\switchtobodyfont[40pt]}]
+\setupfield [sizee] [horizontal] [style={\switchtobodyfont[40pt]}]
+
+\definefield [emaila] [line] [sizea] [] [pragma@wxs.nl]
+\definefield [emailb] [line] [sizeb] [] [pragma@wxs.nl]
+\definefield [emailc] [line] [sizec] [] [pragma@wxs.nl]
+\definefield [emaild] [line] [sized] [] [pragma@wxs.nl]
+\definefield [emaile] [line] [sized] [] [pragma@wxs.nl]
+
+
+\startTEXpage
+
+    1: \field [emaila] [your email] \par
+    2: \field [emailb] [your email] \par
+    3: \field [emailc] [your email] \par
+    4: \field [emaild] [your email] \par
+    5: \field [emaile] [your email] \par
+
+\stopTEXpage
+
+\stoptext

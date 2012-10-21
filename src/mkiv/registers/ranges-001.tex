@@ -1,0 +1,20 @@
+\starttext
+
+\placeregister[index]
+
+x \index{b} x
+    \startregister   [index][x]{bb}
+        x \page x \page x \page x
+    \stopregister       [index][x]
+
+x \index{c} x
+    \setregisterentry[index][label=x,entries=bb]
+        x \page x \page x \page x
+    \finishregisterentry[index][label=x]
+
+x \index{d} x
+    \setregisterentry[index][label=y]
+        x \page x \page x \page x
+    \finishregisterentry[index][label=y,entries=yy]
+
+\stoptext

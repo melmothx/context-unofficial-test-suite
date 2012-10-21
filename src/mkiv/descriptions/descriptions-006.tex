@@ -1,0 +1,17 @@
+\definefont[BigOne][SerifBold at 30pt]
+
+\definedescription[whatever][headstyle=\BigOne, width=2em, align=right]
+
+\starttext
+
+    \startwhatever{bla}
+        \input ward
+    \stopwhatever
+
+    \startwhatever{bla}
+        \input ward
+    \stopwhatever
+
+    \noindent \ruledvtop{\hsize 1cm \BigOne bla}\input ward
+
+\stoptext

@@ -1,0 +1,31 @@
+\usemodule[tikz]
+\usetikzlibrary[patterns]
+\usetikzlibrary[fadings] % triggers wrong rendering of first page
+
+\starttext
+
+\startTEXpage
+    \starttikzpicture
+       \draw[pattern color=red,pattern=bricks] (0,0) circle (1cm);
+    \stoptikzpicture
+\stopTEXpage
+
+\startTEXpage
+    \tikzfading[name=fade inside, inner color=transparent!80,outer
+color=transparent!30]
+    \starttikzpicture
+        % Checker board
+        \fill [black!20] (0,0) rectangle (4,4); \path
+[pattern=checkerboard,pattern color=black!30] (0,0) rectangle (4,4);
+        \shade [ball color=red] (3,3) circle (0.8);
+        \shade [ball color=white,path fading=fade inside] (2,2) circle (1.8);
+    \stoptikzpicture
+\stopTEXpage
+
+\startTEXpage
+    \starttikzpicture
+       \draw[pattern color=red,pattern=bricks] (0,0) circle (1cm);
+    \stoptikzpicture
+\stopTEXpage
+
+\stoptext

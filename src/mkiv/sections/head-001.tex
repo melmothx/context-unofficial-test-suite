@@ -1,0 +1,19 @@
+\define[3]\ChapterList % example on list by Andreas Harder
+   {\bTABLE[offset=none,rulethickness=0pt,width=broad]
+      \bTR
+      % \bTD                               \begstrut#1\endstrut \eTD % b/estruts added
+        \bTD                               \begstrut#2\endstrut \eTD % b/estruts added
+        \bTD[width=1.5em,align={left,high}]\begstrut#3\endstrut \eTD % b/estruts added
+      \eTR
+    \eTABLE}
+
+\starttext
+
+\setuplist[chapter][alternative=command,command=\ChapterList]
+
+\placelist[chapter][criterium=text]
+
+\chapter{\input zapf }
+\chapter{\input ward }
+
+\stoptext

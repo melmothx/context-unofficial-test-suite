@@ -1,0 +1,33 @@
+\starttext
+
+\setupitemize[start=9]
+
+\startitemize[n][itemalign=flushright]
+\dorecurse{2}{\item bla}
+\stopitemize
+
+\setupitemize[start=9]
+
+\startitemize[n,fit][itemalign=flushright]
+\dorecurse{2}{\item bla}
+\stopitemize
+
+\setupitemize[start=99]
+
+\startitemize[n,fit][itemalign=flushright]
+\dorecurse{2}{\item bla}
+\stopitemize
+
+\setupitemize[start=9]
+
+\startitemize[n][itemalign=flushright,width=5cm,distance=2cm]
+\dorecurse{2}{\item bla}
+\stopitemize
+
+\setupitemize[start=99]
+
+\startitemize[n][itemalign=flushright,width=5cm,distance=2cm]
+\dorecurse{2}{\item bla}
+\stopitemize
+
+\stoptext

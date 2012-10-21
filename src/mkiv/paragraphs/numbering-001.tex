@@ -1,0 +1,11 @@
+\setupcounter
+  [paragraph]
+  [numberconversion=character]
+
+\setupparagraphnumbering
+  [state=start,
+   color=red]
+
+\starttext
+    \dorecurse{10}{\input ward \par}
+\stoptext

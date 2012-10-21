@@ -1,0 +1,14 @@
+% \starttext
+%     \dorecurse{5}{\input tufte\par}
+%     \placefigure{A placeholder figure.}{\externalfigure[widefigure][width=14cm]}
+%     \dorecurse{5}{\input tufte\par}
+% \stoptext
+
+\starttext
+    \definecolumnset[body][n=2]
+    \startcolumnset[body]
+        \dorecurse{5}{\input tufte\par}
+        \placefigure[btlr]{A placeholder figure.}{\externalfigure[widefigure][width=14cm]}
+        \dorecurse{5}{\input tufte\par}
+    \stopcolumnset
+\stoptext

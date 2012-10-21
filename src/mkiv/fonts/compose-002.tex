@@ -1,0 +1,15 @@
+\enabletrackers[fonts.combining.all,fonts.goodies]
+
+\definefontfeature[default][default][compose=yes]
+
+\loadfontgoodies[lm-compose-test] % playground
+
+\setupbodyfont[modern]
+
+\starttext
+
+\startTEXpage
+    B\quad\char"1E02\quad\char"1E04
+\stopTEXpage
+
+\stoptext

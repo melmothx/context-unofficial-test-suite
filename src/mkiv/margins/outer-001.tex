@@ -1,0 +1,29 @@
+\setuplayout
+ [height=middle,
+  width=middle,
+  backspace=3cm,
+  leftmargin=1cm,
+  rightmargin=2cm]
+
+\setuppagenumbering
+  [alternative=doublesided]
+
+\showframe
+
+\starttext
+
+    \dorecurse {200} {
+        \ininner{I}%
+        \inouter{O}%
+        test #1\par
+    }
+
+    \page
+
+    \dorecurse {10} {
+        \ininner{I I I I I I I I I I I I}%
+        \inouter{O O O O O O O O O O O O}%
+        \input tufte \par
+    }
+
+\stoptext

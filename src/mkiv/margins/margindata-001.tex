@@ -1,0 +1,113 @@
+\setupbodyfont[dejavu]
+
+\setuplayout
+  [margin=2cm,
+   leftmargindistance=3mm,
+   rightmargindistance=6mm,
+   width=middle]
+
+\showframe
+
+\setuppagenumbering
+  [alternative=doublesided]
+
+\definemargindata   [rightmargindata]   [right]
+\definemargindata   [leftmargindata]    [left]
+
+\definemargindata   [xrightmargindata]  [right]
+\definemargindata   [xleftmargindata]   [left]
+
+% \definemarginframed [xrightmargindata]  [right]
+\definemarginframed [xleftmargindata]   [left]
+
+\enabletrackers[typesetters.margindata]
+
+\starttext
+
+\ruledvbox \bgroup
+    \leftskip 2cm \rightskip3cm \relax
+    \xrightmargindata[method=first,scope=local]{R L 2.2}%
+    \xleftmargindata [method=first,scope=local]{L L 2.1}%
+    \xleftmargindata [method=first,scope=local]{L L 2.2}%
+    \xleftmargindata [method=first,scope=local]{L L 2.3}%
+    \input ward \par
+\egroup
+
+\ruledvbox \bgroup
+    \leftskip 2cm \rightskip3cm \relax
+    {\green green \sl \xrightmargindata[style=,color=,method=first,scope=local,margin=local,distance=1em] {R L 2.1} green}
+    \xrightmargindata[method=first,scope=local,margin=local,distance=1em]{R L 2.2}%
+    \xleftmargindata [method=first,scope=local,margin=local,distance=1em]{L L 2.1}%
+    \xleftmargindata [method=first,scope=local,margin=local,distance=1em]{L L 2.2}%
+    \xleftmargindata [method=first,scope=local,margin=local,distance=1em]{L L 2.3}%
+    \input ward \par
+\egroup
+
+\stoptext
+
+\blank[2*line]
+
+\bgroup
+    \leftskip 2cm \rightskip3cm \relax
+    \xrightmargindata[scope=local,margin=local,distance=1em] {R L 2.1}
+    \xleftmargindata [scope=local,margin=local,distance=1em] {L L 2.2}
+    \xleftmargindata [scope=local,margin=local,distance=1em] {L L 2.3}
+    \ruledvbox \bgroup
+        \input ward \par
+    \egroup
+\egroup
+
+\blank[2*line]
+
+\startframedtext
+    \xleftmargindata[scope=local,distance=1em] {L L 3.1} \input ward \par
+\stopframedtext
+
+\blank[2*line]
+
+\framed[align=normal]{\xleftmargindata[scope=local,distance=1em] {L L 1}\input ward \par}
+
+\page
+
+\leftmargindata
+  [method=top,
+   name=whatever,
+   yoffset=\strutdp,
+   style=bold,
+   color=green]
+  {whatever\\initial}
+
+\leftmargindata
+  [method=top,
+   name=whatever,
+   yoffset=\strutdp,
+   style=bold,
+   color=green]
+  {whatever\\overloaded}
+
+\placefigure{}{}
+
+\input tufte
+
+\leftmargindata  {G L}
+\rightmargindata {G R}
+
+\placefigure{}{}
+
+\input tufte
+
+\dorecurse {8} {
+    \xleftmargindata {G L \recurselevel}
+    \xrightmargindata{G R \recurselevel}
+}
+
+\dorecurse{3}{\input tufte \blank}
+
+\dorecurse {8} {
+    \outermargindata {G O \recurselevel}
+    \innermargindata {G I \recurselevel}
+}
+
+\dorecurse{3}{\input tufte \blank}
+
+\stoptext

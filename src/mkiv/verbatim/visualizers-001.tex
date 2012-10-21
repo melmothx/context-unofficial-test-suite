@@ -1,0 +1,314 @@
+\starttext
+
+\type{braces \relax}\par
+\type[option=tex]{settings and braces \relax}\par
+\type+delimiters \relax+\par
+\type<<nesting \relax>>\par
+\type<<nesting <<\relax>> nesting>>\par
+\type[option=tex]<<nesting <<\relax>> with settings>>\par
+
+\starttyping[option=tex]
+typing \test{with} option
+\stoptyping
+
+\startbuffer
+buffer \relax without name
+\stopbuffer
+
+\getbuffer
+
+\processbuffer
+
+\typebuffer
+
+\typebuffer[option=tex]
+
+\startbuffer[a]
+buffer with \relax name
+\stopbuffer
+
+\getbuffer[a]
+
+\processbuffer[a]
+
+\typebuffer[a]
+
+\typebuffer[a][option=tex]
+
+\typefile{visualizers-002.tex}
+
+\typefile[TEX]{visualizers-003.tex}
+
+\typefile[option=tex]{visualizers-004.tex}
+
+\definebuffer[testbuffer]
+
+\starttestbuffer
+test buffer done
+\stoptestbuffer
+
+\gettestbuffer
+
+\typetestbuffer
+
+\stoptext
+
+\starttext
+
+\usemodule[abr-02]
+
+\setuptyping[numbering=line]
+\setuptyping[space=on]
+
+\definetyping[parsedxml][option=parsed-lua]
+
+test
+
+% \typefile[option=parsed-lua,numbering=no]{oeps-lua.lua}
+
+\startPARSEDLUA
+local a = [[test
+  test]]
+--[[ test test test
+test test]]
+
+function test(a, b, c)
+    -- test
+    return 1 + a / b * c
+end
+
+function test(a, b, c)
+    return 1 + a / b * c
+end
+\stopPARSEDLUA
+
+
+\startLUA
+local a = [[test simple
+  test]]
+
+--[[ test test test
+test test]]
+
+function test(a, b, c)
+    -- test
+    return 1 + a / b * c
+end
+\stopLUA
+
+\startXML
+<!-- test one
+    test -->
+<!-- test
+    test -->
+<test test="test">
+    <oeps key="value 1">test
+<![CDATA[oeps
+  ]]>
+        test </oeps>
+</test>
+\stopXML
+
+
+\starttyping
+test 1
+
+test 2
+\stoptyping
+
+\starttyping
+test
+  test
+    \test
+\stoptyping
+
+\starttyping
+1 typing test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test
+
+2 typing test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test
+
+3 typing test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test
+\stoptyping
+
+\type{test
+test}
+
+\startTEX
+% comment \test
+TEX test \test
+TEX test \test
+\stopTEX
+
+\startTEX
+TEX test \test 1
+% comment \test
+TEX test \test 2
+\stopTEX
+
+\startMP
+draw fullcircle
+    enlarged 5mm
+    scaled 10cm ;
+
+draw textext("whatever") ;
+\stopMP
+
+\setuptyping[option=mp]
+
+\starttyping
+draw fullcircle
+    enlarged 5mm
+    scaled 10cm ;
+
+draw textext("whatever") ;
+\stoptyping
+
+\setuptyping[option=tex]
+
+\startbuffer[a]
+buffer a \test 1 \test1
+buffer a \test 2 \test2
+\stopbuffer
+
+\startbuffer[b]
+buffer b \test 1 \test1
+buffer b \test 2 \test2
+\stopbuffer
+
+
+\typebuffer[a,b]
+
+\definetyping[parsedxml][option=parsed-xml]
+
+\startparsedxml
+<!-- test
+    test -->
+<!-- test
+
+    test -->
+<test test="test test">
+    <oeps key="value 1">test
+<![CDATA[oeps
+  ]]>
+        test test test test test test test test test test test test test test test </oeps>
+</test>
+\stopparsedxml
+
+% \stoptext
+
+% \setuptype[space=on]
+% \setuptyping[option=nested]
+\setuptyping[option=tex,escape=yes]
+
+\starttyping
+test /BTEX test/ETEX test \test test
+test /BTEX test /ETEX test \test test
+test /BTEX \sl test /ETEX test \test test
+\stoptyping
+
+\setuptyping[option=tex,escape={[[,]]}]
+
+\starttyping
+test [[test]] test \test test
+test [[\sl test]] test \test test
+\stoptyping
+
+
+% \stoptext
+
+\starttyping
+test <<test>>
+test <<test>>
+\stoptyping
+
+\setuptyping[option=tex,space=on]
+\setuptype[option=tex]
+
+% \setuptype[color=darkblue]
+% \setuptyping[color=darkblue]
+
+\starttyping
+test \test
+
+test test
+test test
+
+test test
+
+test \test
+test \test
+test \test
+\stoptyping
+
+\type {Hans Hagen \relax}  \par
+\type+Hans Hagen \relax+   \par
+\type<<<<Hans \relax>> Hagen and \relax or not>> \par
+
+% \typefile{test.tex}
+
+\stoptext
+
+% \typefile{test.tex}
+
+
+
+% \starttext
+
+\startbuffer[test]
+test \test $test$ \\ test \!
+test \test $test$ \\ test \
+test \test $test$ \$ test #
+\stopbuffer
+
+\startbuffer[mptest]
+draw fullcircle
+    enlarged 5mm
+    scaled 10cm ;
+
+draw textext("whatever") ;
+\stopbuffer
+
+\typebuffer[mptest]
+
+\typefile{v-lua.lua}
+
+test
+
+\starttyping
+TEST
+TEST
+\stoptyping
+
+% \startluacode
+%     visualizers.load("tex")
+%     visualizers.load("mp")
+%     visualizers.load("lua")
+%     visualizers.load("xml")
+%     context("[[")
+%     visualizers.visualizestring("tex","test $test$")
+%     context("]]")
+%     context.blank { "3*big" }
+%     visualizers.visualizebuffer("mp","mptest")
+%     context.blank { "3*big" }
+%     visualizers.visualizefile("tex","test.tex")
+%     visualizers.visualizebuffer("tex","test")
+%     visualizers.visualizefile("lua","v-lua.lua")
+%     visualizers.visualizefile("xml","temp.xml")
+% \stopluacode
+
+\stoptext
+
+% \starttext
+% \definefont[wingding][wingding.ttf at 12pt] % \showfont[wingding] \stoptext
+% \stoptext
+
+% \setupbodyfont[palatino]
+% \setupbodyfont[7pt]
+% \starttext
+%     \startTEXpage
+%         TEST \the\bodyfontsize
+%     \stopTEXpage
+% \stoptext
+
+% \ctxlua{visualizers.parsedxml(xml.load("../temp.xml"))}
+% \ctxlua{visualizers.parsedxml(xml.load("../temp.xml"),"/bills/bill/introduced[1]")}

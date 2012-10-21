@@ -1,0 +1,46 @@
+\setupbodyfont[cambria]
+\setupbodyfont[xits]
+\setupbodyfont[modern-designsize]
+\setupbodyfont[modern]
+\setupbodyfont[lucidaot]
+\setupbodyfont[palatino]
+
+\starttext
+
+\startTEXpage[offset=10pt]
+
+\unexpanded\def\TestPrime#1%
+  {\detokenize{#1} \NC
+   \switchtobodyfont          [cambria]\ruledhbox{\strut$#1$}\NC
+   \switchtobodyfont             [xits]\ruledhbox{\strut$#1$}\NC
+   \switchtobodyfont         [lucidaot]\ruledhbox{\strut$#1$}\NC
+   \switchtobodyfont         [palatino]\ruledhbox{\strut$#1$}\NC
+   \switchtobodyfont[modern-designsize]\ruledhbox{\strut$#1$}\NC
+   \switchtobodyfont           [modern]\ruledhbox{\strut$#1$}\NC}
+
+\starttabulate[|T|c|c|c|c|c|c|]
+    \NC
+        \NC \type {cambria}
+        \NC \type {xits}
+        \NC \type {lucida}
+        \NC \type {palladio}
+        \NC \type {virtual}
+        \NC \type {modern}
+    \NC \NR \NR
+    \NC \TestPrime{\char"2032} \NR
+    \NC \TestPrime{\textstyle\prime\enspace\mathfontprime} \NR
+    \NC \TestPrime{\scriptstyle\prime\enspace\mathfontprime} \NR
+    \NC \TestPrime{\scriptscriptstyle\prime\enspace\mathfontprime} \NR
+    \NC \TestPrime{f'} \NR
+    \NC \TestPrime{x^{f'}} \NR
+    \NC \TestPrime{f\prime} \NR
+    \NC \TestPrime{x^{f\prime}} \NR
+    \NC \TestPrime{f^{\prime}} \NR
+    \NC \TestPrime{f^{\mathfontprime}} \NR
+    \NC \TestPrime{'^{'^{'}}} \NR
+    \NC \TestPrime{\prime^{\prime^{\prime}}} \NR
+\stoptabulate
+
+\stopTEXpage
+
+\stoptext

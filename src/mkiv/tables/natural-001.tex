@@ -1,0 +1,29 @@
+\starttext
+
+\startbuffer
+\bTABLE
+\bTR[height=20pt] \bTH 1. col                \eTH \bTH 2. col                 \eTH  \eTR
+\bTR[height=20pt] \bTD 1 row in 1. col       \eTD \bTD[nr=2] 2 rows in 2. col \eTD  \eTR
+\bTR[height=20pt] \bTD[nr=2] 2 rows in 1. col\eTD                                   \eTR
+\bTR[height=20pt]                                 \bTD[nr=3] 3 rows in 2. col \eTD  \eTR
+\bTR[height=20pt] \bTD 1 row in 1. col       \eTD                                   \eTR
+\bTR[height=20pt] \bTD 1 row in 1. col       \eTD                                   \eTR
+\eTABLE
+
+\bTABLE
+\bTR[height=20pt] \bTH 2. col                 \eTH  \bTH 1. col                \eTH \eTR
+\bTR[height=20pt] \bTD[nr=2] 2 rows in 2. col \eTD  \bTD 1 row in 1. col       \eTD \eTR
+\bTR[height=20pt]                                   \bTD[nr=2] 2 rows in 1. col\eTD \eTR
+\bTR[height=20pt] \bTD[nr=3] 3 rows in 2. col \eTD                                  \eTR
+\bTR[height=20pt]                                   \bTD 1 row in 1. col       \eTD \eTR
+\bTR[height=20pt]                                   \bTD 1 row in 1. col       \eTD \eTR
+\eTABLE
+\stopbuffer
+
+\start
+    \getbuffer
+    \tightTBLrowspanfalse
+    \getbuffer
+\stop
+
+\stoptext

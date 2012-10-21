@@ -1,0 +1,37 @@
+\usemodule[chart]
+
+\startFLOWchart[ABC]
+    \startFLOWcell
+        \name{A}
+        \location{1,1}
+        \destination{whatever:A}
+        \text{A}
+        \connection[bt]{B}
+    \stopFLOWcell
+    \startFLOWcell
+        \name{B}
+        \location{1,2}
+        \destination{whatever:B}
+        \text{B}
+        \connection[bt]{C}
+    \stopFLOWcell
+    \startFLOWcell
+        \name{C}
+        \location{1,3}
+        \destination{whatever:C}
+        \text{C}
+        \connection[bt]{A}
+    \stopFLOWcell
+\stopFLOWchart
+
+\setupinteraction[state=start]
+
+\starttext
+
+    \FLOWchart[ABC]
+
+    \startchapter[title=We're at A,reference=whatever:A] \input ward  \stopchapter
+    \startchapter[title=We're at B,reference=whatever:B] \input tufte \stopchapter
+    \startchapter[title=We're at C,reference=whatever:C] \input zapf  \stopchapter
+
+\stoptext
