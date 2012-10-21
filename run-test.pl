@@ -50,18 +50,44 @@ my %reftable = %testtable; # copy
 find (\&wanted, "src");
 
 sub wanted {
+  # here we are searching for .tex or .pdf, because I'm using the same
+  # routine for src and references
   my $file     = $_;
-  my $dir      = $File::Find::dir;
-  my $fullname = $File::Find::name;
+  my $dir      = $File::Find::dir; # src/prova/one 
+  my $fullname = $File::Find::name; # src/prova/one/arrows-001.tex
   my $fullpath = getcwd;
   return unless -f $file;
   my ($basename, $path, $suffix) = fileparse($file, $extension);
+  print_debug("Examining $basename, $fullname, $dir,\n");
   return unless ($suffix eq ".pdf" or $suffix eq '.tex');
-  if ((exists $testtable{$basename}) and ($testtable{$basename} ne $fullpath)) {
-    warn "Overwriting " . $testtable{$basename} . " in the testtable with "
-      . $fullpath . "!\n"
+
+  my @relpath = File::Spec->splitdir($dir);
+  shift @relpath; # remove 'src'
+  my $uniquename = join("-", @relpath, $basename);
+  
+  $testtable{$uniquename} = {} unless exists $testtable{$uniquename};
+
+  if ((exists $testtable{$uniquename}->{basename}) and
+      ($testtable{$uniquename}->{fullpath} ne $fullpath)) {
+    warn "Overwriting " . $testtable{$uniquename}->{basename}
+      . " in the testtable with ". $fullpath . "!\n"
     }
-  $testtable{$basename} = $fullpath;
+  
+  # store the relevant informations in a hash
+  # 'prova-one-arrows-001' => {
+  #  'relpath' => [
+  #               'prova',
+  #               'one'
+  #               ],
+  #  'basename' => 'arrows-001',
+  #  'fullpath' => '/progetti/test-context/devel/src/prova/one'
+  #  }
+
+  $testtable{$uniquename} = {
+			     basename => $basename,
+			     fullpath => $fullpath,
+			     relpath => \@relpath,
+			    }
 }
 # tables done
 
@@ -70,9 +96,9 @@ print_debug("Targets: ", Dumper(\%testtable, \%reftable));
 my $results = {};
 
 foreach my $key (keys %reftable) {
-  my $dir = $testtable{$key};
-  my $tex = $key . ".tex";
-  unless ($dir) {
+  my $dir = $testtable{$key}->{fullpath};
+  my $tex = $testtable{$key}->{basename} . ".tex";
+  unless (defined $dir and defined $tex) {
     warn "Missing src file for $key\n";
     next;
   };
@@ -86,9 +112,11 @@ foreach my $key (keys %reftable) {
       compare => [],
       elapsed => 0,
      };
-    compile_and_compare($key, $tex, catfile($reftable{$key}, $key . ".pdf"));
-  } else {
-    #    warn "Missing TeX file for $tex in " . getcwd() . "\n";
+    compile_and_compare($key,
+			$reftable{$key}->{basename},
+			$tex,
+			catfile($reftable{$key}->{fullpath},
+				$reftable{$key}->{basename} . ".pdf"));
   }
   chdir $root;
 }
@@ -99,7 +127,7 @@ print format_result($results);
 
 
 sub compile_and_compare {
-  my ($basename, $tex, $reference) = @_;
+  my ($uniquename, $basename, $tex, $reference) = @_;
   unless (-f $tex and -f $reference) {
     warn "Faulty argument\n";
     return;
@@ -109,20 +137,21 @@ sub compile_and_compare {
   return unless (tex_compile("context", "--batchmode", "--noconsole",
 			     "--purgeresult", "--purge", $tex));
   my $stoptime = time;
-  $results->{$basename}->{elapsed} = $stoptime - $starttime;
+  $results->{$uniquename}->{elapsed} = $stoptime - $starttime;
   my $generated = $basename . ".pdf";
   return unless (-f $generated);
-  $results->{$basename}->{success} = 'OK';
-  diff_pdf($basename, $generated, $reference);
+  $results->{$uniquename}->{success} = 'OK';
+  diff_pdf($uniquename, $generated, $reference);
 }
 
+### subroutines
 
 sub format_result {
   my $result = shift;
-  printf "\n|%20s | %7s | %12s \t| %12s \t| %5s | %4s |\n",
+  printf "\n|%40s | %7s | %12s \t| %12s \t| %5s | %4s |\n",
     "File name", "Success", "Differs Avg", "Worst value", "Pages", "Time";
   foreach my $key (sort (keys %$result)) {
-    printf "|%20s | %7s |  %3.6f \t|  %3.6f \t| %5s | %4s |\n",
+    printf "|%40s | %7s |  %3.6f \t|  %3.6f \t| %5s | %4s |\n",
       $key, $result->{$key}->{success},
 	get_average($result->{$key}->{compare}),
 	  get_maximum($result->{$key}->{compare}), 
@@ -130,7 +159,6 @@ sub format_result {
 	      $result->{$key}->{elapsed};
   }
 }
-
 
 sub get_average {
   my $arrayref = shift;
@@ -173,10 +201,10 @@ sub diff_pdf {
 }
 
 sub compare_ppm {
-  my ($orig, $prod, $basename, $page) = @_;
-  die "Wrong arguments\n" unless ($orig and $prod and $basename and $page);
+  my ($orig, $prod, $id, $page) = @_;
+  die "Wrong arguments\n" unless ($orig and $prod and $id and $page);
   # print $basename, $page, "\n";
-  my $outfile = catfile($diffs, $basename . "-" . $page . ".png");
+  my $outfile = catfile($diffs, $id . "-" . $page . ".png");
   my $temp = File::Temp->new(SUFFIX => '.txt');
   print_debug("Comparing $orig with $prod\n");
   system('compare', $orig, $prod, '-compose', 'src',
@@ -192,39 +220,30 @@ sub compare_ppm {
   } else {
     # if there is a link, we leave a non executable script to be
     # called with sh file.txt, to easily catch the differences.
-    my $generatedpdf = get_master_file($prod, $basename);
-    my $originalpdf  = get_master_file($orig, $basename);
+    my $generatedpdf = catfile($testtable{$id}->{fullpath},
+			       $testtable{$id}->{basename} . ".pdf");
+    my $originalpdf  = catfile($reftable{$id}->{fullpath},
+			       $reftable{$id}->{basename} . ".pdf");
 
     my $pdfviewerscript = $outfile;
     $pdfviewerscript =~ s/png$/sh/;
     open (my $fh, ">", $pdfviewerscript)
       or die "Cannot print in $pdfviewerscript $!\n";
-    print $fh '#!/bin/sh', "\n";
-    print $fh "exiftool -Title=GENERATED $generatedpdf\n";
-    print $fh 'PDFVIEWER=${PDFVIEWER:-mupdf}', "\n";
-    print $fh '$PDFVIEWER ', $generatedpdf, ' &', "\n";
-    print $fh '$PDFVIEWER ', $originalpdf,  "\n";
     print $fh <<"EOF";
+#!/bin/sh
+exiftool -Title=GENERATED $generatedpdf
+PDFVIEWER=\${PDFVIEWER:-mupdf}
 if [ "\$1" = "-p" ]; then
    # exiftool will drop a _original file. We pick that
    mv -vi ${generatedpdf}_original $originalpdf
+else
+   \$PDFVIEWER $generatedpdf &
+   \$PDFVIEWER $originalpdf
 fi
 EOF
     close $fh;
   }
   return $percent;
-}
-
-sub get_master_file {
-  my ($ppm, $basename) = @_;
-  my @dirs;
-  unless (file_name_is_absolute($ppm)) {
-    push @dirs, File::Spec->splitdir(getcwd());
-  }
-  push @dirs, File::Spec->splitdir(dirname($ppm));
-  # go up;
-  pop @dirs;
-  return catfile(@dirs, $basename . ".pdf");
 }
 
 sub parse_txt {
