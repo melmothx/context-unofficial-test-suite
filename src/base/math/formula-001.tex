@@ -1,0 +1,25 @@
+% Test basic features of formulas
+
+\starttext
+Simple formula
+\startformula
+  E = mc^2
+\stopformula
+
+Formula with an equation number
+\placeformula \startformula
+  E = mc^2
+\stopformula
+
+Formula with an referenced number
+\placeformula[energy] \startformula
+  E = mc^2
+\stopformula
+Einstein gave the famous formula~(\in[energy]).
+
+No formula number
+\placeformula[-] \startformula
+  E = mc^2
+\stopformula
+
+\stoptext
