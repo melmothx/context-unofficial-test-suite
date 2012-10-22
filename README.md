@@ -7,6 +7,11 @@ It runs the test suit if the argument "--run" is provided.
 The debug is activated with the option "--debug" (or with the
 environment variable CONTEXTTEXTDEBUG=1.
 
+You can run the tests against a single directory using the --single
+option, for example: 
+
+  ./run-test.pl --single references/path/to/test
+
 To add a test file, put the resulting PDF under the directory
 "references", and the sources under "src". In "src" you can add
 multiple files in subdirectories, but the master .tex path and the

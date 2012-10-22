@@ -23,31 +23,57 @@ use File::Copy;
 my $run;
 my $debug;
 my $extension = qr{\.\w+$};
+my $singletarget;
 
 my $options = GetOptions (
-  "run" => \$run,
-  "debug" => \$debug,
+			  "run" => \$run,
+			  "debug" => \$debug,
+			  "single=s" => \$singletarget,
  );
 
-unless ($run) {
+unless ($run or $singletarget) {
   give_help();
   exit;
 }
 
-print "Using " . `which context` . `context --version`;
-
 my $root = getcwd;
 my $diffs = catdir($root, "diffs");
-remove_tree($diffs, { verbose => 1 });
-make_path($diffs);
 
 # create the reference table;
 
+my $referencesdir = "references";
+my $srcdir = "src";
+
+if ($singletarget) {
+  my @singledirs;
+  if (-f $singletarget) {
+    my ($singlebs, $singlepath) = fileparse($singletarget);
+    @singledirs = File::Spec->splitdir($singlepath);
+  } elsif (-d $singletarget) {
+    @singledirs = File::Spec->splitdir($singletarget);
+  } else {
+    die "The --single option requires a directory as argument. A file is also " .
+         "acceptable, and the parent directory is used as target\n";
+  }
+  # remove the directories until we find the src
+  while (@singledirs) {
+    my $examining = shift @singledirs;
+    last if (($examining eq $srcdir) or
+	     ($examining eq $referencesdir));
+  }
+  $referencesdir = catdir($referencesdir, @singledirs);
+  $srcdir = catdir($srcdir, @singledirs);
+}
+
+print "Using " . `which context` . `context --version`;
+remove_tree($diffs, { verbose => 1 });
+make_path($diffs);
+
 my %testtable;
-find (\&wanted, "references");
+find (\&wanted, $referencesdir );
 my %reftable = %testtable; # copy
 %testtable = ();
-find (\&wanted, "src");
+find (\&wanted, $srcdir);
 
 sub wanted {
   # here we are searching for .tex or .pdf, because I'm using the same
@@ -335,6 +361,11 @@ Run the test suit if the argument "--run" is provided.
 
 The debug is activated with the option "--debug" (or with the
 environment variable CONTEXTTEXTDEBUG=1.
+
+You can run the tests against a single directory using the --single
+option, for example: 
+
+  ./run-test.pl --single references/path/to/test
 
 To add a test file, put the resulting PDF under the directory
 "references", and the sources under "src". In "src" you can add
