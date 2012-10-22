@@ -1,0 +1,53 @@
+%!TEX TS-program = mkiv
+
+%the next beta will have:
+
+%\setupmathematics[integral=none]
+
+%nolimits  displaylimits  limits  autolimits  none
+%
+%to play with
+% Hans
+
+\starttext
+
+\startbuffer[integrals]
+\startformula
+\int_{\Omega}f(x)dx=
+\int_{0}^\infty g(t)dt
+\stopformula
+If $\Omega:=(0,\infty)\times(0,\infty)$ then
+\startformula
+\iint_{\Omega}f(x)dx :=
+\int_{0}^\infty \int_{0}^\infty g(s,t)dsdt
+\stopformula
+If $\Omega:=(0,\infty)\times(0,\infty)\times (0,\infty)$ then
+\startformula
+\iiint_{\Omega}f(x)dx=
+\int_{0}^\infty\int_{0}^\infty\int_{0}^\infty g(s,t,u)dsdtdu
+\stopformula
+
+\startformula
+{\rm Res}(f,a) := 
+{1 \over 2{\rm i}\pi }\oint_{\Gamma} {f(z) \over z-a}dz
+\stopformula
+
+\blank[big]
+\stopbuffer
+
+\type{\setupmathematics[integral=none]}\setupmathematics[integral=none]
+\getbuffer[integrals]
+
+\type{\setupmathematics[integral=nolimits]}\setupmathematics[integral=nolimits]
+\getbuffer[integrals]
+
+\type{\setupmathematics[integral=displaylimits]}\setupmathematics[integral=displaylimits]
+\getbuffer[integrals]
+
+\type{\setupmathematics[integral=limits]}\setupmathematics[integral=limits]
+\getbuffer[integrals]
+
+\type{\setupmathematics[integral=autolimits]}\setupmathematics[integral=autolimits]
+\getbuffer[integrals]
+
+\stoptext
