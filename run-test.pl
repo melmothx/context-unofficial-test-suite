@@ -244,6 +244,11 @@ sub compare_ppm {
   if ($percent == 0) {
     unlink $outfile
   } else {
+    # if a difference is detected, rerun the compare to get a better
+    # visual diff, human readable.
+    system('compare', $orig, $prod,
+	   '-highlight-color', 'purple', $outfile) == 0
+	     or die "Couldn't compare $!";
     # if there is a link, we leave a non executable script to be
     # called with sh file.txt, to easily catch the differences.
     my $generatedpdf = catfile($testtable{$id}->{fullpath},
