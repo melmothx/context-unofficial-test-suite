@@ -275,8 +275,10 @@ EOF
     close $fh;
   }
   # the ppd are not needed anymore
-  unlink $orig or warn "Couldn't unlik $orig $!\n";
-  unlink $prod or warn "Couldn't unlik $prod $!\n";
+  unless ($debug) {
+    unlink $orig or warn "Couldn't unlik $orig $!\n";
+    unlink $prod or warn "Couldn't unlik $prod $!\n";
+  }
   return $percent;
 }
 
@@ -287,7 +289,7 @@ sub parse_txt {
   my $match = 0;
   my $header = <$fh>;
   while (<$fh>) {
-    $match++ unless m/ffffff/i;
+    $match++ unless m/#ffffff/i;
     $total++;
   }
   return ($match * 100 / $total);
