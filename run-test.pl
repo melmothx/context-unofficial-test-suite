@@ -217,13 +217,13 @@ sub diff_pdf {
     my $prod = shift @produced;
     my $orig = shift @original;
     unless ($orig) {
-      warn "\nTHE PAGE COUNT FOR $id DIFFERS!\n";
+      print "\nTHE PAGE COUNT FOR $id DIFFERS!\n";
       last;
     }
     $index++;
     push @{$results->{$id}->{compare}}, compare_ppm($orig, $prod, $id, $index);
   }
-  warn "THE TOTAL PAGES NUMBER FOR $id DIFFERS!\n" if @original;
+  print "THE TOTAL PAGES NUMBER FOR $id DIFFERS!\n" if @original;
 }
 
 sub compare_ppm {
