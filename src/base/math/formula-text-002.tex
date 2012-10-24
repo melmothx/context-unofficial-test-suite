@@ -1,0 +1,11 @@
+% Test for proper scaling of subscirpts and subsubscripts
+
+\starttext
+$f_{\text{text $a+b$}_{\text{text $a+b$}_{\text{text $a+b$}}}}$
+
+{\switchtobodyfont[sans] $f_{\text{text $a+b$}_{\text{text $a+b$}_{\text{text $a+b$}}}}$}
+
+$f_{{\normal text}_{{\normal text}_{\normal text}}}$
+\stoptext
+
+
