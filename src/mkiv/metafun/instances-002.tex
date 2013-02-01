@@ -1,0 +1,35 @@
+\defineMPinstance
+  [myMP]
+  [metafun]
+
+\startuseMPgraphic{myMP::test}
+  draw btex Hello etex;
+\stopuseMPgraphic
+
+\starttext
+
+% OK: Get normal font in black color
+\useMPgraphic{myMP::test}
+
+
+% OK: Get bold font in blue color
+\bold{\blue{\useMPgraphic{myMP::test}}}
+
+% OK: Get sans font in red color
+\setupMPinstance
+  [myMP]
+  [textcolor=red, textstyle=sans]
+
+\useMPgraphic{myMP::test}
+
+% OK: Get sansbold font in red color
+\bold{\blue{\useMPgraphic{myMP::test}}}
+
+% OK: Get bold font in blue color!
+\setupMPinstance
+  [myMP]
+  [textcolor=, textstyle=]
+
+\bold{\blue{\useMPgraphic{myMP::test}}}
+
+\stoptext
