@@ -235,7 +235,9 @@ sub compare_ppm {
   print_debug("Comparing $orig with $prod\n");
   system('compare', $orig, $prod, '-compose', 'src',
 	 '-highlight-color', 'black', $outfile) == 0
-	   or die "Couldn't compare $!";
+	   or warn "\n\ncouldn't compare $orig with $prod $!\n\n";
+  # if the file is not produced, we return.
+  return "100" unless (-f $outfile);
   # convert to text with a high -resize
   system('convert', '-resize', '200x200', $outfile, $temp->filename) == 0
     or die "Couldn't resize $!";
