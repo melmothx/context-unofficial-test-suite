@@ -1,30 +1,38 @@
 # ConTeXt unofficial test suite
 
-The script which runs the test is called run-test.pl
+## Organization of the test suite
 
-It runs the test suit if the argument "--run" is provided.
+- `src/`: Directory containing test files
+- `references/`: Directory containing reference pdf output
+- `diffs/`: Directory generate by `run-test.pl`
+- `run-test.pl`: Perl script to run tests
 
-The debug is activated with the option "--debug" (or with the
-environment variable CONTEXTTEXTDEBUG=1.
+## Dependencies
 
-You can run the tests against a single directory using the --single
-option, for example: 
+- [ImageMagick](http://www.imagemagick.org)
+- `pdftoppm`, part of [Poppler Utilities](http://poppler.freedesktop.org/)
 
-  ./run-test.pl --single references/path/to/test
+## How to run tests
 
-To add a test file, put the resulting PDF under the directory
-"references", and the sources under "src". In "src" you can add
-multiple files in subdirectories, but the master .tex path and the
-reference .pdf path MUST match.
+- To run all tests:
 
-E.g., to add a testfile with multiple sources, add this file (keep
-them under version control).
+        run-test.pl --run
 
-    src/complex/file1.tex
-    src/complex/file2.tex
-    src/complex/file3.tex
-    src/complex/myproject-which-includes-the-three-files.tex
-    references/complex/myproject-which-includes-the-three-files.pdf
-    
+- To run tests on a single file or directory
+
+        run-test.pl --single reference/path/to/test
+
+
+- To get diagnostic information: Add the option `--debug` or set the
+  environment variable `CONTEXTTEXTDEBUG=1`.
+
 When the rastered PDF differs, a image with the differences is left in
 the "diffs" directory.
+
+## Add test file to suite
+
+- Add the `.tex` file in an appropriate sub-directory of `src/` and add the
+  corresponding `.pdf` file in the parallel sub-directory of `references/`
+
+- A test file may consist of multiple files as long as the name of the master
+  `.tex` file matches the reference `.pdf` file.
